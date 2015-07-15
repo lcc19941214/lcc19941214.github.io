@@ -1,0 +1,90 @@
+@import url(aboutme.css);
+
+/*[通用]标题*/
+.sectiontitle{
+	position: relative;
+	top:60px;
+	margin: 0 auto;
+	text-align: center;
+}
+.titles{/*标题  图片*/
+	margin: 0 auto;
+	margin-bottom: 20px;
+	width: 210px;
+	height: 21px;
+	background: transparent url(../images/titles.png) no-repeat -185px 0px;
+}
+.sectiontitle p{/*引言*/
+	cursor: default;
+	margin-bottom: 20px;
+}
+.line{
+	margin: 0 auto;
+	width: 50px;
+	border-top: 2px solid #333;
+	height: auto;
+}
+
+/*aboutme*/
+#aboutme{
+	/*background-image: url(../images/aboutme/aboutme_bgimg.jpg);
+	background-size: 100% auto;*/
+	background-color: #1c2531;
+	color: #ddd;
+}
+
+.info_me{/*background-image*/
+	position: relative;
+	top:100px;
+	margin: 0 auto;
+	width: 520px;
+	height: 165px;
+	background: transparent url(../images/aboutme/info_me.png) 0px 0px no-repeat;
+}
+div.info_name{
+	top:150px;
+	width: 520px;
+	height: auto;
+	background: none;
+	/*font*/
+	font: 16px "microsoft yahei";
+	letter-spacing: 2px;
+	cursor:default;
+}
+.info_name span{
+	color: #aaa;
+}
+.info_name ul{/*个人信息*/
+	margin: 0 auto;
+	width: 190px;
+}
+.info_name li div{/*icon_div*/
+	float: left;
+	clear: both;
+	margin: 0 15px 20px 0;
+	width: 16px;
+	height: 16px;
+}
+/*icon*/
+div.headicon{
+	position: relative;
+	top: 3px;
+	background: transparent url(../images/titles.png) -15px -128px no-repeat;
+}
+div.hobbyicon{
+	position: relative;
+	top: -7px;
+	background: transparent url(../images/titles.png) -41px -128px no-repeat;
+}
+div.nicknameicon{
+	position: relative;
+	top: -2px;
+	background: transparent url(../images/titles.png) -67px -128px no-repeat;
+}
+/*arrow*/
+.info_name li:last-child div{
+	position: relative;
+	top: 50px;
+	left: 50%;
+	margin-left: -16px;
+}

@@ -1,0 +1,93 @@
+@import url(homepage.css);
+
+/*初始化代码*/
+body,ul,ol,li,dl,dd,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body{background:#fff;color:#333;font-size:12px;margin-top:0px;margin-bottom:0px;font-family:"SimSun","宋体","Arial Narrow";}
+ 
+ul,ol{list-style-type:none;}
+select,input,img,select{vertical-align:middle;}
+/*
+a{text-decoration:none;}
+a:link{color:#009;}
+a:visited{color:#800080;}
+a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+*/
+
+/*container+content*/
+.container{
+	width: 100%;
+	min-width: 1080px;
+	height: 100%;
+	/*background-color: red;*/
+}
+.content{
+	margin: 0 auto;
+	width: 90%;
+	min-width: 960px;
+	height: 650px;
+	/*background-color: blue;*/
+}
+
+/*homepage
+ *background
+ */
+#homepage{
+	background:#222 url(../images/background.jpg) no-repeat bottom;
+	background-size: 100% auto;
+}
+.showarea{
+	position: relative;
+	top:150px;
+	margin: 0 auto;
+	width: 600px;
+	height:auto;
+	text-align: center;
+}
+.showarea img:last-child{/*箭头*/
+	margin-top: 270px;
+}
+	/*menu*/
+.menu{/*menu position*/
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	font:14px "microsoft yahei";
+	text-align: right;
+	color:#ddd;
+	cursor:default;
+}
+.menu img{
+	width: 16px;
+	height: 16px;
+	margin-bottom:5px;
+	margin-left: 5px;
+}
+a{
+	font:14px "microsoft yahei";
+	color:#ddd;
+	text-decoration: none;
+}
+a:hover,a:active{
+	color: #666;
+}
+#menulist{
+	display: none;
+	/*	border: 1px solid red;*/
+	background: transparent;
+	width: 100px;
+	height: 150px;
+}
+.menu ul{/*菜单选择栏*/
+	margin-top: 20px;
+}
+ul li{
+	margin-bottom: 10px;
+}
+
+
+
+/*	
+ 颜色表
+ #ddd  浅白色
+ #333  深色
+ */
