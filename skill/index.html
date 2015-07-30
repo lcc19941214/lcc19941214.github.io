@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+	<title>阿川的技能树</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div class="g-container">
+		<div class="g-header">
+			<span>
+				<a href="">阿川的技能树&nbsp;&nbsp;|&nbsp;&nbsp;About Me</a>
+			</span>
+		</div>
+		<div class="g-content">
+			<h3 class="m-titleH3"></h3>
+			<div class="m-skillTree m-skillTree-wrap">
+				<div class="u-skillProcess">
+					<div class="u1" onmouseover="skillName.innerText = nameList[0]" onmouseout="unshowSkill()"></div>
+					<!-- <div class="u1" onmouseover="showSkill()" onmouseout="unshowSkill()"></div> -->
+					<div class="u2" onmouseover="skillName.innerText = nameList[1]" onmouseout="unshowSkill()"></div>
+					<div class="u3" onmouseover="skillName.innerText = nameList[2]" onmouseout="unshowSkill()"></div>
+					<div class="u4" onmouseover="skillName.innerText = nameList[3]" onmouseout="unshowSkill()"></div>
+					<div class="u5" onmouseover="skillName.innerText = nameList[4]" onmouseout="unshowSkill()"></div>
+					<div class="u6" onmouseover="skillName.innerText = nameList[5]" onmouseout="unshowSkill()"></div>
+					<div class="u7" onmouseover="skillName.innerText = nameList[6]" onmouseout="unshowSkill()"></div>
+					<div class="u8" onmouseover="skillName.innerText = nameList[7]" onmouseout="unshowSkill()"></div>
+					<div class="u9" onmouseover="skillName.innerText = nameList[8]" onmouseout="unshowSkill()"></div>
+					<div class="u10" onmouseover="skillName.innerText = nameList[9]" onmouseout="unshowSkill()"></div>
+					<div class="u11" onmouseover="skillName.innerText = nameList[10]" onmouseout="unshowSkill()"></div>
+					<div class="u12" onmouseover="skillName.innerText = nameList[11]" onmouseout="unshowSkill()"></div>
+					<div class="u13" onmouseover="skillName.innerText = nameList[12]" onmouseout="unshowSkill()"></div>
+					<div class="u14" onmouseover="skillName.innerText = nameList[13]" onmouseout="unshowSkill()"></div>
+					<div class="u15" onmouseover="skillName.innerText = nameList[14]" onmouseout="unshowSkill()"></div>
+					<div class="u16" onmouseover="skillName.innerText = nameList[15]" onmouseout="unshowSkill()"></div>
+					<script type="text/javascript">
+						var skillName = document.getElementsByClassName('m-titleH3')[0];
+						// function getY (){
+						// 		var u12 = document.getElementsByClassName('u5')[0];
+						// 		bpY = window.getComputedStyle(u12).backgroundPositionY.toString().slice(1,-2);
+						// 		bpY = (bpY/48).toFixed(2)*100 + "%";
+						// 		return bpY;
+						// 	};
+						// var Y = getY();
+						// function showSkill(){
+						// 	ret = nameList[0] + Y;
+						// 	skillName.innerText =  nameList[0] + "（熟练度：" + Y +")";
+						// }
+						function unshowSkill(){
+							skillName.innerText = "";
+						}
+						// 名称库
+						var nameList = ["数据处理能力：Excel","数据处理能力：数据分析","数据处理能力","数据处理能力：数据可视化","产品经理：需求文档写作","产品经理","产品经理：综合思维","产品经理：原型制作","设计能力","设计能力：基础设计","设计能力：网页设计","前端开发：CSS","前端开发：精通","前端开发：Html","前端开发：JavaScirpt","前端开发：JQuery"];
+					
+						// var u16 = document.getElementsByClassName('u12')[0];
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

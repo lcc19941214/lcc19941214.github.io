@@ -1,0 +1,215 @@
+/*
+ * 
+ */
+
+.g-container{/* 包含背景图  */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #2c5d71 url(../images/bgimg.jpg) no-repeat fixed 50% 50% / 100% auto;
+}
+/*  顶部栏  title+aboutme  */
+.g-header{
+	position: absolute;
+	width: 100%;
+	height: 25px;
+	background-color: rgba(50,50,50,0.3);
+	font: 12px/25px "microsoft yahei";
+}
+.g-header span{
+	float: right;
+	margin-right: 100px;
+}
+.g-header span a{
+	text-decoration: none;
+	color: #eee;
+}
+
+/*  技能树图  */
+.g-content{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.g-content .m-skillTree-wrap{
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -400px;
+	width: 800px;
+	height: 500px;
+}
+.g-content .m-skillTree{
+	background-image: url(../images/skillTree.png);
+}
+
+.g-content .m-titleH3{
+	position: absolute;
+	top:60px;
+	left: 50%;
+	transform:translateX(-50%);
+	font:18px/20px "microsoft yahei";
+	color: #fff;
+	letter-spacing: 0.1em;
+}
+.m-skillTree .u-skillProcess div{
+	border-radius: 3px;
+	background-image:url(../images/process.png);
+	background-repeat:  no-repeat;
+}
+
+.m-skillTree .u1{/*  excel  */
+	position: absolute;
+	top:209px;
+	left:97px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -8px;
+}
+
+.m-skillTree .u2{/*  analyasis  */
+	position: absolute;
+	top:302px;
+	left:97px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -4px;
+}
+
+.m-skillTree .u3{/*  data  */
+	position: absolute;
+	top:116px;
+	left:177px;
+	width: 50px;
+	height: 50px;
+	background-position: -50px -24px;/*  隐藏进度  */
+}
+
+.m-skillTree .u4{/*  vis  */
+	position: absolute;
+	top:396px;
+	left:177px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -24px;
+}
+
+.m-skillTree .u5{/*  PRd  */
+	position: absolute;
+	top:209px;
+	left:257px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 0;
+}
+
+.m-skillTree .u6{/*  PM  */
+	position: absolute;
+	top:116px;
+	left:337.2px;
+	width: 50px;
+	height: 50px;
+	background-position: -50px -5px;/*  隐藏进度  */
+}
+
+.m-skillTree .u7{/*  PM basic  */
+	position: absolute;
+	top:209px;
+	left:337px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -8px;
+}
+
+.m-skillTree .u8{/*  prototype  */
+	position: absolute;
+	top:302px;
+	left:376.5px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -10px;
+}
+
+.m-skillTree .u9{/*  design  */
+	position: absolute;
+	top:116px;
+	left:416px;
+	width: 50px;
+	height: 50px;
+	background-position: -50px -5px;/*  隐藏进度  */
+}
+
+.m-skillTree .u10{/*  design basic */
+	position: absolute;
+	top:209px;
+	left:416.5px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -18px;
+}
+
+.m-skillTree .u11{/*  web design  */
+	position: absolute;
+	top:209px;
+	left:497px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -10px;
+}
+
+.m-skillTree .u12{/*  CSS  */
+	position: absolute;
+	top:209px;
+	left:577px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -15px;
+}
+
+.m-skillTree .u13{/*  Front  */
+	position: absolute;
+	top:396px;
+	left:577px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -4px;
+}
+
+.m-skillTree .u14{/*  html  */
+	position: absolute;
+	top:116px;
+	left:617px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -30px;
+}
+
+.m-skillTree .u15{/*  Js  */
+	position: absolute;
+	top:209px;
+	left:657px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -5px;
+}
+
+.m-skillTree .u16{/*  JQ  */
+	position: absolute;
+	top:302px;
+	left:657px;
+	width: 50px;
+	height: 50px;
+	background-position: 0 -2px;
+}
+
+.m-skillTree a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
