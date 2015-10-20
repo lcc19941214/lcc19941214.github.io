@@ -1,0 +1,99 @@
+/*
+ * 通用
+ * page header
+ * author:Conan;
+ * date: 2015/10/20;
+ */
+
+body{
+	background: url(../images/body-bgimg.png) repeat-x fixed; 
+}
+
+#g-container{
+	position: relative;
+	width: 980px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+#g-header{
+	position: relative;
+	padding-top: 49px;
+	border-top: 5px solid #2f4f59;
+}
+
+#g-header .ChineseVersion{
+	position: absolute;
+	right: 0;
+	top:54px;
+}
+
+#g-header .m-nav{
+	position: relative;
+	margin-top: 38px;
+	height: 69px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+#g-header .m-nav ul{
+	position: relative;
+	font-size: 0;
+	/*  解决inline-block间隔的bug  */
+}
+#g-header .m-nav ul li{
+	position: relative;
+	display: inline-block;
+	margin: 0 20px;
+}
+
+#g-header .m-nav a{
+	font-size:18px;
+	line-height: 69px;
+	color: #666666;
+}
+#g-header .m-nav a:hover{
+	/*font-weight: bold;*/
+	color: #111;
+}
+/*  三角形  */
+#g-header .m-nav ul li i{
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-width: 5px 5px 5px 5px;
+	border-color: #666666 transparent transparent transparent;
+	border-style: solid;
+	margin-left: 10px;
+}
+/*  小导航  */
+#g-header .m-nav ul ul{
+	display: none;
+	position: absolute;
+	top: 55px;
+	left: -20px;
+	border-color: #ccc;
+	border-style: solid;
+	background-color: #fff;
+	border-width: 1px 0;
+}
+#g-header .m-nav ul ul.hover{
+	display: block;
+}
+/*  文字块  */
+#g-header .m-nav ul ul li{
+	display: block;
+	margin:0;/*  消除父级li  */
+	/*  左右留白设置 begin  */
+	padding-right: 30px;
+	text-indent: 1.5em;
+	/*  左右留白设置 end  */
+	font-size: 14px;
+	line-height: 40px;
+	color:#333;
+	white-space: nowrap;
+}
+#g-header .m-nav ul ul li:hover{
+	background-color: #287ea6;
+	color: #eee;
+}
