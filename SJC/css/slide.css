@@ -1,0 +1,79 @@
+/*
+ * 轮播图
+ * authoer:Conan;
+ * date:2015/10/20;
+ */
+
+#g-slide{
+	position: relative;
+	height: 360px;
+}
+.webwidget_slideshow_dot{
+    /*position: relative;*/
+    padding: 0px;
+    margin: 0px;
+}
+.webwidget_slideshow_dot a,a:hover{
+    text-decoration: none;
+}
+
+.webwidget_slideshow_dot .slides_box{
+    position: absolute;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  文字显示  */
+.webwidget_slideshow_dot .title_thumb_box{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 305px;
+    height: 360px;
+    padding:0 35px;
+}
+
+/*  标题  */
+.webwidget_slideshow_dot .title_thumb_box .title_box{
+    position: relative;
+    margin-top:85px;
+    font:700 32px/56px Georgia,Arial,Sans-Serif;
+    text-align: right;
+}
+
+/*  轮播按钮控制  */
+.webwidget_slideshow_dot .title_thumb_box .thumb_box{
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+    text-align: right;
+    height: 25px;
+}
+.webwidget_slideshow_dot .title_thumb_box .thumb_box span{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.webwidget_slideshow_dot .title_thumb_box .thumb_box span img{
+    cursor: pointer;
+}
+
+.webwidget_slideshow_dot img{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+.webwidget_slideshow_dot ul{
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    list-style: none;
+}
+.webwidget_slideshow_dot ul li{
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+.webwidget_slideshow_dot ul li a{
+    display: block;
+}

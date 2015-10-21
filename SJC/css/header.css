@@ -1,7 +1,7 @@
 /*
  * 通用
  * page header
- * author:Conan;
+ * authoer:Conan;
  * date: 2015/10/20;
  */
 
@@ -12,12 +12,13 @@ body{
 #g-container{
 	position: relative;
 	width: 980px;
-	height: 100px;
+	/*  height: 不设置高度  */
 	margin: 0 auto;
 }
 
 #g-header{
 	position: relative;
+	z-index: 999;
 	padding-top: 49px;
 	border-top: 5px solid #2f4f59;
 }
@@ -33,7 +34,6 @@ body{
 	margin-top: 38px;
 	height: 69px;
 	border-top: 1px solid #cccccc;
-	border-bottom: 1px solid #cccccc;
 }
 
 #g-header .m-nav ul{

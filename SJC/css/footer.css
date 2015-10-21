@@ -1,0 +1,21 @@
+/*
+ * footer
+ * authoer:Conan;
+ * date:2015/10/21;
+ */
+
+#g-footer{
+	/*display: none;*/
+	position: relative;
+	width: 100%;
+	padding-top: 20px;
+	height: 70px;
+	background-color: #121212;
+}
+
+#g-footer p{
+	font-size: 14px;
+	line-height: 22px;
+	color: #2d8fbc;
+	text-align: center;
+}

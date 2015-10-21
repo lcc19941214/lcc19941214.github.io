@@ -12,8 +12,7 @@ body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{
 body{
 	background:#fff;
 	color:#666;
-	font-size:14px; 
-	font-family:Helvetica,Arial,"Microsoft Yahei",sans Serif;}
+	font-size:14px; 	font-family:Helvetica,Arial,"Microsoft Yahei",sans Serif;}
  
 ul,ol{list-style-type:none;}
 select,input,img,select{vertical-align:middle;}
