@@ -1,8 +1,9 @@
 /*
  *CSS Reset
  */
+html{font-size: 62.5%;}/*  10/16*100%  */
 body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
-body{background:#fff;color:#333;font-size:12px; margin-top:0px;font-family:"Microsoft Yahei","Arial Narrow";}
+body{background:#fff;color:#333; margin-top:0px;font-family:"Microsoft Yahei","Arial Narrow";}
 
 ul,ol{list-style-type:none;}
 select,input,img,select{vertical-align:middle;}
@@ -16,20 +17,22 @@ select,input,img,select{vertical-align:middle;}
 	margin:0 auto;
 	padding-top: 60px;
 	width: 60%;
+	max-width: 650px;
 }
 .g-container h1{
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 1.8rem;
 	line-height: 1.8em;
 	text-align: center;
 }
 .g-container p{
 	text-align: center;
+	font-size: 1.2rem;
 }
 .g-container .m-box{
 	margin: 20px auto;
 }
-.g-container .m-box::after{/*  清除浮动  */
+.m-box::after{/*  清除浮动  */
 	content: ".";
 	display: block;
 	overflow: hidden;
@@ -37,7 +40,11 @@ select,input,img,select{vertical-align:middle;}
 	clear: both;
 	height: 0;
 }
-.g-container .m-box .u-box{
+.m-box .u-box-wrapper{
+	margin: 0 auto;
+	width:315px;
+}
+.m-box .u-box{
 	width: 100px;
 	height: 100px;
 	margin-right: 5px;
@@ -45,27 +52,62 @@ select,input,img,select{vertical-align:middle;}
 	border-radius: 5px;
 	background-color: #F69205;
 }
-.g-container .m-box-1 .u-box{/*  float  */
+.m-box-1 .u-box{/*  float  */
 	float: left;
 }
-.g-container .m-box-1 .u-box:nth-child(3n+1){
+/*.m-box-1 .u-box:nth-child(3n){
+	margin-right: 0;
+}*/
+.m-box-1 .u-box:nth-child(3n+1){
 	clear: both;
 }
 
-.g-container .m-box-2{/*  inline-block  */
+.m-box-2{/*  inline-block  */
 	text-align: center;
 	font-size: 0;/*  消除inline-block的空格  */
 }
-.g-container .m-box-2 .u-box-wrapper{
-	margin: 0 auto;
-	width:310px;
-}
-.g-container .m-box-2 .u-box{
+.m-box-2 .u-box{
 	display: inline-block;
 }
-.g-container .m-box-2 .u-box:nth-child(3n){
-	margin-right: 0;
+
+.m-box-3 .u-box-wrapper{/*  flex  */
+	display: flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	/*justify-content:space-between;*/
 }
-.m-box-3 .u-box,.m-box-4 .u-box{
+.m-box-3 .u-box{
+	display: inline-block;
+}
+.m-box-4 .u-box{
 	display: none;
+}
+/*  自适应  */
+.m-box-5{/*  float  */
+	max-width: 500px;
+	font-size: 0;/*  消除inline-block的空格  */
+}
+.m-box-5 .z-box{
+	display: inline-block;
+	/*width: 30%;
+	height: 30%;*/
+	padding: 16.1%;
+	margin: 0.5%;
+	border-radius: 5%;
+	background-color: #F69205;
+}
+/*  对元素使用inline-block后，使用padding可以自动撑满  */
+
+.m-box-6{
+	max-width: 500px;
+	text-align: center;
+	font-size: 0;/*  消除inline-block的空格  */
+}
+.m-box-6 .z-box{
+	display: inline-block;
+	width: 30%;
+	padding-bottom: 30%;
+	margin: 0.5%;
+	border-radius: 5%;
+	background-color: #F69205;
 }
