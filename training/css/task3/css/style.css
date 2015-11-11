@@ -1,0 +1,115 @@
+/*
+ *CSS Reset
+ */
+html{font-size: 62.5%;}/*  初始化字体 10/16*100%  */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body{background:#68cdd5;color:#fff;font-family:"Hiragino Sans GB","Microsoft Yahei","黑体",sans serif;}
+
+body{
+	position: relative;
+}
+
+ul,ol{list-style-type:none;}
+select,input,img,select{vertical-align:middle;}
+
+/*  style  */
+.g-container{
+	margin-bottom: 150px;
+}
+.m-tab{/*  控制条  */
+	position: relative;
+	width:100%;
+	padding-top: 23px;
+	height: 65px;
+	background-color: #22292c;
+}
+.m-tab h1{
+	font-weight: 400;
+	font-size: 2.6rem;
+	text-align: center;
+}
+.m-tab i{
+	display: inline-block;
+	width: 37px;
+	height: 37px;
+	background-image: url("../images/css-sprite.png");
+	background-repeat: no-repeat;
+}
+.m-tab span{/*  返回  */
+	position: absolute;
+	top:27px;
+	left: 17px;
+	padding-left: 30px;
+}
+.m-tab span i{
+	background-position: 0 0;
+	margin-left: -30px;
+}
+.m-tab span a{
+	position: relative;
+	top: -8px;
+	font-size:2.4rem;
+	text-decoration: none;
+	color: #fff;
+}
+.m-tab .u-menu{/*  菜单  */
+	position: absolute;
+	top:27px;
+	right: 17px;
+	background-position:-54px 0;
+}
+
+.m-content{/*  正文  */
+	position: relative;
+	/*background-color: #68cdd5;*/
+}
+.m-content .u-back{/*  返回键  */
+	position: absolute;
+	left: 35px;
+	top:17px;
+	width: 54px;
+	height: 54px;
+	background: url("../images/css-sprite.png") 0 -61px ;
+}
+.m-content .u-logo{/*  logo  */
+	position: relative;
+	top: 112px;
+	text-align: center;
+	margin-bottom: 150px;
+}
+.m-content .u-text{
+	margin:0 auto;
+	width: 80%;
+	font-size: 3rem;
+	line-height: 5.4rem;
+}
+.m-content .u-icon-wrapper{
+	margin: 170px auto 0;
+	width: 40%;
+}
+.m-content .u-contact ul{
+}
+.m-content .u-contact li{
+	display: inline-block;
+	text-align: center;
+}
+.m-content .u-icon div{
+	width: 84px;
+	height: 84px;
+	background: url("../images/css-sprite.png");
+}
+.m-content .u-contact .u-icon-1 div{
+	background-position: 111px 124px;
+}
+.m-content .u-contact .u-icon-2{
+	float: right;
+}
+.m-content .u-contact .u-icon-2 div{
+	background-position: 224px 124px;
+}
+.m-content .u-icon span{
+	position: relative;
+	top: 15px;
+	font-size: 2.4rem;
+}
+
