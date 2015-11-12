@@ -1,0 +1,120 @@
+html,body{
+	height: 100%;
+	overflow: hidden;
+	font-size: 62.5%;
+}
+.g-container{
+	position: relative;
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+	/*  使子元素垂直居中 inline-block  */
+	/*  使子元素水平居中 inline-block  */
+}
+.m-content-wrapper{/*  内容  */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	margin:0 auto;
+	width: 80%;
+	max-width: 1080px;
+	min-width: 780px;
+}
+.m-content{
+	/*display: inline-block;*/
+	/*width: 100%;*/
+	/*font-size: 0px;*/
+}
+.m-content .u-line{/*  分割线  */
+	position: relative;
+	top: 25%;
+	width: 0px;
+	height: 50%;
+	max-height: 200px;
+	border-right: 1px solid #999;
+}
+.m-content .u-line:first-child{/*  分割线1  */
+	position: absolute;
+	left:32%;
+}
+.m-content .u-line:nth-child(2){/*  分割线2  */
+	position: absolute;
+	left:68%;
+}
+.m-content .z-ib{/*  内容里的子元素  */
+	display: inline-block;
+	width: 33%;
+}
+.m-content .u-btn{
+	font-size: 1.8rem;
+	text-align: center;
+}
+.m-content .u-btn dt{/*  图标容器  */
+	padding-bottom: 10%;
+}
+.m-content .u-btn .u-btn-icon{
+	margin: 0 auto;
+	width: 72px;
+	height: 120px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.m-content .u-btn .u-btn-icon-1{/*  headicon  */
+	width: 122px; 
+	background-image: url("../images/icon_head.png");
+}
+.m-content .u-btn .u-btn-icon-1.current{
+	background-image: url("../images/icon_head_hover.png");
+}
+.m-content .u-btn .u-btn-icon-2{/*  product  */
+	background-image: url("../images/icon_product.png");
+}
+.m-content .u-btn .u-btn-icon-2.current{
+	background-image: url("../images/icon_product_hover.png");
+}
+.m-content .u-btn .u-btn-icon-3{/*  blog  */
+	width: 63px;
+	background-image: url("../images/icon_blog.png");
+}
+.m-content .u-btn .u-btn-icon-3.current{
+	background-image: url("../images/icon_blog_hover.png");
+}
+
+@media screen and (max-width: 780px){
+	.m-content-wrapper{/*  内容  */
+		width: 80%;
+		height: 100%;
+	}
+	.m-content{/*  内容  */
+		width: 100%;
+		height: 100%;
+		min-width: 320px;
+		max-width: 780px;
+	}
+	.m-content .z-ib{  
+		display: block;
+		width: 33%;
+		height: 23%;
+		margin: 0 auto;
+	}
+	.m-content .u-line{
+		display: none;
+	}
+	.m-content .u-btn{
+		padding: 3% 0;
+	}
+	.m-content .u-btn+.u-btn{
+		border-top: 1px solid #999;
+	}
+	.m-content .u-btn dl, .m-content .u-btn dt{
+		height: 80%;
+		padding-bottom: 5%;
+	}
+	.m-content .u-btn .u-btn-icon{
+		height: 100%;
+		max-height: 120px;
+	}
+}
+
