@@ -6,57 +6,29 @@
 	<meta name="description" content="在珞珈山下默默修行的网传狗，是个PPT做得还可以的前端学徒，专业是网络传播。" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
 	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="css/index.css" />
+	<link rel="stylesheet" href="css/layout.css" />
 </head>
 <body>
 	<div class="g-container">
 		<div class="m-content-wrapper">
 			<div class="m-content">
+				<div class="u-icon u-icon-1" href="javascirpt:;">
+					<div></div>
+					<h2> <strong>阿川的个人网站</strong>
+					</h2>
+				</div>
 				<div class="u-line"></div>
+				<a class="u-icon u-icon-2" href="javascirpt:;">
+					<div></div>
+					<h2>博客日志</h2>
+				</a>
 				<div class="u-line"></div>
-				<a href="javascript:;" class="u-btn u-btn-1 z-ib">
-					<dl>
-						<dt>
-							<div class="u-btn-icon u-btn-icon-1"></div>
-						</dt>
-						<dd>阿川的个人网站</dd>
-					</dl>
-				</a>
-				<a href="javascript:;" class="u-btn u-btn-2 z-ib">
-					<dl>
-						<dt>
-							<div class="u-btn-icon u-btn-icon-2"></div>
-						</dt>
-						<dd>作品集</dd>
-					</dl>
-				</a>
-				<a href="javascript:;" class="u-btn u-btn-3 z-ib">
-					<dl>
-						<dt>
-							<div class="u-btn-icon u-btn-icon-3"></div>
-						</dt>
-						<dd>博客日志</dd>
-					</dl>
+				<a class="u-icon u-icon-3" href="javascirpt:;">
+					<div></div>
+					<h2>作品集</h2>
 				</a>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var uBtn = document.getElementsByClassName('m-content')[0].getElementsByClassName("u-btn");
-		function iconHover(btn){
-			for (var i = 0; i < btn.length; i++) {
-				btn[i].onmouseover = function(){
-					var uBtnIcon = this.getElementsByClassName("u-btn-icon")[0];
-					uBtnIcon.className += " current";
-				}
-				btn[i].onmouseout = function(){
-					var uBtnIcon = this.getElementsByClassName("u-btn-icon")[0];
-					uBtnIcon.className = uBtnIcon.className.slice(0,-8);
-				}
-			};
-		}
-		window.onload = function(){
-			iconHover(uBtn);
-		}
-</script></body>
+</body>
 </html>
