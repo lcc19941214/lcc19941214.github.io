@@ -5,13 +5,14 @@ body{
 	font-size: 1.6rem;
 }
 .g-header{
-	height: 80px;
+	height: 60px;
 	background-color: #313131;
 	text-align: center;
 }
 .g-header h1{
-	font-size: 2.6rem;
-	line-height: 80px;
+	font-size: 2rem;
+	font-weight: 400;
+	line-height: 60px;
 	color: #cccccc;
 }
 .m-topnav,.m-content{
@@ -26,11 +27,11 @@ body{
 	border-bottom: 1px solid #999;
 	line-height: 57px;
 }
-.m-topnav a{
+.m-topnav a{/*  文字父元素  */
 	position: relative;
 	padding-left: 25px;
 }
-.m-topnav i{
+.m-topnav i{/*  导航icon  */
 	position: absolute;
 	top:20px;
 	left: 0;
@@ -53,7 +54,7 @@ body{
 .m-topnav a:hover{
 	border-bottom: 3px solid #ccc;
 }
-.m-topnav a.current{
+.m-topnav a.current{/*  选中状态  */
 	color: #333;
 	border-bottom: 3px solid #999;
 }
@@ -67,17 +68,26 @@ body{
 	padding-top: 20px;
 	padding-bottom: 150px;
 }
+.m-content .u-item{/*  日志&作品 显示块 共性声明  */
+	display: block;
+	background-color: #fff;
+	box-shadow: 0 1px 2px #aaa;
+}
+.m-content-1,.m-content-2{
+	/*display: none;*/
+}
+.m-content-1.current,.m-content-2.current{
+	display: block;
+}
 .m-content-1 ul{/*  日志列表  */
 }
 .m-content-1 li{/*  日志列表-单条  */
 	margin-bottom: 20px;
 }
-.m-content-1 .u-item{
-	display: block;
+.m-content-1 .u-item{/*  日志列表-显示块  */
 	padding: 20px;
-	border-left: 6px solid #999;
+	border-left: 6px solid #bbb;
 	height: 50px;
-	background-color: #ccc;
 }
 .m-content-1 .u-item dt{/*  标题  */
 	margin-bottom: 10px;
@@ -100,40 +110,49 @@ body{
 	display: inline-block;
 	/*float: left;*/
 	width:24%;
-	padding:0 0.5% 4%;
+	padding:0 0.5% 1%;
 	vertical-align: top;
 }
-.m-content-2 .u-item{
-	display: block;
+.m-content-2 .u-item{/*  作品列表-显示块  */
 	box-sizing:border-box;
 	width: 100%;
 	padding: 10px;
-	border-top: 6px solid #999;
-	background-color: #ccc;
+	border-top: 6px solid #bbb;
+	text-align: center;
+}
+.m-content-2 .u-item dt{/*  img父元素  */
 }
 .m-content-2 .u-item dt img{/*  标题  */
-	display: block;
-	width: 100%;
+	max-width: 100%;
 	margin-bottom: 10px;
 }
 .m-content-2 .u-item dd{/*  引文  */
 	font-size: 1.6rem;
 }
-.m-content-2 .u-item:hover dt{
-}
 .m-content-2 .u-item:hover dd{
 	color: #333;
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 768px){/*  屏幕尺寸小于768px时候  */
 	.m-content-2 ul{/*  作品列表  */
+		/*box-shadow: 0 1px 1px #999;*/
 	}
 	.m-content-2 li{/*  作品列表-单条  */
 		display: inline-block;
 		/*float: left;*/
-		padding:0 0 5%;
-		width:30%;
+		padding:0;
+		width:50%;
+	}
+	.m-content-2 .u-item{/*  作品列表-显示块  */
+		border-top: none;
+		border:1px solid #ddd;
+		border-top: none;
+		box-shadow: none;
+	}
+	.m-content-2 .u-item dt img{
+		margin-bottom: 0;
 	}
 	.m-content-2 .u-item dd{/*  引文  */
+		display: none;
 		font-size: 1.4rem;
 	}
 }
