@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>快速搭建hexo静态博客 | AChuan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最开始的时候很想弄个个人博客玩，但是之前在Hostinger上注册的域名太难记了，服务器也超级慢，转战github page用CNAME绑定了个人喜欢的域名。
+一直想用github page推荐的jekyll做静态博客，但是苦于mac终端总是报错，只能暂时放弃了这个想法。
+其实我也是偶然知道hexo的，昨晚试着做了一下，感觉还不错，主题也很多，配置起来很方便。第一次搞，看了很多资料，趁着今天有时间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速搭建hexo静态博客">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/index.html">
+<meta property="og:site_name" content="AChuan">
+<meta property="og:description" content="最开始的时候很想弄个个人博客玩，但是之前在Hostinger上注册的域名太难记了，服务器也超级慢，转战github page用CNAME绑定了个人喜欢的域名。
+一直想用github page推荐的jekyll做静态博客，但是苦于mac终端总是报错，只能暂时放弃了这个想法。
+其实我也是偶然知道hexo的，昨晚试着做了一下，感觉还不错，主题也很多，配置起来很方便。第一次搞，看了很多资料，趁着今天有时间">
+<meta property="og:updated_time" content="2016-01-14T08:57:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快速搭建hexo静态博客">
+<meta name="twitter:description" content="最开始的时候很想弄个个人博客玩，但是之前在Hostinger上注册的域名太难记了，服务器也超级慢，转战github page用CNAME绑定了个人喜欢的域名。
+一直想用github page推荐的jekyll做静态博客，但是苦于mac终端总是报错，只能暂时放弃了这个想法。
+其实我也是偶然知道hexo的，昨晚试着做了一下，感觉还不错，主题也很多，配置起来很方便。第一次搞，看了很多资料，趁着今天有时间">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/hexo-theme-icarus/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/hexo-theme-icarus/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/hexo-theme-icarus/css/images/logo.png)"></i><span class="site-title">AChuan</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/hexo-theme-icarus/.">Home</a>
+        
+          <a class="main-nav-link" href="/hexo-theme-icarus/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/hexo-theme-icarus/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/hexo-theme-icarus/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/hexo-theme-icarus/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/hexo-theme-icarus/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://lcc19941214.github.io"></form>
+        
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/hexo-theme-icarus/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/hexo-theme-icarus/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/hexo-theme-icarus/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/hexo-theme-icarus/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/hexo-theme-icarus/about">About</a></td>
+        
+        <td>
+          
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://lcc19941214.github.io"></form>
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/hexo-theme-icarus/css/images/avatar.png">
+      <h2 id="name">Conan | 阿川</h2>
+      <h3 id="title">Journalist, Designer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Luojia Hill | 珞珈山</span>
+      <a id="follow" href="https://github.com/lcc19941214/lcc19941214.github.io">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        1
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        0
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/lcc19941214/lcc19941214.github.io" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="/hexo-theme-icarus/#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="https://www.facebook.com/conan.liu.739" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+          <td><a href="/hexo-theme-icarus/#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+          
+          <td><a href="/hexo-theme-icarus/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-快速搭建hexo静态博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+	
+		<img src="http://conan1214.github.io/hexoblog/images/2016/1/14/built-hexoblog.png" class="article-banner">
+	
+
+
+
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      快速搭建hexo静态博客
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/hexo-theme-icarus/2016/01/14/快速搭建hexo静态博客/">
+      <time datetime="2016-01-14T07:25:30.000Z" itemprop="datePublished">2016-01-14</time>
+    </a>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>最开始的时候很想弄个个人博客玩，但是之前在<a href="http://www.hostinger.com.hk/" target="_blank" rel="external">Hostinger</a>上注册的域名太难记了，服务器也超级慢，转战github page用CNAME绑定了个人喜欢的域名。</p>
+<p>一直想用github page推荐的jekyll做静态博客，但是苦于mac终端总是报错，只能暂时放弃了这个想法。</p>
+<p>其实我也是偶然知道hexo的，昨晚试着做了一下，感觉还不错，主题也很多，配置起来很方便。第一次搞，看了很多资料，趁着今天有时间分享一下。因为我用的是mac air，所以我主要讲一下mac上怎么搭hexo。</p>
+<a id="more"></a>
+<hr>
+<h3 id="u5B89_u88C5node-js_u548Cnpm"><a href="#u5B89_u88C5node-js_u548Cnpm" class="headerlink" title="安装node.js和npm"></a>安装node.js和npm</h3><p>因为hexo是基于node.js的，所以需要先装一下node。安装方法很多，这里讲两个（有一个是基于<a href="http://brew.sh/" target="_blank" rel="external">homehrew</a>的，mac自带ruby所以可以一键搞定）:</p>
+<h4 id="1-_u5B98_u7F51_u4E0B_u8F7Dpkg_uFF0C_u76F4_u63A5_u5B89_u88C5"><a href="#1-_u5B98_u7F51_u4E0B_u8F7Dpkg_uFF0C_u76F4_u63A5_u5B89_u88C5" class="headerlink" title="1.官网下载pkg，直接安装"></a>1.官网下载pkg，直接安装</h4><p><a href="https://nodejs.org/en/" target="_blank" rel="external">node.js官网</a><br><a href="http://nodejs.cn/" target="_blank" rel="external">node.js中文站</a><br><a href="https://www.npmjs.com/" target="_blank" rel="external">npm官网</a></p>
+<p>npm不用单独装，装node.js的时候自动就装上了。</p>
+<p>node下哪个版本影响不是很大，虽然之后我用终端运行hexo的时候有err报错说需要依赖node的版本号，但是目前也没啥大问题。</p>
+<p>双击pkg包直接安装即可，装好了之后打开finder，按下<code>cmd+shift+g</code>，输入<code>/usr/local/bin</code>，node的快捷方式就在里面了。因为usr是隐藏文件夹，所以需要查找路径。</p>
+<p>也可以打开终端，输入</p>
+<pre><code>$ node -v
+</code></pre><p>返回版本号则说明安装成功</p>
+<h4 id="2-_u7528homebrew_u5B89_u88C5node-js"><a href="#2-_u7528homebrew_u5B89_u88C5node-js" class="headerlink" title="2.用homebrew安装node.js"></a>2.用homebrew安装node.js</h4><p>打开终端，输入下列代码，回车，自动就装好了</p>
+<pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><p>也可以打开终端，输入</p>
+<pre><code>$ brew -v
+</code></pre><p>返回版本号则说明安装成功</p>
+<p>然后再终端里输入，回车搞定</p>
+<pre><code>$ brew install node
+</code></pre><h3 id="u5B89_u88C5hexo"><a href="#u5B89_u88C5hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>有了node.js就可以直接用npm安装了</p>
+<pre><code>$ npm install -g hexo
+</code></pre><p>就是这么简单粗暴，恩</p>
+<p>hexo这里给了非常详细的文档，可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">这里</a></p>
+<h3 id="u5B89_u88C5git_uFF0C_u914D_u7F6ESSH"><a href="#u5B89_u88C5git_uFF0C_u914D_u7F6ESSH" class="headerlink" title="安装git，配置SSH"></a>安装git，配置SSH</h3><p>因为装了git还要配置SSH，这里就不说SSH了，关于SSH可以直接看github上的详细教程，很详细，具体<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">看这里</a>。</p>
+<p>因为前面用到了homebrew，用这种方法的话可以直接装git</p>
+<pre><code>$ sudo brew install git 
+</code></pre><p>或者直接在<a href="http://git-scm.com/downloads" target="_blank" rel="external">这里</a>下载安装git即可</p>
+<hr>
+<h3 id="u4F7F_u7528hexo_u642D_u5EFA_u535A_u5BA2"><a href="#u4F7F_u7528hexo_u642D_u5EFA_u535A_u5BA2" class="headerlink" title="使用hexo搭建博客"></a>使用hexo搭建博客</h3><h4 id="u521B_u5EFA_u535A_u5BA2_u9879_u76EE"><a href="#u521B_u5EFA_u535A_u5BA2_u9879_u76EE" class="headerlink" title="创建博客项目"></a>创建博客项目</h4><p>到这一步hexo已经安装好了，需要做的就是在咱喜欢的路径下新建一个hexo博客项目了。</p>
+<p>打开终端，cd到想要建立hexo的目录，用init命令新建一个文件夹</p>
+<pre><code>$ cd /Users/achuan
+$ hexo init hexoBlog
+</code></pre><p>这样hexo会自动在指定目录下新建<code>hexoBlog</code>文件夹，并且把相关配置文件到生成完毕。</p>
+<p>接着需要安装一些必要的模块，进入新建的文件夹内，用npm安装即可:</p>
+<pre><code>$ cd hexoBlog
+$ npm install
+</code></pre><p>这样基本上就安装完毕了，可以直接开始写博客，配置属于自己的主题啦！</p>
+<h4 id="u65B0_u5EFA_u65E5_u5FD7"><a href="#u65B0_u5EFA_u65E5_u5FD7" class="headerlink" title="新建日志"></a>新建日志</h4><p>进入hexoBlog你会发现有一个source，里面有一个_post文件夹，有一篇默认的md文档，打开看看会发现这个是默认的配置文档。没关系，先不看。</p>
+<p>新建日志有两种方式:</p>
+<p>######　1. 用终端找到指定目录如hexoBlog，用new命令可以直接生成指定名称的空文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &#34;newblog&#34;</span><br></pre></td></tr></table></figure>
+<p>在_post里就会看到newblog.md，打开会发现有如下文件头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title:      //&#26085;&#24535;&#39064;&#30446;&#10;date:       //&#26085;&#26399;&#65292;&#40664;&#35748;&#26159;&#25991;&#26723;&#21019;&#24314;&#26085;&#26399;&#65292;&#26684;&#24335;&#26159; YY-MM-DD HH:MM:SS&#10;tags:       //&#25991;&#31456;&#26631;&#31614;&#10;thumbnail:  //&#26377;&#30340;&#20027;&#39064;&#20250;&#35201;&#27714;&#10;banner:     //&#26377;&#30340;&#20027;&#39064;&#20250;&#35201;&#27714;</span><br></pre></td></tr></table></figure></p>
+<h6 id="2-_u7B2C_u4E8C_u79CD_u65B9_u5F0F_u5C31_u662F_u76F4_u63A5_u5728_post_u76EE_u5F55_u4E0B_u81EA_u5DF1_u65B0_u5EFA_u5566_uFF0C_u7136_u540E_u52A0_u4E0A_u6587_u4EF6_u5934_u5373_u53EF"><a href="#2-_u7B2C_u4E8C_u79CD_u65B9_u5F0F_u5C31_u662F_u76F4_u63A5_u5728_post_u76EE_u5F55_u4E0B_u81EA_u5DF1_u65B0_u5EFA_u5566_uFF0C_u7136_u540E_u52A0_u4E0A_u6587_u4EF6_u5934_u5373_u53EF" class="headerlink" title="2.第二种方式就是直接在_post目录下自己新建啦，然后加上文件头即可"></a>2.第二种方式就是直接在_post目录下自己新建啦，然后加上文件头即可</h6><h4 id="u5EFA_u5B8C_u6587_u6863_u5C31_u662F_u5199_u6587_u6863_u5566"><a href="#u5EFA_u5B8C_u6587_u6863_u5C31_u662F_u5199_u6587_u6863_u5566" class="headerlink" title="建完文档就是写文档啦"></a>建完文档就是写文档啦</h4><p>关于怎么用markdown写日志网上也有很多啦，有时间再整理分享啦~</p>
+<h4 id="u751F_u6210_u672C_u5730_u6587_u4EF6_5B_5Eerror_5D"><a href="#u751F_u6210_u672C_u5730_u6587_u4EF6_5B_5Eerror_5D" class="headerlink" title="生成本地文件[^error]"></a>生成本地文件[^error]</h4><p>[^error]:如果执行这部分命令的时候老是有一堆莫名其妙的报错信息，可以试着重新找到hexoBlog文件夹，使用<code>$ npm install hexo --no--optional</code>，来自<a href="http://wp.huangshiyang.com/" target="_blank" rel="external">huangshiyang</a>；或者删除掉hexoBlog，重新新建项目。</p>
+<p>继续说博客的事情。</p>
+<p>写完博客之后先不要急着推送到github上去（我知道各位着急把本地文件push到github page上去），可以先用hexo的操作命令在本地进行预览调整。</p>
+<p>在本地生成静态网站（public文件）：</p>
+<pre><code>$ hexo generate // 快捷键是 $ hexo g
+</code></pre><p>在本地服务器运行：</p>
+<pre><code>$ hexo server // 快捷键是 $ hexo s
+</code></pre><p>本地链接生成了之后打开浏览器输入localhost:4000即可看到了，默认端口是4000。</p>
+<h3 id="u90E8_u7F72_u535A_u5BA2"><a href="#u90E8_u7F72_u535A_u5BA2" class="headerlink" title="部署博客"></a>部署博客</h3><p>部署博客之前必须要完成git的安装和SSH密钥的配置。</p>
+<p>同时还要在hexoBlog文件夹下地配置文件<code>_config.yml</code>里对部署信息进行修改。打开目录下的<code>_config.yml</code>文件，找到最后的部分：</p>
+<pre><code># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/yourid/yourid.github.io
+  branch: master
+</code></pre><p>照着格式把repository和branch填写清楚即可，然后使用deploy命令部署到github page上</p>
+<pre><code>$ hexo deploy // 快捷键是 $ hexo d
+</code></pre><p>如果遇到让输入github账号密码的情况直接输入就好了。</p>
+<p>从我的情况来看，部署到github page之后，其他的文件都被覆盖了，完全找不到了，用来域名解析的CNAME文件也不见了。只能自己手动在github新建。以及github desktop也查不到change信息……这一点不知道是怎么回事。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cijdy7tmw00003zm19iw5e6th" class="article-share-link">分享到</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+
+  
+</article>
+
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/hexo-theme-icarus/2016/01/14/快速搭建hexo静态博客/" class="thumbnail">
+  
+    <span style="background-image:url(http://conan1214.github.io/hexoblog/images/2016/1/14/built-hexoblog-thumbs.svg)" alt="快速搭建hexo静态博客" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/hexo-theme-icarus/2016/01/14/快速搭建hexo静态博客/" class="title">快速搭建hexo静态博客</a></p>
+              <p class="item-date"><time datetime="2016-01-14T07:25:30.000Z" itemprop="datePublished">2016-01-14</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/hexo-theme-icarus/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 - 2016 Conan | 阿川<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/hexo-theme-icarus/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/hexo-theme-icarus/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/hexo-theme-icarus/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
