@@ -3,17 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>AChuan</title>
+  <title>消除inline-block两侧间距bug | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AChuan">
-<meta property="og:url" content="http://lcc19941214.github.io/index.html">
+  <meta name="description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
+第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
+
+可以发现这五个小div本身是没有设置padding和margin的。
+因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="消除inline-block两侧间距bug">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/14/消除inline-block两侧间距bug/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
+第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
+
+可以发现这五个小div本身是没有设置padding和margin的。
+因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
+<meta property="og:image" content="http://lcc19941214.github.io/images/2016/1/14/eg1.png">
+<meta property="og:updated_time" content="2016-01-14T10:15:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AChuan">
-<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta name="twitter:title" content="消除inline-block两侧间距bug">
+<meta name="twitter:description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
+第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
+
+可以发现这五个小div本身是没有设置padding和margin的。
+因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
   
   
     <link rel="icon" href="favicon.png">
@@ -133,74 +147,7 @@
 </aside>
 
       
-      <section id="main">
-      <article id="post-快速搭建hexo静态博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	
-		<a href="/2016/01/14/快速搭建hexo静态博客/" itemprop="url"><img src="http://lcc19941214.github.io/images/2016/1/14/cover.png" class="article-banner"></a>
-	
-
-
-
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/快速搭建hexo静态博客/">快速搭建hexo静态博客</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/快速搭建hexo静态博客/">
-      <time datetime="2016-01-14T07:25:30.000Z" itemprop="datePublished">2016-01-14</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/其他/">其他</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最开始的时候很想弄个个人博客玩，但是之前在<a href="http://www.hostinger.com.hk/">Hostinger</a>上注册的域名太难记了，服务器也超级慢，转战github page用CNAME绑定了个人喜欢的域名。</p>
-<p>一直想用github page推荐的jekyll做静态博客，但是苦于mac终端总是报错，只能暂时放弃了这个想法。</p>
-<p>其实我也是偶然知道hexo的，昨晚试着做了一下，感觉还不错，主题也很多，配置起来很方便。第一次搞，看了很多资料，趁着今天有时间分享一下。因为我用的是mac air，所以我主要讲一下mac上怎么搭hexo。</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/01/14/快速搭建hexo静态博客/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cije3uz7700005ym1is6dsu4o" class="article-share-link">分享到</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-消除inline-block两侧间距bug" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-消除inline-block两侧间距bug" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -208,8 +155,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/消除inline-block两侧间距bug/">消除inline-block两侧间距bug</a>
+    <h1 class="article-title" itemprop="name">
+      消除inline-block两侧间距bug
     </h1>
   
 
@@ -267,11 +214,27 @@
     </footer>
   </div>
   
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/14/快速搭建hexo静态博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          快速搭建hexo静态博客
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+  
 </article>
 
 
-
-    </section>
+</section>
       
         <aside id="sidebar">
   
