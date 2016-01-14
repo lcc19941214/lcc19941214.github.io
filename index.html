@@ -101,11 +101,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        2
+        6
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        2
+        4
         <span>标签</span>
       </div>
     </div>
@@ -134,6 +134,259 @@
 
       
       <section id="main">
+      <article id="post-javascript_知识点整理_02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/javascript_知识点整理_02/">javascript 知识点整理 02</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/14/javascript_知识点整理_02/">
+      <time datetime="2016-01-14T12:26:54.000Z" itemprop="datePublished">2016-01-14</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
+<blockquote>
+<p>变量声明</p>
+<p>类型判断</p>
+<p>数据类型（原始类型、引用类型、类型转换、函数）</p>
+</blockquote>
+        
+          <p class="article-more-link">
+            <a href="/2016/01/14/javascript_知识点整理_02/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_02/" data-id="cije7d7o6005e7om14w5xrzut" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-javascript_知识点整理_03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/javascript_知识点整理_03/">javascript 知识点整理 03</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/14/javascript_知识点整理_03/">
+      <time datetime="2016-01-14T12:24:57.000Z" itemprop="datePublished">2016-01-14</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
+<blockquote>
+<p>执行环境、作用域</p>
+</blockquote>
+<h2 id="u6267_u884C_u73AF_u5883"><a href="#u6267_u884C_u73AF_u5883" class="headerlink" title="执行环境"></a>执行环境</h2><ul>
+<li><p>执行环境<br>  所有的代码都是在环境中执行的。执行环境定义了变量能够访问到的数据的范围，决定了他们各自的行为。</p>
+</li>
+<li><p>变量对象<br>  变量对象存储着当前环境中的所有变量、函数。<br>  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。</p>
+</li>
+<li><p>全局环境<br>  全局环境指的是当前环境的最外围的执行环境。<br>  不同的宿主环境有不同的全局环境，一般浏览器环境下全局环境指的就是window对象。<br>  全局环境的变量对象存储这全局环境中的全局变量、属性等。</p>
+</li>
+<li><p>环境初始化<br>  在函数体中，所有的变量和函数声明都会被提前</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span> ;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// "a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  虽然a变量存在于func的执行环境中，第一次打印a时会在当前环境的作用域中寻找变量a，但是由于环境的初始化 ，变量a会在函数体的开始部分声明，但是到了第二行才被赋值，所以第一次打印会返回undefined.</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="u4F5C_u7528_u57DF"><a href="#u4F5C_u7528_u57DF" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<li><p>作用域链<br>  执行环境在执行代码的时候，会为对应的变量对象创建一个作用域链。<br>  作用域链定义了当前环境内的变量如何有序的访问允许范围内的数据。</p>
+</li>
+<li><p>作用域链的构成<br>  作用域链的顶端是当前环境的变量对象，往后是外层环境的变量对象，依次往复，最外层是全局环境的变量对象。<br>  如果当前环境是一个函数，那么其变量对象就是当前函数的活动对象。活动对象初始只有arguments一个变量。</p>
+</li>
+<li><p>标识符解析/作用域链的主要作用<br>  标识符会沿着作用域链进行解析。如果无法在当前环境下找到标识符，则会顺着作用域链往后查询。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内部环境获取外部数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </span><br><span class="line">    <span class="built_in">console</span>.log(color1);</span><br><span class="line">&#125;</span><br><span class="line">getColor();     <span class="comment">//"red"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//外部环境无法获取内部数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> color3 = <span class="string">"yellow"</span> ;</span><br><span class="line">        <span class="built_in">console</span>.log(color2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();                  <span class="comment">//"blue"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(color1);    <span class="comment">//"red"</span></span><br><span class="line"><span class="built_in">console</span>.log(color2);    <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>作用域链定义了内部环境可以查询外部环境的数据，但是外部环境无法对内部环境进行操作。（因此可以进行函数体的封装）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cije7g0cl005n7om1nr5l1j7a" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-javascript_知识点整理_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/javascript_知识点整理_01/">javascript 知识点整理 01</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/14/javascript_知识点整理_01/">
+      <time datetime="2016-01-14T11:59:56.000Z" itemprop="datePublished">2016-01-14</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
+<blockquote>
+<p>script标签</p>
+<p>基本语法（标识符、操作符）</p>
+<p>语句</p>
+</blockquote>
+        
+          <p class="article-more-link">
+            <a href="/2016/01/14/javascript_知识点整理_01/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01/" data-id="cije4eem0000x7om13vx3kupj" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-从script标签的摆放位置来看看DOM树的渲染" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/">从script标签的摆放位置来看看DOM树的渲染</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/">
+      <time datetime="2016-01-14T10:37:24.000Z" itemprop="datePublished">2016-01-14</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" data-id="cije4fk5h00107om10a1xtrff" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-快速搭建hexo静态博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -187,7 +440,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cije3xpe500006im10981dswy" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cije42fbv00007om1z8vkq3z5" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -234,32 +487,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-                
         <p>其实是之前的一篇日志，最近用了hexo，慢慢同步过来~</p>
 <p>第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。</p>
 <p><img src="http://lcc19941214.github.io/images/2016/1/14/eg1.png" alt="实例图片"></p>
 <p>可以发现这五个小div本身是没有设置padding和margin的。</p>
 <p>因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理，留出5px左右的空格。</p>
 <p>其实要解决这个问题很简单，下面总结一下我使用的方法以及网上看到的几种：</p>
-<h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><p>在父元素上使用<code>font-size: 0</code>，可以使得子元素两侧的空格因为没有设置字体大小而消失。<br>有看到说chrome浏览器是不支持这个方法的，<s>但是现在似乎没什么大的问题了</s>。对于汉字chrome还是有最小12px的要求限制</p>
-<h3 id="u79FB_u9664_u7A7A_u683C"><a href="#u79FB_u9664_u7A7A_u683C" class="headerlink" title="移除空格"></a>移除空格</h3><p>把标签的书写顺序调整一下即可</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者将标签换行</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者使用注释</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><p>因为子元素之间的间隔是水平的，所以也可以直接给每个元素使用<code>margin-right:-5px</code>的样式。</p>
-<p>但是考虑到不同浏览器下间隔不一，所以使用margin也需要具体调整。</p>
-<h3 id="letter-spacing_u548Cword-spacing"><a href="#letter-spacing_u548Cword-spacing" class="headerlink" title="letter-spacing和word-spacing"></a>letter-spacing和word-spacing</h3><p>直接给子元素加上这样的样式即可调整，但是要使用负值。</p>
-<hr>
-<blockquote>
-<p>参考了<a href="http://www.zhangxinxu.com/wordpress/?p=2357" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/?p=2357</a></p>
-</blockquote>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/01/14/消除inline-block两侧间距bug/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/消除inline-block两侧间距bug/" data-id="cije3xpev00086im1p2gb2cbv" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/消除inline-block两侧间距bug/" data-id="cije42fcr00087om16ad26h84" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -284,6 +526,74 @@
           <li>
             
             <div class="item-thumbnail">
+              <a href="/2016/01/14/javascript_知识点整理_02/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_02/" class="title">javascript 知识点整理 02</a></p>
+              <p class="item-date"><time datetime="2016-01-14T12:26:54.000Z" itemprop="datePublished">2016-01-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/14/javascript_知识点整理_03/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_03/" class="title">javascript 知识点整理 03</a></p>
+              <p class="item-date"><time datetime="2016-01-14T12:24:57.000Z" itemprop="datePublished">2016-01-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/14/javascript_知识点整理_01/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_01/" class="title">javascript 知识点整理 01</a></p>
+              <p class="item-date"><time datetime="2016-01-14T11:59:56.000Z" itemprop="datePublished">2016-01-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" class="title">从script标签的摆放位置来看看DOM树的渲染</a></p>
+              <p class="item-date"><time datetime="2016-01-14T10:37:24.000Z" itemprop="datePublished">2016-01-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/2016/01/14/快速搭建hexo静态博客/" class="thumbnail">
   
     <span style="background-image:url(http://lcc19941214.github.io/images/2016/1/14/thumbs.png)" alt="快速搭建hexo静态博客" class="thumbnail-image"></span>
@@ -298,24 +608,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/14/消除inline-block两侧间距bug/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/1/14/eg1.png
-)" alt="消除inline-block两侧间距bug" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/浏览器兼容/">浏览器兼容</a></p>
-              <p class="item-title"><a href="/2016/01/14/消除inline-block两侧间距bug/" class="title">消除inline-block两侧间距bug</a></p>
-              <p class="item-date"><time datetime="2016-01-14T07:25:30.000Z" itemprop="datePublished">2016-01-14</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -325,7 +617,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器兼容/">浏览器兼容</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器兼容/">浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -334,7 +626,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -343,7 +635,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
