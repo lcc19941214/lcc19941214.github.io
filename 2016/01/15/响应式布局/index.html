@@ -15,7 +15,7 @@
 <meta property="og:description" content="1. 自适应布局页面这部分我觉得最重要的是要有自适应布局的意识，首先设计稿制作的时候多用栅格化设计，区块明显，比如小米和联想的商城首页（虽然这俩都没有做响应式，手机端貌似是单独的？），再比如摩托罗拉和诺基亚的首页。
 然后多用float, 百分比单位，以及css3里的flex弹性布局等等。
 自适应布局其实就是随着显示设备宽度的变化而让页面版式进行调整，一般就是宽度自适应调整。虽然单页面应用没做过不是">
-<meta property="og:updated_time" content="2016-01-15T13:37:43.000Z">
+<meta property="og:updated_time" content="2016-01-15T16:53:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现响应式的简单思路">
 <meta name="twitter:description" content="1. 自适应布局页面这部分我觉得最重要的是要有自适应布局的意识，首先设计稿制作的时候多用栅格化设计，区块明显，比如小米和联想的商城首页（虽然这俩都没有做响应式，手机端貌似是单独的？），再比如摩托罗拉和诺基亚的首页。
@@ -158,7 +158,7 @@
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2016/01/15/响应式布局/">
-      <time datetime="2016-01-15T13:37:43.000Z" itemprop="datePublished">2016-01-15</time>
+      <time datetime="2016-01-14T17:12:00.000Z" itemprop="datePublished">2016-01-15</time>
     </a>
   </div>
 
@@ -217,12 +217,12 @@ href=&quot;tinyScreen.css&quot; /&gt;
 <p>不过我习惯写完之后最后全部截取出来放到一个response.css里，要响应式就引用，不需要就不引用</p>
 <h2 id="7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid"><a href="#7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid" class="headerlink" title="7. 使用流动布局float/fluid grid"></a>7. 使用流动布局<code>float</code>/fluid grid</h2><p>使用float，包裹元素宽度不够了就自动换行。但是最好还是给元素写上百分比的宽度，这样可以自动充满这一行</p>
 <h5 id="u81F3_u4E8E_u6D41_u52A8_u5E03_u5C40_u548C_u5F39_u6027_u5E03_u5C40"><a href="#u81F3_u4E8E_u6D41_u52A8_u5E03_u5C40_u548C_u5F39_u6027_u5E03_u5C40" class="headerlink" title="至于流动布局和弹性布局"></a>至于流动布局和弹性布局</h5><p>弹性布局主要就是使用flex，通过对主轴次轴进行持续排列，以及给flex-item设置<code>flex-grow</code> <code>flex-shrink</code> <code>flex-basis</code> 来自动调整子元素</p>
-<h2 id="8-__u56FE_u7247_u81EA_u9002_u5E94"><a href="#8-__u56FE_u7247_u81EA_u9002_u5E94" class="headerlink" title="8. 图片自适应"></a>8. 图片自适应</h2><p>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code><a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
+<h2 id="8-__u56FE_u7247_u81EA_u9002_u5E94"><a href="#8-__u56FE_u7247_u81EA_u9002_u5E94" class="headerlink" title="8. 图片自适应"></a>8. 图片自适应</h2><p>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code> <a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/响应式布局/" data-id="cijfqaifi000ipem1fulnc5jn" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/响应式布局/" data-id="cijftr44u000mb8m15wdgm84n" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -243,9 +243,9 @@ href=&quot;tinyScreen.css&quot; /&gt;
     </a>
   
   
-    <a href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/14/javascript_知识点整理_03/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">从script标签的摆放位置来看看DOM树的渲染</div>
+      <div class="article-nav-title">javascript 知识点整理 03</div>
     </a>
   
 </nav>
@@ -264,6 +264,23 @@ href=&quot;tinyScreen.css&quot; /&gt;
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" class="title">从script标签的摆放位置来看看DOM树的渲染</a></p>
+              <p class="item-date"><time datetime="2016-01-15T15:12:00.000Z" itemprop="datePublished">2016-01-15</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -295,24 +312,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a></p>
               <p class="item-title"><a href="/2016/01/15/响应式布局/" class="title">实现响应式的简单思路</a></p>
-              <p class="item-date"><time datetime="2016-01-15T13:37:43.000Z" itemprop="datePublished">2016-01-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" class="title">从script标签的摆放位置来看看DOM树的渲染</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:27:02.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-date"><time datetime="2016-01-14T17:12:00.000Z" itemprop="datePublished">2016-01-15</time></p>
             </div>
           </li>
         
@@ -359,7 +359,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器兼容/">浏览器兼容</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
