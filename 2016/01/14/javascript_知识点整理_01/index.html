@@ -19,7 +19,7 @@ script标签
 script标签
 基本语法（标识符、操作符）
 语句">
-<meta property="og:updated_time" content="2016-01-14T12:26:56.000Z">
+<meta property="og:updated_time" content="2016-01-15T13:23:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 知识点整理 01">
 <meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
@@ -164,7 +164,7 @@ script标签
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2016/01/14/javascript_知识点整理_01/">
-      <time datetime="2016-01-14T12:26:56.000Z" itemprop="datePublished">2016-01-14</time>
+      <time datetime="2016-01-14T06:01:00.000Z" itemprop="datePublished">2016-01-14</time>
     </a>
   </div>
 
@@ -200,6 +200,8 @@ script标签
 <p>js就是专门为了网页交互而设计的脚本语言。尽管最开始只是为了在本地用来验证表单，但是之后的发展趋势和方向肯定会越来越好啦。</p>
 <hr>
 <h3 id="script_u6807_u7B7E"><a href="#script_u6807_u7B7E" class="headerlink" title="script标签"></a>script标签</h3><h4 id="u5F15_u5165"><a href="#u5F15_u5165" class="headerlink" title="引入"></a>引入</h4><p>一般来说应当把script标签放在body的最后，因为html是一行一行执行语句的，因此当文档没有渲染完毕时加载script标签，如果脚本内包含dom操作的话，会影响页面的渲染。同时，如果脚本过大的话，也会阻塞其他的请求。</p>
+<p><em>2016-01-15 更新</em> </p>
+<p>但是最近看了一篇关于DOM渲染的文章，对于script标签的摆放位置提出了一些有趣的回答，会新开一篇文章说明一下</p>
 <h4 id="u5C5E_u6027"><a href="#u5C5E_u6027" class="headerlink" title="属性"></a>属性</h4><p>script标签有6个属性：src, defer, async, language, charset, type.</p>
 <p>charset用的比较少，主要是关于字符编码的</p>
 <p><s>language表示脚本语言</s>已经被废弃</p>
@@ -231,11 +233,12 @@ script标签
 <h3 id="u64CD_u4F5C_u7B26"><a href="#u64CD_u4F5C_u7B26" class="headerlink" title="操作符"></a>操作符</h3><h4 id="u4E00_u5143_u64CD_u4F5C_u7B26"><a href="#u4E00_u5143_u64CD_u4F5C_u7B26" class="headerlink" title="一元操作符"></a>一元操作符</h4><h5 id="u4E00_u5143_u52A0_u4E0E_u4E00_u5143_u51CF_+"><a href="#u4E00_u5143_u52A0_u4E0E_u4E00_u5143_u51CF_+" class="headerlink" title="一元加与一元减 + -"></a>一元加与一元减 <code>+</code> <code>-</code></h5><p>一元加：标记为正数</p>
 <p>使用<code>+</code>标记变量为正数时，效果与Number()差不多，因为会有隐式类型转换。但是对对象使用<code>+</code>的话会返回<code>undefined</code></p>
 <p>一元减：标记为负数</p>
+<p><em>个人感觉跟加法减法没啥区别，主要用来进行数值隐式转换了</em></p>
 <p><br></p>
 <h5 id="u4E00_u5143_u9012_u52A0_u4E0E_u9012_u51CF_++"><a href="#u4E00_u5143_u9012_u52A0_u4E0E_u9012_u51CF_++" class="headerlink" title="一元递加与递减 ++ --"></a>一元递加与递减 <code>++</code> <code>--</code></h5><p>分别有前置递加、前置递减和后置递加、后置递减两种形式：</p>
 <p>前置：就是当语句包含前置递加或递减时，会先执行递加或者递减的操作，再执行语句。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">var</span> num2 = <span class="number">2</span> ;</span><br><span class="line"><span class="keyword">var</span> num3 = ++num1 + num2 ;  <span class="comment">//4</span></span><br><span class="line"><span class="keyword">var</span> num3 = num1 + num2 ;    <span class="comment">//4</span></span><br></pre></td></tr></table></figure>
-<p>后置：就是当语句包含后置递加或递减时，会先执行语句，再执行递加或者递减的操作，因此当前语句不会反映出递加或递减的运算结果。</p>
+<p>后置：就是当语句包含后置递加或递减时，会先执行语句，再执行递加或者递减的操作，<strong>因此当前语句不会反映出递加或递减的运算结果</strong>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">var</span> num2 = <span class="number">2</span> ;</span><br><span class="line"><span class="keyword">var</span> num3 = num1++ + num2 ;  <span class="comment">//3</span></span><br><span class="line"><span class="keyword">var</span> num3 = num1 + num2 ;    <span class="comment">//4</span></span><br></pre></td></tr></table></figure>
 <p>隐式类型转化，对非数值类型会执行Number()进行转换，对象调用valueof或者是toString(). </p>
 <p><br></p>
@@ -244,7 +247,7 @@ script标签
 <p>按位否：同位都为0则为0</p>
 <p>按位异或：同位只有一个1时返回1，其他返回0</p>
 <p><br></p>
-<h5 id="u5E03_u5C14_u64CD_u4F5C_u7B26__21__26amp_3B_26amp_3B__7C_7C"><a href="#u5E03_u5C14_u64CD_u4F5C_u7B26__21__26amp_3B_26amp_3B__7C_7C" class="headerlink" title="布尔操作符 ! &amp;&amp; ||"></a>布尔操作符 <code>!</code> <code>&amp;&amp;</code> <code>||</code></h5><p>逻辑非：去反</p>
+<h5 id="u5E03_u5C14_u64CD_u4F5C_u7B26__21__26amp_3B_26amp_3B__7C_7C"><a href="#u5E03_u5C14_u64CD_u4F5C_u7B26__21__26amp_3B_26amp_3B__7C_7C" class="headerlink" title="布尔操作符 ! &amp;&amp; ||"></a>布尔操作符 <code>!</code> <code>&amp;&amp;</code> <code>||</code></h5><p>逻辑非：取反</p>
 <p>逻辑与：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x &amp;&amp; y</span><br></pre></td></tr></table></figure>
 <p>x为真时，返回y<br>x为假时，返回x</p>
@@ -252,9 +255,11 @@ script标签
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x || y</span><br></pre></td></tr></table></figure>
 <p>x为真时，返回x<br>x为假时，返回y</p>
 <p>一般用<code>||</code>来判断取值。如果第一个变量为null或undefined，就会返回第二个变量。</p>
+<p>下面这个例子就是如果浏览器不支持<code>placeholder</code>属性，那就设置value的值为我们html里设置的placeholder的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">"input"</span>); <span class="comment">//type = "text"</span></span><br><span class="line"><span class="keyword">var</span> input.getAttribute(<span class="string">"value"</span>) = input.palceholder || input.getAttribute(<span class="string">"placeholder"</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h5 id="u52A0_u6027_u64CD_u4F5C_u7B26_+"><a href="#u52A0_u6027_u64CD_u4F5C_u7B26_+" class="headerlink" title="加性操作符 + -"></a>加性操作符 <code>+</code> <code>-</code></h5><p>加法：数值加法</p>
-<p>同时也所连字符。</p>
+<p><strong>同时也做连字符：</strong></p>
 <ul>
 <li>如果两个变量都是字符形式，则字符串拼接</li>
 <li>如果两个变量都是数值形式，则相加</li>
@@ -263,7 +268,8 @@ script标签
 <p>减法：数值减法</p>
 <p><br></p>
 <h5 id="u4E58_u6027_u64CD_u4F5C_u7B26_*_/__25"><a href="#u4E58_u6027_u64CD_u4F5C_u7B26_*_/__25" class="headerlink" title="乘性操作符 * / %"></a>乘性操作符 <code>*</code> <code>/</code> <code>%</code></h5><p><br></p>
-<h5 id="u5173_u7CFB_u64CD_u4F5C_u7B26__26gt_3B__26lt_3B__26gt_3B_3D__26lt_3B_3D"><a href="#u5173_u7CFB_u64CD_u4F5C_u7B26__26gt_3B__26lt_3B__26gt_3B_3D__26lt_3B_3D" class="headerlink" title="关系操作符 &gt; &lt; &gt;= &lt;="></a>关系操作符 <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></h5><ul>
+<h5 id="u5173_u7CFB_u64CD_u4F5C_u7B26__26gt_3B__26lt_3B__26gt_3B_3D__26lt_3B_3D"><a href="#u5173_u7CFB_u64CD_u4F5C_u7B26__26gt_3B__26lt_3B__26gt_3B_3D__26lt_3B_3D" class="headerlink" title="关系操作符 &gt; &lt; &gt;= &lt;="></a>关系操作符 <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></h5><p><em>类型转换</em></p>
+<ul>
 <li>如果有一个是数值类型，另一个的类型会隐式转化为数值型然后在做比较。</li>
 <li>如果两个都是字符型，则比较字符编码的位置的数字大小</li>
 <li>NaN和NaN无法进行比较，返回false</li>
@@ -293,13 +299,17 @@ script标签
 <h3 id="for_u8BED_u53E5"><a href="#for_u8BED_u53E5" class="headerlink" title="for语句"></a>for语句</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; arr.length ; i ++) &#123;</span><br><span class="line">    statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h3 id="for-in_u8BED_u53E5"><a href="#for-in_u8BED_u53E5" class="headerlink" title="for-in语句"></a>for-in语句</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> x <span class="keyword">in</span> o) &#123;</span><br><span class="line">    statement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>遍历枚举，x会作为对象中属性的名字，或者是数组中的index值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">"Mary"</span>, age:<span class="number">25</span>, address:<span class="string">"Wuhan"</span>&#125; ; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">var</span> x <span class="keyword">in</span> obj ) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x + <span class="string">":"</span> + obj[x])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">    打印结果为</span><br><span class="line"></span><br><span class="line">    name:Mary</span><br><span class="line">    age:25</span><br><span class="line">    address:Wuhan</span><br><span class="line"> */</span></span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h3 id="label_u8BED_u53E5"><a href="#label_u8BED_u53E5" class="headerlink" title="label语句"></a>label语句</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label:statement</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h3 id="break_continue_u8BED_u53E5"><a href="#break_continue_u8BED_u53E5" class="headerlink" title="break continue语句"></a>break continue语句</h3><p><code>break</code>：结束当前这次循环，且循环体后面的循环也不再进行</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; <span class="number">10</span> ; i ++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(i = <span class="number">5</span>)　&#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    num ++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<p>我自己的理解就是，<u>打破了/中断了</u>整个循环</p>
 <p><code>continue</code>：跳过当前这次循环，从循环体头部开始执行后面的循环</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; <span class="number">10</span> ; i ++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(i = <span class="number">5</span>)　&#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    num ++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">//9</span></span><br></pre></td></tr></table></figure>
+<p>我自己的理解就是，<u>跳过</u>本次，<u>继续后面的</u></p>
 <p><br></p>
 <h3 id="switch_u8BED_u53E5"><a href="#switch_u8BED_u53E5" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (expression) &#123;</span><br><span class="line">    <span class="keyword">case</span> value : </span><br><span class="line">        statement</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> value : </span><br><span class="line">        statement</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: </span><br><span class="line">        statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br></p>
@@ -313,7 +323,7 @@ script标签
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01/" data-id="cijfopkmd0000hwm190s3af8c" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01/" data-id="cijfoqpaw0000i6m1w4wcp6un" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -324,19 +334,19 @@ script标签
     
 <nav id="article-nav">
   
-    <a href="/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/14/javascript_知识点整理_02/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          从script标签的摆放位置来看看DOM树的渲染
+          javascript 知识点整理 02
         
       </div>
     </a>
   
   
-    <a href="/2016/01/14/javascript_知识点整理_02/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/14/消除inline-block两侧间距bug/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">javascript 知识点整理 02</div>
+      <div class="article-nav-title">消除inline-block两侧间距bug</div>
     </a>
   
 </nav>
@@ -359,7 +369,7 @@ script标签
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/14/响应式布局/" class="thumbnail">
+              <a href="/2016/01/15/响应式布局/" class="thumbnail">
   
     <span style="background-image:url(http://www.bootcss.com/p/responsive-nav.js/images/illustration.jpg)" alt="实现响应式的简单思路" class="thumbnail-image"></span>
   
@@ -368,8 +378,8 @@ script标签
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a></p>
-              <p class="item-title"><a href="/2016/01/14/响应式布局/" class="title">实现响应式的简单思路</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:51:20.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-title"><a href="/2016/01/15/响应式布局/" class="title">实现响应式的简单思路</a></p>
+              <p class="item-date"><time datetime="2016-01-15T13:07:10.000Z" itemprop="datePublished">2016-01-15</time></p>
             </div>
           </li>
         
@@ -393,7 +403,7 @@ script标签
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/14/javascript_知识点整理_01/" class="thumbnail">
+              <a href="/2016/01/14/javascript_知识点整理_03/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
@@ -402,8 +412,8 @@ script标签
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_01/" class="title">javascript 知识点整理 01</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:26:56.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_03/" class="title">javascript 知识点整理 03</a></p>
+              <p class="item-date"><time datetime="2016-01-14T06:03:00.000Z" itemprop="datePublished">2016-01-14</time></p>
             </div>
           </li>
         
@@ -420,14 +430,14 @@ script标签
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
               <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_02/" class="title">javascript 知识点整理 02</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:26:54.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-date"><time datetime="2016-01-14T06:02:00.000Z" itemprop="datePublished">2016-01-14</time></p>
             </div>
           </li>
         
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/14/javascript_知识点整理_03/" class="thumbnail">
+              <a href="/2016/01/14/javascript_知识点整理_01/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
@@ -436,8 +446,8 @@ script标签
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_03/" class="title">javascript 知识点整理 03</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:26:22.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_01/" class="title">javascript 知识点整理 01</a></p>
+              <p class="item-date"><time datetime="2016-01-14T06:01:00.000Z" itemprop="datePublished">2016-01-14</time></p>
             </div>
           </li>
         

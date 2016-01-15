@@ -143,7 +143,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/响应式布局/">实现响应式的简单思路</a>
+      <a class="article-title" href="/2016/01/15/响应式布局/">实现响应式的简单思路</a>
     </h1>
   
 
@@ -151,8 +151,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/响应式布局/">
-      <time datetime="2016-01-14T12:51:20.000Z" itemprop="datePublished">2016-01-14</time>
+    <a href="/2016/01/15/响应式布局/">
+      <time datetime="2016-01-15T13:07:10.000Z" itemprop="datePublished">2016-01-15</time>
     </a>
   </div>
 
@@ -169,22 +169,36 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <h1 id="u5B9E_u73B0_u54CD_u5E94_u5F0F_u7684_u57FA_u672C_u601D_u8DEF"><a href="#u5B9E_u73B0_u54CD_u5E94_u5F0F_u7684_u57FA_u672C_u601D_u8DEF" class="headerlink" title="实现响应式的基本思路"></a>实现响应式的基本思路</h1><h2 id="1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762"><a href="#1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762" class="headerlink" title="1. 自适应布局页面"></a>1. 自适应布局页面</h2><h2 id="2-__u4F7F_u7528viewport"><a href="#2-__u4F7F_u7528viewport" class="headerlink" title="2. 使用viewport"></a>2. 使用viewport</h2><pre><code>&lt;meta name=&quot;viewport&quot; 
+        <h2 id="1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762"><a href="#1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762" class="headerlink" title="1. 自适应布局页面"></a>1. 自适应布局页面</h2><p>这部分我觉得最重要的是要有自适应布局的意识，首先设计稿制作的时候多用栅格化设计，区块明显，比如小米和联想的商城首页（虽然这俩都没有做响应式，手机端貌似是单独的？），再比如摩托罗拉和诺基亚的首页。</p>
+<p>然后多用float, 百分比单位，以及css3里的flex弹性布局等等。</p>
+<p>自适应布局其实就是随着显示设备宽度的变化而让页面版式进行调整，一般就是宽度自适应调整。虽然单页面应用没做过不是很理解，但是一般做响应式就是直接自适应加媒介查询（吧？）当然诸如bootstrap也提供了栅格化的解决方案，可以让gird区块直接浮动调整。</p>
+<h2 id="2-__u4F7F_u7528viewport"><a href="#2-__u4F7F_u7528viewport" class="headerlink" title="2. 使用viewport"></a>2. 使用viewport</h2><p>上面说到设备宽度，关于设备宽度有一个meta标签viewport，用来定义不同设备的页面缩放、页面宽度。</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; 
 content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no&quot; /&gt;
 </code></pre><p>viewport有六个默认的属性，包括<code>width</code>, <code>initial-scale</code>, <code>maximum-scale</code>, <code>minimum-scale</code>, <code>height</code>, <code>user-scalable</code></p>
-<p><strong>viewport实际上应当包括三种情况：</strong></p>
+<p>个人理解<strong>viewport实际上应当包括三种情况：</strong></p>
 <ul>
-<li>layout-viewport  浏览器默设置的viewport宽度，往往大于屏幕视窗大小</li>
-<li>visial-viewpoort  设备的实际显示范围</li>
-<li>idea-viewport  不同设备的实际显示范围</li>
+<li>layout-viewport  浏览器默设置的viewport宽度（移动端上往往大于屏幕视窗大小）</li>
+<li>visial-viewpoort  设备的实际显示范围（比如手机320px宽那就显示这么宽）</li>
+<li>idea-viewport  不同设备的实际显示范围（每个手机的尺寸不一样吗，所以是理想的）</li>
 </ul>
-<p>width=device-width就是设置页面为idea-viewport<br>    但是苹果设备不支持。横竖都为竖屏的idea-viewport</p>
-<p>使用initial-scale=1.0 ，就是使页面基于idea-viewport进行缩放，因此直接写initial-scale=1.0也可以达到这样的效果<br>    但是windows设备不支持，横竖都为竖屏的idea-viewport</p>
+<p>width=device-width就是设置页面为idea-viewport，让页面宽度等于设备宽度。</p>
+<p><em>但是苹果设备不支持。横竖都为竖屏的idea-viewport</em></p>
+<p>使用initial-scale=1.0 ，就是使页面基于idea-viewport进行缩放，因此直接写initial-scale=1.0也可以达到这样的效果，那页面尺寸就和实际尺寸一样了。</p>
+<p><em>但是windows设备不支持，横竖都为竖屏的idea-viewport</em></p>
 <p>两者都写上的话，取两者定义的最大的宽度的viewport</p>
 <pre><code>visual viewport宽度 = ideal viewport宽度  / 当前缩放值
 当前缩放值 = ideal viewport宽度  / visual viewport宽度
 </code></pre><p>在iphone和ipad上，无论你给viewport设的宽的是多少，如果没有指定默认的缩放值，则iphone和ipad会自动计算这个缩放值，以达到当前页面不会出现横向滚动条(或者说viewport的宽度就是屏幕的宽度)的目的。</p>
-<h2 id="3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25"><a href="#3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25" class="headerlink" title="3. 使用相对宽度%"></a>3. 使用相对宽度%</h2><h2 id="4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem"><a href="#4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem" class="headerlink" title="4. 使用相对单位em rem"></a>4. 使用相对单位em rem</h2><h2 id="5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868"><a href="#5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868" class="headerlink" title="5. 使用media query替换样式表"></a>5. 使用<code>media query</code>替换样式表</h2><pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; 
+<h2 id="3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25"><a href="#3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25" class="headerlink" title="3. 使用相对宽度%"></a>3. 使用相对宽度%</h2><p>主要是不要用定宽，这个两栏、多栏自适应布局其实都用的很多了。但是主要有比如说margin, padding等依靠的是父元素的宽度，设置的时候要格外注意</p>
+<h2 id="4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem"><a href="#4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem" class="headerlink" title="4. 使用相对单位em rem"></a>4. 使用相对单位em rem</h2><p>em是基于当前父元素的font-size</p>
+<p>rem中得”r”在W3C里给的定义是”root”，所以在html元素下定义，全局都是有效的，可以很方便的用来做全局的统一单位。</p>
+<ul>
+<li>下列代码没有给根元素定义为比如20px或者别的什么数值，主要是为了方便换算</li>
+<li>没有用1px是因为（之前版本的？）chrome对字体大小要求不能小于10px</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    rem: 100px;</span><br><span class="line">&#125;</span><br><span class="line">div#parent &#123;</span><br><span class="line">    width: 0.1 rem; //10px</span><br><span class="line">    height: 0.1 rem;//10px</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868"><a href="#5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868" class="headerlink" title="5. 使用media query替换样式表"></a>5. 使用<code>media query</code>替换样式表</h2><pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; 
 media=&quot;screen and (max-device-width: 400px)&quot; 
 href=&quot;tinyScreen.css&quot; /&gt;
 </code></pre><p>上面的代码意思是，如果屏幕宽度小于400像素（max-device-width: 400px），就加载tinyScreen.css文件。</p>
@@ -192,13 +206,16 @@ href=&quot;tinyScreen.css&quot; /&gt;
 <pre><code>@media screen and (max-width: ) and (min-width: ) {
     csscode
 } 
-</code></pre><p>建议@media都写在原始样式附近，因为@media依然会继承原始样式。这样便于修改。</p>
-<h2 id="7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid"><a href="#7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid" class="headerlink" title="7. 使用流动布局float/fluid grid"></a>7. 使用流动布局<code>float</code>/fluid grid</h2><h2 id="8-__u56FE_u7247_u81EA_u9002_u5E94"><a href="#8-__u56FE_u7247_u81EA_u9002_u5E94" class="headerlink" title="8. 图片自适应"></a>8. 图片自适应</h2><p>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code><a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
+</code></pre><p>个人建议@media都写在原始样式附近，因为@media依然会继承原始样式。这样便于修改。</p>
+<p>不过我习惯写完之后最后全部截取出来放到一个response.css里，要响应式就引用，不需要就不引用</p>
+<h2 id="7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid"><a href="#7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid" class="headerlink" title="7. 使用流动布局float/fluid grid"></a>7. 使用流动布局<code>float</code>/fluid grid</h2><p>使用float，包裹元素宽度不够了就自动换行。但是最好还是给元素写上百分比的宽度，这样可以自动充满这一行</p>
+<h5 id="u81F3_u4E8E_u6D41_u52A8_u5E03_u5C40_u548C_u5F39_u6027_u5E03_u5C40"><a href="#u81F3_u4E8E_u6D41_u52A8_u5E03_u5C40_u548C_u5F39_u6027_u5E03_u5C40" class="headerlink" title="至于流动布局和弹性布局"></a>至于流动布局和弹性布局</h5><p>弹性布局主要就是使用flex，通过对主轴次轴进行持续排列，以及给flex-item设置<code>flex-grow</code> <code>flex-shrink</code> <code>flex-basis</code> 来自动调整子元素</p>
+<h2 id="8-__u56FE_u7247_u81EA_u9002_u5E94"><a href="#8-__u56FE_u7247_u81EA_u9002_u5E94" class="headerlink" title="8. 图片自适应"></a>8. 图片自适应</h2><p>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code><a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/响应式布局/" data-id="cijfopkon000ihwm1k9mem9a8" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/响应式布局/" data-id="cijfoqpc8000ii6m1r94ej4u1" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -250,132 +267,10 @@ href=&quot;tinyScreen.css&quot; /&gt;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" data-id="cijfopkou000mhwm1uiblpuk6" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/从script标签的摆放位置来看看DOM树的渲染/" data-id="cijfoqpcd000mi6m1n32oy99h" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-javascript_知识点整理_01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/javascript_知识点整理_01/">javascript 知识点整理 01</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/javascript_知识点整理_01/">
-      <time datetime="2016-01-14T12:26:56.000Z" itemprop="datePublished">2016-01-14</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
-<blockquote>
-<p>script标签</p>
-<p>基本语法（标识符、操作符）</p>
-<p>语句</p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2016/01/14/javascript_知识点整理_01/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01/" data-id="cijfopkmd0000hwm190s3af8c" class="article-share-link">分享到</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-javascript_知识点整理_02" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/javascript_知识点整理_02/">javascript 知识点整理 02</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/javascript_知识点整理_02/">
-      <time datetime="2016-01-14T12:26:54.000Z" itemprop="datePublished">2016-01-14</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
-<blockquote>
-<p>变量声明</p>
-<p>类型判断</p>
-<p>数据类型（原始类型、引用类型、类型转换、函数）</p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2016/01/14/javascript_知识点整理_02/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_02/" data-id="cijfopkp5000thwm1owhq2npr" class="article-share-link">分享到</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -403,7 +298,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2016/01/14/javascript_知识点整理_03/">
-      <time datetime="2016-01-14T12:26:22.000Z" itemprop="datePublished">2016-01-14</time>
+      <time datetime="2016-01-14T06:03:00.000Z" itemprop="datePublished">2016-01-14</time>
     </a>
   </div>
 
@@ -451,7 +346,129 @@ href=&quot;tinyScreen.css&quot; /&gt;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijfopkoy000qhwm19yngioc5" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijfoqpcj000qi6m17nlv97n2" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-javascript_知识点整理_02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/javascript_知识点整理_02/">javascript 知识点整理 02</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/14/javascript_知识点整理_02/">
+      <time datetime="2016-01-14T06:02:00.000Z" itemprop="datePublished">2016-01-14</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
+<blockquote>
+<p>变量声明</p>
+<p>类型判断</p>
+<p>数据类型（原始类型、引用类型、类型转换、函数）</p>
+</blockquote>
+        
+          <p class="article-more-link">
+            <a href="/2016/01/14/javascript_知识点整理_02/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_02/" data-id="cijfoqpcm000ti6m18ol7l0z0" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-javascript_知识点整理_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/14/javascript_知识点整理_01/">javascript 知识点整理 01</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/14/javascript_知识点整理_01/">
+      <time datetime="2016-01-14T06:01:00.000Z" itemprop="datePublished">2016-01-14</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
+<blockquote>
+<p>script标签</p>
+<p>基本语法（标识符、操作符）</p>
+<p>语句</p>
+</blockquote>
+        
+          <p class="article-more-link">
+            <a href="/2016/01/14/javascript_知识点整理_01/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01/" data-id="cijfoqpaw0000i6m1w4wcp6un" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -482,7 +499,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2016/01/14/消除inline-block两侧间距bug/">
-      <time datetime="2016-01-14T07:25:30.000Z" itemprop="datePublished">2016-01-14</time>
+      <time datetime="2016-01-14T04:25:30.000Z" itemprop="datePublished">2016-01-14</time>
     </a>
   </div>
 
@@ -512,7 +529,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/消除inline-block两侧间距bug/" data-id="cijfopkod0008hwm1uq5hshfs" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/消除inline-block两侧间距bug/" data-id="cijfoqpby0008i6m1ojxwjq0g" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -551,7 +568,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2016/01/14/快速搭建hexo静态博客/">
-      <time datetime="2016-01-14T07:25:30.000Z" itemprop="datePublished">2016-01-14</time>
+      <time datetime="2016-01-14T02:25:30.000Z" itemprop="datePublished">2016-01-14</time>
     </a>
   </div>
 
@@ -578,7 +595,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cijfopkoi000dhwm1euvpaiq2" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cijfoqpc2000di6m1if9fb18v" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -603,7 +620,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/14/响应式布局/" class="thumbnail">
+              <a href="/2016/01/15/响应式布局/" class="thumbnail">
   
     <span style="background-image:url(http://www.bootcss.com/p/responsive-nav.js/images/illustration.jpg)" alt="实现响应式的简单思路" class="thumbnail-image"></span>
   
@@ -612,8 +629,8 @@ href=&quot;tinyScreen.css&quot; /&gt;
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a></p>
-              <p class="item-title"><a href="/2016/01/14/响应式布局/" class="title">实现响应式的简单思路</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:51:20.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-title"><a href="/2016/01/15/响应式布局/" class="title">实现响应式的简单思路</a></p>
+              <p class="item-date"><time datetime="2016-01-15T13:07:10.000Z" itemprop="datePublished">2016-01-15</time></p>
             </div>
           </li>
         
@@ -637,7 +654,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/14/javascript_知识点整理_01/" class="thumbnail">
+              <a href="/2016/01/14/javascript_知识点整理_03/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
@@ -646,8 +663,8 @@ href=&quot;tinyScreen.css&quot; /&gt;
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_01/" class="title">javascript 知识点整理 01</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:26:56.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_03/" class="title">javascript 知识点整理 03</a></p>
+              <p class="item-date"><time datetime="2016-01-14T06:03:00.000Z" itemprop="datePublished">2016-01-14</time></p>
             </div>
           </li>
         
@@ -664,14 +681,14 @@ href=&quot;tinyScreen.css&quot; /&gt;
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
               <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_02/" class="title">javascript 知识点整理 02</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:26:54.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-date"><time datetime="2016-01-14T06:02:00.000Z" itemprop="datePublished">2016-01-14</time></p>
             </div>
           </li>
         
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/14/javascript_知识点整理_03/" class="thumbnail">
+              <a href="/2016/01/14/javascript_知识点整理_01/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
@@ -680,8 +697,8 @@ href=&quot;tinyScreen.css&quot; /&gt;
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_03/" class="title">javascript 知识点整理 03</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:26:22.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_01/" class="title">javascript 知识点整理 01</a></p>
+              <p class="item-date"><time datetime="2016-01-14T06:01:00.000Z" itemprop="datePublished">2016-01-14</time></p>
             </div>
           </li>
         
