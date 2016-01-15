@@ -5,34 +5,22 @@
   
   <title>实现响应式的简单思路 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#实现响应式的基本思路
-##1. 自适应布局页面
-##2. 使用viewport    
-viewport有六个默认的属性，包括width, initial-scale, maximum-scale, minimum-scale, height, user-scalable
-viewport实际上应当包括三种情况：
-
-layout-viewport  浏览器默设置的viewport宽度，往往大于屏">
+  <meta name="description" content="实现响应式的基本思路1. 自适应布局页面2. 使用viewport&amp;lt;meta name=&amp;quot;viewport&amp;quot; 
+content=&amp;quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no&amp;quot; /&amp;gt;
+viewport有六个默认的属性，包括width, initia">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现响应式的简单思路">
 <meta property="og:url" content="http://lcc19941214.github.io/2016/01/14/响应式布局/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="#实现响应式的基本思路
-##1. 自适应布局页面
-##2. 使用viewport    
-viewport有六个默认的属性，包括width, initial-scale, maximum-scale, minimum-scale, height, user-scalable
-viewport实际上应当包括三种情况：
-
-layout-viewport  浏览器默设置的viewport宽度，往往大于屏">
-<meta property="og:updated_time" content="2016-01-14T12:46:57.000Z">
+<meta property="og:description" content="实现响应式的基本思路1. 自适应布局页面2. 使用viewport&amp;lt;meta name=&amp;quot;viewport&amp;quot; 
+content=&amp;quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no&amp;quot; /&amp;gt;
+viewport有六个默认的属性，包括width, initia">
+<meta property="og:updated_time" content="2016-01-14T12:51:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现响应式的简单思路">
-<meta name="twitter:description" content="#实现响应式的基本思路
-##1. 自适应布局页面
-##2. 使用viewport    
-viewport有六个默认的属性，包括width, initial-scale, maximum-scale, minimum-scale, height, user-scalable
-viewport实际上应当包括三种情况：
-
-layout-viewport  浏览器默设置的viewport宽度，往往大于屏">
+<meta name="twitter:description" content="实现响应式的基本思路1. 自适应布局页面2. 使用viewport&amp;lt;meta name=&amp;quot;viewport&amp;quot; 
+content=&amp;quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no&amp;quot; /&amp;gt;
+viewport有六个默认的属性，包括width, initia">
   
   
     <link rel="icon" href="favicon.png">
@@ -170,7 +158,7 @@ layout-viewport  浏览器默设置的viewport宽度，往往大于屏">
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2016/01/14/响应式布局/">
-      <time datetime="2016-01-14T12:46:57.000Z" itemprop="datePublished">2016-01-14</time>
+      <time datetime="2016-01-14T12:51:20.000Z" itemprop="datePublished">2016-01-14</time>
     </a>
   </div>
 
@@ -187,10 +175,9 @@ layout-viewport  浏览器默设置的viewport宽度，往往大于屏">
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>#实现响应式的基本思路</p>
-<p>##1. 自适应布局页面</p>
-<p>##2. 使用viewport<br>    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"></p>
-<p>viewport有六个默认的属性，包括<code>width</code>, <code>initial-scale</code>, <code>maximum-scale</code>, <code>minimum-scale</code>, <code>height</code>, <code>user-scalable</code></p>
+        <h1 id="u5B9E_u73B0_u54CD_u5E94_u5F0F_u7684_u57FA_u672C_u601D_u8DEF"><a href="#u5B9E_u73B0_u54CD_u5E94_u5F0F_u7684_u57FA_u672C_u601D_u8DEF" class="headerlink" title="实现响应式的基本思路"></a>实现响应式的基本思路</h1><h2 id="1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762"><a href="#1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762" class="headerlink" title="1. 自适应布局页面"></a>1. 自适应布局页面</h2><h2 id="2-__u4F7F_u7528viewport"><a href="#2-__u4F7F_u7528viewport" class="headerlink" title="2. 使用viewport"></a>2. 使用viewport</h2><pre><code>&lt;meta name=&quot;viewport&quot; 
+content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no&quot; /&gt;
+</code></pre><p>viewport有六个默认的属性，包括<code>width</code>, <code>initial-scale</code>, <code>maximum-scale</code>, <code>minimum-scale</code>, <code>height</code>, <code>user-scalable</code></p>
 <p><strong>viewport实际上应当包括三种情况：</strong></p>
 <ul>
 <li>layout-viewport  浏览器默设置的viewport宽度，往往大于屏幕视窗大小</li>
@@ -203,25 +190,21 @@ layout-viewport  浏览器默设置的viewport宽度，往往大于屏">
 <pre><code>visual viewport宽度 = ideal viewport宽度  / 当前缩放值
 当前缩放值 = ideal viewport宽度  / visual viewport宽度
 </code></pre><p>在iphone和ipad上，无论你给viewport设的宽的是多少，如果没有指定默认的缩放值，则iphone和ipad会自动计算这个缩放值，以达到当前页面不会出现横向滚动条(或者说viewport的宽度就是屏幕的宽度)的目的。</p>
-<p>##3. 使用相对宽度%</p>
-<p>##4. 使用相对单位em rem</p>
-<p>##5. 使用<code>media query</code>替换样式表 </p>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; 
+<h2 id="3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25"><a href="#3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25" class="headerlink" title="3. 使用相对宽度%"></a>3. 使用相对宽度%</h2><h2 id="4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem"><a href="#4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem" class="headerlink" title="4. 使用相对单位em rem"></a>4. 使用相对单位em rem</h2><h2 id="5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868"><a href="#5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868" class="headerlink" title="5. 使用media query替换样式表"></a>5. 使用<code>media query</code>替换样式表</h2><pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; 
 media=&quot;screen and (max-device-width: 400px)&quot; 
 href=&quot;tinyScreen.css&quot; /&gt;
 </code></pre><p>上面的代码意思是，如果屏幕宽度小于400像素（max-device-width: 400px），就加载tinyScreen.css文件。</p>
-<p>##6. 使用媒介查询<code>@media</code><br>max-width和min-width是否同时出现都是可选。当屏幕尺寸符合宽度要求时，就会显示对应部分的css样式</p>
+<h2 id="6-__u4F7F_u7528_u5A92_u4ECB_u67E5_u8BE2@media"><a href="#6-__u4F7F_u7528_u5A92_u4ECB_u67E5_u8BE2@media" class="headerlink" title="6. 使用媒介查询@media"></a>6. 使用媒介查询<code>@media</code></h2><p>max-width和min-width是否同时出现都是可选。当屏幕尺寸符合宽度要求时，就会显示对应部分的css样式</p>
 <pre><code>@media screen and (max-width: ) and (min-width: ) {
     csscode
 } 
 </code></pre><p>建议@media都写在原始样式附近，因为@media依然会继承原始样式。这样便于修改。</p>
-<p>##7. 使用流动布局<code>float</code>/fluid grid</p>
-<p>##8. 图片自适应<br>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code><a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
+<h2 id="7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid"><a href="#7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid" class="headerlink" title="7. 使用流动布局float/fluid grid"></a>7. 使用流动布局<code>float</code>/fluid grid</h2><h2 id="8-__u56FE_u7247_u81EA_u9002_u5E94"><a href="#8-__u56FE_u7247_u81EA_u9002_u5E94" class="headerlink" title="8. 图片自适应"></a>8. 图片自适应</h2><p>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code><a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/响应式布局/" data-id="cije94115000imlm13hi2xyk0" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/响应式布局/" data-id="cijfopkon000ihwm1k9mem9a8" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -268,7 +251,7 @@ href=&quot;tinyScreen.css&quot; /&gt;
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a></p>
               <p class="item-title"><a href="/2016/01/14/响应式布局/" class="title">实现响应式的简单思路</a></p>
-              <p class="item-date"><time datetime="2016-01-14T12:46:57.000Z" itemprop="datePublished">2016-01-14</time></p>
+              <p class="item-date"><time datetime="2016-01-14T12:51:20.000Z" itemprop="datePublished">2016-01-14</time></p>
             </div>
           </li>
         
