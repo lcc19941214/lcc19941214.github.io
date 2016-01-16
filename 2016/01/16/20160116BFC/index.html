@@ -3,17 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: 运行环境-浏览器-浏览器兼容 | AChuan</title>
+  <title>怎么理解BFC | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AChuan">
-<meta property="og:url" content="http://lcc19941214.github.io/categories/运行环境-浏览器-浏览器兼容/index.html">
+  <meta name="description" content="至今还记得面试今日头条实习的时候，面试官问我如何清除浮动，我说：“……巴拉巴拉……第N种方法，可以给父元素加一个overflow:hidden触发一个BFC……“
+然后面试官紧接着问我啥是BFC……其实我那个时候还不懂……
+于是果断恶补一下BFC
+
+BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里的元素以一种什么样的方式进行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎么理解BFC">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/16/20160116BFC/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:description" content="至今还记得面试今日头条实习的时候，面试官问我如何清除浮动，我说：“……巴拉巴拉……第N种方法，可以给父元素加一个overflow:hidden触发一个BFC……“
+然后面试官紧接着问我啥是BFC……其实我那个时候还不懂……
+于是果断恶补一下BFC
+
+BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里的元素以一种什么样的方式进行">
+<meta property="og:updated_time" content="2016-01-15T17:07:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AChuan">
-<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta name="twitter:title" content="怎么理解BFC">
+<meta name="twitter:description" content="至今还记得面试今日头条实习的时候，面试官问我如何清除浮动，我说：“……巴拉巴拉……第N种方法，可以给父元素加一个overflow:hidden触发一个BFC……“
+然后面试官紧接着问我啥是BFC……其实我那个时候还不懂……
+于是果断恶补一下BFC
+
+BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里的元素以一种什么样的方式进行">
   
   
     <link rel="icon" href="favicon.png">
@@ -133,50 +146,75 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-category-wrap">
-      <span class="archive-category">运行环境-浏览器-浏览器兼容</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-20160116BFC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/2016/01/14/消除inline-block两侧间距bug/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/1/14/eg1.png
-)" alt="消除inline-block两侧间距bug" class="thumbnail-image"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/14/消除inline-block两侧间距bug/">消除inline-block两侧间距bug</a>
+    <h1 class="article-title" itemprop="name">
+      怎么理解BFC
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/消除inline-block两侧间距bug/">
-      <time datetime="2016-01-14T04:25:30.000Z" itemprop="datePublished">2016 1月 14</time>
+    <a href="/2016/01/16/20160116BFC/">
+      <time datetime="2016-01-15T17:02:00.000Z" itemprop="datePublished">2016-01-16</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a>
   </div>
-</article>
+
+        </div>
+      </header>
     
-    </div></section>
-    </section>
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>至今还记得面试今日头条实习的时候，面试官问我如何清除浮动，我说：“……巴拉巴拉……第N种方法，可以给父元素加一个<code>overflow:hidden</code>触发一个BFC……“</p>
+<p>然后面试官紧接着问我啥是BFC……其实我那个时候还不懂……</p>
+<p>于是果断恶补一下BFC</p>
+<hr>
+<p>BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里的元素以一种什么样的方式进行排列布局，以及这个区域与临近的元素是怎样的关系。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="cijgno1ww0000asm1qx7jksji" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">从script标签的摆放位置来看看DOM树的渲染</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
       
         <aside id="sidebar">
   
