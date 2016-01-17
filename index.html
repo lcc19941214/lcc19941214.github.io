@@ -101,7 +101,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        9
+        10
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -134,6 +134,72 @@
 
       
       <section id="main">
+      <article id="post-20160117margincollapse" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/20160117margincollapse/">外边距塌陷</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/17/20160117margincollapse/">
+      <time datetime="2016-01-17T11:26:00.000Z" itemprop="datePublished">2016-01-17</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>参考文章：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing</a></p>
+<p>外边距重叠其实<em>指的是top和bottom的margin的重叠</em>：</p>
+<ol>
+<li><p>两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-top会合并</p>
+</li>
+<li><p>父级块元素中的第一个子元素在和父元素顶部没有border, padding, inline-content,  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear" target="_blank" rel="external">clearance</a> (清楚浮动)分隔；父级块元素的 margin-bottom 与它的最后一个子元素之间没有border、padding、inline content、height、min-height、max-height 分隔</p>
+</li>
+<li><p>如果块元素 margin-top 与 margin-bottom 之间没有border、padding、inline content、height、min-height来分隔，那么它的上下外边距合并。——因为根元素也是个BFC</p>
+</li>
+</ol>
+<hr>
+<p>消除外边距重叠</p>
+<p>根据上面的定义，对于相邻元素没有border, padding等的情况，彼此设置一个1px的透明edge即可</p>
+<p>也可以给两个相邻元素设置包含块为BFC，因为只有同BFC内的子元素上下margin会发生重叠</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/" data-id="cijigi2co001ffhm1ag3sewgg" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-20160116BFC" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -143,7 +209,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/16/20160116BFC/">怎么理解BFC</a>
+      <a class="article-title" href="/2016/01/16/20160116BFC/">怎么理解BFC，顺便说说清除浮动</a>
     </h1>
   
 
@@ -168,17 +234,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-                
         <p>至今还记得面试今日头条实习的时候，面试官问我如何清除浮动，我说：“……巴拉巴拉……第N种方法，可以给父元素加一个<code>overflow:hidden</code>触发一个BFC……“</p>
 <p>然后面试官紧接着问我啥是BFC……其实我那个时候还不懂……</p>
-<p>于是果断恶补一下BFC</p>
+<p>于是果断恶补一下BFC/<strong>顺便说说清除浮动的几种方式</strong></p>
 <hr>
 <p>BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里的元素以一种什么样的方式进行排列布局，以及这个区域与临近的元素是怎样的关系。</p>
-
+<hr>
+<h3 id="u5982_u4F55_u8BBE_u7F6EBFC"><a href="#u5982_u4F55_u8BBE_u7F6EBFC" class="headerlink" title="如何设置BFC"></a>如何设置BFC</h3><ul>
+<li><p><code>html</code>会生成一个BFC</p>
+</li>
+<li><p><code>overflow</code>不为<code>visible</code></p>
+</li>
+<li><p><code>position</code>不为<code>static</code> <code>relative</code></p>
+</li>
+<li><p><code>float</code>不为<code>none</code></p>
+</li>
+<li><p><code>display</code>为<code>inline-block</code> <code>table-cell</code> <code>table-caption</code> <code>flex</code> <code>inline-flex</code></p>
+</li>
+</ul>
+<hr>
+<h3 id="BFC_u5185_u90E8_u5E03_u5C40_u89C4_u5219"><a href="#BFC_u5185_u90E8_u5E03_u5C40_u89C4_u5219" class="headerlink" title="BFC内部布局规则"></a>BFC内部布局规则</h3><ul>
+<li><p>BFC内的子元素从上到下顺序排列</p>
+</li>
+<li><p>BFC内子元素的margin-left和包含块的border-left相接触（从右往左排列则相反）</p>
+</li>
+</ul>
+<blockquote>
+<p>In a block formatting context, each box’s left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch). This is true even in the presence of floats (although a box’s line boxes may shrink due to the floats), unless the box establishes a new block formatting context (in which case the box itself may become narrower due to the floats).<br>在BFC中，每个盒子的左外边框紧挨着包含块的左边框（从右到左的格式，则为紧挨右边框）。即使存在浮动也是这样的（尽管一个盒子的边框会由于浮动而收缩），除非这个盒子的内部创建了一个新的BFC浮动，盒子本身将会变得更窄）。</p>
+</blockquote>
+<ul>
+<li><p>BFC内的浮动元素会参与包含块的高度计算（所以就是这么用来清除浮动的）</p>
+</li>
+<li><p>BFC不会与同级的浮动元素重叠</p>
+</li>
+<li><p>BFC内的子元素的上下margin会发生重叠（关于外边框塌陷，MDN的文档描述可以看<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing">这里</a></p>
+</li>
+<li><p>BFC是一个独立的渲染区域，容器里面的子元素不会影响到外面的元素</p>
+</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/01/16/20160116BFC/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="cijgno1ww0000asm1qx7jksji" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="cijig5wj00000fhm1fia1ksev" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -291,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" data-id="cijgno1yk000oasm140u560g5" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" data-id="cijig5wkh000ofhm19zirru2k" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
@@ -359,7 +461,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/纯css美化表单——checkbox/" data-id="cijgno1y10008asm18rzhunjt" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/纯css美化表单——checkbox/" data-id="cijig5wjw0008fhm128hrz1ql" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -417,7 +519,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/响应式布局/" data-id="cijgno1yf000kasm1w2sdknz9" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/响应式布局/" data-id="cijig5wka000kfhm1di3qpotm" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -492,7 +594,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijgno1yp000tasm10znm707d" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijig5wkm000tfhm1otrc5142" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -554,7 +656,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_02/" data-id="cijgno1yt000yasm1gmt8io52" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_02/" data-id="cijig5wkq000yfhm1net89vka" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -615,7 +717,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01/" data-id="cijgno1yv0011asm1j90c7tyj" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01/" data-id="cijig5wkt0011fhm1bluxfnn8" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -676,7 +778,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/消除inline-block两侧间距bug/" data-id="cijgno1y7000basm1w5xaz6o7" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/消除inline-block两侧间距bug/" data-id="cijig5wk1000bfhm1gb7ogykh" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -742,7 +844,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cijgno1yc000fasm1g8widhqq" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/快速搭建hexo静态博客/" data-id="cijig5wk6000ffhm109rfv0sf" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -767,16 +869,33 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/16/20160116BFC/" class="thumbnail">
+              <a href="/2016/01/17/20160117margincollapse/" class="thumbnail">
   
-    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="怎么理解BFC" class="thumbnail-image"></span>
+    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="外边距塌陷" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
-              <p class="item-title"><a href="/2016/01/16/20160116BFC/" class="title">怎么理解BFC</a></p>
+              <p class="item-title"><a href="/2016/01/17/20160117margincollapse/" class="title">外边距塌陷</a></p>
+              <p class="item-date"><time datetime="2016-01-17T11:26:00.000Z" itemprop="datePublished">2016-01-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/16/20160116BFC/" class="thumbnail">
+  
+    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="怎么理解BFC，顺便说说清除浮动" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
+              <p class="item-title"><a href="/2016/01/16/20160116BFC/" class="title">怎么理解BFC，顺便说说清除浮动</a></p>
               <p class="item-date"><time datetime="2016-01-15T17:02:00.000Z" itemprop="datePublished">2016-01-16</time></p>
             </div>
           </li>
@@ -832,23 +951,6 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/14/javascript_知识点整理_03/" class="thumbnail">
-  
-    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 03" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/14/javascript_知识点整理_03/" class="title">javascript 知识点整理 03</a></p>
-              <p class="item-date"><time datetime="2016-01-14T06:03:00.000Z" itemprop="datePublished">2016-01-14</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -858,7 +960,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -867,7 +969,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -876,7 +978,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
