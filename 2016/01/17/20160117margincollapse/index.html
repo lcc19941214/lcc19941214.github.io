@@ -6,30 +6,30 @@
   <title>外边距塌陷 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠：
+外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
 
 两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-top会合并
 
-父级块元素中的第一个子元素在和父元素顶部没有border, paddin">
+父级块元素中的第一个子元素在和父元素顶部没有border">
 <meta property="og:type" content="article">
 <meta property="og:title" content="外边距塌陷">
 <meta property="og:url" content="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/index.html">
 <meta property="og:site_name" content="AChuan">
 <meta property="og:description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠：
+外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
 
 两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-top会合并
 
-父级块元素中的第一个子元素在和父元素顶部没有border, paddin">
-<meta property="og:updated_time" content="2016-01-17T12:10:45.000Z">
+父级块元素中的第一个子元素在和父元素顶部没有border">
+<meta property="og:updated_time" content="2016-01-17T12:17:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="外边距塌陷">
 <meta name="twitter:description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠：
+外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
 
 两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-top会合并
 
-父级块元素中的第一个子元素在和父元素顶部没有border, paddin">
+父级块元素中的第一个子元素在和父元素顶部没有border">
   
   
     <link rel="icon" href="favicon.png">
@@ -185,7 +185,7 @@
       
                 
         <p>参考文章：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing</a></p>
-<p>外边距重叠其实<em>指的是top和bottom的margin的重叠</em>：</p>
+<p>外边距重叠其实<em>指的是top和bottom的margin的重叠</em>，一共有三种情况：</p>
 <ol>
 <li><p>两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-top会合并</p>
 </li>
@@ -198,11 +198,13 @@
 <p>消除外边距重叠</p>
 <p>根据上面的定义，对于相邻元素没有border, padding等的情况，彼此设置一个1px的透明edge即可</p>
 <p>也可以给两个相邻元素设置包含块为BFC，因为只有同BFC内的子元素上下margin会发生重叠</p>
+<hr>
+<p>对于浮动元素，绝对定位，分属不同BFC内的元素，不会有边距重叠的现象</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/" data-id="cijigi2co001ffhm1ag3sewgg" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/" data-id="cijk0xxv30014bfm1i7j6r3uj" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
