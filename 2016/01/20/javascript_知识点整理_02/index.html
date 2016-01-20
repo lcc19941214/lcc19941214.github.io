@@ -13,7 +13,7 @@
 引用类型拷贝（深拷贝、浅拷贝）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 知识点整理 02">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_02/index.html">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02/index.html">
 <meta property="og:site_name" content="AChuan">
 <meta property="og:description" content="这部分内容的整理都来自于《js高级程序设计》
 
@@ -21,7 +21,7 @@
 数据类型（原始类型、引用类型、类型转换、函数）
 函数（arguments对象、参数传递）
 引用类型拷贝（深拷贝、浅拷贝）">
-<meta property="og:updated_time" content="2016-01-16T13:17:11.000Z">
+<meta property="og:updated_time" content="2016-01-20T15:01:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 知识点整理 02">
 <meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
@@ -166,8 +166,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/javascript_知识点整理_02/">
-      <time datetime="2016-01-14T06:02:00.000Z" itemprop="datePublished">2016-01-14</time>
+    <a href="/2016/01/20/javascript_知识点整理_02/">
+      <time datetime="2016-01-20T12:27:00.000Z" itemprop="datePublished">2016-01-20</time>
     </a>
   </div>
 
@@ -220,7 +220,10 @@
 <li>因为null是对空对象的一个引用，所以使用typeof返回其类型时会返回<code>object</code></li>
 </ul>
 <h5 id="undefined_null"><a href="#undefined_null" class="headerlink" title="undefined null"></a><code>undefined</code> <code>null</code></h5><ul>
-<li>undefined是从null派生出来的，所以<code>undefined == null</code>会返回<code>true</code>，但是<code>undefined === null</code>会返回<code>false</code></li>
+<li><p>undefined是从null派生出来的，所以<code>undefined == null</code>会返回<code>true</code>，但是<code>undefined === null</code>会返回<code>false</code></p>
+</li>
+<li><p>null是对空对象的引用</p>
+</li>
 </ul>
 <p><br></p>
 <h5 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><code>Boolean</code></h5><p>类型转换</p>
@@ -261,8 +264,47 @@
 
 
 <p><br></p>
-<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a><code>Number</code></h5><p>类型转换</p>
-<p>提供了<code>Number()</code>, <code>parseInt()</code>, <code>parseFloat()</code>三个函数</p>
+<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a><code>Number</code></h5><p>提供了<code>Number()</code>, <code>parseInt()</code>, <code>parseFloat()</code>三个函数</p>
+<p>在使用转型函数Number()或者需要隐式转化为数值类型的情况下，遵守以下规则</p>
+<ol>
+<li><p>boolean类型：true为1,false为0</p>
+</li>
+<li><p>string类型：</p>
+</li>
+</ol>
+<ul>
+<li><p>非空字符串：</p>
+<ul>
+<li><p>只包含数字的字符串，会转为数值，0开头的话直接抹掉0</p>
+</li>
+<li><p>其他格式（不管数字开头的或者非数字开头还是别的格式），都会转换成NaN，和parseInt()不一样</p>
+</li>
+</ul>
+</li>
+<li><p>空串为0</p>
+</li>
+</ul>
+<ol>
+<li><p>null: 0</p>
+</li>
+<li><p>undefined：NaN</p>
+</li>
+</ol>
+<p>parseInt()：</p>
+<ul>
+<li>允许传入两个值，第二个值可以是要转为哪种进制的基数</li>
+<li>传入字符串时，只要开头有数字，就会把连续的数字转为数值</li>
+</ul>
+<p>parseFloat()只能转入一个值，且js里的浮点数计算精度会有问题</p>
+<p><br></p>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a><code>String</code></h5><ul>
+<li><p>调用toString即可以实现大部分的转换</p>
+</li>
+<li><p>toString允许传入一个基数，把数值类型的值转为指定进制的字符串</p>
+</li>
+<li><p>undefined和null没有toString方法，只能用String转型函数</p>
+</li>
+</ul>
 <p><br></p>
 <h3 id="u5F15_u7528_u7C7B_u578B"><a href="#u5F15_u7528_u7C7B_u578B" class="headerlink" title="引用类型"></a>引用类型</h3><ul>
 <li><p><code>Object</code> <code>Array</code> <code>Date</code> <code>RegExp</code> <code>Function</code></p>
@@ -337,8 +379,43 @@
 <p>因为数组的第一项没有prev，所以归并是从第二项开始的</p>
 <p><br> </p>
 <h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a><code>Date</code></h4><hr>
+<p>简单记一下</p>
+<p>实例化，new Date()</p>
+<p>getTime<br>getYear()<br>getFullYear()<br>getMonth    0-11<br>getDate     一个月中的天数，1-31<br>getDay      一个礼拜中的天，0是周日，6是周六<br>getHour     0-23<br>getMinutes  0-59<br>getSeconds  0-59<br>getMilliSeconds</p>
+<p>把get换成getUTC又是一条好汉<br>把get换成set又是一条好汉</p>
+<p><em><s>getWeek </s>    !!!没有week</em></p>
 <p><br> </p>
 <h4 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a><code>RegExp</code></h4><hr>
+<h5 id="u6784_u5EFA_u5B9E_u4F8B"><a href="#u6784_u5EFA_u5B9E_u4F8B" class="headerlink" title="构建实例"></a>构建实例</h5><ul>
+<li>字面量</li>
+<li>构造器<code>RegExp</code></li>
+</ul>
+<h6 id="u5B9E_u4F8B_u5C5E_u6027"><a href="#u5B9E_u4F8B_u5C5E_u6027" class="headerlink" title="实例属性"></a>实例属性</h6><ul>
+<li>global</li>
+<li>ignoreCase</li>
+<li>multiline</li>
+<li>lastIndex 下一次要开始匹配的位置</li>
+<li>source 模式自身</li>
+</ul>
+<h5 id="u5B9E_u4F8B_u65B9_u6CD5-1"><a href="#u5B9E_u4F8B_u65B9_u6CD5-1" class="headerlink" title="实例方法"></a>实例方法</h5><ul>
+<li><p><code>exec()</code></p>
+<ul>
+<li>返回一个数组，匹配项，index（匹配项的起始位置）, input(捕获组)</li>
+</ul>
+</li>
+<li><p><code>test()</code></p>
+<ul>
+<li>匹配成功返回ture,失败返回false</li>
+</ul>
+</li>
+</ul>
+<h5 id="u6784_u9020_u5668_u5C5E_u6027"><a href="#u6784_u9020_u5668_u5C5E_u6027" class="headerlink" title="构造器属性"></a>构造器属性</h5><ul>
+<li><code>lastParen</code> 上一个捕获组</li>
+<li><code>lastMatch</code> 上一个匹配项</li>
+<li><code>leftContext</code></li>
+<li><code>rightContext</code></li>
+<li><code>input</code></li>
+</ul>
 <p><br> </p>
 <h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a><code>Function</code></h4><hr>
 <p><em>函数名是指针，函数体是对象</em></p>
@@ -395,13 +472,89 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color = <span class="string">"yellow"</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;color:<span class="string">"red"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span> (<span class="params">color</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// this.color = color ;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color);</span><br><span class="line">    <span class="built_in">console</span>.log(color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayColor.call(obj, <span class="string">"cyan"</span>);</span><br><span class="line">sayColor.apply(obj, [<span class="string">"cyan"</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sayColor2 = sayColor.bind(obj);</span><br><span class="line">sayColor2(<span class="string">"blue"</span>);</span><br><span class="line"><span class="comment">// console.log(sayColor2);</span></span><br></pre></td></tr></table></figure>
 <p><br> </p>
 <h4 id="u57FA_u672C_u5305_u88C5_u7C7B_u578B_String_Number_Boolean"><a href="#u57FA_u672C_u5305_u88C5_u7C7B_u578B_String_Number_Boolean" class="headerlink" title="基本包装类型 String Number Boolean"></a>基本包装类型 <code>String</code> <code>Number</code> <code>Boolean</code></h4><hr>
+<p><em>不建议用基本包装类型String() Number() Boolean()构建实例来创建对象，因为他们创建的都是对象，不是数值类型</em></p>
+<h5 id="Number-1"><a href="#Number-1" class="headerlink" title="Number"></a><code>Number</code></h5><p>方法</p>
+<ul>
+<li><p><code>toFixed()</code>  四舍五入到指定位数</p>
+</li>
+<li><p><code>toExponential()</code> 科学技术到指定位数</p>
+</li>
+<li><p><code>toPrecision()</code> 自动选择上面的一种</p>
+</li>
+</ul>
+<p><br></p>
+<h5 id="String-1"><a href="#String-1" class="headerlink" title="String"></a><code>String</code></h5><p>属性 <code>length</code></p>
+<p>方法</p>
+<ol>
+<li><p>字符方法 <code>charAt()</code> <code>charCodeAt()</code></p>
+</li>
+<li><p>位置方法 <code>indexOf()</code> <code>lastIndexOf()</code></p>
+<ul>
+<li>传入两个参数，第二个为开始匹配字符的位置</li>
+</ul>
+</li>
+<li><p>操作方法</p>
+<ul>
+<li><p><code>concat</code></p>
+</li>
+<li><p><code>slice</code>       (start,end)     接受负数</p>
+</li>
+<li><p><code>substring</code>   (start,end)     不接受负数，负数都装换成0</p>
+</li>
+<li><p><code>substr</code>      (start,length)  第一个参数接收负数，第二个参数会把负数转成0</p>
+</li>
+</ul>
+</li>
+<li><p>大小写转换 <code>toUpperCase()</code> <code>toLowerCase()</code></p>
+</li>
+<li><p>模式方法</p>
+<ul>
+<li><p><code>match</code> 传入RegExp实例或者一个正则表达式，返回匹配的到模式</p>
+</li>
+<li><p><code>search</code> 传入值同上；只返回第一个匹配的到的模式的位置</p>
+</li>
+<li><p><code>replace</code> 第一个参数为字符串或者正则表达式，第二个参数可以是要替换的文本字符串或者是一个函数</p>
+<ul>
+<li>function (match, postion, originalText) {}</li>
+</ul>
+</li>
+<li><p><code>split</code> 分隔符可以是字符串也可以是正则表达式</p>
+</li>
+</ul>
+</li>
+<li><p>字符串比较 <code>lacaleCompare()</code></p>
+</li>
+<li><p><code>trim</code>方法</p>
+</li>
+<li><p>静态方法 <code>fromCharCode()</code></p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//想知道字符数字对应的具体值是什么，随手写了一个</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> code = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">900</span>; i++) &#123;</span><br><span class="line">    code[i] = <span class="built_in">String</span>.fromCharCode(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(code);</span><br><span class="line"></span><br><span class="line"><span class="comment">//i的值不能写高了。。开头写了个5000，浏览器直接卡住了……</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <p><br> </p>
 <h4 id="u5355_u4F53_u5185_u7F6E_u5BF9_u8C61_Math_Global"><a href="#u5355_u4F53_u5185_u7F6E_u5BF9_u8C61_Math_Global" class="headerlink" title="单体内置对象 Math Global"></a>单体内置对象 <code>Math</code> <code>Global</code></h4><hr>
+<ul>
+<li><p><code>Math</code></p>
+<ul>
+<li><code>max</code> <code>min</code></li>
+<li><code>floor</code></li>
+<li><code>ceil</code></li>
+<li><code>round</code></li>
+<li><code>random</code></li>
+<li><code>abs</code></li>
+<li><code>其他</code></li>
+</ul>
+</li>
+<li><p><code>Global</code></p>
+<ul>
+<li>web浏览器中Global是指window对象</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_02/" data-id="cijk0xxux000ybfm1f3z1mi8w" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02/" data-id="cijmyjv7t000y9vm1v662lf2w" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -412,19 +565,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/14/javascript_知识点整理_03/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          javascript 知识点整理 03
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/14/javascript_知识点整理_01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/17/20160117margincollapse/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">javascript 知识点整理 01</div>
+      <div class="article-nav-title">外边距塌陷</div>
     </a>
   
 </nav>
@@ -443,6 +587,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/20/javascript_知识点整理_02/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 02" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/20/javascript_知识点整理_02/" class="title">javascript 知识点整理 02</a></p>
+              <p class="item-date"><time datetime="2016-01-20T12:27:00.000Z" itemprop="datePublished">2016-01-20</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -509,23 +670,6 @@
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
               <p class="item-title"><a href="/2016/01/15/纯css美化表单——checkbox/" class="title">纯css美化表单——checkbox</a></p>
               <p class="item-date"><time datetime="2016-01-15T13:47:00.000Z" itemprop="datePublished">2016-01-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/15/响应式布局/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.bootcss.com/p/responsive-nav.js/images/illustration.jpg)" alt="实现响应式的简单思路" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a></p>
-              <p class="item-title"><a href="/2016/01/15/响应式布局/" class="title">实现响应式的简单思路</a></p>
-              <p class="item-date"><time datetime="2016-01-14T17:12:00.000Z" itemprop="datePublished">2016-01-15</time></p>
             </div>
           </li>
         

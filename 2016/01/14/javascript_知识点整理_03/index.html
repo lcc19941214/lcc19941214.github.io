@@ -29,7 +29,7 @@
 变量对象  变量对象存储着当前环境中的所有变量、函数。  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。
 
 全局环境  全局环境指的是当前环境的最外围的执行环境。  不同的宿">
-<meta property="og:updated_time" content="2016-01-16T07:27:31.000Z">
+<meta property="og:updated_time" content="2016-01-18T14:42:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 知识点整理 03">
 <meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
@@ -208,7 +208,7 @@
 <li><p>全局环境<br>  全局环境指的是当前环境的最外围的执行环境。<br>  不同的宿主环境有不同的全局环境，一般浏览器环境下全局环境指的就是window对象。<br>  全局环境的变量对象存储这全局环境中的全局变量、属性等。</p>
 </li>
 <li><p>环境初始化<br>  在函数体中，所有的变量声明（var）和函数声明（函数表达式则不会）都会被提前</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">funct();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span> ;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// "a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span> ;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// "a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>虽然a变量存在于func的执行环境中，第一次打印a时会在当前环境的作用域中寻找变量a，但是由于环境的初始化 ，变量a会在函数体的开始部分声明，但是到了第二行才被赋值，所以第一次打印会返回undefined.</li>
 <li>虽然func函数声明位于func()函数执行之后，但是由于函数声明被提前，所以也可以正确解析</li>
@@ -245,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijk0xxuu000tbfm1girkjita" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijmyjv7q000t9vm1dbopfgww" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -266,9 +266,9 @@
     </a>
   
   
-    <a href="/2016/01/14/javascript_知识点整理_02/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/14/javascript_知识点整理_01/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">javascript 知识点整理 02</div>
+      <div class="article-nav-title">javascript 知识点整理 01</div>
     </a>
   
 </nav>
@@ -287,6 +287,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/20/javascript_知识点整理_02/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 02" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/20/javascript_知识点整理_02/" class="title">javascript 知识点整理 02</a></p>
+              <p class="item-date"><time datetime="2016-01-20T12:27:00.000Z" itemprop="datePublished">2016-01-20</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -353,23 +370,6 @@
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
               <p class="item-title"><a href="/2016/01/15/纯css美化表单——checkbox/" class="title">纯css美化表单——checkbox</a></p>
               <p class="item-date"><time datetime="2016-01-15T13:47:00.000Z" itemprop="datePublished">2016-01-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/15/响应式布局/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.bootcss.com/p/responsive-nav.js/images/illustration.jpg)" alt="实现响应式的简单思路" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a></p>
-              <p class="item-title"><a href="/2016/01/15/响应式布局/" class="title">实现响应式的简单思路</a></p>
-              <p class="item-date"><time datetime="2016-01-14T17:12:00.000Z" itemprop="datePublished">2016-01-15</time></p>
             </div>
           </li>
         
