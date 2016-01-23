@@ -29,7 +29,7 @@
 变量对象  变量对象存储着当前环境中的所有变量、函数。  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。
 
 全局环境  全局环境指的是当前环境的最外围的执行环境。  不同的宿">
-<meta property="og:updated_time" content="2016-01-18T14:42:16.000Z">
+<meta property="og:updated_time" content="2016-01-22T15:53:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 知识点整理 03">
 <meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
@@ -129,7 +129,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        10
+        15
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -211,8 +211,14 @@
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span> ;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// "a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>虽然a变量存在于func的执行环境中，第一次打印a时会在当前环境的作用域中寻找变量a，但是由于环境的初始化 ，变量a会在函数体的开始部分声明，但是到了第二行才被赋值，所以第一次打印会返回undefined.</li>
-<li>虽然func函数声明位于func()函数执行之后，但是由于函数声明被提前，所以也可以正确解析</li>
+<li><p>虽然func函数声明位于func()函数执行之后，但是由于函数声明被提前，所以也可以正确解析</p>
+<p><strong>代码执行的过程</strong></p>
+</li>
 </ul>
+<ol>
+<li>变量声明，函数声明，参数创建（形参）</li>
+<li>函数表达式，代码执行</li>
+</ol>
 </li>
 </ul>
 <p><br></p>
@@ -232,6 +238,7 @@
 </ul>
 <p>使用with语句可以将传入对象添加到当前作用域链的最顶端</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rst = <span class="string">"current url is :"</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span>(location) &#123;</span><br><span class="line">        <span class="keyword">var</span> url = href ; <span class="comment">//href是location对象的属性，当前执行环境是location对象</span></span><br><span class="line">        <span class="keyword">var</span> rst = rst + url ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rst ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>eval bind apply call try-catch</p>
 <ul>
 <li>没有块级作用域</li>
 </ul>
@@ -245,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijmyjv7q000t9vm1dbopfgww" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03/" data-id="cijnvt2uh000tk4m1du30l6tk" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -291,85 +298,85 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/20/javascript_知识点整理_02/" class="thumbnail">
+              <a href="/2016/01/21/javascript_知识点整理_04/" class="thumbnail">
   
-    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 02" class="thumbnail-image"></span>
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 04" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/20/javascript_知识点整理_02/" class="title">javascript 知识点整理 02</a></p>
-              <p class="item-date"><time datetime="2016-01-20T12:27:00.000Z" itemprop="datePublished">2016-01-20</time></p>
+              <p class="item-title"><a href="/2016/01/21/javascript_知识点整理_04/" class="title">javascript 知识点整理 04</a></p>
+              <p class="item-date"><time datetime="2016-01-21T08:18:00.000Z" itemprop="datePublished">2016-01-21</time></p>
             </div>
           </li>
         
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/17/20160117margincollapse/" class="thumbnail">
+              <a href="/2016/01/21/css知识点梳理_04/" class="thumbnail">
   
-    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="外边距塌陷" class="thumbnail-image"></span>
+    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="css 知识点整理 04" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
-              <p class="item-title"><a href="/2016/01/17/20160117margincollapse/" class="title">外边距塌陷</a></p>
-              <p class="item-date"><time datetime="2016-01-17T11:26:00.000Z" itemprop="datePublished">2016-01-17</time></p>
+              <p class="item-title"><a href="/2016/01/21/css知识点梳理_04/" class="title">css 知识点整理 04</a></p>
+              <p class="item-date"><time datetime="2016-01-21T06:32:00.000Z" itemprop="datePublished">2016-01-21</time></p>
             </div>
           </li>
         
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/16/20160116BFC/" class="thumbnail">
+              <a href="/2016/01/21/css知识点梳理_03/" class="thumbnail">
   
-    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="怎么理解BFC，顺便说说清除浮动" class="thumbnail-image"></span>
+    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="css 知识点整理 03" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
-              <p class="item-title"><a href="/2016/01/16/20160116BFC/" class="title">怎么理解BFC，顺便说说清除浮动</a></p>
-              <p class="item-date"><time datetime="2016-01-15T17:02:00.000Z" itemprop="datePublished">2016-01-16</time></p>
+              <p class="item-title"><a href="/2016/01/21/css知识点梳理_03/" class="title">css 知识点整理 03</a></p>
+              <p class="item-date"><time datetime="2016-01-21T06:31:00.000Z" itemprop="datePublished">2016-01-21</time></p>
             </div>
           </li>
         
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" class="thumbnail">
+              <a href="/2016/01/21/css知识点梳理_02/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a></p>
-              <p class="item-title"><a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" class="title">从script标签的摆放位置来看看DOM树的渲染</a></p>
-              <p class="item-date"><time datetime="2016-01-15T15:12:00.000Z" itemprop="datePublished">2016-01-15</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/15/纯css美化表单——checkbox/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="纯css美化表单——checkbox" class="thumbnail-image"></span>
+    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="css 知识点整理 02" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
-              <p class="item-title"><a href="/2016/01/15/纯css美化表单——checkbox/" class="title">纯css美化表单——checkbox</a></p>
-              <p class="item-date"><time datetime="2016-01-15T13:47:00.000Z" itemprop="datePublished">2016-01-15</time></p>
+              <p class="item-title"><a href="/2016/01/21/css知识点梳理_02/" class="title">css 知识点整理 02</a></p>
+              <p class="item-date"><time datetime="2016-01-21T06:29:00.000Z" itemprop="datePublished">2016-01-21</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/21/css知识点梳理_01/" class="thumbnail">
+  
+    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="css 知识点整理 01" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
+              <p class="item-title"><a href="/2016/01/21/css知识点梳理_01/" class="title">css 知识点整理 01</a></p>
+              <p class="item-date"><time datetime="2016-01-21T06:27:00.000Z" itemprop="datePublished">2016-01-21</time></p>
             </div>
           </li>
         
@@ -382,7 +389,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -391,7 +398,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -400,7 +407,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">15</span></li></ul>
     </div>
   </div>
 

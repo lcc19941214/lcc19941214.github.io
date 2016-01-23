@@ -3,17 +3,78 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: 运行环境-浏览器-其他 | AChuan</title>
+  <title>javascript 知识点整理 04 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AChuan">
-<meta property="og:url" content="http://lcc19941214.github.io/categories/运行环境-浏览器-其他/index.html">
+  <meta name="description" content="这部分内容的整理都来自于《js高级程序设计》
+
+面向对象
+创建对象（原型模式）
+继承  原型链
+
+面向对象理解对象属性类型数据属性
+configurable
+enumerable
+writable
+value
+
+访问器属性
+configurable
+enumerable
+get
+set
+
+定义属性Object.defineProperty
+Object.defineProperties
+获取属性O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 知识点整理 04">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/21/javascript_知识点整理_04/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:description" content="这部分内容的整理都来自于《js高级程序设计》
+
+面向对象
+创建对象（原型模式）
+继承  原型链
+
+面向对象理解对象属性类型数据属性
+configurable
+enumerable
+writable
+value
+
+访问器属性
+configurable
+enumerable
+get
+set
+
+定义属性Object.defineProperty
+Object.defineProperties
+获取属性O">
+<meta property="og:updated_time" content="2016-01-22T10:02:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AChuan">
-<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta name="twitter:title" content="javascript 知识点整理 04">
+<meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
+
+面向对象
+创建对象（原型模式）
+继承  原型链
+
+面向对象理解对象属性类型数据属性
+configurable
+enumerable
+writable
+value
+
+访问器属性
+configurable
+enumerable
+get
+set
+
+定义属性Object.defineProperty
+Object.defineProperties
+获取属性O">
   
   
     <link rel="icon" href="favicon.png">
@@ -133,49 +194,127 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-category-wrap">
-      <span class="archive-category">运行环境-浏览器-其他</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-javascript_知识点整理_04" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/">从script标签的摆放位置来看看DOM树的渲染</a>
+    <h1 class="article-title" itemprop="name">
+      javascript 知识点整理 04
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/">
-      <time datetime="2016-01-15T15:12:00.000Z" itemprop="datePublished">2016 1月 15</time>
+    <a href="/2016/01/21/javascript_知识点整理_04/">
+      <time datetime="2016-01-21T08:18:00.000Z" itemprop="datePublished">2016-01-21</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
   </div>
-</article>
+
+        </div>
+      </header>
     
-    </div></section>
-    </section>
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
+<blockquote>
+<p>面向对象</p>
+<p>创建对象（原型模式）</p>
+<p>继承  原型链</p>
+</blockquote>
+<h2 id="u9762_u5411_u5BF9_u8C61"><a href="#u9762_u5411_u5BF9_u8C61" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="u7406_u89E3_u5BF9_u8C61"><a href="#u7406_u89E3_u5BF9_u8C61" class="headerlink" title="理解对象"></a>理解对象</h3><h3 id="u5C5E_u6027_u7C7B_u578B"><a href="#u5C5E_u6027_u7C7B_u578B" class="headerlink" title="属性类型"></a>属性类型</h3><h4 id="u6570_u636E_u5C5E_u6027"><a href="#u6570_u636E_u5C5E_u6027" class="headerlink" title="数据属性"></a>数据属性</h4><ul>
+<li><code>configurable</code></li>
+<li><code>enumerable</code></li>
+<li><code>writable</code></li>
+<li><code>value</code></li>
+</ul>
+<h4 id="u8BBF_u95EE_u5668_u5C5E_u6027"><a href="#u8BBF_u95EE_u5668_u5C5E_u6027" class="headerlink" title="访问器属性"></a>访问器属性</h4><ul>
+<li><code>configurable</code></li>
+<li><code>enumerable</code></li>
+<li><code>get</code></li>
+<li><code>set</code></li>
+</ul>
+<h4 id="u5B9A_u4E49_u5C5E_u6027"><a href="#u5B9A_u4E49_u5C5E_u6027" class="headerlink" title="定义属性"></a>定义属性</h4><p><code>Object.defineProperty</code></p>
+<p><code>Object.defineProperties</code></p>
+<h4 id="u83B7_u53D6_u5C5E_u6027"><a href="#u83B7_u53D6_u5C5E_u6027" class="headerlink" title="获取属性"></a>获取属性</h4><p><code>Object.getOwnPropertyDescriptor</code></p>
+<p><br></p>
+<h2 id="u521B_u5EFA_u5BF9_u8C61"><a href="#u521B_u5EFA_u5BF9_u8C61" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="u5DE5_u5382_u6A21_u5F0F"><a href="#u5DE5_u5382_u6A21_u5F0F" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    obj.name = name;</span><br><span class="line">    obj.age = age;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = Person(name,age)</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="u6784_u9020_u5668_u6A21_u5F0F"><a href="#u6784_u9020_u5668_u6A21_u5F0F" class="headerlink" title="构造器模式"></a>构造器模式</h3><p><br></p>
+<h3 id="u539F_u578B_u6A21_u5F0F"><a href="#u539F_u578B_u6A21_u5F0F" class="headerlink" title="原型模式"></a>原型模式</h3><h4 id="u7406_u89E3_u539F_u578B"><a href="#u7406_u89E3_u539F_u578B" class="headerlink" title="理解原型"></a>理解原型</h4><p><br></p>
+<h4 id="u5C5E_u6027_u8BBF_u95EE"><a href="#u5C5E_u6027_u8BBF_u95EE" class="headerlink" title="属性访问"></a>属性访问</h4><ul>
+<li><p><code>hasOwnProperty</code> 查找实例自身的属性（不是原型上的）</p>
+</li>
+<li><p><code>in</code> 查找对象的属性，存在则返回true</p>
+</li>
+</ul>
+<p><em>判断原型上是否有该属性</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasPrototypeProperty</span> (<span class="params">object, prop</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !object.hasOwnProperty(prop) &amp;&amp; (prop <span class="keyword">in</span> object);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>for-in</code> 返回所有可以枚举的属性</p>
+</li>
+<li><p><code>Object.keys</code> <em>ES5</em> 返回所有可枚举的属性</p>
+</li>
+<li><p><code>Object.getOwnPropertyName</code></p>
+</li>
+</ul>
+<p><br></p>
+<h4 id="u91CD_u5199_u539F_u578B"><a href="#u91CD_u5199_u539F_u578B" class="headerlink" title="重写原型"></a>重写原型</h4><ul>
+<li><p>为了方便给原型写入属性，可以直接用对象字面量重写原型</p>
+</li>
+<li><p>重写原型，默认的<code>consturctor</code>会被修改，指向Object对象，因为constructor指向的是构造函数，此刻用对象字面量重写原型，构造器已经不是之前的构造函数了</p>
+</li>
+<li><p>重写原型后，在重写之前声明的实例，都无法访问到从重写后的属性<br>  因为实例和最初的原型之间的联系已经被断掉了。实例的<code>[[prototype]]</code>指向的是最初的构造函数的原型对象，而不是构造函数，所以重写的新的原型和之前构造函数的原型对象是不一样的</p>
+</li>
+</ul>
+<h4 id="u539F_u578B_u4E2D_u7684_u4E00_u4E9B_u95EE_u9898"><a href="#u539F_u578B_u4E2D_u7684_u4E00_u4E9B_u95EE_u9898" class="headerlink" title="原型中的一些问题"></a>原型中的一些问题</h4><p><em>如果原型属性的值是一个引用类型</em>，那么实例中查询到的原型上的这个属性的值只是一个指针，对该属性的操作都将作用于所用相同构造函数构建的实例上。如果希望每个实例的属性都将是不同的，那么这种方式会造成一些问题（除非咱就是想让他共享）</p>
+<p><br></p>
+<h2 id="u6784_u9020_u51FD_u6570_u6A21_u5F0F_+__u539F_u578B_u6A21_u5F0F"><a href="#u6784_u9020_u51FD_u6570_u6A21_u5F0F_+__u539F_u578B_u6A21_u5F0F" class="headerlink" title="构造函数模式 + 原型模式"></a><strong>构造函数模式 + 原型模式</strong></h2><ul>
+<li>通过构造函数定义实例属性，同时可以传入参数</li>
+<li>通过原型定义一些共享的属性和方法</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/21/javascript_知识点整理_04/" data-id="cijp1ez8u00000em1j9do98vk" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/21/css知识点梳理_04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">css 知识点整理 04</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
       
         <aside id="sidebar">
   

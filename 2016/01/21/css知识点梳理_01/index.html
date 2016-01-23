@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: 运行环境-浏览器-其他 | AChuan</title>
+  <title>css 知识点整理 01 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AChuan">
-<meta property="og:url" content="http://lcc19941214.github.io/categories/运行环境-浏览器-其他/index.html">
+  <meta name="description" content="选择器
+优先级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css 知识点整理 01">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/21/css知识点梳理_01/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:description" content="选择器
+优先级">
+<meta property="og:updated_time" content="2016-01-21T06:47:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AChuan">
-<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta name="twitter:title" content="css 知识点整理 01">
+<meta name="twitter:description" content="选择器
+优先级">
   
   
     <link rel="icon" href="favicon.png">
@@ -133,49 +137,88 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-category-wrap">
-      <span class="archive-category">运行环境-浏览器-其他</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-css知识点梳理_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/">从script标签的摆放位置来看看DOM树的渲染</a>
+    <h1 class="article-title" itemprop="name">
+      css 知识点整理 01
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/15/从script标签的摆放位置来看看DOM树的渲染/">
-      <time datetime="2016-01-15T15:12:00.000Z" itemprop="datePublished">2016 1月 15</time>
+    <a href="/2016/01/21/css知识点梳理_01/">
+      <time datetime="2016-01-21T06:27:00.000Z" itemprop="datePublished">2016-01-21</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a>
   </div>
-</article>
+
+        </div>
+      </header>
     
-    </div></section>
-    </section>
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <blockquote>
+<p>选择器</p>
+<p>优先级</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="u9009_u62E9_u5668"><a href="#u9009_u62E9_u5668" class="headerlink" title="选择器"></a>选择器</h3><h4 id="u901A_u914D_u7B26_u9009_u62E9_u5668"><a href="#u901A_u914D_u7B26_u9009_u62E9_u5668" class="headerlink" title="通配符选择器"></a>通配符选择器</h4><h4 id="u6807_u7B7E_u9009_u62E9_u5668"><a href="#u6807_u7B7E_u9009_u62E9_u5668" class="headerlink" title="标签选择器"></a>标签选择器</h4><h4 id="id_u9009_u62E9_u5668"><a href="#id_u9009_u62E9_u5668" class="headerlink" title="id选择器"></a>id选择器</h4><h4 id="u7C7B_u9009_u62E9_u5668"><a href="#u7C7B_u9009_u62E9_u5668" class="headerlink" title="类选择器"></a>类选择器</h4><h4 id="u5C5E_u6027_u9009_u62E9_u5668"><a href="#u5C5E_u6027_u9009_u62E9_u5668" class="headerlink" title="属性选择器"></a>属性选择器</h4><h4 id="u4F2A_u7C7B_u9009_u62E9_u5668"><a href="#u4F2A_u7C7B_u9009_u62E9_u5668" class="headerlink" title="伪类选择器"></a>伪类选择器</h4><h4 id="u4F2A_u5143_u7D20_u9009_u62E9_u5668"><a href="#u4F2A_u5143_u7D20_u9009_u62E9_u5668" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h4><h4 id="u7EC4_u5408_u9009_u62E9_u5668"><a href="#u7EC4_u5408_u9009_u62E9_u5668" class="headerlink" title="组合选择器"></a>组合选择器</h4><h5 id="u540E_u4EE3_u9009_u62E9_u5668"><a href="#u540E_u4EE3_u9009_u62E9_u5668" class="headerlink" title="后代选择器"></a>后代选择器</h5><p><code> </code>（空格）</p>
+<p><code>&gt;</code></p>
+<h5 id="u90BB_u63A5_u9009_u62E9_u5668"><a href="#u90BB_u63A5_u9009_u62E9_u5668" class="headerlink" title="邻接选择器"></a>邻接选择器</h5><p><code>+</code></p>
+<p><code>~</code></p>
+<h3 id="u4F18_u5148_u7EA7"><a href="#u4F18_u5148_u7EA7" class="headerlink" title="优先级"></a>优先级</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/01/21/css知识点梳理_01/" data-id="cijnvt2v6001dk4m146ssxlhu" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/21/css知识点梳理_02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          css 知识点整理 02
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/20/javascript_知识点整理_02/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">javascript 知识点整理 02</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
       
         <aside id="sidebar">
   
