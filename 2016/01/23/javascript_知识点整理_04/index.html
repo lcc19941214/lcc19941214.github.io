@@ -8,73 +8,25 @@
   <meta name="description" content="这部分内容的整理都来自于《js高级程序设计》
 
 面向对象
-创建对象（原型模式）
-继承  原型链
-
-面向对象理解对象
-对象就是名值对，一个名称对应一个值（可以是基本值、对象、函数）
-通过for-in枚举的属性顺序是不可预测的
-
-属性类型数据属性
-configurable
-enumerable
-writable
-value
-
-访问器属性
-configurable
-enumerable
-get
-set">
+创建对象（构造函数 原型模式）
+继承（原型 原型链）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 知识点整理 04">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/21/javascript_知识点整理_04/index.html">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/23/javascript_知识点整理_04/index.html">
 <meta property="og:site_name" content="AChuan">
 <meta property="og:description" content="这部分内容的整理都来自于《js高级程序设计》
 
 面向对象
-创建对象（原型模式）
-继承  原型链
-
-面向对象理解对象
-对象就是名值对，一个名称对应一个值（可以是基本值、对象、函数）
-通过for-in枚举的属性顺序是不可预测的
-
-属性类型数据属性
-configurable
-enumerable
-writable
-value
-
-访问器属性
-configurable
-enumerable
-get
-set">
-<meta property="og:updated_time" content="2016-01-23T14:38:20.000Z">
+创建对象（构造函数 原型模式）
+继承（原型 原型链）">
+<meta property="og:updated_time" content="2016-01-23T14:48:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 知识点整理 04">
 <meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
 
 面向对象
-创建对象（原型模式）
-继承  原型链
-
-面向对象理解对象
-对象就是名值对，一个名称对应一个值（可以是基本值、对象、函数）
-通过for-in枚举的属性顺序是不可预测的
-
-属性类型数据属性
-configurable
-enumerable
-writable
-value
-
-访问器属性
-configurable
-enumerable
-get
-set">
+创建对象（构造函数 原型模式）
+继承（原型 原型链）">
   
   
     <link rel="icon" href="favicon.png">
@@ -162,7 +114,7 @@ set">
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        15
+        16
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -211,8 +163,8 @@ set">
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/21/javascript_知识点整理_04/">
-      <time datetime="2016-01-21T08:18:00.000Z" itemprop="datePublished">2016-01-21</time>
+    <a href="/2016/01/23/javascript_知识点整理_04/">
+      <time datetime="2016-01-23T14:42:00.000Z" itemprop="datePublished">2016-01-23</time>
     </a>
   </div>
 
@@ -232,9 +184,10 @@ set">
         <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
 <blockquote>
 <p>面向对象</p>
-<p>创建对象（原型模式）</p>
-<p>继承  原型链</p>
+<p>创建对象（构造函数 原型模式）</p>
+<p>继承（原型 原型链）</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="u9762_u5411_u5BF9_u8C61"><a href="#u9762_u5411_u5BF9_u8C61" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="u7406_u89E3_u5BF9_u8C61"><a href="#u7406_u89E3_u5BF9_u8C61" class="headerlink" title="理解对象"></a>理解对象</h3><ul>
 <li>对象就是名值对，一个名称对应一个值（可以是基本值、对象、函数）</li>
 <li>通过<code>for-in</code>枚举的属性顺序是不可预测的</li>
@@ -300,12 +253,14 @@ set">
 <li><p>重写原型后，在重写之前声明的实例，都无法访问到从重写后的属性<br>  因为实例和最初的原型之间的联系已经被断掉了。实例的<code>[[prototype]]</code>指向的是最初的构造函数的原型对象，而不是构造函数，所以重写的新的原型和之前构造函数的原型对象是不一样的</p>
 </li>
 </ul>
+<p><br></p>
 <h4 id="u539F_u578B_u4E2D_u7684_u4E00_u4E9B_u95EE_u9898"><a href="#u539F_u578B_u4E2D_u7684_u4E00_u4E9B_u95EE_u9898" class="headerlink" title="原型中的一些问题"></a>原型中的一些问题</h4><p><em>如果原型属性的值是一个引用类型</em>，那么实例中查询到的原型上的这个属性的值只是一个指针，对该属性的操作都将作用于所用相同构造函数构建的实例上。如果希望每个实例的属性都将是不同的，那么这种方式会造成一些问题（除非咱就是想让他共享）</p>
 <p><br></p>
 <h3 id="u6784_u9020_u51FD_u6570_u6A21_u5F0F_+__u539F_u578B_u6A21_u5F0F"><a href="#u6784_u9020_u51FD_u6570_u6A21_u5F0F_+__u539F_u578B_u6A21_u5F0F" class="headerlink" title="构造函数模式 + 原型模式"></a><strong>构造函数模式 + 原型模式</strong></h3><ul>
 <li>通过构造函数定义实例属性，同时可以传入参数</li>
 <li>通过原型定义一些共享的属性和方法</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.friends = [<span class="string">"Kitty"</span>];</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Tom"</span>, <span class="number">21</span>),</span><br><span class="line">    person2 = <span class="keyword">new</span> Person(<span class="string">"John"</span>, <span class="number">22</span>);</span><br><span class="line"></span><br><span class="line">person1.getName();</span><br><span class="line">person1.friends.push(<span class="string">"Dick"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person1.friends);</span><br><span class="line"></span><br><span class="line">person2.getName();</span><br><span class="line"><span class="built_in">console</span>.log(person2.friends);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person1.getName === person2.getName);</span><br><span class="line"><span class="built_in">console</span>.log(person1.friends === person2.friends);</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h3 id="u52A8_u6001_u539F_u578B_u6A21_u5F0F"><a href="#u52A8_u6001_u539F_u578B_u6A21_u5F0F" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><p><br></p>
 <h3 id="u5BC4_u751F_u6784_u9020_u51FD_u6570_u6A21_u5F0F"><a href="#u5BC4_u751F_u6784_u9020_u51FD_u6570_u6A21_u5F0F" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h3><ul>
@@ -329,6 +284,7 @@ set">
 <blockquote>
 <p>作用域链：标识符一级级的检索<br>原型链:一级级的继承属性和方法</p>
 </blockquote>
+<p><br></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Super</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.superProp = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.getSuperProp = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.superProp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.subProp = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Sub.prototype = <span class="keyword">new</span> Super();</span><br><span class="line">Sub.prototype.getSubProp = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.subProp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> Sub();</span><br><span class="line">instance.getSuperProp();</span><br><span class="line">instance.getSubProp();</span><br></pre></td></tr></table></figure>
 <h4 id="u539F_u578B_u94FE_u7EE7_u627F_u7684_u95EE_u9898"><a href="#u539F_u578B_u94FE_u7EE7_u627F_u7684_u95EE_u9898" class="headerlink" title="原型链继承的问题"></a>原型链继承的问题</h4><ul>
 <li>实例的原型现在也是一个实例，所以原型继承了父类构造器的实例属性。如果这个属性是引用类型，那所有子类实例都会共享这个属性而不是各自创建一个副本</li>
@@ -339,6 +295,7 @@ set">
 <li>单纯借用构造函数无法使用构造函数原型上的方法</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Super</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.superProp = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.getSuperProp = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.superProp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Super.call(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.subProp = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> Sub();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(instance.superProp);    <span class="comment">//ture</span></span><br><span class="line"><span class="built_in">console</span>.log(instance.subProp);      <span class="comment">//false</span></span><br><span class="line">instance.getSuperProp();            <span class="comment">//getSuperProp undefined</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
 <h3 id="u7EC4_u5408_u7EE7_u627F_28_u539F_u578B_u94FE+_u6784_u9020_u51FD_u6570_u7EE7_u627F_29"><a href="#u7EC4_u5408_u7EE7_u627F_28_u539F_u578B_u94FE+_u6784_u9020_u51FD_u6570_u7EE7_u627F_29" class="headerlink" title="组合继承(原型链+构造函数继承)"></a>组合继承(原型链+构造函数继承)</h3><ul>
 <li>在构造函数上定义属性，在原型上定义方法</li>
 <li>用<code>call</code> <code>apply</code>继承属性，用原型链继承方法</li>
@@ -373,7 +330,7 @@ set">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/21/javascript_知识点整理_04/" data-id="cijr81wzs000t5ym1wpkcf93v" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/23/javascript_知识点整理_04/" data-id="cijr87m1z000t8xm1eh6yvx0q" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -383,6 +340,15 @@ set">
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/01/24/20160124flex/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          flex布局基本概念
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/21/css知识点梳理_04/" id="article-nav-older" class="article-nav-link-wrap">
@@ -410,7 +376,24 @@ set">
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2016/01/21/javascript_知识点整理_04/" class="thumbnail">
+              <a href="/2016/01/24/20160124flex/" class="thumbnail">
+  
+    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="flex布局基本概念" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
+              <p class="item-title"><a href="/2016/01/24/20160124flex/" class="title">flex布局基本概念</a></p>
+              <p class="item-date"><time datetime="2016-01-24T14:21:00.000Z" itemprop="datePublished">2016-01-24</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/23/javascript_知识点整理_04/" class="thumbnail">
   
     <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 04" class="thumbnail-image"></span>
   
@@ -419,8 +402,8 @@ set">
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
-              <p class="item-title"><a href="/2016/01/21/javascript_知识点整理_04/" class="title">javascript 知识点整理 04</a></p>
-              <p class="item-date"><time datetime="2016-01-21T08:18:00.000Z" itemprop="datePublished">2016-01-21</time></p>
+              <p class="item-title"><a href="/2016/01/23/javascript_知识点整理_04/" class="title">javascript 知识点整理 04</a></p>
+              <p class="item-date"><time datetime="2016-01-23T14:42:00.000Z" itemprop="datePublished">2016-01-23</time></p>
             </div>
           </li>
         
@@ -475,23 +458,6 @@ set">
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/21/css知识点梳理_01/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="css 知识点整理 01" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
-              <p class="item-title"><a href="/2016/01/21/css知识点梳理_01/" class="title">css 知识点整理 01</a></p>
-              <p class="item-date"><time datetime="2016-01-21T06:27:00.000Z" itemprop="datePublished">2016-01-21</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -501,7 +467,7 @@ set">
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -510,7 +476,7 @@ set">
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -519,7 +485,7 @@ set">
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">15</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
