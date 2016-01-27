@@ -21,7 +21,7 @@
 数据类型（原始类型、引用类型、类型转换、函数）
 函数（arguments对象、参数传递）
 引用类型拷贝（深拷贝、浅拷贝）">
-<meta property="og:updated_time" content="2016-01-21T08:17:42.000Z">
+<meta property="og:updated_time" content="2016-01-27T05:46:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 知识点整理 02">
 <meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
@@ -210,11 +210,34 @@
 <h2 id="u6570_u636E_u7C7B_u578B"><a href="#u6570_u636E_u7C7B_u578B" class="headerlink" title="数据类型"></a>数据类型</h2><hr>
 <p>这个地方说法很多样，一般来说就是基本数据类型（<code>undefined</code> <code>null</code> <code>string</code> <code>number</code> <code>boolean</code>）和引用类型（<code>object</code>）。</p>
 <p><em>基本数据类型也叫值类型，简单数据类型</em></p>
-<h3 id="u7C7B_u578B_u8BC6_u522B"><a href="#u7C7B_u578B_u8BC6_u522B" class="headerlink" title="类型识别"></a>类型识别</h3><pre><code>- typeof
-- instanceof
-- constructor
-- Object.prototype.toString.call()
-</code></pre><h3 id="u57FA_u672C_u6570_u636E_u7C7B_u578B"><a href="#u57FA_u672C_u6570_u636E_u7C7B_u578B" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p><code>undefined</code> <code>null</code> <code>string</code> <code>number</code> <code>boolean</code></p>
+<h3 id="u7C7B_u578B_u8BC6_u522B"><a href="#u7C7B_u578B_u8BC6_u522B" class="headerlink" title="类型识别"></a>类型识别</h3><ul>
+<li><p><code>typeof</code></p>
+<ul>
+<li>只能识别基本数据类型</li>
+<li>对null会返回object</li>
+<li>function类型返回function</li>
+</ul>
+</li>
+<li><p><code>instanceof</code></p>
+<ul>
+<li>检测引用类型(包括自定义对象)</li>
+<li>obj instanceof Object 始终都会返回true</li>
+</ul>
+</li>
+<li><p><code>constructor</code></p>
+<ul>
+<li>指向构造器，可以识别标准类型，内置对象，自定义对象</li>
+<li>不能识别undefined, null</li>
+</ul>
+</li>
+<li><p><code>Object.prototype.toString.call()</code></p>
+<ul>
+<li>识别标准类型和内置对象</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="u57FA_u672C_u6570_u636E_u7C7B_u578B"><a href="#u57FA_u672C_u6570_u636E_u7C7B_u578B" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p><code>undefined</code> <code>null</code> <code>string</code> <code>number</code> <code>boolean</code></p>
 <ul>
 <li>使用typeof操作符能识别基本数据类型，返回的值是小写的英文字符串</li>
 <li>因为null是对空对象的一个引用，所以使用typeof返回其类型时会返回<code>object</code></li>
@@ -574,7 +597,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02/" data-id="cijr87m2500118xm10h2nh8hg" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02/" data-id="cijwfg1xq0011wfm18krhlove" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
