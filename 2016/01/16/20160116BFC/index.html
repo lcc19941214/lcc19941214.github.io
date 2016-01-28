@@ -19,7 +19,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 于是果断恶补一下BFC/顺便说说清除浮动的几种方式
 
 BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里">
-<meta property="og:updated_time" content="2016-01-17T12:12:23.000Z">
+<meta property="og:updated_time" content="2016-01-27T06:12:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="怎么理解BFC，顺便说说清除浮动">
 <meta name="twitter:description" content="至今还记得面试今日头条实习的时候，面试官问我如何清除浮动，我说：“……巴拉巴拉……第N种方法，可以给父元素加一个overflow:hidden触发一个BFC……“
@@ -114,7 +114,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        16
+        17
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -186,6 +186,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 <p>于是果断恶补一下BFC/<strong>顺便说说清除浮动的几种方式</strong></p>
 <hr>
 <p>BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里的元素以一种什么样的方式进行排列布局，以及这个区域与临近的元素是怎样的关系。</p>
+<a id="more"></a>
 <hr>
 <h3 id="u5982_u4F55_u8BBE_u7F6EBFC"><a href="#u5982_u4F55_u8BBE_u7F6EBFC" class="headerlink" title="如何设置BFC"></a>如何设置BFC</h3><ul>
 <li><p><code>html</code>会生成一个BFC</p>
@@ -219,7 +220,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 <li><p>BFC是一个独立的渲染区域，容器里面的子元素不会影响到外面的元素</p>
 </li>
 </ul>
-<a id="more"></a>
+<!-- more -->
 <hr>
 <h3 id="BFC_u4E0E_u6E05_u9664_u6D6E_u52A8"><a href="#BFC_u4E0E_u6E05_u9664_u6D6E_u52A8" class="headerlink" title="BFC与清除浮动"></a>BFC与<strong>清除浮动</strong></h3><p>清除浮动用得比较多的方法有下面的1和2两种，其实其他的方法都跟BFC有关</p>
 <ol>
@@ -262,7 +263,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="cijwfg1vx0000wfm1pavs4z92" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="cijwfiry10000xhm1tt4h6e9c" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -304,6 +305,23 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/27/javascript_知识点整理_05/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 05" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/27/javascript_知识点整理_05/" class="title">javascript 知识点整理 05</a></p>
+              <p class="item-date"><time datetime="2016-01-27T06:22:00.000Z" itemprop="datePublished">2016-01-27</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -373,33 +391,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/21/css知识点梳理_02/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="css 知识点整理 02" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
-              <p class="item-title"><a href="/2016/01/21/css知识点梳理_02/" class="title">css 知识点整理 02</a></p>
-              <p class="item-date"><time datetime="2016-01-21T06:29:00.000Z" itemprop="datePublished">2016-01-21</time></p>
-            </div>
-          </li>
-        
       </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -408,7 +400,16 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -417,9 +418,37 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">16</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
+
+  
+    
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://github.com/foru17/front-end-collect">前端收集</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/miemiewang">Wangmiemie的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/luolala">Luolala的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/yuamiao">阿喵酱的github</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
 
   
   <div id="toTop" class="fa fa-chevron-up"></div>

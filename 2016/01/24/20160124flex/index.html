@@ -5,9 +5,7 @@
   
   <title>flex布局基本概念 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这部分内容属于 基础理论-W3C-css-布局
-
-flex 布局基础flex实例MDN:flex
+  <meta name="description" content="flex 布局基础flex实例MDN:flex
 
 练习：
 See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
@@ -20,9 +18,7 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
 <meta property="og:title" content="flex布局基本概念">
 <meta property="og:url" content="http://lcc19941214.github.io/2016/01/24/20160124flex/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="这部分内容属于 基础理论-W3C-css-布局
-
-flex 布局基础flex实例MDN:flex
+<meta property="og:description" content="flex 布局基础flex实例MDN:flex
 
 练习：
 See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
@@ -31,12 +27,10 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
 
 什么是flex布局flex即Flexible Box，弹性布局。
 因为一些特殊的布局方式如不指定宽度高度的情况下要实现垂直居中实习起来比较不方便">
-<meta property="og:updated_time" content="2016-01-24T16:57:29.000Z">
+<meta property="og:updated_time" content="2016-01-27T06:20:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flex布局基本概念">
-<meta name="twitter:description" content="这部分内容属于 基础理论-W3C-css-布局
-
-flex 布局基础flex实例MDN:flex
+<meta name="twitter:description" content="flex 布局基础flex实例MDN:flex
 
 练习：
 See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
@@ -132,7 +126,7 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        16
+        17
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -200,10 +194,8 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
       
                 
         <blockquote>
-<p>这部分内容属于 基础理论-W3C-css-布局</p>
-</blockquote>
 <p><a href="http://gold.xitu.io/entry/56a198dd79bc4400527cd3b3?utm_source=glowpost&amp;utm_medium=20160124&amp;utm_campaign=weibo" target="_blank" rel="external">flex 布局基础</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html?bsh_bid=683103006" target="_blank" rel="external">flex实例</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex" target="_blank" rel="external">MDN:flex</a></p>
-<hr>
+</blockquote>
 <p>练习：</p>
 <p></p><p data-height="268" data-theme-id="0" data-slug-hash="vLdVNg" data-default-tab="result" data-user="lcc19941214" class="codepen">See the Pen <a href="http://codepen.io/lcc19941214/pen/vLdVNg/" target="_blank" rel="external">flex布局实例</a> by ConanTvos (<a href="http://codepen.io/lcc19941214" target="_blank" rel="external">@lcc19941214</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
@@ -223,7 +215,7 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
 <li>交叉轴（cross-axix）：子元素将按照此顺序依次换行/与主轴方向垂直</li>
 <li>主轴空间（main-size）：单个子元素在主轴上占据的空间</li>
 <li><p>交叉轴空间（cross-size）：单个子元素在交叉轴上占据的空间</p>
-<p><em>主轴、交叉轴不是严格的水平或者垂直的关系，因为可以通过flex-direction属性指定</em></p>
+<p><em>主轴、交叉轴二者是垂直关系，但两者并非只能代表水平或者垂直，因为可以通过flex-direction属性指定</em></p>
 </li>
 </ul>
 </li>
@@ -231,13 +223,13 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
 <h3 id="flex_u7684_u5C5E_u6027_uFF1A"><a href="#flex_u7684_u5C5E_u6027_uFF1A" class="headerlink" title="flex的属性："></a>flex的属性：</h3><ul>
 <li><p><code>flex-direction</code>  指定容器的主轴方向</p>
 <ul>
-<li>row</li>
+<li>row  水平从左到右</li>
 <li>row-reverse</li>
 <li>column</li>
 <li>column-reverse</li>
 </ul>
 </li>
-<li><p><code>flex-wrap</code>  指定子元素是否换行、以何种方向换行</p>
+<li><p><code>flex-wrap</code>  指定子元素是否换行、以何种方向换行<br>  <em>容器内子元素应当设置flex属性，不然默认值flex-grow为0，flex-shrink为1，所有项目都水平或者垂直排列在一行或者一列上了</em></p>
 <ul>
 <li>nowrap</li>
 <li>wrap</li>
@@ -327,7 +319,7 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/24/20160124flex/" data-id="cijwfg1y9001jwfm180md819t" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/24/20160124flex/" data-id="cijwfis08001jxhm14vjube6l" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -337,6 +329,15 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/01/27/javascript_知识点整理_05/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          javascript 知识点整理 05
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/23/javascript_知识点整理_04/" id="article-nav-older" class="article-nav-link-wrap">
@@ -360,6 +361,23 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/01/27/javascript_知识点整理_05/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 05" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2016/01/27/javascript_知识点整理_05/" class="title">javascript 知识点整理 05</a></p>
+              <p class="item-date"><time datetime="2016-01-27T06:22:00.000Z" itemprop="datePublished">2016-01-27</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -429,33 +447,7 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/21/css知识点梳理_02/" class="thumbnail">
-  
-    <span style="background-image:url(http://www.iconpng.com/png/etao-ux-fonts/font-520.png)" alt="css 知识点整理 02" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a></p>
-              <p class="item-title"><a href="/2016/01/21/css知识点梳理_02/" class="title">css 知识点整理 02</a></p>
-              <p class="item-date"><time datetime="2016-01-21T06:29:00.000Z" itemprop="datePublished">2016-01-21</time></p>
-            </div>
-          </li>
-        
       </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -464,7 +456,16 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -473,9 +474,37 @@ See the Pen flex布局实例 by ConanTvos (@lcc19941214) on CodePen.
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">16</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
+
+  
+    
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://github.com/foru17/front-end-collect">前端收集</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/miemiewang">Wangmiemie的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/luolala">Luolala的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/yuamiao">阿喵酱的github</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
 
   
   <div id="toTop" class="fa fa-chevron-up"></div>
