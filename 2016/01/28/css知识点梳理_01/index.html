@@ -3,33 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>外边距塌陷 | AChuan</title>
+  <title>css 知识点整理 01 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
+  <meta name="description" content="元素
+选择器
+优先级
+选择器性能问题
+结构和层叠
 
-两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并
-
-父级块元素中的第一个子元素在和父元素顶部没有bor">
+参考：《CSS权威指南》（主要讲解了CSS2和CSS2.1）MDN CSS Selectors如何提升CSS选择器性能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="外边距塌陷">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/index.html">
+<meta property="og:title" content="css 知识点整理 01">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/28/css知识点梳理_01/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
+<meta property="og:description" content="元素
+选择器
+优先级
+选择器性能问题
+结构和层叠
 
-两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并
-
-父级块元素中的第一个子元素在和父元素顶部没有bor">
-<meta property="og:updated_time" content="2016-01-20T15:05:02.000Z">
+参考：《CSS权威指南》（主要讲解了CSS2和CSS2.1）MDN CSS Selectors如何提升CSS选择器性能">
+<meta property="og:updated_time" content="2016-01-28T16:03:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="外边距塌陷">
-<meta name="twitter:description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
+<meta name="twitter:title" content="css 知识点整理 01">
+<meta name="twitter:description" content="元素
+选择器
+优先级
+选择器性能问题
+结构和层叠
 
-两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并
-
-父级块元素中的第一个子元素在和父元素顶部没有bor">
+参考：《CSS权威指南》（主要讲解了CSS2和CSS2.1）MDN CSS Selectors如何提升CSS选择器性能">
   
   
     <link rel="icon" href="favicon.png">
@@ -149,7 +152,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-20160117margincollapse" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-css知识点梳理_01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -158,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      外边距塌陷
+      css 知识点整理 01
     </h1>
   
 
@@ -166,8 +169,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/17/20160117margincollapse/">
-      <time datetime="2016-01-17T11:26:00.000Z" itemprop="datePublished">2016-01-17</time>
+    <a href="/2016/01/28/css知识点梳理_01/">
+      <time datetime="2016-01-28T14:36:00.000Z" itemprop="datePublished">2016-01-28</time>
     </a>
   </div>
 
@@ -184,27 +187,131 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>参考文章：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing</a></p>
-<p>外边距重叠其实<em>指的是top和bottom的margin的重叠</em>，一共有三种情况：</p>
-<ol>
-<li><p>两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并</p>
+        <blockquote>
+<p>元素</p>
+<p>选择器</p>
+<p>优先级</p>
+<p>选择器性能问题</p>
+<p>结构和层叠</p>
+</blockquote>
+<p>参考：<br>《CSS权威指南》（主要讲解了CSS2和CSS2.1）<br>MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Selectors" target="_blank" rel="external">CSS Selectors</a><br><a href="http://www.jianshu.com/p/268c7f3dd7a6" target="_blank" rel="external">如何提升CSS选择器性能</a></p>
+<a id="more"></a>
+<h2 id="u5143_u7D20"><a href="#u5143_u7D20" class="headerlink" title="元素"></a>元素</h2><p>元素是html中最基本的构成要素。根据我自己的理解，元素可以从内容和显示进行分类</p>
+<ul>
+<li><p>内容：</p>
+<ul>
+<li>替换元素<ul>
+<li>如img link</li>
+</ul>
 </li>
-<li><p>父级块元素中的第一个子元素在和父元素顶部没有border, padding, inline-content,  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear" target="_blank" rel="external">clearance</a> (清楚浮动)分隔；父级块元素的 margin-bottom 与它的最后一个子元素之间没有border、padding、inline content、height、min-height、max-height 分隔</p>
+<li>不可替换元素<ul>
+<li>绝大部分html元素都是不可替换元素</li>
+</ul>
 </li>
-<li><p>如果块元素 margin-top 与 margin-bottom 之间没有border、padding、inline content、height、min-height来分隔，那么它的上下外边距合并。——因为根元素也是个BFC</p>
+</ul>
 </li>
-</ol>
+<li><p>显示：</p>
+<ul>
+<li>块级（block）</li>
+<li>行内（inline）</li>
+</ul>
+</li>
+</ul>
+<p>CSS2.1规定所有的元素都生成一个盒，即box model<br>盒子的具体形式由display决定</p>
 <hr>
-<p>消除外边距重叠</p>
-<p>根据上面的定义，对于相邻元素没有border, padding等的情况，彼此设置一个1px的透明edge即可</p>
-<p>也可以给两个相邻元素设置包含块为BFC，因为只有同BFC内的子元素上下margin会发生重叠</p>
-<hr>
-<p>对于浮动元素，绝对定位，分属不同BFC内的元素，不会有边距重叠的现象</p>
+<h2 id="u9009_u62E9_u5668"><a href="#u9009_u62E9_u5668" class="headerlink" title="选择器"></a>选择器</h2><h3 id="u901A_u914D_u7B26_u9009_u62E9_u5668_*"><a href="#u901A_u914D_u7B26_u9009_u62E9_u5668_*" class="headerlink" title="通配符选择器 *"></a>通配符选择器 <code>*</code></h3><p>可以选中页面中所有的元素 <em>不推荐使用</em></p>
+<h3 id="u6807_u7B7E_u9009_u62E9_u5668_tag"><a href="#u6807_u7B7E_u9009_u62E9_u5668_tag" class="headerlink" title="标签选择器 tag"></a>标签选择器 <code>tag</code></h3><h3 id="id_u9009_u62E9_u5668__23id"><a href="#id_u9009_u62E9_u5668__23id" class="headerlink" title="id选择器 #id"></a>id选择器 <code>#id</code></h3><h3 id="u7C7B_u9009_u62E9_u5668_-class"><a href="#u7C7B_u9009_u62E9_u5668_-class" class="headerlink" title="类选择器 .class"></a>类选择器 <code>.class</code></h3><h3 id="u5C5E_u6027_u9009_u62E9_u5668__5Battr_5D"><a href="#u5C5E_u6027_u9009_u62E9_u5668__5Battr_5D" class="headerlink" title="属性选择器 [attr]"></a>属性选择器 <code>[attr]</code></h3><ul>
+<li><p>简单属性选择 <code>a[attr]</code></p>
+</li>
+<li><p>具体属性选择 <code>a[attr = value]</code></p>
+</li>
+<li><p>部分属性选择</p>
+<ul>
+<li><p><code>*</code> 任意子串匹配</p>
+</li>
+<li><p><code>^</code> 以此开头</p>
+</li>
+<li><p><code>$</code> 以此结尾</p>
+</li>
+<li><p><code>~</code> 选中在一组以空格分隔的字符串中，包含指定属性的元素</p>
+<p>  [attr~=value]<br>  Represents an element with an attribute name of attr whose value is a whitespace-separated list of words, one of which is exactly “value”.</p>
+</li>
+<li><p><code>|</code> 选中指定属性或者以指定属性加上<code>-</code>开头的元素</p>
+<p>  [attr|=value]<br>  Represents an element with an attribute name of attr. Its value can be exactly “value” or can begin with “value” immediately followed by “-” (U+002D). It can be used for language subcode matches.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="u4F2A_u7C7B_u9009_u62E9_u5668__3Alink"><a href="#u4F2A_u7C7B_u9009_u62E9_u5668__3Alink" class="headerlink" title="伪类选择器 :link"></a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank" rel="external">伪类选择器</a> <code>:link</code></h3><ul>
+<li>表示的是元素的一种状态</li>
+<li>常用的有<ul>
+<li>:link  :visited  :hover  :active</li>
+<li>:first-child  :last-child  :nth-child()  :nth-last-child()  :only-child<ul>
+<li><code>only-child</code> <em>the only child of its parent</em></li>
+</ul>
+</li>
+<li>:first-of-type  :last-of-type  :nth-of-type()  :nth-last-of-type()  :only-of-type<ul>
+<li><code>first-of-type</code> <em>the first sibling of its type in the list of children of its parent element</em>父元素内有多个元素，选中每一类元素的第一个</li>
+</ul>
+</li>
+<li>:checked  :focus</li>
+<li>:enabled  :disable</li>
+</ul>
+</li>
+</ul>
+<h3 id="u4F2A_u5143_u7D20_u9009_u62E9_u5668__3A_3Abefore"><a href="#u4F2A_u5143_u7D20_u9009_u62E9_u5668__3A_3Abefore" class="headerlink" title="伪元素选择器 ::before"></a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements" target="_blank" rel="external">伪元素选择器</a> <code>::before</code></h3><ul>
+<li><p>常见的有</p>
+<ul>
+<li>::after</li>
+<li>::before</li>
+<li>::first-letter</li>
+<li>::first-line</li>
+<li>::selection</li>
+</ul>
+</li>
+<li><p>CSS3为了区分伪类和伪元素，所以用<code>:</code>和<code>::</code>进行区分。大部分浏览器两者都能分辨，低版本浏览器中IE8不能识别<code>::</code></p>
+</li>
+</ul>
+<h3 id="u7EC4_u5408_u9009_u62E9_u5668"><a href="#u7EC4_u5408_u9009_u62E9_u5668" class="headerlink" title="组合选择器"></a>组合选择器</h3><h4 id="u540E_u4EE3_u9009_u62E9_u5668"><a href="#u540E_u4EE3_u9009_u62E9_u5668" class="headerlink" title="后代选择器"></a>后代选择器</h4><ul>
+<li><p><code> </code>（空格） 选中所有符合条件的后代元素 <em>children (not necessary direct children) of the former specified element.</em></p>
+</li>
+<li><p><code>&gt;</code> 只选中子元素，不选中后代元素 <em>direct children of the former specified element.</em></p>
+</li>
+</ul>
+<h4 id="u90BB_u63A5_u9009_u62E9_u5668"><a href="#u90BB_u63A5_u9009_u62E9_u5668" class="headerlink" title="邻接选择器"></a>邻接选择器</h4><ul>
+<li><code>+</code> 选中紧跟当前元素的兄弟元素（必须是紧跟） <em>nodes that immediately follow the former specified element</em></li>
+</ul>
+<ul>
+<li><code>~</code> 选中当前元素的兄弟元素，不必紧跟 <em>nodes that follow (not necessarily immediately) the former specified element, if both elements shared the same parent.</em></li>
+</ul>
+<p><br> </p>
+<h2 id="u4F18_u5148_u7EA7"><a href="#u4F18_u5148_u7EA7" class="headerlink" title="优先级"></a>优先级</h2><p><code>!important &gt; 内联样式 &gt; #id &gt; .class  :link [attr] &gt; tag  ::before &gt;　＊</code></p>
+<h3 id="u63D0_u5347_u4F18_u5148_u7EA7"><a href="#u63D0_u5347_u4F18_u5148_u7EA7" class="headerlink" title="提升优先级"></a>提升优先级</h3><ul>
+<li>后面的覆盖前面的</li>
+<li>!important</li>
+<li>延长选择器长度，增加权重高的选择器</li>
+</ul>
+<p><br></p>
+<h2 id="u9009_u62E9_u5668_u6027_u80FD"><a href="#u9009_u62E9_u5668_u6027_u80FD" class="headerlink" title="选择器性能"></a>选择器性能</h2><h3 id="css_u9009_u62E9_u5668_u6267_u884C_u987A_u5E8F"><a href="#css_u9009_u62E9_u5668_u6267_u884C_u987A_u5E8F" class="headerlink" title="css选择器执行顺序"></a>css选择器执行顺序</h3><p>css选择器会从右到左执行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span><span class="class">.header</span> <span class="tag">a</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="comment">/*  遍历到所有的a元素，然后匹配其父元素中class类为header的div  */</span></span><br><span class="line"></span><br><span class="line"><span class="class">.header</span> <span class="class">.link</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value">red</span><br><span class="line"></span></span></span>&#125;</span><br><span class="line"><span class="comment">/*  遍历到.link元素，然后匹配其父元素中class类为header的元素  */</span></span><br></pre></td></tr></table></figure>
+<p>明显后面一种情况损耗更少</p>
+<p>选择器最右边的一项称之为关键选择器，应当尽可能精确，避免不必要的遍历</p>
+<h3 id="u63D0_u5347_u6027_u80FD"><a href="#u63D0_u5347_u6027_u80FD" class="headerlink" title="提升性能"></a>提升性能</h3><ul>
+<li><p>避免使用通配符选择器</p>
+</li>
+<li><p>避免使用标签来限制.class或者#id选择器</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bad&#10;div.header&#10;&#10;Good&#10;.header</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>减少选择器长度，多使用继承</p>
+</li>
+<li>避免使用多层标签选择器</li>
+<li>避免使用子选择器</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/" data-id="cijy8cnqx001ggam1b1kboy67" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/28/css知识点梳理_01/" data-id="cijy8cnqi0010gam1uaa18883" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -215,19 +322,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/20/javascript_知识点整理_02/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          javascript 知识点整理 02
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/16/20160116BFC/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/28/20160128浏览器缓存/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">怎么理解BFC，顺便说说清除浮动</div>
+      <div class="article-nav-title">浏览器缓存基础</div>
     </a>
   
 </nav>
