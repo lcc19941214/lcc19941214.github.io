@@ -3,25 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>欢迎来到阿川的个人博客 | AChuan</title>
+  <title>从script标签的摆放位置来看看DOM树的渲染 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="To be a better man.
+  <meta name="description" content="其实这一篇的名字应该是 我眼中的页面渲染 才对，只是因为参考的那篇文章写得比较有趣所以改了改2333
+参考文章：
 
-虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到阿川的个人博客">
-<meta property="og:url" content="http://lcc19941214.github.io/about/index.html">
+JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
+
+页面重绘和回流以及优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从script标签的摆放位置来看看DOM树的渲染">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/15/20160115从script标签的摆放位置来看看DOM树的渲染/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="To be a better man.
+<meta property="og:description" content="其实这一篇的名字应该是 我眼中的页面渲染 才对，只是因为参考的那篇文章写得比较有趣所以改了改2333
+参考文章：
 
-虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。">
-<meta property="og:image" content="http://lcc19941214.github.io/images/2016/about/thumbs.jpg">
-<meta property="og:updated_time" content="2016-01-31T07:52:01.000Z">
+JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
+
+页面重绘和回流以及优化">
+<meta property="og:updated_time" content="2016-01-28T03:13:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到阿川的个人博客">
-<meta name="twitter:description" content="To be a better man.
+<meta name="twitter:title" content="从script标签的摆放位置来看看DOM树的渲染">
+<meta name="twitter:description" content="其实这一篇的名字应该是 我眼中的页面渲染 才对，只是因为参考的那篇文章写得比较有趣所以改了改2333
+参考文章：
 
-虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。">
+JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
+
+页面重绘和回流以及优化">
   
   
     <link rel="icon" href="favicon.png">
@@ -135,7 +143,7 @@
 </aside>
 
       
-      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-20160115从script标签的摆放位置来看看DOM树的渲染" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -144,7 +152,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      欢迎来到阿川的个人博客
+      从script标签的摆放位置来看看DOM树的渲染
     </h1>
   
 
@@ -152,35 +160,155 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/about/index.html">
-      <time datetime="2016-01-31T07:52:01.000Z" itemprop="datePublished">2016-01-31</time>
+    <a href="/2016/01/15/20160115从script标签的摆放位置来看看DOM树的渲染/">
+      <time datetime="2016-01-15T15:12:00.000Z" itemprop="datePublished">2016-01-15</time>
     </a>
   </div>
 
 
           
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a>
+  </div>
+
         </div>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <blockquote>
-<p>To be a better man.</p>
+        <p><em>其实这一篇的名字应该是 <strong>我眼中的页面渲染</strong> 才对，只是因为参考的那篇文章写得比较有趣所以改了改2333</em></p>
+<p>参考文章：</p>
+<ul>
+<li><p><a href="http://web.jobbole.com/84843/" target="_blank" rel="external">JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制</a></p>
+</li>
+<li><p><a href="http://www.css88.com/archives/4996" target="_blank" rel="external">页面重绘和回流以及优化</a></p>
+</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h2 id="u8BF4_u8BF4js_u6807_u7B7E_u7684_u4F4D_u7F6E"><a href="#u8BF4_u8BF4js_u6807_u7B7E_u7684_u4F4D_u7F6E" class="headerlink" title="说说js标签的位置"></a>说说js标签的位置</h2><pre><code>为什么大家普遍把&lt;script src=&quot;&quot;&gt;&lt;/script&gt;这样的代码放在body最底部？
+</code></pre><p>其实我之前看到这个问题的时候，脑海里和作者给的常规回答一样</p>
+<pre><code>因为浏览器生成Dom树的时候是一行一行读HTML代码的，script标签放在最后面就不会影响前面的页面的渲染。
+</code></pre><p>其实乍一看没什么问题，但是这里需要明确<em>页面渲染</em>到底是什么概念。</p>
+<p>不过比较好理解的是，上面这个答案指的是，因为页面渲染会因为<script src=""></script>的位置导致页面显示出现问题。</p>
+<p>先说说页面渲染，再来继续位置的问题：</p>
+<hr>
+<h2 id="u9875_u9762_u6E32_u67D3_u7684_u8FC7_u7A0B"><a href="#u9875_u9762_u6E32_u67D3_u7684_u8FC7_u7A0B" class="headerlink" title="页面渲染的过程"></a>页面渲染的过程</h2><ol>
+<li><p>首先浏览器请求html代码，然后并行发起image,css,js下载请求（无论在不在head里。这个随便找个图多的网站刷新看下timline就知道了），接着开始生成dom树</p>
+<ul>
+<li><p><em>注意是获取完html代码，读完之后才开始生成dom树</em></p>
+</li>
+<li><p>根节点就是document对象，其他tag都被解析成dom树上的节点</p>
+</li>
+<li><p>DOM 树的构建过程是一个深度遍历过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。</p>
+</li>
+<li><p>包括<code>display:none</code>的节点，因为这个时候样式还没有生效</p>
+</li>
+<li><p>包括js动态生成的节点</p>
+</li>
+</ul>
+</li>
+<li><p>然后读取css样式，生成<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=en#css-object-model-cssom" target="_blank" rel="external">CSSOM</a>)</p>
+<ul>
+<li>浏览器会过滤掉不认识的前缀，比如opera会优先读取<code>-o-</code>的，别的都什么<code>-mz-</code>啊<code>-ms-</code>啊忽略掉</li>
+</ul>
+</li>
+<li><p>生成render tree，其实就是把html代码和css样式结合起来，这部分就是即将实实在在显示出来的部分</p>
+</li>
+<li><p>接着浏览器就开始计算节点位置，绘制页面</p>
+<ul>
+<li><p>head部分不会被渲染出来，因为不需要显示</p>
+</li>
+<li><p><code>display:none</code>的节点就不显示了，理由同上</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="u5173_u4E8E_u91CD_u7ED8_u548C_u56DE_u6D41"><a href="#u5173_u4E8E_u91CD_u7ED8_u548C_u56DE_u6D41" class="headerlink" title="关于重绘和回流"></a>关于重绘和回流</h4><ul>
+<li><p>render tree构建完毕，浏览器就开始绘制页面，这种包含对结构进行调整的就叫回流，至少会有一次<br>  （比如对元素的布局、尺寸的调整等）</p>
+</li>
+<li><p>重绘主要是表面上的，即回流结束后重新绘制受影响而调整的部分，比如换个颜色啥的，不会对结构造成影响</p>
+</li>
+<li><p>回流引起重绘，但是重绘不一定导致回流，因为根据js对样式或者dom的操作，重新绘制页面不一定会改变结构</p>
+</li>
+</ul>
+<h5 id="u56DE_u6D41_u4F55_u65F6_u53D1_u751F"><a href="#u56DE_u6D41_u4F55_u65F6_u53D1_u751F" class="headerlink" title="回流何时发生"></a>回流何时发生</h5><ol>
+<li>页面渲染初始化</li>
+<li>添加或删除可见的dom元素</li>
+<li>元素位置发生变化</li>
+<li>元素内容发生变化（如文本变化或者图像变化引起的元素大小的变化）</li>
+<li>改变了盒子的尺寸（border, padding, margin, width, height）</li>
+<li>浏览器窗口尺寸发生改变</li>
+</ol>
+<h5 id="u5982_u4F55_u51CF_u5C11_u91CD_u7ED8_u548C_u56DE_u6D41"><a href="#u5982_u4F55_u51CF_u5C11_u91CD_u7ED8_u548C_u56DE_u6D41" class="headerlink" title="如何减少重绘和回流"></a>如何减少重绘和回流</h5><ol>
+<li><p>直接修改className，或者使用cssText<br> <em>浏览器优化：</em>浏览器会把多次会引发重绘和回流的操作放进一个队列里<br> 但是如果没有这个优化的话，每次操作都是立刻执行就会影响render tree，一次性执行多条语句效果就会好很多</p>
+</li>
+<li><p>尽量不要多次访问会引起浏览器flush队列的属性</p>
+<ol>
+<li><p>offsetTop, offsetLeft, offsetWidth, offsetHeight</p>
+</li>
+<li><p>scrollTop/Left/Width/Height</p>
+</li>
+<li><p>clientTop/Left/Width/Height</p>
+</li>
+<li><p>width,height</p>
+</li>
+<li><p>请求了getComputedStyle(), 或者 IE的 currentStyle</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> computed;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.body.currentStyle) &#123;</span><br><span class="line">    computer = <span class="built_in">document</span>.body.currentStyle;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    computer = <span class="built_in">document</span>.defaultView.getComputedStyle(<span class="built_in">document</span>.body, <span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>利用缓存访问会引起浏览器flush队列的属性</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 别这样写，大哥</span></span><br><span class="line"><span class="keyword">for</span>(循环) &#123;</span><br><span class="line">el.style.left = el.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">el.style.top = el.offsetTop + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 这样写好点</span></span><br><span class="line"><span class="keyword">var</span> left = el.offsetLeft,</span><br><span class="line">top = el.offsetTop,</span><br><span class="line">s = el.style; </span><br><span class="line"><span class="keyword">for</span> (循环) &#123; </span><br><span class="line">left += <span class="number">10</span>; </span><br><span class="line">top += <span class="number">10</span>; </span><br><span class="line">s.left = left + <span class="string">"px"</span>; </span><br><span class="line">s.top = top + <span class="string">"px"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>减少回流规模<br> eg.操作body，在body前新增一个节点会导致整个render tree回流，而在body后面增加则不会导致前面的节点回流</p>
+</li>
+<li><p>让要操作的元素进行”离线处理”，处理完后一起更新</p>
+<p> a) 使用DocumentFragment进行缓存操作,引发一次回流和重绘；<br> b) 使用display:none技术，只引发两次回流和重绘；<br> c) 使用cloneNode(true or false) 和 replaceChild 技术，引发一次回流和重绘</p>
+</li>
+</ol>
+<hr>
+<p>根据浏览器的渲染过程可以发现，因为dom节点需要一个节点全部生成完之后才能进行下一个节点的生成，同时js请求是和css，images同时发生的，所以不管<script src=""></script>在哪里，都会被加载，<strong>但是因为有的节点没有被构建出来，这个时候加载js会阻碍后面的dom节点的构建</strong>，所以页面上的显示就会中断，或者是显示效果会出问题。</p>
+<blockquote>
+<p>因此应当尽量把<script src=""></script>放在body的后面</p>
 </blockquote>
-<p>虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。<br>原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。</p>
-<p><img src="http://lcc19941214.github.io/images/2016/about/thumbs.jpg" alt=""></p>
+<p>不过第一篇文章的原作者还提出了很有意思的东西：</p>
+<p>比如js位置会影不会影响页面的加载速度——废话，不会的，但是有可能导致显示效果出问题，也就是影响渲染效果</p>
+<p><em>然后，居然是篇常识……白瞎了……</em></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/about/index.html" data-id="cik2bk1xu0007rsm1w0p2ffea" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115从script标签的摆放位置来看看DOM树的渲染/" data-id="cik2bk2020022rsm1xa3j0o6w" class="article-share-link">分享到</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2016/01/16/20160116BFC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          怎么理解BFC，顺便说说清除浮动
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/15/20160115纯css美化表单——checkbox/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">纯css美化表单——checkbox</div>
+    </a>
+  
+</nav>
+
 
   
 </article>

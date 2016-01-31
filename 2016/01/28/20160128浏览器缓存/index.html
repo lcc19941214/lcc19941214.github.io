@@ -3,25 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>欢迎来到阿川的个人博客 | AChuan</title>
+  <title>浏览器缓存基础 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="To be a better man.
-
-虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到阿川的个人博客">
-<meta property="og:url" content="http://lcc19941214.github.io/about/index.html">
+  <meta name="description" content="浏览器缓存（强缓存、协商缓存）
+与缓存相关的http header">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存基础">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="To be a better man.
-
-虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。">
-<meta property="og:image" content="http://lcc19941214.github.io/images/2016/about/thumbs.jpg">
-<meta property="og:updated_time" content="2016-01-31T07:52:01.000Z">
+<meta property="og:description" content="浏览器缓存（强缓存、协商缓存）
+与缓存相关的http header">
+<meta property="og:updated_time" content="2016-01-28T12:25:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到阿川的个人博客">
-<meta name="twitter:description" content="To be a better man.
-
-虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。">
+<meta name="twitter:title" content="浏览器缓存基础">
+<meta name="twitter:description" content="浏览器缓存（强缓存、协商缓存）
+与缓存相关的http header">
   
   
     <link rel="icon" href="favicon.png">
@@ -135,7 +131,7 @@
 </aside>
 
       
-      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-20160128浏览器缓存" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -144,7 +140,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      欢迎来到阿川的个人博客
+      浏览器缓存基础
     </h1>
   
 
@@ -152,13 +148,18 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/about/index.html">
-      <time datetime="2016-01-31T07:52:01.000Z" itemprop="datePublished">2016-01-31</time>
+    <a href="/2016/01/28/20160128浏览器缓存/">
+      <time datetime="2016-01-28T12:01:00.000Z" itemprop="datePublished">2016-01-28</time>
     </a>
   </div>
 
 
           
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a>
+  </div>
+
         </div>
       </header>
     
@@ -166,21 +167,123 @@
       
                 
         <blockquote>
-<p>To be a better man.</p>
+<p>浏览器缓存（强缓存、协商缓存）</p>
+<p>与缓存相关的http header</p>
 </blockquote>
-<p>虽然我知道应该没多少人会来到这个页面，但是文科生固有的矫情还是让我写下了这些文字。<br>原本我只是一条在东湖之滨，珞珈山下默默修行的网传狗，却机缘巧合接触到了视觉设计与前端开发，真的很感谢这些机缘巧合，让我成为了现在这个样子。</p>
-<p><img src="http://lcc19941214.github.io/images/2016/about/thumbs.jpg" alt=""></p>
+<a id="more"></a>
+<p>参考文章：<a href="http://web.jobbole.com/84888/" target="_blank" rel="external">http://web.jobbole.com/84888/</a></p>
+<h2 id="u6D4F_u89C8_u5668_u7F13_u5B58_u7684_u57FA_u672C_u539F_u7406"><a href="#u6D4F_u89C8_u5668_u7F13_u5B58_u7684_u57FA_u672C_u539F_u7406" class="headerlink" title="浏览器缓存的基本原理"></a>浏览器缓存的基本原理</h2><ul>
+<li><p>浏览器缓存分为强缓存和协商缓存</p>
+</li>
+<li><p>浏览器缓存步骤：</p>
+<ol>
+<li><p>浏览器加载资源时，首先会根据资源的一些http header判断资源是否命中强缓存，如果命中，则浏览器不向服务器端发送请求，而是直接在浏览器缓存中加载资源；</p>
+</li>
+<li><p>如果没有命中强缓存，则浏览器会向服务器发送一个请求，服务器根据资源另外的http header判断资源是否命中协商缓存，如果命中，则服务器端返回请求但是不返回资源，浏览器直接从缓存中加载资源；</p>
+</li>
+<li><p>如果强缓存和协商缓存都没有命中，则服务器返回资源</p>
+</li>
+</ol>
+</li>
+<li><p>强缓存和协商缓存的异同：</p>
+<ul>
+<li><p>二者都不从服务器加载资源，而是从浏览器缓存中加载</p>
+</li>
+<li><p>强缓存不向服务器发送请求，协商缓存一定会向服务器端发送请求</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="u5F3A_u7F13_u5B58_u7684_u539F_u7406_uFF08_u67E5_u770B_u7F13_u5B58_u662F_u5426_u8FC7_u671F_uFF09"><a href="#u5F3A_u7F13_u5B58_u7684_u539F_u7406_uFF08_u67E5_u770B_u7F13_u5B58_u662F_u5426_u8FC7_u671F_uFF09" class="headerlink" title="强缓存的原理（查看缓存是否过期）"></a>强缓存的原理（查看缓存是否过期）</h3><ul>
+<li><p>强缓存命中后服务器会返回一个200代码</p>
+</li>
+<li><p>Expires和Cache-Control都是用来表示资源在缓存中的有效期</p>
+</li>
+<li><p>二者可以只设置一个也可以都设置，Cache-Control的优先级比Expires高</p>
+</li>
+</ul>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>绝对时间（GMT）</p>
+<ol>
+<li><p>浏览器第一次从服务器请求资源时，服务器返回资源时会在Response header上添加Expires</p>
+</li>
+<li><p>浏览器接收资源后会把资源的所有response header都缓存下来</p>
+</li>
+<li><p>浏览器第二次请求同样的资源时，会先在缓存中查找该资源，并且将Expires与当前请求资源的时间相对比，如果请求时间在Expires的时间之前，则命中强缓存，从缓存中加载资源</p>
+</li>
+<li><p>如果没有命中，浏览器直接从服务器加载资源，Expires会在资源返回时更新</p>
+</li>
+</ol>
+<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>相对时间（秒）</p>
+<ol>
+<li><p>浏览器第一次从服务器请求资源时，服务器返回资源时会在Response header上添加Cache-Control</p>
+</li>
+<li><p>浏览器接收资源后会把资源的所有response header都缓存下来</p>
+</li>
+<li><p>浏览器再次请求相同的资源时，会先在缓存中查找该资源，查找到该资源后根据第一次请求的时间和Cache-Control设定的有效期比较，计算出一个时间；如果当前请求时间在该时间之前，则浏览器从缓存中加载资源</p>
+</li>
+<li><p>如果没有命中强缓存，则浏览器会从服务器加载资源，资源返回时会更新Cache-Control</p>
+</li>
+</ol>
+<hr>
+<h3 id="u534F_u5546_u7F13_u5B58_u7684_u539F_u7406_uFF08_u5982_u679C_u7F13_u5B58_u8FC7_u671F_u4E86_uFF09"><a href="#u534F_u5546_u7F13_u5B58_u7684_u539F_u7406_uFF08_u5982_u679C_u7F13_u5B58_u8FC7_u671F_u4E86_uFF09" class="headerlink" title="协商缓存的原理（如果缓存过期了）"></a>协商缓存的原理（如果缓存过期了）</h3><ul>
+<li>协商缓存命中后服务器会返回一个304代码（Not Modified）</li>
+</ul>
+<h4 id="Last-Modified_If-Modified-Since"><a href="#Last-Modified_If-Modified-Since" class="headerlink" title="Last-Modified If-Modified-Since"></a><code>Last-Modified</code> <code>If-Modified-Since</code></h4><ol>
+<li><p>浏览器第一次从服务器请求资源时，服务器会在返回资源时在response header上添加Last-Modified的header，Last-Modified代表资源最近一次在服务器端发生修改的时间</p>
+</li>
+<li><p>浏览器再次向服务器请求这个资源时，会在request header上添加If-Modified-Since，这个header的值即上一次请求该资源时服务器返回的Last-Modified的值</p>
+</li>
+<li><p>服务器收到请求后会在服务器端比较该资源最后一次发生修改的时间，如果该时间在If-Modified-Since之前，则命中协商缓存，返回304代码但是不返回资源，浏览器会在缓存中找到资源并加载</p>
+</li>
+<li><p>如果服务器端资源发生了更改，即改时间在If-Modified-Since之后，则服务器返回资源</p>
+</li>
+</ol>
+<p><em>5. 当服务器返回304代码时，将不会返回一个新的Last-Modified</em></p>
+<h4 id="Etag_If-None-Match"><a href="#Etag_If-None-Match" class="headerlink" title="Etag If-None-Match"></a><code>Etag</code> <code>If-None-Match</code></h4><ol>
+<li><p>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上ETag的header，这个header是服务器根据当前请求的资源生成的一个唯一标识，这个唯一标识是一个字符串，只要资源有变化这个串就不同，跟最后修改时间没有关系</p>
+</li>
+<li><p>浏览器再次向服务器请求这个资源时，会在request header上添加If-None-Match，这个header的值即上一次请求该资源时服务器返回的ETag的值</p>
+</li>
+<li><p>服务器收到请求后会根据服务器端的资源重新生成一个Etag，并且与请求中的If-None-Match对比，如果相同则命中协商缓存，返回304，浏览器从缓存中加载资源</p>
+</li>
+<li><p>如果不一致，则从服务器加载资源</p>
+</li>
+<li><p>不管是否命中协商缓存，服务器都会重新返回Etag，就算两者一致</p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/about/index.html" data-id="cik2bk1xu0007rsm1w0p2ffea" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/" data-id="cik2bk1za001crsm1r1q1lz1e" class="article-share-link">分享到</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器缓存/">浏览器缓存</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2016/01/28/css知识点梳理_01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          css 知识点整理 01
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/28/20160128webdesign-year-review/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">2015年度网页设计回顾</div>
+    </a>
+  
+</nav>
+
 
   
 </article>
