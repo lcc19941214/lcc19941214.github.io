@@ -3,33 +3,51 @@
 <head>
   <meta charset="utf-8">
   
-  <title>外边距塌陷 | AChuan</title>
+  <title>javascript 知识点整理 06 bom | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
+  <meta name="description" content="这部分内容的整理都来自于《js高级程序设计》
 
-两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并
+BOM
+window对象
+location对象
+navigator对象
+screen对象
+history对象
 
-父级块元素中的第一个子元素在和父元素顶部没有bor">
+BOM
+window全局作用域框架的关系浏览器位置获取位置设置位置浏览器大小获取大小设置大小导航与打开窗口间歇调用与延时调用间歇调用延时调用弹出框alertconfirmprompt
+location属性href pathnamehost">
 <meta property="og:type" content="article">
-<meta property="og:title" content="外边距塌陷">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/index.html">
+<meta property="og:title" content="javascript 知识点整理 06 bom">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/01/30/javascript_知识点整理_06_BOM/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
+<meta property="og:description" content="这部分内容的整理都来自于《js高级程序设计》
 
-两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并
+BOM
+window对象
+location对象
+navigator对象
+screen对象
+history对象
 
-父级块元素中的第一个子元素在和父元素顶部没有bor">
-<meta property="og:updated_time" content="2016-01-20T15:05:02.000Z">
+BOM
+window全局作用域框架的关系浏览器位置获取位置设置位置浏览器大小获取大小设置大小导航与打开窗口间歇调用与延时调用间歇调用延时调用弹出框alertconfirmprompt
+location属性href pathnamehost">
+<meta property="og:updated_time" content="2016-01-30T16:30:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="外边距塌陷">
-<meta name="twitter:description" content="参考文章：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
-外边距重叠其实指的是top和bottom的margin的重叠，一共有三种情况：
+<meta name="twitter:title" content="javascript 知识点整理 06 bom">
+<meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
 
-两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并
+BOM
+window对象
+location对象
+navigator对象
+screen对象
+history对象
 
-父级块元素中的第一个子元素在和父元素顶部没有bor">
+BOM
+window全局作用域框架的关系浏览器位置获取位置设置位置浏览器大小获取大小设置大小导航与打开窗口间歇调用与延时调用间歇调用延时调用弹出框alertconfirmprompt
+location属性href pathnamehost">
   
   
     <link rel="icon" href="favicon.png">
@@ -149,7 +167,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-20160117margincollapse" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-javascript_知识点整理_06_BOM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -158,7 +176,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      外边距塌陷
+      javascript 知识点整理 06 bom
     </h1>
   
 
@@ -166,8 +184,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/17/20160117margincollapse/">
-      <time datetime="2016-01-17T11:26:00.000Z" itemprop="datePublished">2016-01-17</time>
+    <a href="/2016/01/30/javascript_知识点整理_06_BOM/">
+      <time datetime="2016-01-30T13:20:00.000Z" itemprop="datePublished">2016-01-30</time>
     </a>
   </div>
 
@@ -175,7 +193,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
   </div>
 
         </div>
@@ -184,30 +202,30 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>参考文章：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing</a></p>
-<p>外边距重叠其实<em>指的是top和bottom的margin的重叠</em>，一共有三种情况：</p>
-<ol>
-<li><p>两个相邻元素，后一个元素（如果没有使用清楚浮动）的margin-top和前一个兄弟元素的margin-bottom会合并</p>
-</li>
-<li><p>父级块元素中的第一个子元素在和父元素顶部没有border, padding, inline-content,  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear" target="_blank" rel="external">clearance</a> (清楚浮动)分隔；父级块元素的 margin-bottom 与它的最后一个子元素之间没有border、padding、inline content、height、min-height、max-height 分隔</p>
-</li>
-<li><p>如果块元素 margin-top 与 margin-bottom 之间没有border、padding、inline content、height、min-height来分隔，那么它的上下外边距合并。——因为根元素也是个BFC</p>
-</li>
-</ol>
-<hr>
-<p>消除外边距重叠</p>
-<p>根据上面的定义，对于相邻元素没有border, padding等的情况，彼此设置一个1px的透明edge即可</p>
-<p>也可以给两个相邻元素设置包含块为BFC，因为只有同BFC内的子元素上下margin会发生重叠</p>
-<hr>
-<p>对于浮动元素，绝对定位，分属不同BFC内的元素，不会有边距重叠的现象</p>
-
+        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
+<blockquote>
+<p>BOM</p>
+<p>window对象</p>
+<p>location对象</p>
+<p>navigator对象</p>
+<p>screen对象</p>
+<p>history对象</p>
+</blockquote>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p><br></p>
+<h2 id="window"><a href="#window" class="headerlink" title="window"></a>window</h2><h3 id="u5168_u5C40_u4F5C_u7528_u57DF"><a href="#u5168_u5C40_u4F5C_u7528_u57DF" class="headerlink" title="全局作用域"></a>全局作用域</h3><h3 id="u6846_u67B6_u7684_u5173_u7CFB"><a href="#u6846_u67B6_u7684_u5173_u7CFB" class="headerlink" title="框架的关系"></a>框架的关系</h3><h3 id="u6D4F_u89C8_u5668_u4F4D_u7F6E"><a href="#u6D4F_u89C8_u5668_u4F4D_u7F6E" class="headerlink" title="浏览器位置"></a>浏览器位置</h3><h4 id="u83B7_u53D6_u4F4D_u7F6E"><a href="#u83B7_u53D6_u4F4D_u7F6E" class="headerlink" title="获取位置"></a>获取位置</h4><h4 id="u8BBE_u7F6E_u4F4D_u7F6E"><a href="#u8BBE_u7F6E_u4F4D_u7F6E" class="headerlink" title="设置位置"></a>设置位置</h4><h3 id="u6D4F_u89C8_u5668_u5927_u5C0F"><a href="#u6D4F_u89C8_u5668_u5927_u5C0F" class="headerlink" title="浏览器大小"></a>浏览器大小</h3><h4 id="u83B7_u53D6_u5927_u5C0F"><a href="#u83B7_u53D6_u5927_u5C0F" class="headerlink" title="获取大小"></a>获取大小</h4><h4 id="u8BBE_u7F6E_u5927_u5C0F"><a href="#u8BBE_u7F6E_u5927_u5C0F" class="headerlink" title="设置大小"></a>设置大小</h4><h3 id="u5BFC_u822A_u4E0E_u6253_u5F00_u7A97_u53E3"><a href="#u5BFC_u822A_u4E0E_u6253_u5F00_u7A97_u53E3" class="headerlink" title="导航与打开窗口"></a>导航与打开窗口</h3><h3 id="u95F4_u6B47_u8C03_u7528_u4E0E_u5EF6_u65F6_u8C03_u7528"><a href="#u95F4_u6B47_u8C03_u7528_u4E0E_u5EF6_u65F6_u8C03_u7528" class="headerlink" title="间歇调用与延时调用"></a>间歇调用与延时调用</h3><h4 id="u95F4_u6B47_u8C03_u7528"><a href="#u95F4_u6B47_u8C03_u7528" class="headerlink" title="间歇调用"></a>间歇调用</h4><h4 id="u5EF6_u65F6_u8C03_u7528"><a href="#u5EF6_u65F6_u8C03_u7528" class="headerlink" title="延时调用"></a>延时调用</h4><h3 id="u5F39_u51FA_u6846"><a href="#u5F39_u51FA_u6846" class="headerlink" title="弹出框"></a>弹出框</h3><h4 id="alert"><a href="#alert" class="headerlink" title="alert"></a><code>alert</code></h4><h4 id="confirm"><a href="#confirm" class="headerlink" title="confirm"></a><code>confirm</code></h4><h4 id="prompt"><a href="#prompt" class="headerlink" title="prompt"></a><code>prompt</code></h4><p><br></p>
+<h2 id="location"><a href="#location" class="headerlink" title="location"></a>location</h2><h3 id="u5C5E_u6027"><a href="#u5C5E_u6027" class="headerlink" title="属性"></a>属性</h3><p><code>href</code> <code>pathname</code><br><code>host</code> <code>hostname</code> <code>port</code><br><code>hash</code> <code>search</code> <code>protocal</code></p>
+<h3 id="u4F4D_u7F6E_u65B9_u6CD5"><a href="#u4F4D_u7F6E_u65B9_u6CD5" class="headerlink" title="位置方法"></a>位置方法</h3><h3 id="u622A_u53D6_u5B57_u7B26_u4E32"><a href="#u622A_u53D6_u5B57_u7B26_u4E32" class="headerlink" title="截取字符串"></a>截取字符串</h3><p><br></p>
+<h2 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h2><h3 id="u63D2_u4EF6_u68C0_u6D4B"><a href="#u63D2_u4EF6_u68C0_u6D4B" class="headerlink" title="插件检测"></a>插件检测</h3><p><br></p>
+<h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><p><br></p>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><h3 id="u8DF3_u8F6C_u65B9_u6CD5"><a href="#u8DF3_u8F6C_u65B9_u6CD5" class="headerlink" title="跳转方法"></a>跳转方法</h3><h3 id="u9875_u9762_u6570_u8BB0_u5F55"><a href="#u9875_u9762_u6570_u8BB0_u5F55" class="headerlink" title="页面数记录"></a>页面数记录</h3><p>location对象截取字符串参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryStringArgs</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> qs = (location.search.length &gt; <span class="number">0</span> ? location.search.slice(<span class="number">1</span>) : <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> args = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> items = qs.length ? qs.split(<span class="string">"&amp;"</span>) : [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> item = <span class="literal">null</span>,</span><br><span class="line">        name = <span class="literal">null</span>,</span><br><span class="line">        value = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>,</span><br><span class="line">        len = items.length;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        item = items[i].split(<span class="string">"="</span>);</span><br><span class="line">        name = <span class="built_in">decodeURIComponent</span>(item[<span class="number">0</span>]);</span><br><span class="line">        value = <span class="built_in">decodeURIComponent</span>(item[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(name.length) &#123;</span><br><span class="line">            args[name] = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> args;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/" data-id="cik158nfc001g8xm1dmi7v83v" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/30/javascript_知识点整理_06_BOM/" data-id="cik27yxse00036cm1s29zxinc" class="article-share-link">分享到</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/">BOM</a></li></ul>
 
     </footer>
   </div>
@@ -215,19 +233,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/20/javascript_知识点整理_02_数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          javascript 知识点整理 02 数据类型
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/16/20160116BFC/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/30/css知识点梳理_02/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">怎么理解BFC，顺便说说清除浮动</div>
+      <div class="article-nav-title">css 知识点整理 02</div>
     </a>
   
 </nav>
