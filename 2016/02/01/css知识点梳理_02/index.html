@@ -5,26 +5,31 @@
   
   <title>css 知识点整理 02 字体 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="字体
-字体关键字
-文本
+  <meta name="description" content="字体属性
+文本属性
+*字体匹配
 
 参考：《CSS权威指南》（主要讲解了CSS2和CSS2.1）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css 知识点整理 02 字体">
 <meta property="og:url" content="http://lcc19941214.github.io/2016/02/01/css知识点梳理_02/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="字体
-字体关键字
-文本
+<meta property="og:description" content="字体属性
+文本属性
+*字体匹配
 
 参考：《CSS权威指南》（主要讲解了CSS2和CSS2.1）">
-<meta property="og:updated_time" content="2016-02-06T07:17:35.000Z">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_line_height.png">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_018.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_019.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_020.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_021.gif">
+<meta property="og:updated_time" content="2016-02-21T10:13:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css 知识点整理 02 字体">
-<meta name="twitter:description" content="字体
-字体关键字
-文本
+<meta name="twitter:description" content="字体属性
+文本属性
+*字体匹配
 
 参考：《CSS权威指南》（主要讲解了CSS2和CSS2.1）">
   
@@ -114,11 +119,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        21
+        22
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        8
+        9
         <span>标签</span>
       </div>
     </div>
@@ -176,17 +181,181 @@
       
                 
         <blockquote>
-<p>字体</p>
-<p><em>字体关键字</em></p>
-<p>文本</p>
+<p>字体属性</p>
+<p>文本属性</p>
+<p>*<a href="#font-match">字体匹配</a></p>
 </blockquote>
 <p>参考：<br>《CSS权威指南》（主要讲解了CSS2和CSS2.1）</p>
 <a id="more"></a>
+<h2 id="u5B57_u4F53_u5C5E_u6027"><a href="#u5B57_u4F53_u5C5E_u6027" class="headerlink" title="字体属性"></a>字体属性</h2><h3 id="font-family__u5B57_u4F53_u7CFB_u5217"><a href="#font-family__u5B57_u4F53_u7CFB_u5217" class="headerlink" title="font-family  字体系列"></a><code>font-family</code>  字体系列</h3><h4 id="u901A_u7528_u5B57_u4F53_u7CFB_u5217_generic-family"><a href="#u901A_u7528_u5B57_u4F53_u7CFB_u5217_generic-family" class="headerlink" title="通用字体系列 generic-family"></a>通用字体系列 <code>generic-family</code></h4><ul>
+<li>sefir  衬线</li>
+<li>sans-seirf  无衬线</li>
+<li>cursive  手写体</li>
+<li>monospace  等宽</li>
+<li>fantasy  上述之外的，无法定义的字体</li>
+</ul>
+<p><br></p>
+<h3 id="font-weight__u5B57_u4F53_u52A0_u7C97"><a href="#font-weight__u5B57_u4F53_u52A0_u7C97" class="headerlink" title="font-weight  字体加粗"></a><code>font-weight</code>  字体加粗</h3><ul>
+<li>值：normal bold bolder lighter</li>
+<li>数字：100 200 300 400 500 600 700 800 900<ul>
+<li>数字不对应固定宽度，而是映射一个范围</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="font-size__u5B57_u4F53_u5927_u5C0F"><a href="#font-size__u5B57_u4F53_u5927_u5C0F" class="headerlink" title="font-size  字体大小"></a><code>font-size</code>  字体大小</h3><ul>
+<li><p>font-size不一定直接对应显示字符的大小，而是定义了包裹字符的em框的大小。汉字是等宽字体所以基本不会有太大影响。</p>
+</li>
+<li><p>值：</p>
+<ul>
+<li>百分数：<ul>
+<li>总是从父元素处继承</li>
+<li>1em = 100%</li>
+</ul>
+</li>
+<li>长度单位（px em rem vh 等）</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="font-style__u5B57_u4F53_u98CE_u683C"><a href="#font-style__u5B57_u4F53_u98CE_u683C" class="headerlink" title="font-style  字体风格"></a><code>font-style</code>  字体风格</h3><p><code>italic</code> <code>oblique</code> <code>normal</code> <code>inherit</code></p>
+<p><br></p>
+<h3 id="font-variant__u5B57_u4F53_u53D8_u5F62"><a href="#font-variant__u5B57_u4F53_u53D8_u5F62" class="headerlink" title="font-variant  字体变形"></a><code>font-variant</code>  字体变形</h3><p><code>small-caps</code> <code>normal</code> <code>inherit</code></p>
+<ul>
+<li><code>small-caps</code>有点类似于<code>text-transform: uppercase</code>，只不过做了大小缩放</li>
+</ul>
+<p><br></p>
+<h3 id="font-stretch__u5B57_u4F53_u62C9_u4F38"><a href="#font-stretch__u5B57_u4F53_u62C9_u4F38" class="headerlink" title="font-stretch  字体拉伸"></a><code>font-stretch</code>  字体拉伸</h3><p><code>normal</code> <code>wider</code> <code>narrower</code> <code>ultra-condensed</code> <code>extra-condensed</code> <code>condensed</code> <code>semi-condensed</code> <code>semi-expanded</code> <code>expanded</code> <code>extra-expanded</code> <code>ultra-expanded</code> <code>inherit</code></p>
+<h3 id="font-size-adjust__u5B57_u4F53_u8C03_u6574_28_u63D0_u9AD8_u8FA8_u8BC6_u5EA6_29"><a href="#font-size-adjust__u5B57_u4F53_u8C03_u6574_28_u63D0_u9AD8_u8FA8_u8BC6_u5EA6_29" class="headerlink" title="font-size-adjust  字体调整(提高辨识度)"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-size-adjust" target="_blank" rel="external"><code>font-size-adjust</code></a>  字体调整(提高辨识度)</h3><p><code>&lt;number&gt;</code> <code>none</code> <code>inherit</code></p>
+<ul>
+<li>方面值：x-height与font-size的比值<ul>
+<li>方面值与字体辨识度成正相关 </li>
+</ul>
+</li>
+<li>主要用于西文字体</li>
+</ul>
+<p><br></p>
+<h3 id="font__u7F29_u5199_u5C5E_u6027"><a href="#font__u7F29_u5199_u5C5E_u6027" class="headerlink" title="font 缩写属性"></a><code>font</code> 缩写属性</h3><ul>
+<li><p>font: [ <code>font-style</code> || <code>font-variant</code> || <code>font-weight</code> || <code>font-stretch</code> ]? <code>font-size</code> [/<code>line-height</code>]? <code>font-family</code></p>
+</li>
+<li><p>使用系统字体：用于取得用户操作系统中的字体大小，字体系列，字体加粗，字体风格等</p>
+<ul>
+<li>caption</li>
+<li>icon</li>
+<li>menu</li>
+<li>message-box</li>
+<li>small-caption</li>
+<li>status-bar</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="u6587_u672C_u5C5E_u6027"><a href="#u6587_u672C_u5C5E_u6027" class="headerlink" title="文本属性"></a>文本属性</h2><h3 id="u95F4_u8DDD_u3001_u95F4_u9694"><a href="#u95F4_u8DDD_u3001_u95F4_u9694" class="headerlink" title="间距、间隔"></a>间距、间隔</h3><h4 id="line-height__u884C_u9AD8"><a href="#line-height__u884C_u9AD8" class="headerlink" title="line-height  行高"></a><code>line-height</code>  行高</h4><ul>
+<li><p>行高的继承</p>
+<ul>
+<li><p>使用em或者百分比嵌套子元素时，行高会计算父元素的字体大小，子元素会应用此计算值作为行高</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">outter</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">10px</span></span></span>;&#125;</span></span><br><span class="line"><span class="tag">wrap</span> <span class="rules">&#123;<span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">1em</span></span></span>;&#125;</span> <span class="comment">/*  computers to 10px  */</span></span><br><span class="line"><span class="tag">inner</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">16px</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果使用数值，则会应用继承值（即根据自身的字体大小进行调整）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="u884C_u6846__26amp_3B__u884C_u5185_u6846"><a href="#u884C_u6846__26amp_3B__u884C_u5185_u6846" class="headerlink" title="行框 &amp; 行内框"></a><a href="http://www.cnblogs.com/rainman/archive/2011/08/05/2128068.html" target="_blank" rel="external">行框 &amp; 行内框</a></h5><ul>
+<li>设置行内元素的padding、border和margin并不会撑大外层元素的高度</li>
+</ul>
+<ol>
+<li><p>基线、底线、顶线：<br><img src="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_line_height.png" alt="深入理解CSS中的行高"></p>
+<ul>
+<li>顶线，底线，中线：以实际字符的顶部、底部、中部来进行比较</li>
+<li>基线： 字母x的底部对应的水平线</li>
+</ul>
+</li>
+<li><p>行高、行距：<br><img src="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_018.gif" alt="深入理解CSS中的行高"></p>
+<ul>
+<li>行高：两条<strong>基线</strong>之间的垂直距离，也就是line-height的高度</li>
+<li>行距（行间距）：上一条底线与下一条顶线之间的垂直距离，即line-height 与 font-size之间的差值</li>
+</ul>
+</li>
+<li><p>内容区：<br><img src="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_019.gif" alt="深入理解CSS中的行高"></p>
+<ul>
+<li>内容区：顶线与底线之间的部分</li>
+</ul>
+</li>
+<li><p>行内框：<br><img src="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_020.gif" alt="深入理解CSS中的行高"></p>
+<ul>
+<li>行内框：行间距除以2，在font-size上下各占据相应的部分，这个区域就是行内框</li>
+</ul>
+</li>
+<li><p>行框：<br><img src="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_021.gif" alt="深入理解CSS中的行高"></p>
+<ul>
+<li>行框：即本行文本内所有元素行高最大的值</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h4 id="letter-spacing__u5B57_u95F4_u9694"><a href="#letter-spacing__u5B57_u95F4_u9694" class="headerlink" title="letter-spacing 字间隔"></a><code>letter-spacing</code> 字间隔</h4><h4 id="word-spacing__u5B57_u6BCD_u95F4_u9694"><a href="#word-spacing__u5B57_u6BCD_u95F4_u9694" class="headerlink" title="word-spacing 字母间隔"></a><code>word-spacing</code> 字母间隔</h4><p><br></p>
+<h3 id="u5BF9_u9F50_u65B9_u5F0F"><a href="#u5BF9_u9F50_u65B9_u5F0F" class="headerlink" title="对齐方式"></a>对齐方式</h3><h4 id="text-align__u6C34_u5E73_u5BF9_u9F50"><a href="#text-align__u6C34_u5E73_u5BF9_u9F50" class="headerlink" title="text-align  水平对齐"></a><code>text-align</code>  水平对齐</h4><p><code>left</code> <code>center</code> <code>right</code> <code>justify</code> <em><code>justify-all</code></em></p>
+<ul>
+<li><em><code>text-align： justify</code>仅对文本换行时生效，即一段连续的文字呈两行显示，第一行充满整行，第二行只占据一半，则仅有第一行能实现分散对齐</em></li>
+<li><code>justify-all</code>  兼容性不强<ul>
+<li>Same as justify, but also forces the last line to be justified.</li>
+</ul>
+</li>
+</ul>
+<h4 id="text-justify__u5206_u6563_u5BF9_u9F50"><a href="#text-justify__u5206_u6563_u5BF9_u9F50" class="headerlink" title="text-justify  分散对齐"></a><code>text-justify</code>  分散对齐</h4><p><br></p>
+<h4 id="vertical-align__u5782_u76F4_u5BF9_u9F50"><a href="#vertical-align__u5782_u76F4_u5BF9_u9F50" class="headerlink" title="vertical-align  垂直对齐"></a><code>vertical-align</code>  垂直对齐</h4><p><code>top</code> <code>middle</code> <code>bottom</code> <code>baseline</code> <code>text-top</code> <code>text-bottom</code> <code>sub</code> <code>super</code> <code>&lt;persontage&gt;</code> <code>&lt;lengh&gt;</code></p>
+<ul>
+<li>要求设置在元素本身，即设置在包含元素上时，包含元素内的子元素文本不会发生改变</li>
+<li>直接设置数值，是计算该元素的line-height的百分数</li>
+</ul>
+<p><br></p>
+<h4 id="text-indent__u6587_u672C_u7F29_u8FDB"><a href="#text-indent__u6587_u672C_u7F29_u8FDB" class="headerlink" title="text-indent  文本缩进"></a><code>text-indent</code>  文本缩进</h4><ul>
+<li>百分比：相对于父元素的宽度</li>
+<li>text-indent有继承性</li>
+</ul>
+<p><br></p>
+<h3 id="u6587_u672C_u8F6C_u6362"><a href="#u6587_u672C_u8F6C_u6362" class="headerlink" title="文本转换"></a>文本转换</h3><h4 id="text-transform__u5927_u5C0F_u5199_u8F6C_u5316"><a href="#text-transform__u5927_u5C0F_u5199_u8F6C_u5316" class="headerlink" title="text-transform  大小写转化"></a><code>text-transform</code>  大小写转化</h4><p><code>uppercase</code> <code>lowercase</code> <code>capitalize</code> <code>none</code> <code>inherit</code></p>
+<ul>
+<li><code>capitalize</code> 只会将首字母大写，其他部分不会转化为小写或者进行别的转化</li>
+</ul>
+<p><br></p>
+<h3 id="u6587_u672C_u4FEE_u9970"><a href="#u6587_u672C_u4FEE_u9970" class="headerlink" title="文本修饰"></a>文本修饰</h3><h4 id="text-decoration__u6587_u672C_u88C5_u9970"><a href="#text-decoration__u6587_u672C_u88C5_u9970" class="headerlink" title="text-decoration  文本装饰"></a><code>text-decoration</code>  文本装饰</h4><p>[<code>underline</code> | <code>overline</code> | <code>line-through</code> | <code>blink</code>] | <code>none</code> | <code>inherit</code></p>
+<ul>
+<li>不支持继承</li>
+</ul>
+<h4 id="text-shadow__u6587_u672C_u9634_u5F71"><a href="#text-shadow__u6587_u672C_u9634_u5F71" class="headerlink" title="text-shadow  文本阴影"></a><code>text-shadow</code>  文本阴影</h4><p>[<code>&lt;color&gt;</code> || <code>&lt;length&gt;</code> <code>&lt;length&gt;</code> <code>&lt;length&gt;?</code>,]* [<code>&lt;color&gt;</code> || <code>&lt;length&gt;</code> <code>&lt;length&gt;</code> <code>&lt;length&gt;</code>?]*</p>
+<p><br></p>
+<h3 id="u6587_u672C_u6EA2_u51FA"><a href="#u6587_u672C_u6EA2_u51FA" class="headerlink" title="文本溢出"></a>文本溢出</h3><h4 id="text-overflow"><a href="#text-overflow" class="headerlink" title="text-overflow"></a><code>text-overflow</code></h4><p><code>clip</code> <code>ellipsis</code></p>
+<p>设置行末出现省略号（文本仅一行）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;&#10;    text-overflow: ellipsis;&#10;    white-space: nowrap;&#10;    overflow: hidden;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="u683C_u5F0F_u5904_u7406"><a href="#u683C_u5F0F_u5904_u7406" class="headerlink" title="格式处理"></a>格式处理</h3><h4 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a><code>white-space</code></h4><table><br>    <tr><br>        <th>值</th><br>        <th>空白符</th><br>        <th>换行符</th><br>        <th>自动换行</th><br>    </tr><br>    <tr><br>        <td>normal</td><br>        <td>合并</td><br>        <td>忽略</td><br>        <td>允许</td><br>    </tr><br>    <tr><br>        <td>nowrap</td><br>        <td>合并</td><br>        <td>忽略</td><br>        <td>不允许</td><br>    </tr><br>    <tr><br>        <td>pre</td><br>        <td>保留</td><br>        <td>保留</td><br>        <td>不允许</td><br>    </tr><br>    <tr><br>        <td>pre-line</td><br>        <td>合并</td><br>        <td>保留</td><br>        <td>允许</td><br>    </tr><br>    <tr><br>        <td>pre-wrap</td><br>        <td>保留</td><br>        <td>保留</td><br>        <td>允许</td><br>    </tr><br></table>
+
+<h4 id="word-wrap"><a href="#word-wrap" class="headerlink" title="word-wrap"></a><code>word-wrap</code></h4><h4 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a><code>word-break</code></h4><p><br></p>
+<h3 id="u6587_u672C_u65B9_u5411"><a href="#u6587_u672C_u65B9_u5411" class="headerlink" title="文本方向"></a>文本方向</h3><h4 id="direction"><a href="#direction" class="headerlink" title="direction"></a><code>direction</code></h4><p><code>ltr</code> <code>rtl</code> <code>inherit</code></p>
+<ul>
+<li>默认对块级元素中的文本生效，作用于行内文本需要设置<code>unicode-bidi</code>为<code>embed</code>或者<code>bidi-override</code></li>
+</ul>
+<p><br></p>
+<h3 id="u6587_u672C_u989C_u8272"><a href="#u6587_u672C_u989C_u8272" class="headerlink" title="文本颜色"></a>文本颜色</h3><h4 id="color"><a href="#color" class="headerlink" title="color"></a><code>color</code></h4><p><br> </p>
+<hr>
+<h2 id="font-match">字体匹配</h2>
+
+<h3 id="u5339_u914D_u89C4_u5219"><a href="#u5339_u914D_u89C4_u5219" class="headerlink" title="匹配规则"></a>匹配规则</h3><ol>
+<li>用户代理创建/或访问一个字体属性数据库，列出了用户电脑和用户代理具有的所有字体具备所有CSS属性</li>
+<li>用户代理根据字体属性列表，按照font-style font-variant font-weight font-size进行匹配</li>
+<li>如果第二部没有匹配到字体，则进行下一个候选字体的匹配</li>
+<li>如果没有正确匹配且候选字体都尝试过之后，用户代理将使用默认字体</li>
+</ol>
+<h3 id="font-face_u89C4_u5219"><a href="#font-face_u89C4_u5219" class="headerlink" title="font-face规则"></a>font-face规则</h3><ul>
+<li>声明一个远程字体下载</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">font-face</span></span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">"Example New"</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">src</span>:<span class="value"> <span class="function">url</span>(http://www.example/com)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/02/01/css知识点梳理_02/" data-id="cikrn0z8w0016fxm1opm8f6my" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/01/css知识点梳理_02/" data-id="cikrq33mc0016g4m1rdebtbqt" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -196,6 +365,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/02/18/20160218gitcommand/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          git命令行常用操作
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/31/productList/" id="article-nav-older" class="article-nav-link-wrap">
@@ -219,6 +397,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2016/02/18/20160218gitcommand/" class="thumbnail">
+  
+    <span style="background-image:url(http://image.baidu.com/search/detail?tn=baiduimagedetail&word=github&ie=utf-8&step_word=&ipn=d&istype=0&fr=&os=559736040,3126757382&cs=3242651622,884328141&di=135363062010&pn=4&simi=cardserver&simics=474350563%2C3803796994&cardserver=1&srctype=0&bdtype=0)" alt="git命令行常用操作" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a></p>
+              <p class="item-title"><a href="/2016/02/18/20160218gitcommand/" class="title">git命令行常用操作</a></p>
+              <p class="item-date"><time datetime="2016-02-17T16:00:00.000Z" itemprop="datePublished">2016-02-18</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -288,23 +483,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/01/28/20160128浏览器缓存/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/brower.jpeg)" alt="浏览器缓存基础" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a></p>
-              <p class="item-title"><a href="/2016/01/28/20160128浏览器缓存/" class="title">浏览器缓存基础</a></p>
-              <p class="item-date"><time datetime="2016-01-28T12:01:00.000Z" itemprop="datePublished">2016-01-28</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -314,7 +492,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a>
     </div>
   </div>
 
@@ -323,7 +501,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -332,7 +510,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 
