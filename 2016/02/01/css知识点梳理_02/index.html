@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_019.gif">
 <meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_020.gif">
 <meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/rainman/139529/o_text_021.gif">
-<meta property="og:updated_time" content="2016-02-21T14:11:47.000Z">
+<meta property="og:updated_time" content="2016-02-21T16:00:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css 知识点整理 02 字体">
 <meta name="twitter:description" content="字体属性
@@ -236,10 +236,11 @@
 </ul>
 <p><br></p>
 <h3 id="font__u7F29_u5199_u5C5E_u6027"><a href="#font__u7F29_u5199_u5C5E_u6027" class="headerlink" title="font 缩写属性"></a><code>font</code> 缩写属性</h3><ul>
-<li><p>font: [ <code>font-style</code> || <code>font-variant</code> || <code>font-weight</code> || <code>font-stretch</code> ]? <code>font-size</code> [/<code>line-height</code>]? <code>font-family</code></p>
-</li>
-<li><p>使用系统字体：用于取得用户操作系统中的字体大小，字体系列，字体加粗，字体风格等</p>
+<li>font: [ <code>font-style</code> || <code>font-variant</code> || <code>font-weight</code> || <code>font-stretch</code> ]? <code>font-size</code> [/<code>line-height</code>]? <code>font-family</code></li>
+</ul>
+<p>属性关键字参考张鑫旭的<a href="http://www.zhangxinxu.com/wordpress/2016/01/css-font-keyword-value-caption-menu-message-box-small-caption-status-bar/" target="_blank" rel="external">CSS font关键字属性值的简单研究</a></p>
 <ul>
+<li>使用系统字体：用于取得用户操作系统中的字体大小，字体系列，字体加粗，字体风格等<ul>
 <li>caption</li>
 <li>icon</li>
 <li>menu</li>
@@ -248,6 +249,8 @@
 <li>status-bar</li>
 </ul>
 </li>
+<li>关键字只能独立使用，如果与在font属性中与其他属性并列，则会被认为是候选字体系列</li>
+<li>应用场景：使不同的平台上的字体显示效果最好。如ios不支持微软雅黑，可以使用font：关键字直接显示默认的显示效果最好的汉字字体</li>
 </ul>
 <p><br></p>
 <h2 id="u6587_u672C_u5C5E_u6027"><a href="#u6587_u672C_u5C5E_u6027" class="headerlink" title="文本属性"></a>文本属性</h2><h3 id="u95F4_u8DDD_u3001_u95F4_u9694"><a href="#u95F4_u8DDD_u3001_u95F4_u9694" class="headerlink" title="间距、间隔"></a>间距、间隔</h3><h4 id="line-height__u884C_u9AD8"><a href="#line-height__u884C_u9AD8" class="headerlink" title="line-height  行高"></a><code>line-height</code>  行高</h4><ul>
@@ -331,7 +334,29 @@
 <p><br></p>
 <h3 id="u683C_u5F0F_u5904_u7406"><a href="#u683C_u5F0F_u5904_u7406" class="headerlink" title="格式处理"></a>格式处理</h3><h4 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a><code>white-space</code></h4><div style="position: relative;overflow: hidden;height: 270px;"><br>    <table style="position: absolute;top: 0;"><br>        <tr><br>            <th>值</th><br>            <th>空白符</th><br>            <th>换行符</th><br>            <th>自动换行</th><br>        </tr><br>        <tr><br>            <td>normal</td><br>            <td>合并</td><br>            <td>忽略</td><br>            <td>允许</td><br>        </tr><br>        <tr><br>            <td>nowrap</td><br>            <td>合并</td><br>            <td>忽略</td><br>            <td>不允许</td><br>        </tr><br>        <tr><br>            <td>pre</td><br>            <td>保留</td><br>            <td>保留</td><br>            <td>不允许</td><br>        </tr><br>        <tr><br>            <td>pre-line</td><br>            <td>合并</td><br>            <td>保留</td><br>            <td>允许</td><br>        </tr><br>        <tr><br>            <td>pre-wrap</td><br>            <td>保留</td><br>            <td>保留</td><br>            <td>允许</td><br>        </tr><br>    </table><br></div>
 
-<h4 id="word-wrap"><a href="#word-wrap" class="headerlink" title="word-wrap"></a><code>word-wrap</code></h4><h4 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a><code>word-break</code></h4><p><br></p>
+<h4 id="word-wrap__u8BCD_u6362_u884C"><a href="#word-wrap__u8BCD_u6362_u884C" class="headerlink" title="word-wrap  词换行"></a><code>word-wrap</code>  词换行</h4><ul>
+<li><p><code>break-word</code>     </p>
+<ul>
+<li>表示如果行内没有多余的地方容纳该单词到结尾，则哪些正常的不能被被分割的单词会被强制分割换行。一般用于长单词的强制换行</li>
+</ul>
+</li>
+<li><p>word-wrap 属性原本属于微软的一个私有属性，在CSS3现在的文本规范草案中已经被重名为 overflow-wrap 。 word-wrap 现在被当作 overflow-wrap 的 “别名”。 稳定的谷歌 Chrome 和 Opera 浏览器版本支持这种新语法</p>
+</li>
+</ul>
+<h4 id="word-break__u65AD_u8BCD"><a href="#word-break__u65AD_u8BCD" class="headerlink" title="word-break  断词"></a><code>word-break</code>  断词</h4><ul>
+<li><p><code>break-all</code></p>
+<ul>
+<li>对于non-CJK (中文/日文/韩文) 文本，可在任意字符间断行</li>
+<li><em>Word breaks may be inserted between any character for non-CJK (Chinese/Japanese/Korean) text</em></li>
+</ul>
+</li>
+<li><p><code>kepp-all</code></p>
+<ul>
+<li>CJK 文本不断行。 Non-CJK 文本表现同 normal</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
 <h3 id="u6587_u672C_u65B9_u5411"><a href="#u6587_u672C_u65B9_u5411" class="headerlink" title="文本方向"></a>文本方向</h3><h4 id="direction"><a href="#direction" class="headerlink" title="direction"></a><code>direction</code></h4><p><code>ltr</code> <code>rtl</code> <code>inherit</code></p>
 <ul>
 <li>默认对块级元素中的文本生效，作用于行内文本需要设置<code>unicode-bidi</code>为<code>embed</code>或者<code>bidi-override</code></li>
@@ -355,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/02/01/css知识点梳理_02/" data-id="cikwmncya0016vkm1ld19ye0q" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/01/css知识点梳理_02/" data-id="cikzhu005001647m14j1b2qmw" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
