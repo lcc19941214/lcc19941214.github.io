@@ -3,24 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>css 知识点整理 04 | AChuan</title>
+  <title>浏览器缓存基础 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="其他文本
-层叠
-媒介查询">
+  <meta name="description" content="DPR
+DPR(device pixel ratio) = 物理像素 / 设备独立像素
+
+物理像素即是设备用多少个实际设备上的像素点，来描述CSS中定义的像素
+
+设备独立像素是计算机系统中定义的点
+
+
+retina屏幕等高dpr屏幕的图像
+位图图像选取dpr值的倍数的图像，使得一个物理像素点对应一个位图像素点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css 知识点整理 04">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/21/css知识点梳理_04/index.html">
+<meta property="og:title" content="浏览器缓存基础">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/02/23/20160223dpr/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="其他文本
-层叠
-媒介查询">
-<meta property="og:updated_time" content="2016-01-28T09:34:50.000Z">
+<meta property="og:description" content="DPR
+DPR(device pixel ratio) = 物理像素 / 设备独立像素
+
+物理像素即是设备用多少个实际设备上的像素点，来描述CSS中定义的像素
+
+设备独立像素是计算机系统中定义的点
+
+
+retina屏幕等高dpr屏幕的图像
+位图图像选取dpr值的倍数的图像，使得一个物理像素点对应一个位图像素点">
+<meta property="og:updated_time" content="2016-02-23T15:02:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css 知识点整理 04">
-<meta name="twitter:description" content="其他文本
-层叠
-媒介查询">
+<meta name="twitter:title" content="浏览器缓存基础">
+<meta name="twitter:description" content="DPR
+DPR(device pixel ratio) = 物理像素 / 设备独立像素
+
+物理像素即是设备用多少个实际设备上的像素点，来描述CSS中定义的像素
+
+设备独立像素是计算机系统中定义的点
+
+
+retina屏幕等高dpr屏幕的图像
+位图图像选取dpr值的倍数的图像，使得一个物理像素点对应一个位图像素点">
   
   
     <link rel="icon" href="favicon.png">
@@ -134,7 +155,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-css知识点梳理_04" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-20160223dpr" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -143,7 +164,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      css 知识点整理 04
+      浏览器缓存基础
     </h1>
   
 
@@ -151,8 +172,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/21/css知识点梳理_04/">
-      <time datetime="2016-01-21T06:32:00.000Z" itemprop="datePublished">2016-01-21</time>
+    <a href="/2016/02/23/20160223dpr/">
+      <time datetime="2016-02-23T14:56:00.000Z" itemprop="datePublished">2016-02-23</time>
     </a>
   </div>
 
@@ -160,7 +181,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a>
+    <a class="article-category-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a>
   </div>
 
         </div>
@@ -169,19 +190,25 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <blockquote>
-<h4 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h4><p>文本</p>
-<p>层叠</p>
-<p>媒介查询</p>
-</blockquote>
-<a id="more"></a>
+        <p>DPR</p>
+<pre><code>DPR(device pixel ratio) = 物理像素 / 设备独立像素
+</code></pre><ul>
+<li><p>物理像素即是设备用多少个实际设备上的像素点，来描述CSS中定义的像素</p>
+</li>
+<li><p>设备独立像素是计算机系统中定义的点</p>
+</li>
+</ul>
+<h3 id="retina_u5C4F_u5E55_u7B49_u9AD8dpr_u5C4F_u5E55_u7684_u56FE_u50CF"><a href="#retina_u5C4F_u5E55_u7B49_u9AD8dpr_u5C4F_u5E55_u7684_u56FE_u50CF" class="headerlink" title="retina屏幕等高dpr屏幕的图像"></a>retina屏幕等高dpr屏幕的图像</h3><ul>
+<li>位图图像选取dpr值的倍数的图像，使得一个物理像素点对应一个位图像素点</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/21/css知识点梳理_04/" data-id="cil3q6z8s000yetm1o335zup5" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/23/20160223dpr/" data-id="cil3q6z9h001detm1locjalx8" class="article-share-link">分享到</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器兼容/">浏览器兼容</a></li></ul>
 
     </footer>
   </div>
@@ -189,19 +216,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/23/javascript_知识点整理_04_原型/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/02/26/20160226regexp_basic/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          javascript 知识点整理 04 原型 继承
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2016/01/21/css知识点梳理_03/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/02/18/20160218gitcommand/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">css 知识点整理 03</div>
+      <div class="article-nav-title">git命令行常用操作</div>
     </a>
   
 </nav>
