@@ -29,10 +29,10 @@
 		  width: 318px;
 		}
 		[data-dpr="2.5"] .mainbox .error-box-wrap img {
-		  width: 398px;
+		  width: 199px;
 		}
 		[data-dpr="3"] .mainbox .error-box-wrap img {
-		  width: 477px;
+		  width: 636px;
 		}
 		[data-dpr="4"] .mainbox .error-box-wrap img {
 		  width: 636px;
@@ -41,10 +41,10 @@
 		  height: 318px;
 		}
 		[data-dpr="2.5"] .mainbox .error-box-wrap img {
-		  height: 398px;
+		  height: 199px;
 		}
 		[data-dpr="3"] .mainbox .error-box-wrap img {
-		  height: 477px;
+		  height: 636px;
 		}
 		[data-dpr="4"] .mainbox .error-box-wrap img {
 		  height: 636px;
@@ -53,10 +53,10 @@
 		  padding-top: 140px;
 		}
 		[data-dpr="2.5"] .mainbox .error-box-wrap img {
-		  padding-top: 175px;
+		  padding-top: 88px;
 		}
 		[data-dpr="3"] .mainbox .error-box-wrap img {
-		  padding-top: 210px;
+		  padding-top: 280px;
 		}
 		[data-dpr="4"] .mainbox .error-box-wrap img {
 		  padding-top: 280px;
@@ -65,32 +65,32 @@
 		  padding-bottom: 80px;
 		}
 		[data-dpr="2.5"] .mainbox .error-box-wrap img {
-		  padding-bottom: 100px;
+		  padding-bottom: 50px;
 		}
 		[data-dpr="3"] .mainbox .error-box-wrap img {
-		  padding-bottom: 120px;
+		  padding-bottom: 160px;
 		}
 		[data-dpr="4"] .mainbox .error-box-wrap img {
 		  padding-bottom: 160px;
 		}
 		.mainbox p {
-		  font-size: 15px;
+		  font-size: 16px;
 		  color: #f2797b;
 		}
 		[data-dpr="2"] .mainbox p {
-		  font-size: 30px;
+		  font-size: 32px;
 		}
 		[data-dpr="2.5"] .mainbox p {
-		  font-size: 38px;
+		  font-size: 20px;
 		}
 		[data-dpr="3"] .mainbox p {
-		  font-size: 45px;
+		  font-size: 64px;
 		}
 		[data-dpr="4"] .mainbox p {
-		  font-size: 60px;
+		  font-size: 64px;
 		}
 		.footer-wrap {
-		  position: fixed;
+		  position: absolute;
 		  bottom: 0px;
 		  width: 80%;
 		  padding-left: 10%;
@@ -109,10 +109,10 @@
 		  padding-top: 64px;
 		}
 		[data-dpr="2.5"] .footer-wrap .footer {
-		  padding-top: 80px;
+		  padding-top: 40px;
 		}
 		[data-dpr="3"] .footer-wrap .footer {
-		  padding-top: 96px;
+		  padding-top: 128px;
 		}
 		[data-dpr="4"] .footer-wrap .footer {
 		  padding-top: 128px;
@@ -121,10 +121,10 @@
 		  padding-bottom: 64px;
 		}
 		[data-dpr="2.5"] .footer-wrap .footer {
-		  padding-bottom: 80px;
+		  padding-bottom: 40px;
 		}
 		[data-dpr="3"] .footer-wrap .footer {
-		  padding-bottom: 96px;
+		  padding-bottom: 128px;
 		}
 		[data-dpr="4"] .footer-wrap .footer {
 		  padding-bottom: 128px;
@@ -133,10 +133,10 @@
 		  font-size: 24px;
 		}
 		[data-dpr="2.5"] .footer-wrap .footer {
-		  font-size: 30px;
+		  font-size: 15px;
 		}
 		[data-dpr="3"] .footer-wrap .footer {
-		  font-size: 36px;
+		  font-size: 48px;
 		}
 		[data-dpr="4"] .footer-wrap .footer {
 		  font-size: 48px;
@@ -145,10 +145,10 @@
 		  line-height: 44px;
 		}
 		[data-dpr="2.5"] .footer-wrap .footer {
-		  line-height: 55px;
+		  line-height: 28px;
 		}
 		[data-dpr="3"] .footer-wrap .footer {
-		  line-height: 66px;
+		  line-height: 88px;
 		}
 		[data-dpr="4"] .footer-wrap .footer {
 		  line-height: 88px;
@@ -156,6 +156,7 @@
 		.footer-wrap .footer a {
 		  color: #f2797b;
 		}
+
 	</style>	
 </head>
 <body>
@@ -202,8 +203,8 @@
 		var src = dpr >= 2 ? warningImg.src.toString().replace(/\.png/, "@2x.png") : warningImg.src.toString();
 		warningImg.setAttribute("src", src);
 
-		var info = "dpr:" + dpr + ", scale:" + scale + ", rem:" + rem;
-		alert(info);
+		// var info = "dpr:" + dpr + ", scale:" + scale + ", rem:" + rem;
+		// alert(info);
 	</script>
 </body>
 </html>
