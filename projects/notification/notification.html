@@ -201,6 +201,9 @@
 		var warningImg = document.getElementById("warningImg");
 		var src = dpr >= 2 ? warningImg.src.toString().replace(/\.png/, "@2x.png") : warningImg.src.toString();
 		warningImg.setAttribute("src", src);
+
+		var info = "dpr:" + dpr + ", scale:" + scale + ", rem:" + rem;
+		alert(info);
 	</script>
 </body>
 </html>
