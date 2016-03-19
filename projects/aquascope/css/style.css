@@ -14,6 +14,9 @@ img {
 p {
   margin: 0;
 }
+dd {
+  margin: 0;
+}
 #intro {
   background: url('../images/intro-bg.jpg') 30% 0 no-repeat fixed;
   background-size: cover;
@@ -21,6 +24,11 @@ p {
   height: 100%;
   margin: 0 auto;
   padding: 20px 0;
+}
+@media screen and (max-width: 480px) {
+  #intro {
+    background-size: auto 100%;
+  }
 }
 #intro .content {
   margin: 10% auto;
@@ -50,41 +58,53 @@ p {
 }
 #section-2 .viewbox {
   background: url('../images/bottle-bg.jpg') 50% 0 no-repeat fixed;
-  background-size: cover;
-  color: white;
-  height: 600px;
-  margin: 0 auto;
 }
-#section-2 .viewbox-static {
-  display: none;
-  height: 150px;
-  background-image: url('../images/bottle-bg.jpg');
-}
-#section-2 .content {
-  padding: 0 80px;
-  height: 300px;
-}
-#section-2 .content-wrapper {
-  padding: 20px 0;
+#section-2 .viewbox .float-text {
+  float: right;
 }
 #section-3 .viewbox {
   background: url('../images/final-bg.jpg') 50% 0 no-repeat fixed;
-  background-size: cover;
-  color: white;
-  height: 600px;
-  margin: 0 auto;
 }
-#section-3 .viewbox-static {
-  display: none;
-  height: 150px;
-  background-image: url('../images/final-bg.jpg');
+#section-3 .viewbox .float-text {
+  float: left;
 }
+#section-2 .content,
 #section-3 .content {
   padding: 0 80px;
   height: 300px;
 }
+#section-2 .content-wrapper,
 #section-3 .content-wrapper {
   padding: 20px 0;
+}
+#section-2 .viewbox,
+#section-3 .viewbox {
+  background-size: cover;
+  color: white;
+  height: 600px;
+  margin: 0 auto;
+}
+#section-2 .viewbox .float-text,
+#section-3 .viewbox .float-text {
+  margin-top: 10%;
+  padding: 0 40px;
+  width: 40%;
+  text-shadow: 0 0 20px #333;
+  line-height: 30px;
+}
+#section-2 .viewbox .float-text dt,
+#section-3 .viewbox .float-text dt {
+  padding-bottom: 10px;
+}
+#section-2 .viewbox-static,
+#section-3 .viewbox-static {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+}
+#section-2 .viewbox-static img,
+#section-3 .viewbox-static img {
+  max-width: 100%;
 }
 @media screen and (max-width: 480px) {
   #section-2 .viewbox,

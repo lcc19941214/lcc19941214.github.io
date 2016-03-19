@@ -16,6 +16,10 @@ p {
 	margin: 0;
 }
 
+dd {
+	margin: 0;
+}
+
 .box-wrapper(@padding: 20px 0) {
 	padding: @padding;
 }
@@ -31,7 +35,11 @@ p {
 	height: 100%;
 	margin: 0 auto;
 	.box-wrapper;
-
+	
+	@media screen and (max-width: 480px ) {
+		background-size: auto 100%;
+		
+	}
 	.content {
 		&-wapper{.box-inner;}
 
@@ -66,23 +74,9 @@ p {
 #section-2 {
 	.viewbox {
 		background: url('../images/bottle-bg.jpg') 50% 0 no-repeat fixed;
-		background-size: cover;
-		color: white;
-		height: 600px;
-		margin: 0 auto;
-
-		&-static {
-			display: none;
-			height: 150px;
-			background-image: url('../images/bottle-bg.jpg');
-		}
-	}
-
-	.content {
-		.box-inner;
-		height: 300px;
-		&-wrapper {
-			.box-wrapper;
+		
+		.float-text {
+			float: right;
 		}
 	}
 }
@@ -90,22 +84,51 @@ p {
 #section-3 {
 	.viewbox {
 		background: url('../images/final-bg.jpg') 50% 0 no-repeat fixed;
-		background-size: cover;
-		color: white;
-		height: 600px;
-		margin: 0 auto;
 
-		&-static {
-			display: none;
-			height: 150px;
-			background-image: url('../images/final-bg.jpg');
+		.float-text {
+			float: left;
 		}
 	}
+}
+
+
+#section-2,
+#section-3 {
 	.content {
 		.box-inner;
 		height: 300px;
 		&-wrapper {
 			.box-wrapper;
+		}
+	}
+	
+	.viewbox {
+		background-size: cover;
+		color: white;
+		height: 600px;
+		margin: 0 auto;
+
+		.float-text {
+			margin-top: 10%;
+			padding: 0 40px;
+			width: 40%;
+			text-shadow: 0 0 20px #333;
+			line-height: 30px;
+
+			dt {
+				padding-bottom: 10px;
+			}
+
+		}
+	}
+
+	.viewbox-static {
+		display: none;
+		width: 100%;
+		// height: 150px;
+		overflow: hidden;
+		img {
+			max-width: 100%;
 		}
 	}
 }
