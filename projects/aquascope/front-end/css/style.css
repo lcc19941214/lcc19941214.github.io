@@ -1,0 +1,92 @@
+html,
+body {
+  height: 100%;
+  font-family: "Microsoft Yahei";
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  padding: 0;
+}
+img {
+  border: 0;
+}
+p {
+  margin: 0;
+}
+#intro {
+  background: url('../images/intro-bg.jpg') 0 0 no-repeat fixed;
+  background-size: cover;
+  color: white;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+#intro .content {
+  margin: 10% auto;
+  border: 4px solid #efefef;
+  padding: 10px 30px;
+  width: 40%;
+}
+#intro .content-wapper {
+  padding: 0 80px;
+}
+#intro .content h1,
+#intro .content h2 {
+  font-weight: normal;
+}
+#intro .content h2 {
+  font-size: 16px;
+}
+#section-1 {
+  background-color: #fff;
+  color: #333;
+  height: 400px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+#section-1 .content {
+  padding: 0 80px;
+}
+#section-2 .viewbox {
+  background: url('../images/bottle-bg.jpg') 50% 0 no-repeat fixed;
+  background-size: cover;
+  color: white;
+  height: 600px;
+  margin: 0 auto;
+}
+#section-2 .content {
+  padding: 0 80px;
+  height: 300px;
+}
+#section-2 .content-wrapper {
+  padding: 20px 0;
+}
+#section-3 .viewbox {
+  background: url('../images/final-bg.jpg') 50% 0 no-repeat fixed;
+  background-size: cover;
+  color: white;
+  height: 600px;
+  margin: 0 auto;
+}
+#section-3 .content {
+  padding: 0 80px;
+  height: 300px;
+}
+#section-3 .content-wrapper {
+  padding: 20px 0;
+}
+#footer {
+  padding: 20px 0 0;
+}
+#footer .content {
+  padding: 0 80px;
+  height: 80px;
+  background-color: #aeaeae;
+}
+#footer .content p {
+  font-size: 14px;
+  line-height: 80px;
+  color: #fff;
+  text-align: center;
+}
