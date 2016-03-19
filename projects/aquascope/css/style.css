@@ -15,7 +15,7 @@ p {
   margin: 0;
 }
 #intro {
-  background: url('../images/intro-bg.jpg') 0 0 no-repeat fixed;
+  background: url('../images/intro-bg.jpg') 30% 0 no-repeat fixed;
   background-size: cover;
   color: white;
   height: 100%;
@@ -55,6 +55,11 @@ p {
   height: 600px;
   margin: 0 auto;
 }
+#section-2 .viewbox-static {
+  display: none;
+  height: 150px;
+  background-image: url('../images/bottle-bg.jpg');
+}
 #section-2 .content {
   padding: 0 80px;
   height: 300px;
@@ -69,6 +74,11 @@ p {
   height: 600px;
   margin: 0 auto;
 }
+#section-3 .viewbox-static {
+  display: none;
+  height: 150px;
+  background-image: url('../images/final-bg.jpg');
+}
 #section-3 .content {
   padding: 0 80px;
   height: 300px;
@@ -76,17 +86,32 @@ p {
 #section-3 .content-wrapper {
   padding: 20px 0;
 }
-#footer {
-  padding: 20px 0 0;
+@media screen and (max-width: 480px) {
+  #section-2 .viewbox,
+  #section-3 .viewbox {
+    display: none;
+  }
+  #section-2 .viewbox-static,
+  #section-3 .viewbox-static {
+    display: block;
+    background-size: 100% auto;
+    background-position: center;
+  }
 }
 #footer .content {
-  padding: 0 80px;
-  height: 80px;
-  background-color: #aeaeae;
+  padding: 20px 80px 60px;
+  background-color: #343434;
 }
 #footer .content p {
-  font-size: 14px;
-  line-height: 80px;
+  font-size: 12px;
+  line-height: 16px;
   color: #fff;
   text-align: center;
+}
+#footer .content p a {
+  color: #2B77C4;
+  text-decoration: none;
+}
+#footer .content p a:hover {
+  color: #eee;
 }

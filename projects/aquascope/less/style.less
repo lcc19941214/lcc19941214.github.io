@@ -25,7 +25,7 @@ p {
 }
 
 #intro {
-	background:url('../images/intro-bg.jpg') 0 0 no-repeat fixed;
+	background:url('../images/intro-bg.jpg') 30% 0 no-repeat fixed;
 	background-size: cover;
 	color: white;
 	height: 100%;
@@ -65,11 +65,17 @@ p {
 
 #section-2 {
 	.viewbox {
-		background:url('../images/bottle-bg.jpg') 50% 0 no-repeat fixed;
+		background: url('../images/bottle-bg.jpg') 50% 0 no-repeat fixed;
 		background-size: cover;
 		color: white;
 		height: 600px;
 		margin: 0 auto;
+
+		&-static {
+			display: none;
+			height: 150px;
+			background-image: url('../images/bottle-bg.jpg');
+		}
 	}
 
 	.content {
@@ -83,11 +89,17 @@ p {
 
 #section-3 {
 	.viewbox {
-		background:url('../images/final-bg.jpg') 50% 0 no-repeat fixed;
+		background: url('../images/final-bg.jpg') 50% 0 no-repeat fixed;
 		background-size: cover;
 		color: white;
 		height: 600px;
 		margin: 0 auto;
+
+		&-static {
+			display: none;
+			height: 150px;
+			background-image: url('../images/final-bg.jpg');
+		}
 	}
 	.content {
 		.box-inner;
@@ -98,18 +110,38 @@ p {
 	}
 }
 
+@media screen and (max-width: 480px) {
+	#section-2 .viewbox,
+	#section-3 .viewbox {
+		display: none;
+	}
+
+	#section-2 .viewbox-static,
+	#section-3 .viewbox-static {
+		display: block;
+		background-size: 100% auto;
+		background-position: center;
+	}
+}
+
 #footer {
-	.box-wrapper(20px 0 0);
 	.content {
-		.box-inner;
-		@height: 80px;
-		height: @height;
-		background-color: #aeaeae;
+		.box-inner(20px 80px 60px);
+		background-color: #343434;
 		p {
-			font-size: 14px;
-			line-height: @height;
+			font-size: 12px;
+			line-height: 16px;
 			color: #fff;
 			text-align: center;
+
+			a {
+				color: #2B77C4;
+				text-decoration: none;
+
+				&:hover {
+					color: #eee;
+				}
+			}
 		}
 	}
 }

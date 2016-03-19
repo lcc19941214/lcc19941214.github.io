@@ -17,8 +17,10 @@
 			//xPosition - Horizontal position of the element
 			//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
 			//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-			$('#intro').parallax("50%", 0.3);
-			// $('#section-1').parallax("50%", 0.1);
+			var winWid = document.documentElement.clientWidth;
+			if ( winWid > 480 ) {
+				$('#intro').parallax("50%", 0.3);
+			}
 			$('#section-2 .viewbox').parallax("50%", 0.3);
 			$('#section-3 .viewbox').parallax("50%", 0.3);
 		})
@@ -34,7 +36,7 @@
 				<h1>
 					水污染与水什么来着
 				</h1>
-				<h2 class="subti">
+				<h2>
 					大标题，可以用英文，突显逼格，在放个队伍信息之类的 / 其实后面我准备搞个视频，很小的那种，加载完了就自动播放
 				</h2>
 			</div>
@@ -50,6 +52,7 @@
 	<!-- 第二节： -->
 		<div class="viewbox">
 		</div>
+		<div class="viewbox-static"></div>
 		<div class="content-wrapper">
 			<div class="content">
 					content-2 放点图表什么的
@@ -58,6 +61,7 @@
 	</div>
 	<div id="section-3">
 		<div class="viewbox"></div>
+		<div class="viewbox-static"></div>
 		<div class="content-wrapper">
 			<div class="content">
 					content-3 放点图表什么的
@@ -66,7 +70,7 @@
 	</div>
 	<div id="footer">
 		<div class="content">
-			<p>来自武汉大学的队伍啦啦啦</p>
+			<p>Made by Conan Lau &amp; Yujie Xiao  · <a href="mailto:lcc1994@qq.com?subject=advice%20on%20project%20AquaScope">lcc1994@qq.com</a>  ·  <a href="http://achuan.me" target="_blank">@AChuan</a></p>
 		</div>
 	</div>
 </body>
