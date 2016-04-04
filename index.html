@@ -162,7 +162,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-                
         <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
 <blockquote>
 <p>DOM一级</p>
@@ -170,210 +169,15 @@
 <p>Document, Element, Text, DocumentFragment …</p>
 <p>DOM API 扩展</p>
 </blockquote>
-<h2 id="DOM_1_u7EA7"><a href="#DOM_1_u7EA7" class="headerlink" title="DOM 1级"></a>DOM 1级</h2><h3 id="u8282_u70B9_u7C7B_u578B"><a href="#u8282_u70B9_u7C7B_u578B" class="headerlink" title="节点类型"></a>节点类型</h3><ul>
-<li>element</li>
-<li>text</li>
-<li>attribute</li>
-<li>comment</li>
-<li>document</li>
-<li>CDATA</li>
-<li>documentFragment</li>
-<li>documentType</li>
-<li>…</li>
-</ul>
-<p>每个节点都有nodeName和nodeValue</p>
-<h3 id="u8282_u70B9_u5173_u7CFB"><a href="#u8282_u70B9_u5173_u7CFB" class="headerlink" title="节点关系"></a>节点关系</h3><ul>
-<li><em>parent</em><ul>
-<li>parentNode</li>
-<li>childNodes<ul>
-<li>firstChild</li>
-<li>lastChild</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><em>siblings</em><ul>
-<li>previousSibling</li>
-<li>nextSibling</li>
-</ul>
-</li>
-</ul>
-<h4 id="NodeList"><a href="#NodeList" class="headerlink" title="NodeList"></a>NodeList</h4><p>NodeList对象是一个类数组对象</p>
-<p>调用Array.prototype.slice.call(nodeList, 0)将其转化为数组</p>
-<h3 id="u8282_u70B9_u64CD_u4F5C"><a href="#u8282_u70B9_u64CD_u4F5C" class="headerlink" title="节点操作"></a>节点操作</h3><ul>
-<li>appendChild</li>
-<li>insetBefore(node, target)<ul>
-<li>如果目标节点为null，则与appendChild相同</li>
-</ul>
-</li>
-<li>removeChild</li>
-<li><p>replaceChild</p>
-</li>
-<li><p>hasChildNodes() 判断是否有子节点</p>
-</li>
-</ul>
-<h4 id="u5176_u4ED6_u65B9_u6CD5"><a href="#u5176_u4ED6_u65B9_u6CD5" class="headerlink" title="其他方法"></a>其他方法</h4><ul>
-<li>cloneNode<ul>
-<li>true 深拷贝</li>
-<li>flase 浅拷贝</li>
-</ul>
-</li>
-<li><p>normalize 合并文本节点 </p>
-</li>
-<li><p>ownerDocument 访问到节点所属的文档对象</p>
-</li>
-</ul>
-<h3 id="Document_u8282_u70B9"><a href="#Document_u8282_u70B9" class="headerlink" title="Document节点"></a>Document节点</h3><h4 id="u5B50_u8282_u70B9"><a href="#u5B50_u8282_u70B9" class="headerlink" title="子节点"></a>子节点</h4><ul>
-<li>html:  document.documentElement</li>
-<li>body:  document.body</li>
-<li>doctype:   document.doctype</li>
-</ul>
-<h4 id="u6587_u6863_u4FE1_u606F"><a href="#u6587_u6863_u4FE1_u606F" class="headerlink" title="文档信息"></a>文档信息</h4><ul>
-<li>title: document.title</li>
-<li>url:   document.URL</li>
-<li>domain:    document.domain</li>
-<li>referrer:   document.referrer</li>
-</ul>
-<h4 id="u67E5_u627E_u8282_u70B9"><a href="#u67E5_u627E_u8282_u70B9" class="headerlink" title="查找节点"></a>查找节点</h4><ul>
-<li>document.getElementById();</li>
-<li>document.getElementsByTagName();</li>
-<li>document.getElementsByName();</li>
-</ul>
-<p>HTMLCollection的namedItem()方法支持通过访问name特性获取元素</p>
-<h5 id="u7279_u6B8A_u5408_u96C6"><a href="#u7279_u6B8A_u5408_u96C6" class="headerlink" title="特殊合集"></a>特殊合集</h5><ul>
-<li>images</li>
-<li>forms</li>
-<li>links</li>
-<li>…</li>
-</ul>
-<h3 id="u6587_u6863_u5199_u5165"><a href="#u6587_u6863_u5199_u5165" class="headerlink" title="文档写入"></a>文档写入</h3><ul>
-<li>write</li>
-<li>writeIn</li>
-<li>open</li>
-<li>close</li>
-</ul>
-<h3 id="Element_u8282_u70B9"><a href="#Element_u8282_u70B9" class="headerlink" title="Element节点"></a>Element节点</h3><h4 id="u521B_u5EFA_u8282_u70B9"><a href="#u521B_u5EFA_u8282_u70B9" class="headerlink" title="创建节点"></a>创建节点</h4><ul>
-<li><p>document.createElement()</p>
-<ul>
-<li>直接通过标签名创建节点</li>
-<li>将标签以html的形式写入字符串<ul>
-<li>document.createElement(“<code>&lt;div id=&#39;oDiv&#39;&gt;&lt;/div&gt;</code>“)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>节点的tagName和nodeName相同</p>
-</li>
-</ul>
-<h4 id="u83B7_u53D6_u7279_u6027"><a href="#u83B7_u53D6_u7279_u6027" class="headerlink" title="获取特性"></a>获取特性</h4><ul>
-<li>getAttribute()<ul>
-<li>通过getAttribute()获取到的是属性的字符串值</li>
-<li>访问元素节点对象的属性，获取到的是属性对象或者函数方法</li>
-</ul>
-</li>
-<li>setAttribute()</li>
-<li><p>removeAttribute()</p>
-</li>
-<li><p>自定义特性应当使用’data-‘前缀</p>
-</li>
-</ul>
-<h4 id="attributes_u5C5E_u6027"><a href="#attributes_u5C5E_u6027" class="headerlink" title="attributes属性"></a>attributes属性</h4><p>特性列表，保存了当前元素节点的所有特性</p>
-<ul>
-<li>getNamedItem()</li>
-<li>setNamedItem()</li>
-<li>removeNamedItem()</li>
-<li>item()</li>
-</ul>
-<h3 id="Text_u8282_u70B9"><a href="#Text_u8282_u70B9" class="headerlink" title="Text节点"></a>Text节点</h3><h4 id="u521B_u5EFA_u6587_u672C_u8282_u70B9"><a href="#u521B_u5EFA_u6587_u672C_u8282_u70B9" class="headerlink" title="创建文本节点"></a>创建文本节点</h4><ul>
-<li>doument.createTextNode()</li>
-</ul>
-<h4 id="u8282_u70B9_u64CD_u4F5C-1"><a href="#u8282_u70B9_u64CD_u4F5C-1" class="headerlink" title="节点操作"></a>节点操作</h4><p>nodeValue和data都指向文本节点包含的文本内容</p>
-<ul>
-<li>appendData(text)</li>
-<li>insertData(offset, text)</li>
-<li>deleteData(offset, count)</li>
-<li>replaceData(offset, count, text)</li>
-<li>splitData(offset)</li>
-<li>substringData(offset, count)</li>
-</ul>
-<h3 id="documentFragment_u8282_u70B9"><a href="#documentFragment_u8282_u70B9" class="headerlink" title="documentFragment节点"></a>documentFragment节点</h3><ul>
-<li>可以用于字符串拼接</li>
-<li>不在document上进行多次DOM操作，在documentFragment上操作完后一次性插入到document上，减少渲染所需要的重绘和回流，提高性能和效率</li>
-</ul>
-<h3 id="u52A8_u6001_u64CD_u4F5C"><a href="#u52A8_u6001_u64CD_u4F5C" class="headerlink" title="动态操作"></a>动态操作</h3><ul>
-<li>动态设置script的src或文本节点与style的文本节点的值</li>
-<li>动态设置script的text与style的styleSheet.cssText</li>
-</ul>
-<p><br></p>
-<h2 id="DOM_API_u6269_u5C55"><a href="#DOM_API_u6269_u5C55" class="headerlink" title="DOM API扩展"></a>DOM API扩展</h2><h3 id="u67E5_u8BE2"><a href="#u67E5_u8BE2" class="headerlink" title="查询"></a>查询</h3><ul>
-<li>querySelector</li>
-<li>querySelectorAll</li>
-</ul>
-<h3 id="u5143_u7D20_u904D_u5386"><a href="#u5143_u7D20_u904D_u5386" class="headerlink" title="元素遍历"></a>元素遍历</h3><ul>
-<li>childElementCount</li>
-<li>firstElementChild</li>
-<li>lastElementChild</li>
-<li>previousElementSibling</li>
-<li>nextElementSibling</li>
-</ul>
-<h3 id="u4E0E_u7C7B_u76F8_u5173_u7684_u6269_u5C55"><a href="#u4E0E_u7C7B_u76F8_u5173_u7684_u6269_u5C55" class="headerlink" title="与类相关的扩展"></a>与类相关的扩展</h3><ul>
-<li>getElementsByClassName()</li>
-<li>classList<ul>
-<li>add</li>
-<li>delete</li>
-<li>remove</li>
-<li>toggle</li>
-</ul>
-</li>
-</ul>
-<h3 id="u7126_u70B9_u7BA1_u7406"><a href="#u7126_u70B9_u7BA1_u7406" class="headerlink" title="焦点管理"></a>焦点管理</h3><ul>
-<li>document.activeElements</li>
-<li>document.hasFocus()</li>
-</ul>
-<h3 id="HTMLDocument_u7684_u53D8_u5316"><a href="#HTMLDocument_u7684_u53D8_u5316" class="headerlink" title="HTMLDocument的变化"></a>HTMLDocument的变化</h3><h3 id="u5B57_u7B26_u96C6_u53D8_u5316"><a href="#u5B57_u7B26_u96C6_u53D8_u5316" class="headerlink" title="字符集变化"></a>字符集变化</h3><h3 id="u81EA_u5B9A_u4E49_u6570_u636E_u4E66_u5C5E_u6027"><a href="#u81EA_u5B9A_u4E49_u6570_u636E_u4E66_u5C5E_u6027" class="headerlink" title="自定义数据书属性"></a>自定义数据书属性</h3><h3 id="u63D2_u5165_u6807_u8BB0"><a href="#u63D2_u5165_u6807_u8BB0" class="headerlink" title="插入标记"></a>插入标记</h3><ul>
-<li>innerHTML<ul>
-<li>IE中插入脚本或者样式，需要在“有作用域的元素之后”，因此需要在脚本元素前添加空格或者隐藏的input域</li>
-</ul>
-</li>
-<li>outerHTML</li>
-<li>insertAdjacentHTML<ul>
-<li>beforebegin</li>
-<li>afterbegin</li>
-<li>beforeend</li>
-<li>afterend</li>
-</ul>
-</li>
-</ul>
-<h3 id="u6EDA_u52A8"><a href="#u6EDA_u52A8" class="headerlink" title="滚动"></a>滚动</h3><ul>
-<li>scrollIntoView</li>
-</ul>
-<h3 id="u4E13_u6709_u6269_u5C55"><a href="#u4E13_u6709_u6269_u5C55" class="headerlink" title="专有扩展"></a>专有扩展</h3><h4 id="u6587_u6863_u6A21_u5F0F"><a href="#u6587_u6863_u6A21_u5F0F" class="headerlink" title="文档模式"></a>文档模式</h4><ul>
-<li><code>&lt;meta http-equiv=&#39;X-UA-compatible&#39; content=&#39;IE=IEVersion&#39;&gt;</code><ul>
-<li>EmulateIE9</li>
-<li>EmulateIE8</li>
-<li>EmulateIE7</li>
-<li>9</li>
-<li>8</li>
-<li>7</li>
-<li>5</li>
-</ul>
-</li>
-</ul>
-<h4 id="children_u5C5E_u6027"><a href="#children_u5C5E_u6027" class="headerlink" title="children属性"></a>children属性</h4><h4 id="u63D2_u5165_u6587_u672C"><a href="#u63D2_u5165_u6587_u672C" class="headerlink" title="插入文本"></a>插入文本</h4><ul>
-<li>innerText</li>
-<li>outerText</li>
-<li>textContent</li>
-</ul>
-<h4 id="u6EDA_u52A8-1"><a href="#u6EDA_u52A8-1" class="headerlink" title="滚动"></a>滚动</h4><ul>
-<li>scrollIntoViewIfNeeded()</li>
-<li>scrollByLines()</li>
-<li>scrollByPages()</li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/04/04/javascript_知识点整理_07_DOM/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/04/04/javascript_知识点整理_07_DOM/" data-id="cimlq7shr000dunm15vttruvr" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/04/04/javascript_知识点整理_07_DOM/" data-id="cimlqbgww000dw5m1s7lmvrvq" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
@@ -429,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/02/26/20160226regexp_basic/" data-id="cimlq7sir001gunm1dkzhjb74" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/26/20160226regexp_basic/" data-id="cimlqbgy0001gw5m1ulqxt6uu" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
@@ -451,7 +255,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/23/20160223dpr/">浏览器缓存基础</a>
+      <a class="article-title" href="/2016/02/23/20160223dpr/">DPR</a>
     </h1>
   
 
@@ -492,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/02/23/20160223dpr/" data-id="cimlq7siu001lunm1shfr1ee9" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/23/20160223dpr/" data-id="cimlqbgy3001lw5m16y5236bw" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器兼容/">浏览器兼容</a></li></ul>
@@ -550,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/02/18/20160218gitcommand/" data-id="cimlq7six001qunm14xwszp7b" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/18/20160218gitcommand/" data-id="cimlqbgy5001qw5m1xap0fc59" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -611,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/02/01/css知识点梳理_02/" data-id="cimlq7sim001aunm1unsg4bz8" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/01/css知识点梳理_02/" data-id="cimlqbgxt001aw5m1x592l9by" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -675,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/31/productList/" data-id="cimlq7shl0008unm1w9qqzr5s" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/31/productList/" data-id="cimlqbgwt0008w5m1mhrzlb71" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li></ul>
@@ -739,7 +543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/30/javascript_知识点整理_06_BOM/" data-id="cimlq7shv000iunm1vzd4ud3e" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/30/javascript_知识点整理_06_BOM/" data-id="cimlqbgx1000iw5m1e14fcz2n" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/">BOM</a></li></ul>
@@ -800,7 +604,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/28/css知识点梳理_01/" data-id="cimlq7sip001dunm1wq3mrmzv" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/28/css知识点梳理_01/" data-id="cimlqbgxw001dw5m1yycd2m8r" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -859,7 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/" data-id="cimlq7sj1001vunm1z1cnx64s" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/" data-id="cimlqbgy9001vw5m1dsvfjsnf" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器缓存/">浏览器缓存</a></li></ul>
@@ -923,7 +727,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128webdesign-year-review/" data-id="cimlq7sj50020unm1sfb3732z" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128webdesign-year-review/" data-id="cimlqbgyb0020w5m1j51v4rae" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Design/">Web Design</a></li></ul>
@@ -985,7 +789,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/27/javascript_知识点整理_05_闭包/" data-id="cimlq7shz000munm114fugipq" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/27/javascript_知识点整理_05_闭包/" data-id="cimlqbgx6000mw5m1v46r1723" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -1050,7 +854,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/24/20160124flex/" data-id="cimlq7sjb0025unm1vm6qcj6a" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/24/20160124flex/" data-id="cimlqbgyd0025w5m1ax0igun8" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1111,7 +915,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/23/javascript_知识点整理_04_原型/" data-id="cimlq7si3000qunm1ish780t3" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/23/javascript_知识点整理_04_原型/" data-id="cimlqbgx9000qw5m10c25pd18" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -1171,7 +975,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/21/css知识点梳理_04/" data-id="cimlq7sif0012unm1pqb2wb2e" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/21/css知识点梳理_04/" data-id="cimlqbgxl0012w5m1qhd33ip7" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1230,7 +1034,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/21/css知识点梳理_03/" data-id="cimlq7sij0017unm1k5h4umt6" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/21/css知识点梳理_03/" data-id="cimlqbgxq0017w5m1n9q3isdg" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1292,7 +1096,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02_数据类型/" data-id="cimlq7sia000wunm1m7uqhr96" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02_数据类型/" data-id="cimlqbgxf000ww5m1dnkds1p9" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -1360,7 +1164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/" data-id="cimlq7sje0028unm1nrjcb6vq" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/17/20160117margincollapse/" data-id="cimlqbgyn0028w5m1mw00j1mx" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1420,7 +1224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="cimlq7sjh002bunm1uco6efjl" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="cimlqbgyp002bw5m10btrsjk3" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1483,7 +1287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115从script标签的摆放位置来看看DOM树的渲染/" data-id="cimlq7sjy002lunm1tj640kkb" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115从script标签的摆放位置来看看DOM树的渲染/" data-id="cimlqbgyy002lw5m1alqmorwu" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
@@ -1544,7 +1348,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115纯css美化表单——checkbox/" data-id="cimlq7sjm002eunm1oruujhap" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115纯css美化表单——checkbox/" data-id="cimlqbgyr002ew5m1giu6eya3" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1602,7 +1406,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115响应式布局/" data-id="cimlq7sjt002hunm1ktn5tsyu" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115响应式布局/" data-id="cimlqbgyv002hw5m1r8awvxm0" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1683,7 +1487,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03_执行环境/" data-id="cimlq7si7000tunm1a7pkosfi" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03_执行环境/" data-id="cimlqbgxc000tw5m1ngq2ssz7" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -1744,7 +1548,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01_基础语法/" data-id="cimlq7sid000zunm1jiwazevb" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_01_基础语法/" data-id="cimlqbgxi000zw5m1kefsrrqb" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -1805,7 +1609,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="cimlq7sk3002punm1izeejjjs" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="cimlqbgz2002pw5m17g1d082x" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -1871,7 +1675,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114快速搭建hexo静态博客/" data-id="cimlq7sgs0000unm1lauvnzpg" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114快速搭建hexo静态博客/" data-id="cimlqbgw40000w5m14d886bik" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -1932,14 +1736,14 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
             <div class="item-thumbnail">
               <a href="/2016/02/23/20160223dpr/" class="thumbnail">
   
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/brower.jpeg)" alt="浏览器缓存基础" class="thumbnail-image"></span>
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/brower.jpeg)" alt="DPR" class="thumbnail-image"></span>
   
 </a>
             </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a></p>
-              <p class="item-title"><a href="/2016/02/23/20160223dpr/" class="title">浏览器缓存基础</a></p>
+              <p class="item-title"><a href="/2016/02/23/20160223dpr/" class="title">DPR</a></p>
               <p class="item-date"><time datetime="2016-02-23T14:56:00.000Z" itemprop="datePublished">2016-02-23</time></p>
             </div>
           </li>
