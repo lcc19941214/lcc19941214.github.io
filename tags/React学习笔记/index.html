@@ -3,45 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>javascript 知识点整理 03 作用域 | AChuan</title>
+  <title>Tag: React学习笔记 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这部分内容的整理都来自于《js高级程序设计》
-
-执行环境、作用域
-
-执行环境
-执行环境  所有的代码都是在环境中执行的。执行环境定义了变量能够访问到的数据的范围，决定了他们各自的行为。
-
-变量对象  变量对象存储着当前环境中的所有变量、函数。  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。
-
-全局环境  全局环境指的是当前环境的最外围的执行环境。  不同的宿">
-<meta property="og:type" content="article">
-<meta property="og:title" content="javascript 知识点整理 03 作用域">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03_执行环境/index.html">
+  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AChuan">
+<meta property="og:url" content="http://lcc19941214.github.io/tags/React学习笔记/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="这部分内容的整理都来自于《js高级程序设计》
-
-执行环境、作用域
-
-执行环境
-执行环境  所有的代码都是在环境中执行的。执行环境定义了变量能够访问到的数据的范围，决定了他们各自的行为。
-
-变量对象  变量对象存储着当前环境中的所有变量、函数。  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。
-
-全局环境  全局环境指的是当前环境的最外围的执行环境。  不同的宿">
-<meta property="og:updated_time" content="2016-01-30T13:21:33.000Z">
+<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript 知识点整理 03 作用域">
-<meta name="twitter:description" content="这部分内容的整理都来自于《js高级程序设计》
-
-执行环境、作用域
-
-执行环境
-执行环境  所有的代码都是在环境中执行的。执行环境定义了变量能够访问到的数据的范围，决定了他们各自的行为。
-
-变量对象  变量对象存储着当前环境中的所有变量、函数。  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。
-
-全局环境  全局环境指的是当前环境的最外围的执行环境。  不同的宿">
+<meta name="twitter:title" content="AChuan">
+<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
   
   
     <link rel="icon" href="favicon.png">
@@ -155,131 +127,49 @@
 </aside>
 
       
-      <section id="main"><article id="post-javascript_知识点整理_03_执行环境" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+      <section id="main">
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#React学习笔记</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
-    
-      <header class="article-header">
-        
+    <div class="archive-article-thumbnail">
+      <a href="/2016/04/13/20160413-React-Componet-Communication/" class="thumbnail">
   
-    <h1 class="article-title" itemprop="name">
-      javascript 知识点整理 03 作用域
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/reactjs.png)" alt="React组件间通信 学习笔记" class="thumbnail-image"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/13/20160413-React-Componet-Communication/">React组件间通信 学习笔记</a>
     </h1>
   
 
-        <div class="article-meta">
-          
-  <div class="article-date">
+      
+        
+  <div class="archive-article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/javascript_知识点整理_03_执行环境/">
-      <time datetime="2016-01-14T06:03:00.000Z" itemprop="datePublished">2016-01-14</time>
+    <a href="/2016/04/13/20160413-React-Componet-Communication/">
+      <time datetime="2016-04-13T09:51:00.000Z" itemprop="datePublished">2016 4月 13</time>
     </a>
   </div>
 
 
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-                
-        <p><em>这部分内容的整理都来自于《js高级程序设计》</em></p>
-<blockquote>
-<p>执行环境、作用域</p>
-</blockquote>
-<h2 id="u6267_u884C_u73AF_u5883"><a href="#u6267_u884C_u73AF_u5883" class="headerlink" title="执行环境"></a>执行环境</h2><ul>
-<li><p>执行环境<br>  所有的代码都是在环境中执行的。执行环境定义了变量能够访问到的数据的范围，决定了他们各自的行为。</p>
-</li>
-<li><p>变量对象<br>  变量对象存储着当前环境中的所有变量、函数。<br>  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。</p>
-</li>
-<li><p>全局环境<br>  全局环境指的是当前环境的最外围的执行环境。<br>  不同的宿主环境有不同的全局环境，一般浏览器环境下全局环境指的就是window对象。<br>  全局环境的变量对象存储这全局环境中的全局变量、属性等。</p>
-</li>
-<li><p>环境初始化<br>  在函数体中，所有的变量声明（var）和函数声明（函数表达式则不会）都会被提前</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span> ;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// "a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>虽然a变量存在于func的执行环境中，第一次打印a时会在当前环境的作用域中寻找变量a，但是由于环境的初始化 ，变量a会在函数体的开始部分声明，但是到了第二行才被赋值，所以第一次打印会返回undefined.</li>
-<li><p>虽然func函数声明位于func()函数执行之后，但是由于函数声明被提前，所以也可以正确解析</p>
-<p><strong>代码执行的过程</strong></p>
-</li>
-</ul>
-<ol>
-<li>变量声明，函数声明，参数创建（形参）</li>
-<li>函数表达式，代码执行</li>
-</ol>
-</li>
-</ul>
-<p><br></p>
-<a id="more"></a>
-<h3 id="u4F5C_u7528_u57DF"><a href="#u4F5C_u7528_u57DF" class="headerlink" title="作用域"></a>作用域</h3><ul>
-<li><p>作用域链<br>  执行环境在执行代码的时候，会为对应的变量对象创建一个作用域链。<br>  作用域链定义了当前环境内的变量如何有序的访问允许范围内的数据。</p>
-</li>
-<li><p>作用域链的构成<br>  作用域链的顶端是当前环境的变量对象，往后是外层环境的变量对象，依次往复，最外层是全局环境的变量对象。<br>  如果当前环境是一个函数，那么其变量对象就是当前函数的活动对象。活动对象初始只有arguments一个变量。</p>
-</li>
-<li><p>标识符解析/作用域链的主要作用<br>  标识符会沿着作用域链进行解析。如果无法在当前环境下找到标识符，则会顺着作用域链往后查询。</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内部环境获取外部数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </span><br><span class="line">    <span class="built_in">console</span>.log(color1);</span><br><span class="line">&#125;</span><br><span class="line">getColor();     <span class="comment">//"red"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//外部环境无法获取内部数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> color3 = <span class="string">"yellow"</span> ;</span><br><span class="line">        <span class="built_in">console</span>.log(color2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();                  <span class="comment">//"blue"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(color1);    <span class="comment">//"red"</span></span><br><span class="line"><span class="built_in">console</span>.log(color2);    <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<p>作用域链定义了内部环境可以查询外部环境的数据，但是外部环境无法对内部环境进行操作。（因此可以进行函数体的封装）</p>
-<ul>
-<li>延长作用域链</li>
-</ul>
-<p>使用with语句可以将传入对象添加到当前作用域链的最顶端</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rst = <span class="string">"current url is :"</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span>(location) &#123;</span><br><span class="line">        <span class="keyword">var</span> url = href ; <span class="comment">//href是location对象的属性，当前执行环境是location对象</span></span><br><span class="line">        <span class="keyword">var</span> rst = rst + url ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rst ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>eval bind apply call try-catch</p>
-<ul>
-<li>没有块级作用域</li>
-</ul>
-<p>说白了就是在if和for-in等语句内部创建的局部变量，在当前执行环境内都是可以访问得到</p>
-<ul>
-<li>变量声明</li>
-</ul>
-<p>用<code>var</code>可以声明局部变量，不用的话是声明全局变量。</p>
-<p><em>严格模式要求必须要先声明，不然会导致错误</em></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03_执行环境/" data-id="cimyoqi50000toum12cn0ko1l" class="article-share-link">分享到</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/01/15/20160115响应式布局/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          实现响应式的简单思路
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/01/14/javascript_知识点整理_01_基础语法/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">javascript 知识点整理 01 基础语法</div>
-    </a>
-  
-</nav>
-
-
-  
 </article>
-
-
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   
