@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>浏览器缓存基础 | AChuan</title>
+  <title>react-router 学习笔记 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="浏览器缓存（强缓存、协商缓存）
-与缓存相关的http header">
+  <meta name="description" content="react中的路由管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器缓存基础">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/index.html">
+<meta property="og:title" content="react-router 学习笔记">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/04/19/20160419-React-Router/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="浏览器缓存（强缓存、协商缓存）
-与缓存相关的http header">
-<meta property="og:updated_time" content="2016-04-09T15:06:48.000Z">
+<meta property="og:description" content="react中的路由管理">
+<meta property="og:updated_time" content="2016-04-19T09:14:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器缓存基础">
-<meta name="twitter:description" content="浏览器缓存（强缓存、协商缓存）
-与缓存相关的http header">
+<meta name="twitter:title" content="react-router 学习笔记">
+<meta name="twitter:description" content="react中的路由管理">
   
   
     <link rel="icon" href="favicon.png">
@@ -131,7 +128,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-20160128浏览器缓存" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-20160419-React-Router" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -140,7 +137,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浏览器缓存基础
+      react-router 学习笔记
     </h1>
   
 
@@ -148,8 +145,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/28/20160128浏览器缓存/">
-      <time datetime="2016-01-28T12:01:00.000Z" itemprop="datePublished">2016-01-28</time>
+    <a href="/2016/04/19/20160419-React-Router/">
+      <time datetime="2016-04-19T09:06:00.000Z" itemprop="datePublished">2016-04-19</time>
     </a>
   </div>
 
@@ -157,7 +154,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a>
+    <a class="article-category-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a>
   </div>
 
         </div>
@@ -167,99 +164,52 @@
       
                 
         <blockquote>
-<p>浏览器缓存（强缓存、协商缓存）</p>
-<p>与缓存相关的http header</p>
+<p>  react中的路由管理</p>
 </blockquote>
 <a id="more"></a>
-<p>参考文章：<a href="http://web.jobbole.com/84888/" target="_blank" rel="external">http://web.jobbole.com/84888/</a><br><em>2016.04.09更新补充</em> <a href="http://www.alloyteam.com/2016/03/discussion-on-web-caching/" target="_blank" rel="external">http://www.alloyteam.com/2016/03/discussion-on-web-caching/</a></p>
-<h2 id="u6D4F_u89C8_u5668_u7F13_u5B58_u7684_u57FA_u672C_u539F_u7406"><a href="#u6D4F_u89C8_u5668_u7F13_u5B58_u7684_u57FA_u672C_u539F_u7406" class="headerlink" title="浏览器缓存的基本原理"></a>浏览器缓存的基本原理</h2><ul>
-<li><p>浏览器缓存分为强缓存和协商缓存</p>
+<hr>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><p>使用Router作为最外层的组件，每一层通过Routes进行配置，组件内容使用component特性匹配，路径使用path</p>
 </li>
-<li><p>浏览器缓存步骤：</p>
-<ol>
-<li><p>浏览器加载资源时，首先会根据资源的一些http header判断资源是否命中强缓存，如果命中，则浏览器不向服务器端发送请求，而是直接在浏览器缓存中加载资源；</p>
+<li><p>嵌套的写法：把Routes写在Routes之中，在对应的组件内部使用this.props.children指代嵌套的Routes的子组件的component的代码</p>
 </li>
-<li><p>如果没有命中强缓存，则浏览器会向服务器发送一个请求，服务器根据资源另外的http header判断资源是否命中协商缓存，如果命中，则服务器端返回请求但是不返回资源，浏览器直接从缓存中加载资源；</p>
-</li>
-<li><p>如果强缓存和协商缓存都没有命中，则服务器返回资源</p>
-</li>
-</ol>
-</li>
-<li><p>强缓存和协商缓存的异同：</p>
+<li><p>使用browserHistory和–browser-api-fallback配置</p>
 <ul>
-<li><p>二者都不从服务器加载资源，而是从浏览器缓存中加载</p>
+<li><p>Route上指定的component组件会传入上一层的props，包括history, params, location等</p>
 </li>
-<li><p>强缓存不向服务器发送请求，协商缓存一定会向服务器端发送请求</p>
-</li>
+<li><p>要位页面指定子页面（主要用于tab切换等），可以使用 ‘ : ‘冒号指定配置参数=&gt; path:   /path/:id </p>
+<ul>
+<li>页面在设置了参数param之后，可以不跳转到对应路径，而是根据参数进行页面内容的展示或是根据param进行一系列操作</li>
 </ul>
 </li>
 </ul>
-<hr>
-<h3 id="u5F3A_u7F13_u5B58_u7684_u539F_u7406_uFF08_u67E5_u770B_u7F13_u5B58_u662F_u5426_u8FC7_u671F_uFF09"><a href="#u5F3A_u7F13_u5B58_u7684_u539F_u7406_uFF08_u67E5_u770B_u7F13_u5B58_u662F_u5426_u8FC7_u671F_uFF09" class="headerlink" title="强缓存的原理（查看缓存是否过期）"></a>强缓存的原理（查看缓存是否过期）</h3><ul>
-<li><p>强缓存命中后服务器会返回一个200代码</p>
 </li>
-<li><p>Expires和Cache-Control都是用来表示资源在缓存中的有效期</p>
+</ol>
+<h3 id="u7B14_u8BB0"><a href="#u7B14_u8BB0" class="headerlink" title="笔记"></a>笔记</h3><h4 id="1-_rendering_a_route__u6784_u5EFA_u8DEF_u7531"><a href="#1-_rendering_a_route__u6784_u5EFA_u8DEF_u7531" class="headerlink" title="1. rendering a route  构建路由"></a>1. rendering a route  构建路由</h4><h5 id="u5916_u5C42_u8DEF_u7531_u914D_u7F6E"><a href="#u5916_u5C42_u8DEF_u7531_u914D_u7F6E" class="headerlink" title="外层路由配置"></a>外层路由配置</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;Router history=&#123;hashHistory&#125;&#62;&#10;    &#60;Route path=&#34;/&#34; component=&#123;App&#125;/&#62;&#10;    &#60;Route path=&#34;/about&#34; component=&#123;About&#125;/&#62;&#10;    &#60;Route path=&#34;/repos&#34; component=&#123;Repos&#125;/&#62;&#10;&#60;/Router&#62;</span><br></pre></td></tr></table></figure>
+<p>在router内嵌套不同页面的route即可</p>
+<h4 id="2-_Nested_routes__u7B80_u5355_u7684_u5D4C_u5957"><a href="#2-_Nested_routes__u7B80_u5355_u7684_u5D4C_u5957" class="headerlink" title="2. Nested routes 简单的嵌套"></a>2. Nested routes 简单的嵌套</h4><h5 id="u5355_u9875_u5E94_u7528_u914D_u7F6E_uFF08_u4F7F_u7528this-props-children_uFF09"><a href="#u5355_u9875_u5E94_u7528_u914D_u7F6E_uFF08_u4F7F_u7528this-props-children_uFF09" class="headerlink" title="单页应用配置（使用this.props.children）"></a>单页应用配置（使用this.props.children）</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;Router history=&#123;hashHistory&#125;&#62;&#10;    &#60;Route path=&#34;/&#34; component=&#123;Nav&#125;&#62;&#10;        &#60;Route path=&#34;/about&#34; component=&#123;About&#125;/&#62;&#10;        &#60;Route path=&#34;/repos&#34; component=&#123;Repos&#125;/&#62;&#10;    &#60;/Route&#62;&#10;&#60;/Router&#62;</span><br></pre></td></tr></table></figure>
+<p>设置一个单独的导航Nav，导航的切换使得框架内的内容发生变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// Nav.js&#10;//&#28155;&#21152;&#19979;&#21015;&#20195;&#30721;&#65292;&#34920;&#31034;&#23884;&#22871;&#22312;&#20854;&#21518;&#30340;&#23376;&#32452;&#20214;&#10;&#123;this.props.children&#125;</span><br></pre></td></tr></table></figure>
+<p>多层嵌套<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;Router history=&#123;hashHistory&#125;&#62;&#10;    &#60;Route path=&#34;/&#34; component=&#123;App&#125;&#62;&#10;        &#60;Route path=&#34;/about&#34; component=&#123;About&#125;/&#62;&#10;        &#60;Route path=&#34;/repos&#34; component=&#123;Repos&#125;&#62;&#10;            &#60;Route path=&#34;/repos/:userName/:repoName&#34; component=&#123;RepoChild&#125;/&#62;&#10;        &#60;/Route&#62;&#10;    &#60;/Route&#62;&#10;&#60;/Router&#62;&#10;&#10;//&#23376;&#32452;&#20214;&#10;export default React.createClass(&#123;&#10;  render() &#123;&#10;    return (&#10;      &#60;div&#62;&#10;        &#60;p&#62;Repos!&#60;/p&#62;&#10;        &#60;ul&#62;&#10;          &#60;li&#62;&#10;            &#60;Link to=&#34;/repos/reactjs/react-router&#34;&#62;React Router&#60;/Link&#62;&#10;          &#60;/li&#62;&#10;          &#60;li&#62;&#10;            &#60;Link to=&#34;/repos/facebook/react&#34;&#62;React&#60;/Link&#62;&#10;          &#60;/li&#62;&#10;        &#60;/ul&#62;&#10;        &#123;this.props.children || &#34;nothing here&#34;&#125;&#10;      &#60;/div&#62;&#10;    )&#10;  &#125;&#10;&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-_params__u53C2_u6570"><a href="#3-_params__u53C2_u6570" class="headerlink" title="3. params 参数"></a>3. params 参数</h4><p>使用url的params<br>在Path中使用“:”作为参数的前缀</p>
+<h4 id="4-__u6839_u76EE_u5F55_u4E0B_u7684_u9875_u9762_u6E32_u67D3"><a href="#4-__u6839_u76EE_u5F55_u4E0B_u7684_u9875_u9762_u6E32_u67D3" class="headerlink" title="4. 根目录下的页面渲染"></a>4. 根目录下的页面渲染</h4><p>为path为”/“的route设置component即可<br>要注意设置this.props.children</p>
+<ul>
+<li><p>固定首页</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; IndexRoute &#125; from &#34;react-route&#34;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>二者可以只设置一个也可以都设置，Cache-Control的优先级比Expires高</p>
+<li><p>首页链接</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; IndexLink &#125; form &#34;react-route&#34;&#10;&#60;Link onlyActiveOnIndex=&#123;true&#125;/&#62;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>绝对时间（GMT）</p>
-<ol>
-<li><p>浏览器第一次从服务器请求资源时，服务器返回资源时会在Response header上添加Expires</p>
-</li>
-<li><p>浏览器接收资源后会把资源的所有response header都缓存下来</p>
-</li>
-<li><p>浏览器第二次请求同样的资源时，会先在缓存中查找该资源，并且将Expires与当前请求资源的时间相对比，如果请求时间在Expires的时间之前，则命中强缓存，从缓存中加载资源</p>
-</li>
-<li><p>如果没有命中，浏览器直接从服务器加载资源，Expires会在资源返回时更新</p>
-</li>
-</ol>
-<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>相对时间（秒）</p>
-<ol>
-<li><p>浏览器第一次从服务器请求资源时，服务器返回资源时会在Response header上添加Cache-Control</p>
-</li>
-<li><p>浏览器接收资源后会把资源的所有response header都缓存下来</p>
-</li>
-<li><p>浏览器再次请求相同的资源时，会先在缓存中查找该资源，查找到该资源后根据第一次请求的时间和Cache-Control设定的有效期比较，计算出一个时间；如果当前请求时间在该时间之前，则浏览器从缓存中加载资源</p>
-</li>
-<li><p>如果没有命中强缓存，则浏览器会从服务器加载资源，资源返回时会更新Cache-Control</p>
-</li>
-</ol>
-<hr>
-<h3 id="u534F_u5546_u7F13_u5B58_u7684_u539F_u7406_uFF08_u5982_u679C_u7F13_u5B58_u8FC7_u671F_u4E86_uFF09"><a href="#u534F_u5546_u7F13_u5B58_u7684_u539F_u7406_uFF08_u5982_u679C_u7F13_u5B58_u8FC7_u671F_u4E86_uFF09" class="headerlink" title="协商缓存的原理（如果缓存过期了）"></a>协商缓存的原理（如果缓存过期了）</h3><ul>
-<li>协商缓存命中后服务器会返回一个304代码（Not Modified）</li>
-</ul>
-<h4 id="Last-Modified_If-Modified-Since"><a href="#Last-Modified_If-Modified-Since" class="headerlink" title="Last-Modified If-Modified-Since"></a><code>Last-Modified</code> <code>If-Modified-Since</code></h4><ol>
-<li><p>浏览器第一次从服务器请求资源时，服务器会在返回资源时在response header上添加Last-Modified的header，Last-Modified代表资源最近一次在服务器端发生修改的时间</p>
-</li>
-<li><p>浏览器再次向服务器请求这个资源时，会在request header上添加If-Modified-Since，这个header的值即上一次请求该资源时服务器返回的Last-Modified的值</p>
-</li>
-<li><p>服务器收到请求后会在服务器端比较该资源最后一次发生修改的时间，如果该时间在If-Modified-Since之前，则命中协商缓存，返回304代码但是不返回资源，浏览器会在缓存中找到资源并加载</p>
-</li>
-<li><p>如果服务器端资源发生了更改，即改时间在If-Modified-Since之后，则服务器返回资源</p>
-</li>
-</ol>
-<p><em>5. 当服务器返回304代码时，将不会返回一个新的Last-Modified</em></p>
-<h4 id="Etag_If-None-Match"><a href="#Etag_If-None-Match" class="headerlink" title="Etag If-None-Match"></a><code>Etag</code> <code>If-None-Match</code></h4><ol>
-<li><p>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上ETag的header，这个header是服务器根据当前请求的资源生成的一个唯一标识，这个唯一标识是一个字符串，只要资源有变化这个串就不同，跟最后修改时间没有关系</p>
-</li>
-<li><p>浏览器再次向服务器请求这个资源时，会在request header上添加If-None-Match，这个header的值即上一次请求该资源时服务器返回的ETag的值</p>
-</li>
-<li><p>服务器收到请求后会根据服务器端的资源重新生成一个Etag，并且与请求中的If-None-Match对比，如果相同则命中协商缓存，返回304，浏览器从缓存中加载资源</p>
-</li>
-<li><p>如果不一致，则从服务器加载资源</p>
-</li>
-<li><p>不管是否命中协商缓存，服务器都会重新返回Etag，就算两者一致</p>
-</li>
-</ol>
+<h4 id="5-__u4F7F_u7528browerHistory_u8FDB_u884C_u8BBE_u7F6E"><a href="#5-__u4F7F_u7528browerHistory_u8FDB_u884C_u8BBE_u7F6E" class="headerlink" title="5. 使用browerHistory进行设置"></a>5. 使用browerHistory进行设置</h4><p>需要在webpack中配置  –history-api-fallback</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/" data-id="cin77rx500025sym1ljf6pkqe" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/04/19/20160419-React-Router/" data-id="cin77rx4h001gsym1f88asyov" class="article-share-link">分享到</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器缓存/">浏览器缓存</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-router学习笔记/">react-router学习笔记</a></li></ul>
 
     </footer>
   </div>
@@ -267,19 +217,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/28/css知识点梳理_01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/19/20160419-React-Router/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          css 知识点整理 01 选择器
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2016/01/28/20160128webdesign-year-review/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/13/20160413-React-Componet-Communication/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">2015年度网页设计回顾</div>
+      <div class="article-nav-title">React组件间通信 学习笔记</div>
     </a>
   
 </nav>
