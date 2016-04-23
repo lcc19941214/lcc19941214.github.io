@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+li {
+  list-style-type: none;
+}
+html,
+body {
+  background-color: #f1f1f1;
+  font-size: 20px;
+  font-family: "Microsoft Yahei";
+}
+.g-header {
+  padding: 20px;
+  background-color: #6aad29;
+  color: #fff;
+}
+.g-header .headline-container {
+  width: 440px;
+  margin: 0 auto;
+}
+.g-header .headline-container img {
+  float: left;
+}
+.g-header .headline-container dl {
+  position: relative;
+  margin-left: 40px;
+  float: left;
+  top: 90px;
+}
+.g-header .headline-container dl dt {
+  padding: 5px 0;
+  font-size: 1.2rem;
+}
+.g-header .headline-container dl dd {
+  padding: 5px 0;
+  font-size: .7rem;
+}
+.g-header .headline-container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.g-layout {
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+.g-layout .m-content-wrapper {
+  float: left;
+  width: 50%;
+}
+.g-layout .m-content .content {
+  margin-bottom: 40px;
+}
+.g-layout .m-content .content h2 {
+  padding: 10px 0;
+  color: #6aad29;
+}
+.g-layout .m-content .content p {
+  font-size: 0.7rem;
+}
+.g-layout .m-display {
+  float: left;
+  width: 50%;
+}
+.g-layout .m-display .u-display-wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 319px;
+  height: 567px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px 5px #ddd;
+}
+.g-layout .m-display .u-display-wrapper #display {
+  position: absolute;
+  top: -41px;
+  left: -41px;
+}
+.g-layout .m-display .intro p {
+  position: relative;
+  top: 20px;
+  font-size: 0.7rem;
+  text-align: center;
+  color: #6aad29;
+}
+.g-footer {
+  width: 100%;
+  background-color: #444;
+}
+.g-footer ul {
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+  font-size: .6rem;
+  color: #fff;
+}
+.g-footer ul li {
+  padding: 4px 0;
+}
