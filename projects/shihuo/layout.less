@@ -1,0 +1,195 @@
+@primary-color: #6AAD29;
+
+* {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+li {
+	list-style-type: none;
+}
+
+html,
+body {
+	background-color: #f1f1f1;
+	font-size: 20px;
+	font-family: "Microsoft Yahei";
+
+	@media screen and (max-width: 700px) {
+		font-size: 16px;
+	}
+}
+
+.g-header {
+	background-color: @primary-color;
+	color: #fff;
+	text-align: center;
+	
+	.headline-container {
+		display: inline-block;
+		text-align: left;
+
+		.logo {
+			float: left;
+		}
+
+		dl {
+			position: relative;
+			top: 80px;
+			margin-left: 40px;
+			float: left;
+
+			dt {
+				padding: 5px 0;
+				font-size: 1.2rem;
+			}
+
+			dd {
+				padding: 5px 0;
+				font-size: .7rem;
+			}
+
+			dd.icon-download {
+				margin-top: 10px;
+				border-top: 1px solid #fff;
+
+				span {
+					position: relative;
+					top: 5px;
+					display: inline-block;
+					margin-right: 5px; 
+					width: 20px;
+					height: 20px;
+					background-image: url(download.png);
+					background-size: 100%;
+				}
+
+				a {
+					font-size: 0.6rem;
+					text-decoration: none;
+					color: #fff;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width : 700px) {
+			padding: 40px 0;
+
+			.logo,
+			dl {
+				float: none;
+			}
+
+			dl {
+				top: 0;
+				margin: 0 auto;
+				width: 60%;
+				text-align: center;
+			}
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+	}
+}
+
+.g-layout {
+	overflow: hidden;
+	width: 80%;
+	margin: 0 auto;
+	padding: 100px 0;
+
+	.m-content {
+		padding-left: 60px;
+
+		&-wrapper {
+			float: left;
+			width: 60%;
+		}
+
+		.content {
+			margin-bottom: 40px;
+			
+			h2 {
+				padding: 10px 0;
+				color: @primary-color;
+			}
+
+			p {
+				font-size: 0.7rem;
+				line-height: 1.6em;
+				color: #666;
+			}
+		}
+	}
+
+	.m-display {
+		margin-left: 60%;
+
+		.u-display-wrapper {
+			position: relative;
+			margin: 0 auto;
+			width: 319px;
+			height: 567px;
+			overflow: hidden;
+			box-shadow: 0 10px 20px 5px #ddd;
+
+			#display {
+				position: absolute;
+				top: -41px;
+				left: -41px;
+			}
+		}
+
+		.intro p {
+			position: relative;
+			top: 20px;
+			font-size: 0.7rem;
+			text-align: center;
+			color: @primary-color;
+		}
+	}
+
+	@media screen and (max-width : 700px) {
+		padding: 0;
+
+		.m-content {
+			padding: 40px 0;
+
+			&-wrapper {
+				float: none;
+				width: 100%;
+			}
+		}
+
+		.m-display {
+			display: none;
+		}
+	}
+}
+
+.g-footer {
+	width: 100%;
+	background-color: #444;
+
+	ul {
+		margin: 0 auto;
+		padding: 20px;
+		width: 80%;
+		font-size: .6rem;
+		color: #fff;
+
+		li {
+			padding: 4px 0;
+		}
+	}
+}
+

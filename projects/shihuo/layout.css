@@ -12,23 +12,29 @@ body {
   font-size: 20px;
   font-family: "Microsoft Yahei";
 }
+@media screen and (max-width: 700px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
 .g-header {
-  padding: 20px;
   background-color: #6aad29;
   color: #fff;
+  text-align: center;
 }
 .g-header .headline-container {
-  width: 440px;
-  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
 }
-.g-header .headline-container img {
+.g-header .headline-container .logo {
   float: left;
 }
 .g-header .headline-container dl {
   position: relative;
+  top: 80px;
   margin-left: 40px;
   float: left;
-  top: 90px;
 }
 .g-header .headline-container dl dt {
   padding: 5px 0;
@@ -37,6 +43,43 @@ body {
 .g-header .headline-container dl dd {
   padding: 5px 0;
   font-size: .7rem;
+}
+.g-header .headline-container dl dd.icon-download {
+  margin-top: 10px;
+  border-top: 1px solid #fff;
+}
+.g-header .headline-container dl dd.icon-download span {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  background-image: url(download.png);
+  background-size: 100%;
+}
+.g-header .headline-container dl dd.icon-download a {
+  font-size: 0.6rem;
+  text-decoration: none;
+  color: #fff;
+}
+.g-header .headline-container dl dd.icon-download a:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 700px) {
+  .g-header .headline-container {
+    padding: 40px 0;
+  }
+  .g-header .headline-container .logo,
+  .g-header .headline-container dl {
+    float: none;
+  }
+  .g-header .headline-container dl {
+    top: 0;
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+  }
 }
 .g-header .headline-container::after {
   content: "";
@@ -49,9 +92,12 @@ body {
   margin: 0 auto;
   padding: 100px 0;
 }
+.g-layout .m-content {
+  padding-left: 60px;
+}
 .g-layout .m-content-wrapper {
   float: left;
-  width: 50%;
+  width: 60%;
 }
 .g-layout .m-content .content {
   margin-bottom: 40px;
@@ -62,10 +108,11 @@ body {
 }
 .g-layout .m-content .content p {
   font-size: 0.7rem;
+  line-height: 1.6em;
+  color: #666;
 }
 .g-layout .m-display {
-  float: left;
-  width: 50%;
+  margin-left: 60%;
 }
 .g-layout .m-display .u-display-wrapper {
   position: relative;
@@ -86,6 +133,21 @@ body {
   font-size: 0.7rem;
   text-align: center;
   color: #6aad29;
+}
+@media screen and (max-width: 700px) {
+  .g-layout {
+    padding: 0;
+  }
+  .g-layout .m-content {
+    padding: 40px 0;
+  }
+  .g-layout .m-content-wrapper {
+    float: none;
+    width: 100%;
+  }
+  .g-layout .m-display {
+    display: none;
+  }
 }
 .g-footer {
   width: 100%;
