@@ -3,6 +3,9 @@
   padding: 0;
   font-weight: normal;
 }
+a {
+  text-decoration: none;
+}
 li {
   list-style-type: none;
 }
@@ -11,12 +14,6 @@ body {
   background-color: #f1f1f1;
   font-size: 20px;
   font-family: "Microsoft Yahei";
-}
-@media screen and (max-width: 700px) {
-  html,
-  body {
-    font-size: 16px;
-  }
 }
 .g-header {
   background-color: #6aad29;
@@ -59,7 +56,6 @@ body {
   background-size: 100%;
 }
 .g-header .headline-container dl dd.icon-download a {
-  font-size: 0.6rem;
   text-decoration: none;
   color: #fff;
 }
@@ -102,17 +98,21 @@ body {
 .g-layout .m-content .content {
   margin-bottom: 40px;
 }
-.g-layout .m-content .content h2 {
+.g-layout .m-content .content h2,
+.g-layout .m-content .content h3 {
   padding: 10px 0;
   color: #6aad29;
 }
 .g-layout .m-content .content p {
+  margin-bottom: 1.4em;
   font-size: 0.7rem;
   line-height: 1.6em;
+  text-align: justify;
   color: #666;
 }
 .g-layout .m-display {
-  margin-left: 60%;
+  position: absolute;
+  right: 10%;
 }
 .g-layout .m-display .u-display-wrapper {
   position: relative;
@@ -134,6 +134,18 @@ body {
   text-align: center;
   color: #6aad29;
 }
+.g-layout .m-mobile-trial {
+  display: none;
+  margin-top: 40px;
+  text-align: center;
+}
+.g-layout .m-mobile-trial a {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #6aad29;
+  border-radius: 100px;
+  color: #6aad29;
+}
 @media screen and (max-width: 700px) {
   .g-layout {
     padding: 0;
@@ -141,12 +153,18 @@ body {
   .g-layout .m-content {
     padding: 40px 0;
   }
+  .g-layout .m-content h2 {
+    font-size: 1rem;
+  }
   .g-layout .m-content-wrapper {
     float: none;
     width: 100%;
   }
   .g-layout .m-display {
     display: none;
+  }
+  .g-layout .m-mobile-trial {
+    display: block;
   }
 }
 .g-footer {
@@ -162,4 +180,5 @@ body {
 }
 .g-footer ul li {
   padding: 4px 0;
+  text-align: center;
 }
