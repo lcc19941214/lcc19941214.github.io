@@ -3,31 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>消除inline-block两侧间距bug | AChuan</title>
+  <title>关于this的一点笔记 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
-第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
-
-可以发现这五个小div本身是没有设置padding和margin的。
-因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
+  <meta name="description" content="全局  函数  构造函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="消除inline-block两侧间距bug">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/index.html">
+<meta property="og:title" content="关于this的一点笔记">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/05/27/20160527this_context_arrow_function/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
-第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
-
-可以发现这五个小div本身是没有设置padding和margin的。
-因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
-<meta property="og:image" content="http://lcc19941214.github.io/images/2016/1/14/eg1.png">
-<meta property="og:updated_time" content="2016-01-15T15:37:33.000Z">
+<meta property="og:description" content="全局  函数  构造函数">
+<meta property="og:updated_time" content="2016-06-06T06:03:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="消除inline-block两侧间距bug">
-<meta name="twitter:description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
-第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
-
-可以发现这五个小div本身是没有设置padding和margin的。
-因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
+<meta name="twitter:title" content="关于this的一点笔记">
+<meta name="twitter:description" content="全局  函数  构造函数">
   
   
     <link rel="icon" href="favicon.png">
@@ -141,7 +128,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-20160114消除inline-block两侧间距bug" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-20160527this_context_arrow_function" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -150,7 +137,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      消除inline-block两侧间距bug
+      关于this的一点笔记
     </h1>
   
 
@@ -158,8 +145,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/20160114消除inline-block两侧间距bug/">
-      <time datetime="2016-01-14T04:25:30.000Z" itemprop="datePublished">2016-01-14</time>
+    <a href="/2016/05/27/20160527this_context_arrow_function/">
+      <time datetime="2016-05-27T05:43:00.000Z" itemprop="datePublished">2016-05-27</time>
     </a>
   </div>
 
@@ -167,7 +154,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
   </div>
 
         </div>
@@ -176,35 +163,56 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>其实是之前的一篇日志，最近用了hexo，慢慢同步过来~</p>
-<p>第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。</p>
-<p><img src="http://lcc19941214.github.io/images/2016/1/14/eg1.png" alt="实例图片"></p>
-<p>可以发现这五个小div本身是没有设置padding和margin的。</p>
-<p>因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理，留出5px左右的空格。</p>
-<p>其实要解决这个问题很简单，下面总结一下我使用的方法以及网上看到的几种：</p>
-<a id="more"></a>
-<h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><p>在父元素上使用<code>font-size: 0</code>，可以使得子元素两侧的空格因为没有设置字体大小而消失。<br>有看到说chrome浏览器是不支持这个方法的，<s>但是现在似乎没什么大的问题了</s>。对于汉字chrome还是有最小12px的要求限制</p>
-<h3 id="u79FB_u9664_u7A7A_u683C"><a href="#u79FB_u9664_u7A7A_u683C" class="headerlink" title="移除空格"></a>移除空格</h3><p>把标签的书写顺序调整一下即可</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者将标签换行</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者使用注释</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><p>因为子元素之间的间隔是水平的，所以也可以直接给每个元素使用<code>margin-right:-5px</code>的样式。</p>
-<p>但是考虑到不同浏览器下间隔不一，所以使用margin也需要具体调整。</p>
-<h3 id="letter-spacing_u548Cword-spacing"><a href="#letter-spacing_u548Cword-spacing" class="headerlink" title="letter-spacing和word-spacing"></a>letter-spacing和word-spacing</h3><p>直接给子元素加上这样的样式即可调整，但是要使用负值。</p>
-<hr>
-<blockquote>
-<p>参考了<a href="http://www.zhangxinxu.com/wordpress/?p=2357" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/?p=2357</a></p>
+        <blockquote>
+<p>  全局<br>  函数<br>  构造函数</p>
 </blockquote>
+<a id="more"></a>
+<hr>
+<p>参考</p>
+<ul>
+<li><a href="https://leohxj.gitbooks.io/front-end-database/content/javascript-basic/all-this.html" target="_blank" rel="external">前端工程师手册-详解this</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="external">MDN-this</a></li>
+</ul>
+<p>关于作用域绑定的问题，可以参考我回答的这一篇答案</p>
+<ul>
+<li><a href="https://segmentfault.com/q/1010000005150322/a-1020000005363414" target="_blank" rel="external">js一道面试题。貌似闭包，上下文，函数调用，声明，setTimeout()</a></li>
+</ul>
+<hr>
+<h3 id="1-__u5168_u5C40"><a href="#1-__u5168_u5C40" class="headerlink" title="1. 全局"></a>1. 全局</h3><h3 id="2-__u51FD_u6570"><a href="#2-__u51FD_u6570" class="headerlink" title="2. 函数"></a>2. 函数</h3><h4 id="u76F4_u63A5_u8C03_u7528_u51FD_u6570"><a href="#u76F4_u63A5_u8C03_u7528_u51FD_u6570" class="headerlink" title="直接调用函数"></a>直接调用函数</h4><ul>
+<li>非严格模式，指向window</li>
+<li>严格模式下，this为当前执行环境，默认undefined</li>
+</ul>
+<h4 id="u5BF9_u8C61_u65B9_u6CD5"><a href="#u5BF9_u8C61_u65B9_u6CD5" class="headerlink" title="对象方法"></a>对象方法</h4><p>直接调用一个对象上的方法时，this指向对象自身：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> val = <span class="string">'global'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  val: <span class="string">'obj'</span>,</span><br><span class="line">  getValWithFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.val;</span><br><span class="line">  &#125;,</span><br><span class="line">  getValWithArrowFunc: () =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.val;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.getValWithFunc(); <span class="comment">// 'obj'</span></span><br><span class="line">obj.getValWithArrowFunc(); <span class="comment">// 'global'</span></span><br></pre></td></tr></table></figure>
+<p>如果在对象的函数方法中继续调用函数，该函数的上下文关系将指向全局而非该函数</p>
+<h4 id="get_set__u65B9_u6CD5"><a href="#get_set__u65B9_u6CD5" class="headerlink" title="get set 方法"></a>get set 方法</h4><p>指向类或者对象自身</p>
+<h4 id="u539F_u578B_u94FE_u4E0A_u7684this"><a href="#u539F_u578B_u94FE_u4E0A_u7684this" class="headerlink" title="原型链上的this"></a>原型链上的this</h4><p>prototype上的this在实例化后指向对象自身</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Func</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Func.prototype.foo = <span class="string">'foo'</span>;</span><br><span class="line">Func.prototype.getFoo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.foo);</span><br><span class="line">  <span class="built_in">console</span>.log(Func.prototype.foo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> func = <span class="keyword">new</span> Func();</span><br><span class="line">func.foo = <span class="string">'bar'</span>;</span><br><span class="line">func.getFoo(); <span class="comment">// bar, foo</span></span><br></pre></td></tr></table></figure>
+<h4 id="u7BAD_u5934_u51FD_u6570"><a href="#u7BAD_u5934_u51FD_u6570" class="headerlink" title="箭头函数"></a>箭头函数</h4><p>箭头函数始终指向最外层的调用对象的上下文：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> val = <span class="string">'global'</span>;</span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  val: <span class="string">'foo'</span>,</span><br><span class="line">  bar: &#123;</span><br><span class="line">    val: <span class="string">'bar'</span>,</span><br><span class="line">    getVal: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.val;</span><br><span class="line">    &#125;,</span><br><span class="line">    getValInArrow: () =&gt; &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.val;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo.bar.getVal(); <span class="comment">// 'bar'</span></span><br><span class="line">foo.bar.getValInArrow(); <span class="comment">// 'global'</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-__u6784_u9020_u51FD_u6570"><a href="#3-__u6784_u9020_u51FD_u6570" class="headerlink" title="3. 构造函数"></a>3. 构造函数</h4><p>使用new时，将会创建一个新的上下文：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">foo = <span class="string">"bar"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testThis</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.foo = <span class="string">"foo"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.foo); <span class="comment">//logs "bar"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> testThis().foo); <span class="comment">//logs "foo"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以使用class</span></span><br><span class="line"><span class="keyword">const</span> val = <span class="string">'global'</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Func</span> </span>&#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">      <span class="keyword">this</span>.val = <span class="string">'Func'</span>;</span><br><span class="line">      <span class="keyword">this</span>.foo = &#123;</span><br><span class="line">        val: <span class="string">'foo'</span>,</span><br><span class="line">        getVal: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="keyword">this</span>.val);</span><br><span class="line">        &#125;,</span><br><span class="line">        bar: &#123;</span><br><span class="line">          val: <span class="string">'bar'</span>,</span><br><span class="line">          getVal: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.val);</span><br><span class="line">          &#125;,</span><br><span class="line">          getValInArrow: () =&gt; &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.val);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getVal() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.val);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> func = <span class="keyword">new</span> Func();</span><br><span class="line">  func.getVal(); <span class="comment">// 'Func'</span></span><br><span class="line">  func.foo.getVal(); <span class="comment">// 'foo'</span></span><br><span class="line">  func.foo.bar.getVal(); <span class="comment">// 'bar'</span></span><br><span class="line">  func.foo.bar.getValInArrow(); <span class="comment">// 'Func'</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-_DOM"><a href="#4-_DOM" class="headerlink" title="4. DOM"></a>4. DOM</h4><ul>
+<li>html中内联的事件，this指向当前DOM节点</li>
+<li>事件处理函数中，一般来说this指向e.target</li>
+</ul>
+<hr>
+<p>改变作用域的几种方法</p>
+<ul>
+<li>使用<code>var _this = this</code>传入当前的作用域</li>
+<li>使用<code>apply</code>或者<code>call</code>绑定当前作用域（会立即执行）</li>
+<li>使用<code>bind</code>绑定当前作用域（返回以新的函数，不立即执行）</li>
+<li>使用箭头函数，始终指向当前执行环境的最外层</li>
+<li>使用<code>::</code>（ES7）指定当前作用域</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="cip3m19cm0034bgs6rtpewkhv" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/05/27/20160527this_context_arrow_function/" data-id="cip3m19az001jbgs6t713xcgt" class="article-share-link">分享到</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -212,19 +220,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/14/javascript_知识点整理_01_基础语法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/06/20160606mouse-position/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          javascript 知识点整理 01 基础语法
+          鼠标事件中的位置关系
         
       </div>
     </a>
   
   
-    <a href="/2016/01/14/20160114快速搭建hexo静态博客/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/19/20160419-React-Router/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">快速搭建hexo静态博客</div>
+      <div class="article-nav-title">react-router 学习笔记</div>
     </a>
   
 </nav>

@@ -3,31 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>消除inline-block两侧间距bug | AChuan</title>
+  <title>鼠标事件中的位置关系 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
-第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
+  <meta name="description" content="#more ~ br {display: none}
 
-可以发现这五个小div本身是没有设置padding和margin的。
-因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
+
+
+  x, y  clientX, clientY  pageX. pageY  offsetX, offsetY  screenX, screenY  movementX, movementY  layerX, layerY">
 <meta property="og:type" content="article">
-<meta property="og:title" content="消除inline-block两侧间距bug">
-<meta property="og:url" content="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/index.html">
+<meta property="og:title" content="鼠标事件中的位置关系">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/06/06/20160606mouse-position/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
-第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
+<meta property="og:description" content="#more ~ br {display: none}
 
-可以发现这五个小div本身是没有设置padding和margin的。
-因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
-<meta property="og:image" content="http://lcc19941214.github.io/images/2016/1/14/eg1.png">
-<meta property="og:updated_time" content="2016-01-15T15:37:33.000Z">
+
+
+  x, y  clientX, clientY  pageX. pageY  offsetX, offsetY  screenX, screenY  movementX, movementY  layerX, layerY">
+<meta property="og:updated_time" content="2016-06-06T06:11:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="消除inline-block两侧间距bug">
-<meta name="twitter:description" content="其实是之前的一篇日志，最近用了hexo，慢慢同步过来~
-第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。
+<meta name="twitter:title" content="鼠标事件中的位置关系">
+<meta name="twitter:description" content="#more ~ br {display: none}
 
-可以发现这五个小div本身是没有设置padding和margin的。
-因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
+
+
+  x, y  clientX, clientY  pageX. pageY  offsetX, offsetY  screenX, screenY  movementX, movementY  layerX, layerY">
   
   
     <link rel="icon" href="favicon.png">
@@ -141,7 +140,7 @@
 </aside>
 
       
-      <section id="main"><article id="post-20160114消除inline-block两侧间距bug" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-20160606mouse-position" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -150,7 +149,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      消除inline-block两侧间距bug
+      鼠标事件中的位置关系
     </h1>
   
 
@@ -158,8 +157,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/14/20160114消除inline-block两侧间距bug/">
-      <time datetime="2016-01-14T04:25:30.000Z" itemprop="datePublished">2016-01-14</time>
+    <a href="/2016/06/06/20160606mouse-position/">
+      <time datetime="2016-06-06T05:43:00.000Z" itemprop="datePublished">2016-06-06</time>
     </a>
   </div>
 
@@ -167,7 +166,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
   </div>
 
         </div>
@@ -176,35 +175,31 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>其实是之前的一篇日志，最近用了hexo，慢慢同步过来~</p>
-<p>第一次用inline-block的时候遇到了这个问题，很好奇为什么各元素之间居然还有留白，而且当时完全不知道这到底是怎么产生的。</p>
-<p><img src="http://lcc19941214.github.io/images/2016/1/14/eg1.png" alt="实例图片"></p>
-<p>可以发现这五个小div本身是没有设置padding和margin的。</p>
-<p>因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理，留出5px左右的空格。</p>
-<p>其实要解决这个问题很简单，下面总结一下我使用的方法以及网上看到的几种：</p>
-<a id="more"></a>
-<h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><p>在父元素上使用<code>font-size: 0</code>，可以使得子元素两侧的空格因为没有设置字体大小而消失。<br>有看到说chrome浏览器是不支持这个方法的，<s>但是现在似乎没什么大的问题了</s>。对于汉字chrome还是有最小12px的要求限制</p>
-<h3 id="u79FB_u9664_u7A7A_u683C"><a href="#u79FB_u9664_u7A7A_u683C" class="headerlink" title="移除空格"></a>移除空格</h3><p>把标签的书写顺序调整一下即可</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者将标签换行</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者使用注释</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><p>因为子元素之间的间隔是水平的，所以也可以直接给每个元素使用<code>margin-right:-5px</code>的样式。</p>
-<p>但是考虑到不同浏览器下间隔不一，所以使用margin也需要具体调整。</p>
-<h3 id="letter-spacing_u548Cword-spacing"><a href="#letter-spacing_u548Cword-spacing" class="headerlink" title="letter-spacing和word-spacing"></a>letter-spacing和word-spacing</h3><p>直接给子元素加上这样的样式即可调整，但是要使用负值。</p>
-<hr>
+        <style type="text/css">
+  #more ~ br {display: none}
+</style>
+
 <blockquote>
-<p>参考了<a href="http://www.zhangxinxu.com/wordpress/?p=2357" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/?p=2357</a></p>
+<p>  x, y<br>  clientX, clientY<br>  pageX. pageY<br>  offsetX, offsetY<br>  screenX, screenY<br>  movementX, movementY<br>  layerX, layerY</p>
 </blockquote>
+<a id="more"></a>
+<table><br>  <thead><br>    <th>属性</th><br>    <th>说明</th><br>    <th>兼容性</th><br>  </thead><br>  <tbody><br>    <tr><br>      <td>x  y</td><br>      <td>clientX和clientY的别名，没有其他实际意义上的区别</td><br>      <td>不是标准规范，不建议使用</td><br>    </tr><br>    <tr><br>      <td>clientX clientY</td><br>      <td>以视窗可见范围的左上角为参考系，与页面滚动无关，不包括滚动条和空间</td><br>      <td>IE的原点是(2, 2)，不是(0, 0)</td><br>    </tr><br>    <tr><br>      <td>pageX pageY</td><br>      <td><br>        以整个文档为参考系，包括因为滚动而不可见的部分，即事件发生时鼠标在整个文档中的位置<br>        <br><br>        MDN中的解释是：<br>        <span style="color: #4F94FD">the coordinate of the event relative to the whole document.</span><br>      </td><br>      <td><br>        IE9以上支持<br>        <br><br>        兼容方法为：<br>        <br><br>        <code>pageX = e.clientY + scrollTop - e.clientTop</code><br>      </td><br>    </tr><br>    <tr><br>      <td>offsetX offsetY</td><br>      <td>事件发生时，鼠标距离目标元素的左上角原点的位置<br>      <br><br>        MDN中的解释是：<br>        <span style="color: #4F94FD">the offset in the coordinate of the mouse pointer between that event and the padding edge of the target node</span></td><br>      <td>IE6支持</td><br>    </tr><br>    <tr><br>      <td>screenX screenY</td><br>      <td>事件发生时鼠标在整个屏幕上的位置</td><br>      <td></td><br>    </tr><br>    <tr><br>      <td>movementX movementY</td><br>      <td>当前鼠标事件与上一次movemove事件，鼠标的位移<br>      <br><br>        MDN中的解释是：<br>        <span style="color: #4F94FD">currentEvent.movementX = currentEvent.screenX - previousEvent.screenX</span></td><br>      <td></td><br>    </tr><br>  </tbody><br></table>
+
+<ul>
+<li><p><code>layerX</code>和<code>layerY</code><br>目前只在FF中获得支持，我也没做过多的研究</p>
+</li>
+<li><p>倒是关于offsetX和offsetY，之前在做drag and drop的组件的时候，有遇到一些小的问题<br>有的人说offsetX和offsetY是<code>发生事件的地点在事件父元素的坐标系统中的 x 坐标和 y 坐标</code>，但是这个说法不是很准确。<br>按照这种解释，如果我们给从上到下排列的三个div各绑定一个点击事件，在每个div的中心点击一次，获得的offsetX和offsetY应该是有所差异的。<br>offsetX应该都一样，但是offsetY会逐渐变大。<br>可实际情况是三个事件的offsetY都一样。因此，我的理解是offsetX和offsetY代表了鼠标事件发生时，鼠标在目标元素的坐标系统的中的位置，与父元素无关。（这个坐标系统以目标元素的padding为origin）</p>
+<p><em>有时间了会补充一个测试的结果贴上来</em></p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="cip3m19cm0034bgs6rtpewkhv" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/06/06/20160606mouse-position/" data-id="cip3m19ax001gbgs6hrhqiuty" class="article-share-link">分享到</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -212,19 +207,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/14/javascript_知识点整理_01_基础语法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          javascript 知识点整理 01 基础语法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/14/20160114快速搭建hexo静态博客/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/05/27/20160527this_context_arrow_function/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">快速搭建hexo静态博客</div>
+      <div class="article-nav-title">关于this的一点笔记</div>
     </a>
   
 </nav>
