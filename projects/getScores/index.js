@@ -51,8 +51,6 @@
         "马克思主义基本原理概论",
         "思想道德修养和法律基础",
         "中国近现代史纲要",
-        "形势与政策",
-        "国情教育与社会实践",
         "军事理论",
         "新闻学概论",
         "广播电视概论",
@@ -78,14 +76,50 @@
         "新闻作品评析",
         "新闻报道专题",
         "中西新闻比较"
+      ],
+      "播音": [
+        "毛泽东思想和中国特色社会主义理论体系概论",
+        "马克思主义基本原理概论",
+        "思想道德修养和法律基础",
+        "中国近现代史纲要",
+        "军事理论",
+        "新闻学概论",
+        "广播电视概论",
+        "广告学概论",
+        "新媒体基础",
+        "大众传播理论",
+        "媒介伦理与法规",
+        "媒介研究方法",
+        "数字技术应用",
+        "普通话语音",
+        "普通话语音实验",
+        "播音发声",
+        "播音发声实验",
+        "播音创作基础",
+        "播音创作基础实验",
+        "新闻播音与主持",
+        "新闻播音与主持实验",
+        "电视直播与现场报道",
+        "电视直播与现场报道实验",
+        "即兴表达艺术",
+        "播音经典鉴赏",
+        "化妆与形象设计",
+        "形体训练",
+        "视觉传播",
+        "电视节目评析",
+        "视听媒介批评",
+        "电视摄像",
+        "电视摄像实验",
+        "非线性编辑",
+        "非线性编辑实验"
       ]
     };
 
     var TYPE = window.type;
     var courseData = courseSet[TYPE];
 
-    // courseData.push('实践中的马克思主义新闻观');
-    // courseData.push('专业实习');
+    courseData.push('实践中的马克思主义新闻观');
+    courseData.push('专业实习');
 
     // 获取iframe和表格
     var iframe = window.frames[1].frames[0];
@@ -127,25 +161,21 @@
        * 计算规则
        * 课程名称符合courseData中的任一项
        * 授课学院包括体育部，大学英语部且是公共必修
+       * 缓考课程、没有分数的课程不计入加权
        * 
        * 保研资格
        * 所有分数在60分以上
        */
-      
-      // 总课程数
-      var count = 0;
-      // 不及格课程总数
-      var failedCourseCount = 0;
-      // 不及格课程名称
-      var failedCourse = [];
-      // 总学分
-      var creditsAmout = 0;
-      // 加权总成绩
-      var multiplication = 0;
-      // 加权平均分
-      var weightedAverage = 0; 
-      // 解析后的成绩
-      var dataTree = [];
+      var count = 0;                // 总课程数
+      var failedCourseCount = 0;    // 不及格课程总数
+      var failedCourse = [];        // 不及格课程名称
+      var retakeCourseCount = 0;    // 不及格课程重修总数
+      var retakeCourse = [];        // 重修课程名称
+      var creditsAmout = 0;         // 总学分
+      var multiplication = 0;       // 加权总成绩
+      var weightedAverage = 0;      // 加权平均分
+      var dataTree = [];            // 解析后的成绩
+      var extra = [];               // 附加信息
 
       dataSource.forEach(item => {
         var courseName = item.courseName;
@@ -156,16 +186,25 @@
         var score = parseInt(item.score);
 
         var validation = courseData.some(name => name === courseName)
-          || (courseCategory === '公共必修' && (school === '体育部' || school === '大学英语部'))
+          || (courseCategory === '公共必修' && (school === '体育部' || school === '大学英语部'));
 
         if (validation && score) {
-          count ++;
-          creditsAmout += credit;
-          multiplication += credit * score;
+          if (type !== '重修') {
+            count ++;
+            creditsAmout += credit;
+            multiplication += credit * score;
 
-          if (score < 60) {
-            failedCourseCount ++;
-            failedCourse.push(courseName);
+            if (score < 60) {
+              failedCourseCount ++;
+              failedCourse.push(courseName);
+            }
+          } else {
+            if (score < 60) {
+              extra.push('重修再次不及格：' + courseName + ', ' + score);
+            }
+
+            retakeCourseCount ++;
+            retakeCourse.push(courseName);
           }
 
           dataTree.push({
@@ -185,8 +224,17 @@
       console.log("总学分：" + creditsAmout);
       console.log("加权总成绩：" + multiplication);
       console.log("加权平均：" + weightedAverage.toFixed(2));
-      console.log('不及格科目数：' + failedCourseCount);
-      console.log('不及格科目：' + (failedCourse.join(', ') || '无'));
+      
+      if (failedCourseCount > 0) {
+        console.log('不及格科目数：' + failedCourseCount);
+        console.log('不及格科目：' + failedCourse.join(', '));
+        console.log('不及格科目重修数：' + retakeCourseCount);
+        console.log('重修课程名称：' + retakeCourse.join(', '));
+      }
+
+      if (extra.length > 0) {
+        console.log(extra.join('\n'));
+      }
     } else {
       console.error('请进入成绩模块后再次执行该代码');
     }
