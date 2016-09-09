@@ -219,7 +219,7 @@
       weightedAverage = multiplication / creditsAmout;
       dataTree.sort((a, b) => a.courseCategory.localeCompare(b.courseCategory));
 
-      console.warning('该结果仅供参考');
+      console.warn('该结果仅供参考');
       console.log('姓名：' + window.document.getElementById('nameLable').textContent.trim());
       console.log("总课程数：" + count);
       console.log("总学分：" + creditsAmout);
