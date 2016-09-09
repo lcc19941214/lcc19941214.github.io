@@ -97,12 +97,21 @@
        * 保研资格
        * 所有分数在60分以上
        */
-      var creditsAmout = 0;
-      var multiplication = 0;
-      var weightedAverage = 0;
+      
+      // 总课程数
       var count = 0;
-
-      var sum = [];
+      // 不及格课程总数
+      var failedCourseCount = 0;
+      // 不及格课程名称
+      var failedCourse = [];
+      // 总学分
+      var creditsAmout = 0;
+      // 加权总成绩
+      var multiplication = 0;
+      // 加权平均分
+      var weightedAverage = 0; 
+      // 解析后的成绩
+      var dataTree = [];
 
       dataSource.forEach(item => {
         var courseName = item.courseName;
@@ -120,7 +129,12 @@
           creditsAmout += credit;
           multiplication += credit * score;
 
-          sum.push({
+          if (score < 60) {
+            failedCourseCount ++;
+            failedCourse.push(courseName);
+          }
+
+          dataTree.push({
             courseName,
             courseCategory,
             credit,
@@ -130,13 +144,15 @@
       });
 
       weightedAverage = multiplication / creditsAmout;
-      sum.sort((a, b) => a.courseCategory.localeCompare(b.courseCategory));
+      dataTree.sort((a, b) => a.courseCategory.localeCompare(b.courseCategory));
 
       console.log('姓名：' + window.document.getElementById('nameLable').textContent.trim());
-      console.log("课程：" + count);
-      console.log("学分：" + creditsAmout);
+      console.log("总课程数：" + count);
+      console.log("总学分：" + creditsAmout);
       console.log("加权总成绩：" + multiplication);
       console.log("加权平均：" + weightedAverage);
+      console.log('不及格科目数：' + failedCourseCount);
+      console.log('不及格科目：' + (failedCourse.join(', ') || '无'));
     } else {
       console.error('请进入成绩模块后再次执行该代码');
     }
