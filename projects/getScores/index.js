@@ -55,88 +55,92 @@
 
     // 获取iframe和表格
     var iframe = window.frames[1].frames[0];
-    var listTable = iframe.document.querySelector('.table');
+    if (iframe) {
+      var listTable = iframe.document.querySelector('.table');
 
-    // 解析表格
-    var tableMap = {
-      0: "课头号",
-      1: "课程名称",
-      2: "课程类型",
-      3: "学分",
-      4: "教师",
-      5: "授课学院",
-      6: "学习类型",
-      7: "学年",
-      8: "学期",
-      9: "成绩",
-      10: "操作"
-    };
-
-    var rows = Array.prototype.slice.call(listTable.querySelectorAll('tr'));
-    rows.splice(0, 1); // 剔除标题行
-
-    var dataSource = rows.map(row => {
-      var columns = row.querySelectorAll('td');
-      return {
-        courseName: columns[1].textContent,
-        courseCategory: columns[2].textContent,
-        credit: columns[3].textContent,
-        school: columns[5].textContent,
-        type: columns[6].textContent,
-        score: columns[9].textContent
+      // 解析表格
+      var tableMap = {
+        0: "课头号",
+        1: "课程名称",
+        2: "课程类型",
+        3: "学分",
+        4: "教师",
+        5: "授课学院",
+        6: "学习类型",
+        7: "学年",
+        8: "学期",
+        9: "成绩",
+        10: "操作"
       };
-    });
 
-    // 计算学分
-    /**
-     * 计算规则
-     * 课程名称符合courseData中的任一项
-     * 授课学院包括体育部，大学英语部且是公共必修
-     * 
-     * 保研资格
-     * 所有分数在60分以上
-     */
-    var creditsAmout = 0;
-    var multiplication = 0;
-    var weightedAverage = 0;
-    var count = 0;
+      var rows = Array.prototype.slice.call(listTable.querySelectorAll('tr'));
+      rows.splice(0, 1); // 剔除标题行
 
-    var sum = [];
+      var dataSource = rows.map(row => {
+        var columns = row.querySelectorAll('td');
+        return {
+          courseName: columns[1].textContent,
+          courseCategory: columns[2].textContent,
+          credit: columns[3].textContent,
+          school: columns[5].textContent,
+          type: columns[6].textContent,
+          score: columns[9].textContent
+        };
+      });
 
-    dataSource.forEach(item => {
-      var courseName = item.courseName;
-      var courseCategory = item.courseCategory;
-      var credit = parseInt(item.credit);
-      var school = item.school;
-      var type = item.type;
-      var score = parseInt(item.score);
+      // 计算学分
+      /**
+       * 计算规则
+       * 课程名称符合courseData中的任一项
+       * 授课学院包括体育部，大学英语部且是公共必修
+       * 
+       * 保研资格
+       * 所有分数在60分以上
+       */
+      var creditsAmout = 0;
+      var multiplication = 0;
+      var weightedAverage = 0;
+      var count = 0;
 
-      var validation = courseData.some(name => name === courseName)
-        || (courseCategory === '公共必修' && (school === '体育部' || school === '大学英语部'))
+      var sum = [];
 
-      if (validation && score) {
-        count ++;
-        creditsAmout += credit;
-        multiplication += credit * score;
+      dataSource.forEach(item => {
+        var courseName = item.courseName;
+        var courseCategory = item.courseCategory;
+        var credit = parseInt(item.credit);
+        var school = item.school;
+        var type = item.type;
+        var score = parseInt(item.score);
 
-        sum.push({
-          courseName,
-          courseCategory,
-          credit,
-          score
-        });
-      }
-    });
+        var validation = courseData.some(name => name === courseName)
+          || (courseCategory === '公共必修' && (school === '体育部' || school === '大学英语部'))
 
-    weightedAverage = multiplication / creditsAmout;
-    sum.sort((a, b) => a.courseCategory.localeCompare(b.courseCategory));
+        if (validation && score) {
+          count ++;
+          creditsAmout += credit;
+          multiplication += credit * score;
 
-    console.log('姓名：' + window.document.getElementById('nameLable').textContent.trim());
-    console.log("课程：" + count);
-    console.log("学分：" + creditsAmout);
-    console.log("加权总成绩：" + multiplication);
-    console.log("加权平均：" + weightedAverage);
+          sum.push({
+            courseName,
+            courseCategory,
+            credit,
+            score
+          });
+        }
+      });
+
+      weightedAverage = multiplication / creditsAmout;
+      sum.sort((a, b) => a.courseCategory.localeCompare(b.courseCategory));
+
+      console.log('姓名：' + window.document.getElementById('nameLable').textContent.trim());
+      console.log("课程：" + count);
+      console.log("学分：" + creditsAmout);
+      console.log("加权总成绩：" + multiplication);
+      console.log("加权平均：" + weightedAverage);
+    } else {
+      console.error('请进入成绩模块后再次执行该代码');
+    }
   } else {
-    console.log('请注明专业类别');
+    console.error('请注明专业类别');
   }
 })();
