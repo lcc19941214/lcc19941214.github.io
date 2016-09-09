@@ -44,14 +44,48 @@
         "数码摄影实验",
         "互联网管理与规制",
         "多媒体新闻报道",
-        "数字媒介产品策划",
-        "专业实习",
-        "实践中的马克思主义新闻观"
+        "数字媒介产品策划"
+      ],
+      "新闻": [
+        "毛泽东思想和中国特色社会主义理论体系概论",
+        "马克思主义基本原理概论",
+        "思想道德修养和法律基础",
+        "中国近现代史纲要",
+        "形势与政策",
+        "国情教育与社会实践",
+        "军事理论",
+        "新闻学概论",
+        "广播电视概论",
+        "广告学概论",
+        "新媒体基础",
+        "大众传播理论",
+        "媒介伦理与法规",
+        "媒介研究方法",
+        "数字技术应用",
+        "新闻采访",
+        "新闻写作",
+        "中国新闻传播史",
+        "英美报刊选读",
+        "新闻编辑",
+        "新闻评论",
+        "外国新闻传播史",
+        "多媒体新闻报道",
+        "新闻摄影",
+        "摄影技术基础实验",
+        "媒介经营与管理",
+        "报纸版面编排与设计",
+        "媒介经济学",
+        "新闻作品评析",
+        "新闻报道专题",
+        "中西新闻比较"
       ]
     };
 
     var TYPE = window.type;
     var courseData = courseSet[TYPE];
+
+    // courseData.push('实践中的马克思主义新闻观');
+    // courseData.push('专业实习');
 
     // 获取iframe和表格
     var iframe = window.frames[1].frames[0];
@@ -150,7 +184,7 @@
       console.log("总课程数：" + count);
       console.log("总学分：" + creditsAmout);
       console.log("加权总成绩：" + multiplication);
-      console.log("加权平均：" + weightedAverage);
+      console.log("加权平均：" + weightedAverage.toFixed(2));
       console.log('不及格科目数：' + failedCourseCount);
       console.log('不及格科目：' + (failedCourse.join(', ') || '无'));
     } else {
