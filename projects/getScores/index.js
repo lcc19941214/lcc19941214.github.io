@@ -112,6 +112,80 @@
         "电视摄像实验",
         "非线性编辑",
         "非线性编辑实验"
+      ],
+      "广设": [
+        "毛泽东思想和中国特色社会主义理论体系概论",
+        "马克思主义基本原理概论",
+        "思想道德修养和法律基础",
+        "中国近现代史纲要",
+        "实践中的马克思主义新闻观",
+        "军事理论",
+        "新闻学概论",
+        "广播电视概论",
+        "广告学概论",
+        "新媒体基础",
+        "大众传播理论",
+        "数字技术应用",
+        "媒介伦理与法规",
+        "媒介研究方法",
+        "广告策划",
+        "广告调查",
+        "广告调研与统计分析",
+        "广告媒体",
+        "广告创意与表现",
+        "世界广告通史",
+        "广告经营",
+        "网络广告",
+        "电脑图文设计",
+        "电脑图文设计实验",
+        "平面广告设计",
+        "平面广告设计实验",
+        "数码摄影",
+        "数码摄影实验",
+        "公共关系学",
+        "市场营销学",
+        "西方广告选讲",
+        "广播影视广告",
+        "数字营销传播",
+        "素描与色彩",
+        "动漫视频广告",
+        "动漫视频广告实验",
+        "现代设计概论",
+        "构成",
+        "图形采风"
+      ],
+      "广电": [
+        "毛泽东思想和中国特色社会主义理论体系概论",
+        "马克思主义基本原理概论",
+        "思想道德修养和法律基础",
+        "中国近现代史纲要",
+        "国情教育与社会实践",
+        "军事理论",
+        "新闻学概论",
+        "广播电视概论",
+        "广告学概论",
+        "新媒体基础",
+        "大众传播理论",
+        "媒介伦理与法规",
+        "媒介研究方法",
+        "数字技术应用",
+        "电视摄像",
+        "电视摄像实验",
+        "非线性编辑",
+        "非线性编辑实验",
+        "广播电视脚本写作",
+        "广播电视发展史",
+        "电视节目评析",
+        "口语传播",
+        "媒介案例分析",
+        "影像叙事分析",
+        "广播电视策划",
+        "电视与文化产业",
+        "影视剧研究",
+        "电视直播与现场报道",
+        "电视纪录片",
+        "新闻采访",
+        "新闻评论"
       ]
     };
 
@@ -177,6 +251,14 @@
       var dataTree = [];            // 解析后的成绩
       var extra = [];               // 附加信息
 
+      // 辅助统计
+      var gongbi = 0;
+      var zhuanbi = 0;
+      var zhuanxuan = 0;
+      var gongbiCourse = [];
+      var zhuanbiCourse = [];
+      var zhuanxuanCourse = [];
+
       dataSource.forEach(item => {
         var courseName = item.courseName;
         var courseCategory = item.courseCategory;
@@ -189,7 +271,7 @@
           || (courseCategory === '公共必修' && (school === '体育部' || school === '大学英语部'));
 
         if (validation && score) {
-          if (type !== '重修') {
+          if (type !== '重修' && type !== '及格重修') {
             count ++;
             creditsAmout += credit;
             multiplication += credit * score;
@@ -198,7 +280,21 @@
               failedCourseCount ++;
               failedCourse.push(courseName);
             }
-          } else {
+
+            // 辅助统计
+            if (courseCategory === '公共必修') {
+              gongbi ++;
+              gongbiCourse.push(courseName);
+            }
+            if (courseCategory === '专业必修') {
+              zhuanbi ++;
+              zhuanbiCourse.push(courseName);
+            }
+            if (courseCategory === '专业选修') {
+              zhuanxuan ++;
+              zhuanxuanCourse.push(courseName);
+            };
+          } else if (type === '重修') {
             if (score < 60) {
               extra.push('重修再次不及格：' + courseName + ', ' + score);
             }
@@ -225,7 +321,7 @@
       console.log("总学分：" + creditsAmout);
       console.log("加权总成绩：" + multiplication);
       console.log("加权平均：" + weightedAverage.toFixed(2));
-      
+
       if (failedCourseCount > 0) {
         console.log('不及格科目数：' + failedCourseCount);
         console.log('不及格科目：' + failedCourse.join(', '));
