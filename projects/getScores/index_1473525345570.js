@@ -363,11 +363,11 @@
         console.log(extra.join('\n'));
       }
 
-      console.warn('保研资格结果仅供参考，请以实际情况为准！');
-      if (failedCourseCount > 0 && missingCourseCount > 0) {
-        console.log('%c具备保研资格', 'color: #2BB4FF');
+      console.warn('参评保研的资格仅供参考，请以实际情况为准！');
+      if (failedCourseCount === 0 && missingCourseCount === 0) {
+        console.log('%c具备参评保研的资格', 'color: #2BB4FF');
       } else {
-        console.log('%c不具备保研资格', 'color: #FF6E59');
+        console.log('%c不具备参评保研的资格', 'color: #FF6E59');
       }
     } else {
       console.error('请进入成绩模块后再次执行该代码');

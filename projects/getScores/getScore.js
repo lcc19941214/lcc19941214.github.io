@@ -6,7 +6,7 @@
   var id = 'get_score_script';
   var script = document.createElement('script');
   script.id = id;
-  script.setAttribute('src', 'http://achuan.me/projects/getScores/index_1473519067878.js');
+  script.setAttribute('src', 'http://achuan.me/projects/getScores/index_1473525345570.js');
   if (document.getElementById(id)) {
     document.body.replaceChild(script, document.getElementById(id));
   } else {
