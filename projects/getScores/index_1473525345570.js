@@ -113,6 +113,47 @@
         "非线性编辑",
         "非线性编辑实验"
       ],
+      "广告": [
+        "毛泽东思想和中国特色社会主义理论体系概论",
+        "马克思主义基本原理概论",
+        "思想道德修养和法律基础",
+        "中国近现代史纲要",
+        "实践中的马克思主义新闻观",
+        "综合英语",
+        "体育",
+        "军事理论",
+        "新闻学概论",
+        "广播电视概论",
+        "广告学概论",
+        "新媒体基础",
+        "大众传播理论",
+        "数字技术应用",
+        "媒介伦理与法规",
+        "媒介研究方法",
+        "广告策划",
+        "广告调查",
+        "广告调研与统计分析",
+        "广告媒体",
+        "广告创意与表现",
+        "世界广告通史",
+        "广告经营",
+        "网络广告",
+        "电脑图文设计",
+        "电脑图文设计实验",
+        "平面广告设计",
+        "平面广告设计实验",
+        "数码摄影",
+        "数码摄影实验",
+        "公共关系学",
+        "市场营销学",
+        "西方广告选讲",
+        "广播影视广告",
+        "数字营销传播",
+        "广告文案写作",
+        "广告心理学",
+        "营销企划实务",
+        "媒介经营与管理"
+      ],
       "广设": [
         "毛泽东思想和中国特色社会主义理论体系概论",
         "马克思主义基本原理概论",
@@ -221,12 +262,12 @@
       var dataSource = rows.map(row => {
         var columns = row.querySelectorAll('td');
         return {
-          courseName: columns[1].textContent,
-          courseCategory: columns[2].textContent,
-          credit: columns[3].textContent,
-          school: columns[5].textContent,
-          type: columns[6].textContent,
-          score: columns[9].textContent
+          courseName: columns[1].textContent,       // 课程名称
+          courseCategory: columns[2].textContent,   // 课程类型
+          credit: columns[3].textContent,           // 学分
+          school: columns[5].textContent,           // 授课学院
+          type: columns[6].textContent,             // 学习类型
+          score: columns[9].textContent             // 成绩
         };
       });
 
@@ -336,7 +377,8 @@
       weightedAverage = multiplication / creditsAmout;
       dataTree.sort((a, b) => a.courseCategory.localeCompare(b.courseCategory));
 
-      console.warn('成绩统计结果仅供参考，请以实际情况为准！');
+      console.warn('所有统计结果仅供参考，请以实际情况为准！');
+      console.warn('成绩统计');
       console.log('姓名：' + window.document.getElementById('nameLable').textContent.trim());
       console.log("总课程数：" + count);
       console.log("总学分：" + creditsAmout);
@@ -345,6 +387,7 @@
 
       if (failedCourseCount > 0) {
         // 不及格课程
+        console.warn('不及格课程及重修课程');
         console.log('不及格课程总数：' + failedCourseCount);
         console.log('不及格课程：' + failedCourse.join(', '));
         console.log('重修课程总数：' + retakeCourseCount);
@@ -353,7 +396,7 @@
 
       if (missingCourseCount > 0) {
         // 应修但是未修的课程
-        console.warn('该部分统计仅供参考，没有考虑多门体育、英语重修的情况！');
+        console.warn('应修但是未修的课程');
         console.log('应修但未修课程总数：' + missingCourseCount);
         console.log('应修但未修课程：' + missingCourse.join(', '));
       }
@@ -363,7 +406,7 @@
         console.log(extra.join('\n'));
       }
 
-      console.warn('参评保研的资格仅供参考，请以实际情况为准！');
+      console.warn('参评保研的资格（重修及格的请重新核对）');
       if (failedCourseCount === 0 && missingCourseCount === 0) {
         console.log('%c具备参评保研的资格', 'color: #2BB4FF');
       } else {
