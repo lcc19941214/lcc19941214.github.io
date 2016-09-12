@@ -323,7 +323,7 @@
         var validation = unique && (hasCourse || publicRequired);
 
         if (validation) {
-          if (score) {
+          if (score || score === 0) {
             // 有分数的课程
             if (type !== '重修' && type !== '及格重修') {
               count ++;
@@ -348,13 +348,6 @@
                 zhuanxuan ++;
                 zhuanxuanCourse.push(courseName);
               };
-            } else if (type === '重修') {
-              if (score < 60) {
-                extra.push('重修再次不及格：' + courseName + ', ' + score);
-              }
-
-              retakeCourseCount ++;
-              retakeCourse.push(courseName);
             }
           } else {
             // 没有分数的课程
@@ -364,13 +357,22 @@
           }
 
           allCourse.push(courseName);
+        }
 
-          dataTree.push({
-            courseName,
-            courseCategory,
-            credit,
-            score
-          });
+        dataTree.push({
+          courseName,
+          courseCategory,
+          credit,
+          score
+        });
+
+        if ((hasCourse || publicRequired) && (type === '重修')) {
+          if (score < 60) {
+            extra.push('重修再次不及格：' + courseName + ', ' + score);
+          }
+
+          retakeCourseCount ++;
+          retakeCourse.push(courseName);
         }
       });
 
