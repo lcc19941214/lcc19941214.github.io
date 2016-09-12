@@ -185,8 +185,8 @@
         "数码摄影实验",
         "公共关系学",
         "市场营销学",
-        "西方广告选讲",
-        "广播影视广告",
+        "西方广告选讲(Topics in Western Advertising)",
+        "广播影视广告(Broadcasting & Video Advertising)",
         "数字营销传播",
         "素描与色彩",
         "动漫视频广告",
@@ -407,6 +407,13 @@
         // 附加情况
         console.log(extra.join('\n'));
       }
+
+      // console.log(gongbi);
+      // console.log(gongbiCourse);
+      // console.log(zhuanbi);
+      // console.log(zhuanbiCourse);
+      // console.log(zhuanxuan);
+      // console.log(zhuanxuanCourse);
 
       console.warn('参评保研的资格（重修及格的请重新核对）');
       if (failedCourseCount === 0 && missingCourseCount === 0) {
