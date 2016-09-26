@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Web Design | AChuan</title>
+  <title>使用pyenv在mac上进行python多版本控制 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AChuan">
-<meta property="og:url" content="http://lcc19941214.github.io/tags/Web-Design/index.html">
+  <meta name="description" content="最近再学习python，为了体验2和3的区别，特意查了查如何在mac进行多版本的python管理，这里简单分享一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用pyenv在mac上进行python多版本控制">
+<meta property="og:url" content="http://lcc19941214.github.io/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:description" content="最近再学习python，为了体验2和3的区别，特意查了查如何在mac进行多版本的python管理，这里简单分享一下。">
+<meta property="og:updated_time" content="2016-09-26T03:39:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AChuan">
-<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta name="twitter:title" content="使用pyenv在mac上进行python多版本控制">
+<meta name="twitter:description" content="最近再学习python，为了体验2和3的区别，特意查了查如何在mac进行多版本的python管理，这里简单分享一下。">
   
   
     <link rel="icon" href="favicon.png">
@@ -127,49 +128,91 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-tag-wrap">
-      <span class="archive-tag">#Web Design</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-20160926使用pyenv在mac上进行python多版本控制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/2016/01/28/20160128webdesign-year-review/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/design.jpg)" alt="2015年度网页设计回顾" class="thumbnail-image"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/28/20160128webdesign-year-review/">2015年度网页设计回顾</a>
+    <h1 class="article-title" itemprop="name">
+      使用pyenv在mac上进行python多版本控制
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2016/01/28/20160128webdesign-year-review/">
-      <time datetime="2016-01-28T03:05:00.000Z" itemprop="datePublished">2016 1月 28</time>
+    <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/">
+      <time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/python/">python</a>
   </div>
-</article>
+
+        </div>
+      </header>
     
-    </div></section>
-    </section>
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>最近再学习python，为了体验2和3的区别，特意查了查如何在mac进行多版本的python管理，这里简单分享一下。</p>
+<a id="more"></a>
+<hr>
+<h3 id="1-__u5B89_u88C5homebrew"><a href="#1-__u5B89_u88C5homebrew" class="headerlink" title="1. 安装homebrew"></a>1. 安装homebrew</h3><p><a href="http://brew.sh/" target="_blank" rel="external">如何安装homebrew</a></p>
+<h3 id="2-__u5B89_u88C5pyenv"><a href="#2-__u5B89_u88C5pyenv" class="headerlink" title="2. 安装pyenv"></a>2. 安装pyenv</h3><p>安装homebrew后使用homebrew安装pyenv</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install pyenv</span><br></pre></td></tr></table></figure>
+<p>之后如果需要更新pyenv，可以直接使用<code>brew upgrade pyenv</code></p>
+<h3 id="3-__u5B89_u88C5python"><a href="#3-__u5B89_u88C5python" class="headerlink" title="3. 安装python"></a>3. 安装python</h3><h3 id="u67E5_u770B_u5DF2_u5B89_u88C5python_u7248_u672C"><a href="#u67E5_u770B_u5DF2_u5B89_u88C5python_u7248_u672C" class="headerlink" title="查看已安装python版本"></a>查看已安装python版本</h3><p>带星号的为当前路径下所使用的python版本<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">* system</span><br><span class="line">  <span class="number">3.4</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="u67E5_u770B_u53EF_u5B89_u88C5_u7684python_u7248_u672C"><a href="#u67E5_u770B_u53EF_u5B89_u88C5_u7684python_u7248_u672C" class="headerlink" title="查看可安装的python版本"></a>查看可安装的python版本</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
+<h4 id="u5B89_u88C5python"><a href="#u5B89_u88C5python" class="headerlink" title="安装python"></a>安装python</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install &lt;version&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="4-_python_u7248_u672C_u7BA1_u7406"><a href="#4-_python_u7248_u672C_u7BA1_u7406" class="headerlink" title="4. python版本管理"></a>4. python版本管理</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv global &lt;version&gt;  <span class="comment"># 全局设置python版本为指定版本</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> &lt;version&gt;   <span class="comment"># 设置当前路径下python版本为指定版本</span></span><br><span class="line">$ pyenv shell &lt;version&gt;   <span class="comment"># 设置当前shell窗口使用的python版本为指定版本</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">* system</span><br><span class="line">  <span class="number">3.4</span>.<span class="number">1</span></span><br><span class="line"></span><br><span class="line">$ pyenv <span class="built_in">local</span> <span class="number">3.4</span>.<span class="number">1</span></span><br><span class="line"><span class="comment"># 当前路径下的python版本会切换到3.4.1</span></span><br><span class="line"></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* <span class="number">3.4</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>使用pyenv切换python版本之后可以通过<code>which python</code>或者是<code>python --version</code>查看是否生效</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> python</span><br><span class="line">/Users/username/.pyenv/shims/python</span><br><span class="line"></span><br><span class="line">$ python --version</span><br><span class="line">Python <span class="number">3.5</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>如果切换失败，可以尝试<code>$ eval &quot;(pyenv init -)&quot;</code>命令</p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://www.learnpython.org/en/Hello,_World!" target="_blank" rel="external">python官方教程</a></li>
+<li><a href="https://github.com/yyuu/pyenv" target="_blank" rel="external">pyenv官方文档</a></li>
+<li><a href="http://blog.codylab.com/python-pyenv-management/" target="_blank" rel="external">使用 Pyenv 管理多個 Python 版本</a></li>
+<li><a href="https://github.com/yyuu/pyenv/issues/185" target="_blank" rel="external">Trouble Switching Python Versions</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" data-id="citjicvrg00001rm1sdjgun0d" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/13/20160613React-render-method-with-reacid/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">React中渲染节点的一点小思考</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
       
         <aside id="sidebar">
   
