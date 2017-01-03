@@ -1,3 +1,5 @@
+var ROOT_PATH  = '/projects/saysomething/';
+
 var sentences = [
   '你眷恋的',
   '都已离去',
@@ -93,8 +95,8 @@ var player = new APlayer({
     music: {
         title: '关于我爱你',
         author: '张悬',
-        url: '/sources/aboutIloveu.mp3',
-        pic: '/sources/hijane.png'
+        url: ROOT_PATH + 'sources/aboutIloveu.mp3',
+        pic: ROOT_PATH + 'sources/hijane.png'
     }
 });
 
