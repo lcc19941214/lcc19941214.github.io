@@ -95,6 +95,8 @@ var player = new APlayer({
     music: {
         title: '关于我爱你',
         author: '张悬',
+        // url: 'http://devtest.qiniudn.com/Preparation.mp3',
+        // pic: 'http://devtest.qiniudn.com/Preparation.jpg'
         url: ROOT_PATH + 'sources/aboutIloveu.mp3',
         pic: ROOT_PATH + 'sources/hijane.png'
     }
@@ -102,6 +104,9 @@ var player = new APlayer({
 
 window.onload = function() {
   randomBgColor();
+};
+
+player.on('play', function () {
   showElement('.container');
   setTimeout(function() {
     startType();
@@ -109,6 +114,4 @@ window.onload = function() {
   setTimeout(function() {
     showEgg();
   }, 60 * 1000 * 10);
-};
-
-player.play()
+});
