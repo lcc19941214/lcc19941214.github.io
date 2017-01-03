@@ -41,28 +41,15 @@ body {
 }
 #app #player {
   display: inline-block;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 10px rgba(0, 0, 0, 0.24);
 }
 #app .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding-bottom: .3rem;
+  padding-bottom: .4rem;
   text-align: center;
-}
-#app .footer .shadow-box {
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    z-index: -1;
-    margin-left: -150px;
-    width: 300px;
-    height: 32px;
-    background-color: transparent;
-    opacity: 0;
-    border-radius: 2px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 2px 10px rgba(0, 0, 0, 0.4);
-    transition: 
 }
 .bg-color-0 {
   background-color: #DC4B3E;

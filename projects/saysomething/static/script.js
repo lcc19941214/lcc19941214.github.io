@@ -81,10 +81,26 @@ function showEgg() {
   input.value = 'will you try?';
 }
 
+var player = new APlayer({
+    element: document.getElementById('player'),
+    narrow: true,
+    autoplay: true,
+    showlrc: false,
+    mutex: true,
+    theme: '#e6d0b2',
+    preload: 'metadata',
+    mode: 'circulation',
+    music: {
+        title: '关于我爱你',
+        author: '张悬',
+        url: '/sources/aboutIloveu.mp3',
+        pic: '/sources/hijane.png'
+    }
+});
+
 window.onload = function() {
   randomBgColor();
   showElement('.container');
-  showElement('.shadow-box');
   setTimeout(function() {
     startType();
   }, 2000);
@@ -92,3 +108,5 @@ window.onload = function() {
     showEgg();
   }, 60 * 1000 * 10);
 };
+
+player.play()
