@@ -1,27 +1,22 @@
-var ROOT_PATH  = '/projects/saysomething/';
+var ROOT_PATH  = '/projects/autotype/happy-birthday-to-elvira/';
 
 var sentences = [
-  '你眷恋的',
-  '都已离去',
+  '愿有所息',
+  '生无所息',
   ' ',
-  '我在等你敲碎我的冰',
-  '充分接触空气然后开始融化',
-  '水位上涨',
-  '濒临决堤',
-  '我在等你奋力挥舞锄头',
-  '抛洒炽热香甜的汗',
-  '沿着两岸',
-  '种下种子',
-  '我在等你午后满足的睡醒',
-  '到处是云到处是雨',
-  '穿上雨衣',
-  '和毛线袜',
-  '如此周而复始直到',
-  '你厌烦地用息壤把我充满毫无',
-  '退路毫无解释',
-  '我也还在等你',
-  '扑通一声落水熄灭的',
-  '流星'
+  '没有人是一座孤岛',
+  '可以自全',
+  '每个人都是大陆的一片',
+  '整体的一部分',
+  '如果海水冲掉一块',
+  '欧洲就减小',
+  '如同一个海岬失掉一角',
+  '如同你的朋友',
+  '或者你自己的领地失掉一块',
+  '任何人的死亡都是我的损失',
+  '因为我是人类的一员',
+  '因此不要问丧钟为谁而鸣',
+  '它就为你而鸣'
 ];
 
 function showElement(selector, speed = 800) {
@@ -78,27 +73,22 @@ function randomBgColor() {
   timer = setTimeout(changeColor, 3000);
 }
 
-function showEgg() {
-  var input = document.querySelector('input') || document.getElementById('input');
-  input.value = 'will you try?';
-}
-
 var player = new APlayer({
     element: document.getElementById('player'),
     narrow: true,
-    autoplay: true,
+    autoplay: false,
     showlrc: false,
     mutex: true,
     theme: '#e6d0b2',
     preload: 'metadata',
     mode: 'circulation',
     music: {
-        title: '关于我爱你',
-        author: '张悬',
+        title: '我要你',
+        author: '任素汐',
         // url: 'http://devtest.qiniudn.com/Preparation.mp3',
         // pic: 'http://devtest.qiniudn.com/Preparation.jpg'
-        url: ROOT_PATH + 'sources/aboutIloveu.mp3',
-        pic: ROOT_PATH + 'sources/hijane.png'
+        url: ROOT_PATH + 'sources/audio.mp3',
+        pic: ROOT_PATH + 'sources/cover.png'
     }
 });
 
@@ -114,9 +104,6 @@ player.on('play', function () {
     setTimeout(function() {
       startType();
     }, 2000);
-    setTimeout(function() {
-      showEgg();
-    }, 60 * 1000 * 10);
     flag = true;
   }
 });

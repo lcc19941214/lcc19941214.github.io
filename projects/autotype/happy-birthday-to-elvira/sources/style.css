@@ -1,4 +1,4 @@
-@import url('../../autotype/static/normalize.css');
+@import url('../../static/normalize.css');
 html,
 body {
   height: 100%;
@@ -13,24 +13,19 @@ body {
 #app .container {
   position: relative;
   top: 25%;
-  margin: 0 auto;
-  padding: .12rem .15rem;
-  width: 65%;
+  margin: 0 auto;  
+  opacity: 0;
+  text-align: center;
+}
+#app .container .input-wrapper {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 300px;
+  padding: .1rem;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 10px rgba(0, 0, 0, 0.24);
   background-color: #fff;
   -webkit-border-radius: 0.05rem;
   border-radius: 0.05rem;
-  opacity: 0;
-}
-@media (min-device-width: 400px) and (max-device-width: 768px) {
-  #app .container {
-    width: 3rem;
-  }
-}
-@media (min-device-width: 768px) {
-  #app .container {
-    width: 3.4rem;
-  }
 }
 #app .container .input-wrapper input {
   border: none;
@@ -41,17 +36,20 @@ body {
   text-align: center;
   color: #676767;
 }
+#app .music-player {
+  text-align: center;
+}
+#app #player {
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 10px rgba(0, 0, 0, 0.24);
+}
 #app .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding-bottom: .3rem;
+  padding-bottom: .4rem;
   text-align: center;
-}
-#app .footer p {
-  margin: 0;
-  font-size: .13rem;
-  color: rgba(30, 30, 30, 0.5);
 }
 .bg-color-0 {
   background-color: #DC4B3E;
