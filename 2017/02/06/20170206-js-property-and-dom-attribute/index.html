@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://lcc19941214.github.io/2017/02/06/20170206-js-property-and-dom-attribute/index.html">
 <meta property="og:site_name" content="AChuan">
 <meta property="og:description" content="node.getAttribute(&amp;#39;someAttribute&amp;#39;)获取的是attribute，而node.someAttribute获取的是元素的property，二者并不相同。 参考 properties-and-attributes-in-html">
-<meta property="og:updated_time" content="2017-02-06T10:05:32.000Z">
+<meta property="og:updated_time" content="2017-02-06T10:08:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="property和attribute的区分">
 <meta name="twitter:description" content="node.getAttribute(&amp;#39;someAttribute&amp;#39;)获取的是attribute，而node.someAttribute获取的是元素的property，二者并不相同。 参考 properties-and-attributes-in-html">
@@ -96,7 +96,7 @@
     <div class="base-info profile-block">
       <img id="avatar" src="/css/images/avatar.png">
       <h2 id="name">Conan | 阿川</h2>
-      <h3 id="title">Journalist, Designer</h3>
+      <h3 id="title">Web Developer, Designer</h3>
       <span id="location"><i class="fa fa-map-marker"></i>Luojia Hill | 珞珈山</span>
       <a id="follow" href="https://github.com/lcc19941214/lcc19941214.github.io">关注我</a>
     </div>
@@ -181,7 +181,7 @@
 </li>
 <li><p>对于部分属性，使用<code>setAttribute</code>无法进行修改，但是可以通过给<code>node.property</code>赋值进行修改，如disabled, readOnly, checked</p>
 <ul>
-<li>上述attribute一旦出现在html标记中，则表示生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;input disabled=&#34;false&#34;&#62;&#10;&#60;script&#62;&#10;input.disabled;                   // true&#10;input.getAttribute(&#39;disabled&#39;);   // &#39;false&#39;&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<li>上述attribute一旦出现在html标记中，则表示生效<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">disabled</span>=<span class="value">"false"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">input.disabled;                   <span class="comment">// true</span></span><br><span class="line">input.getAttribute(<span class="string">'disabled'</span>);   <span class="comment">// 'false'</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -197,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2017/02/06/20170206-js-property-and-dom-attribute/" data-id="ciytxmt6z001g1x62bpj7iut5" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2017/02/06/20170206-js-property-and-dom-attribute/" data-id="ciytxxdnx001g9n62cg52lmhm" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
