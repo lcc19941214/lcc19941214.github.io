@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/4 | AChuan</title>
+  <title>property和attribute的区分 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AChuan">
-<meta property="og:url" content="http://lcc19941214.github.io/archives/2016/04/index.html">
+  <meta name="description" content="node.getAttribute(&amp;#39;someAttribute&amp;#39;)获取的是attribute，而node.someAttribute获取的是元素的property，二者并不相同。 参考 properties-and-attributes-in-html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="property和attribute的区分">
+<meta property="og:url" content="http://lcc19941214.github.io/2017/02/06/20170206-js-property-and-dom-attribute/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:description" content="node.getAttribute(&amp;#39;someAttribute&amp;#39;)获取的是attribute，而node.someAttribute获取的是元素的property，二者并不相同。 参考 properties-and-attributes-in-html">
+<meta property="og:updated_time" content="2017-02-06T10:05:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AChuan">
-<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta name="twitter:title" content="property和attribute的区分">
+<meta name="twitter:description" content="node.getAttribute(&amp;#39;someAttribute&amp;#39;)获取的是attribute，而node.someAttribute获取的是元素的property，二者并不相同。 参考 properties-and-attributes-in-html">
   
   
     <link rel="icon" href="favicon.png">
@@ -127,117 +128,109 @@
 </aside>
 
       
-      <section id="main">
-      <div class="archive-year-wrap">
-        <a href="/archives/2016" class="archive-year">2016</a>
+      <section id="main"><article id="post-20170206-js-property-and-dom-attribute" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      property和attribute的区分
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2017/02/06/20170206-js-property-and-dom-attribute/">
+      <time datetime="2017-02-06T03:27:26.000Z" itemprop="datePublished">2017-02-06</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p><code>node.getAttribute(&#39;someAttribute&#39;)</code>获取的是<em>attribute</em>，而<code>node.someAttribute</code>获取的是元素的<em>property</em>，二者并不相同。 参考 <a href="https://link.zhihu.com/?target=http%3A//stackoverflow.com/questions/6003819/properties-and-attributes-in-html" target="_blank" rel="external">properties-and-attributes-in-html</a></p>
+<a id="more"></a>
+<hr>
+<ol>
+<li><p><code>node.someAttribute</code>和<code>node.getAttribute(&#39;someAttribute&#39;)</code>大部分场景下是相同的</p>
+<ul>
+<li>elem.id</li>
+<li>elem.getAttribute(‘id’)</li>
+</ul>
+</li>
+<li><p><code>node.someAttribute</code>无法获取到节点上的自定义属性</p>
+<ul>
+<li><code>node.getAttribute(&#39;someAttribute&#39;)</code>获取到的始终是someAttribute的之后的字符串</li>
+<li>且获取到的属性忽略大小写</li>
+</ul>
+</li>
+<li><p>对于部分属性，使用<code>setAttribute</code>无法进行修改，但是可以通过给<code>node.property</code>赋值进行修改，如disabled, readOnly, checked</p>
+<ul>
+<li>上述attribute一旦出现在html标记中，则表示生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;input disabled=&#34;false&#34;&#62;&#10;&#60;script&#62;&#10;input.disabled;                   // true&#10;input.getAttribute(&#39;disabled&#39;);   // &#39;false&#39;&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>特殊的property/attribute</p>
+<ul>
+<li><strong>href</strong>  使用a.getAttribute获取到的是href后面的字符串，即html中的字符串；使用a.href获取到的则是实际的超链接地址</li>
+<li><strong>input</strong>  input的value属性在修改时对应到property和attribute上，并不是双向绑定的</li>
+</ul>
+</li>
+</ol>
+<p><strong>简单来说，我个人觉得attribute对应 HTML， property 对应 DOM</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2017/02/06/20170206-js-property-and-dom-attribute/" data-id="ciytxmt6z001g1x62bpj7iut5" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/06/20170206-iterator/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ES6迭代器学习笔记
+        
       </div>
-      <section class="archives-wrap">
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2016/04/19/20160419-React-Router/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/reactjs.png)" alt="react-router 学习笔记" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/19/20160419-React-Router/">react-router 学习笔记</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/04/19/20160419-React-Router/">
-      <time datetime="2016-04-19T09:06:00.000Z" itemprop="datePublished">4月 19</time>
     </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
   
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2016/04/13/20160413-React-Componet-Communication/" class="thumbnail">
   
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/reactjs.png)" alt="React组件间通信 学习笔记" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/13/20160413-React-Componet-Communication/">React组件间通信 学习笔记</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/04/13/20160413-React-Componet-Communication/">
-      <time datetime="2016-04-13T09:51:00.000Z" itemprop="datePublished">4月 13</time>
+    <a href="/2016/10/17/20161017使用request+cheerio+node-xlsx爬取并导出数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">使用request+cheerio+node-xlsx爬取并导出到excel表格</div>
     </a>
-  </div>
+  
+</nav>
 
 
-      
-    </header>
-  </div>
+  
 </article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2016/04/04/javascript_知识点整理_07_DOM/" class="thumbnail">
-  
-    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="javascript 知识点整理 07 DOM1级" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/04/javascript_知识点整理_07_DOM/">javascript 知识点整理 07 DOM1级</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2016/04/04/javascript_知识点整理_07_DOM/">
-      <time datetime="2016-04-04T06:55:00.000Z" itemprop="datePublished">4月 4</time>
-    </a>
-  </div>
 
 
-      
-    </header>
-  </div>
-</article>
-  
-    </div></section>
-  </section>
+</section>
       
         <aside id="sidebar">
   
