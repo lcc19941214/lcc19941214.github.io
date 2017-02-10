@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://lcc19941214.github.io/2017/02/10/20170210-vim/index.html">
 <meta property="og:site_name" content="AChuan">
 <meta property="og:description" content="在线练习网站 openvim">
-<meta property="og:updated_time" content="2017-02-10T15:16:24.000Z">
+<meta property="og:updated_time" content="2017-02-10T15:36:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim学习笔记">
 <meta name="twitter:description" content="在线练习网站 openvim">
@@ -164,11 +164,10 @@
       
                 
         <p>在线练习网站 <a href="http://www.openvim.com/tutorial.html" target="_blank" rel="external">openvim</a></p>
-<h2 id="3C_21-_more_-_3E"><a href="#3C_21-_more_-_3E" class="headerlink" title="<a id=" more"=""></a>"><!-- more --></h2><h4 id="Modes"><a href="#Modes" class="headerlink" title="Modes"></a>Modes</h4><ul>
-<li>insert<br>  可以使用<code>i</code> <code>a</code> <code>o</code>进入insert mode<ul>
-<li><code>o</code> 在新的一行开始编辑</li>
-</ul>
-</li>
+<a id="more"></a>
+<hr>
+<h4 id="Modes"><a href="#Modes" class="headerlink" title="Modes"></a>Modes</h4><ul>
+<li>insert<br>  可以使用<code>i</code> <code>a</code> <code>o</code>进入insert mode<br>  <code>o</code> 在新的一行开始编辑<br>  <code>O</code> 在当前行之前新起一行并编辑</li>
 <li>command<br>  此模式下可以执行命令操作</li>
 </ul>
 <h4 id="Exit"><a href="#Exit" class="headerlink" title="Exit"></a>Exit</h4><ul>
@@ -179,25 +178,31 @@
 </ul>
 <h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><p>在使用命令时结合数字可以实现选中多个字符、多行等效果</p>
 <h4 id="Movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h4><ul>
-<li>basck movement<ul>
+<li><p>basck movement</p>
+<ul>
 <li><code>h</code> 向左移动</li>
 <li><code>j</code> 向下移动</li>
 <li><code>k</code> 向上移动</li>
 <li><code>l</code> 向右移动</li>
 </ul>
 </li>
-<li>word movement<ul>
+<li><p>word movement</p>
+<ul>
 <li><code>b</code> 移到词首（向前移动）</li>
 <li><code>e</code> 移到词末</li>
 <li><code>w</code> 移到下一个词首（向后移动）</li>
 </ul>
 </li>
-<li>inline movement<ul>
-<li><code>^</code> <code>0</code> 移动到句首</li>
+<li><p>inline movement</p>
+<ul>
+<li><code>0</code> 移动到句首</li>
 <li><code>$</code> 移动打句末</li>
+<li><code>^</code> 移动到不是空白字符的句首</li>
+<li><code>g_</code> 移动到不是空白字符的句末</li>
 </ul>
 </li>
-<li>lines movement<ul>
+<li><p>lines movement</p>
+<ul>
 <li><code>gg</code> 移动到文件开头</li>
 <li><code>G</code> 移动到文件末尾，使用数字可以移动到指定行（eg: <code>2G</code>可移动到第二行）</li>
 </ul>
@@ -229,16 +234,19 @@
 </ul>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">3</span>iha[esc]</div><div class="line"># output</div><div class="line"># hahaha</div></pre></td></tr></table></figure>
 <h4 id="Search_character_or_word"><a href="#Search_character_or_word" class="headerlink" title="Search character or word"></a>Search character or word</h4><ul>
-<li>查找单个字符<ul>
+<li><p>查找单个字符</p>
+<ul>
 <li><code>f[charactor]</code> 向后查找最近的一个字符</li>
 </ul>
 </li>
-<li>查找光标所在的词<ul>
+<li><p>查找光标所在的词</p>
+<ul>
 <li><code>*</code> 向后查找</li>
 <li><code>#</code> 向前查找</li>
 </ul>
 </li>
-<li>查找指定字符<ul>
+<li><p>查找指定字符</p>
+<ul>
 <li><code>/text</code> 从光标处查找匹配的字符</li>
 <li><code>n</code> 向后继续查找</li>
 <li><code>N</code> 向前继续查找</li>
@@ -252,11 +260,14 @@
 <li><code>.</code> 重复执行上一次操作（不包括撤销）</li>
 <li><code>v</code> 开启visual mode，可以利用movement进行选择</li>
 </ul>
+<h4 id="File_Operations"><a href="#File_Operations" class="headerlink" title="File Operations"></a>File Operations</h4><ul>
+<li><code>:e &lt;path&gt;</code> 打开一个文件</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2017/02/10/20170210-vim/" data-id="ciyzyna7q001t7e62t05s1pwv" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2017/02/10/20170210-vim/" data-id="ciyzzecwv001yh362eyjyszq2" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
