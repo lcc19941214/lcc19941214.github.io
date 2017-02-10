@@ -39,8 +39,8 @@
  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -186,7 +186,7 @@
 <p>引用类型拷贝（深拷贝、浅拷贝）</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="变量声明"><a href="#u53D8_u91CF_u58F0_u660E" class="headerlink" title="变量声明"></a>变量声明</h2><hr>
+<h2 id="u53D8_u91CF_u58F0_u660E"><a href="#u53D8_u91CF_u58F0_u660E" class="headerlink" title="变量声明"></a>变量声明</h2><hr>
 <ul>
 <li><p>用<code>var</code>可以声明局部变量，不用的话是声明全局变量。</p>
 <p>  <em>严格模式要求必须要先声明，不然会导致错误</em></p>
@@ -201,10 +201,10 @@
 </li>
 </ul>
 <p><br></p>
-<h2 id="数据类型"><a href="#u6570_u636E_u7C7B_u578B" class="headerlink" title="数据类型"></a>数据类型</h2><hr>
+<h2 id="u6570_u636E_u7C7B_u578B"><a href="#u6570_u636E_u7C7B_u578B" class="headerlink" title="数据类型"></a>数据类型</h2><hr>
 <p>这个地方说法很多样，一般来说就是基本数据类型（<code>undefined</code> <code>null</code> <code>string</code> <code>number</code> <code>boolean</code>）和引用类型（<code>object</code>）。</p>
 <p><em>基本数据类型也叫值类型，简单数据类型</em></p>
-<h3 id="类型识别"><a href="#u7C7B_u578B_u8BC6_u522B" class="headerlink" title="类型识别"></a>类型识别</h3><ul>
+<h3 id="u7C7B_u578B_u8BC6_u522B"><a href="#u7C7B_u578B_u8BC6_u522B" class="headerlink" title="类型识别"></a>类型识别</h3><ul>
 <li><p><code>typeof</code></p>
 <ul>
 <li>只能识别基本数据类型</li>
@@ -231,19 +231,19 @@
 </li>
 </ul>
 <p><br></p>
-<h3 id="基本数据类型"><a href="#u57FA_u672C_u6570_u636E_u7C7B_u578B" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p><code>undefined</code> <code>null</code> <code>string</code> <code>number</code> <code>boolean</code></p>
+<h3 id="u57FA_u672C_u6570_u636E_u7C7B_u578B"><a href="#u57FA_u672C_u6570_u636E_u7C7B_u578B" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p><code>undefined</code> <code>null</code> <code>string</code> <code>number</code> <code>boolean</code></p>
 <ul>
 <li>使用typeof操作符能识别基本数据类型，返回的值是小写的英文字符串</li>
 <li>因为null是对空对象的一个引用，所以使用typeof返回其类型时会返回<code>object</code></li>
 </ul>
-<h5 id="undefined-null"><a href="#undefined_null" class="headerlink" title="undefined null"></a><code>undefined</code> <code>null</code></h5><ul>
+<h5 id="undefined_null"><a href="#undefined_null" class="headerlink" title="undefined null"></a><code>undefined</code> <code>null</code></h5><ul>
 <li><p>undefined是从null派生出来的，所以<code>undefined == null</code>会返回<code>true</code>，但是<code>undefined === null</code>会返回<code>false</code></p>
 </li>
 <li><p>null是对空对象的引用</p>
 </li>
 </ul>
 <p><br></p>
-<h5 id="boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><code>Boolean</code></h5><p>类型转换</p>
+<h5 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><code>Boolean</code></h5><p>类型转换</p>
 <pre>
 <table>
     <thead>
@@ -281,7 +281,7 @@
 
 
 <p><br></p>
-<h5 id="number"><a href="#Number" class="headerlink" title="Number"></a><code>Number</code></h5><p>提供了<code>Number()</code>, <code>parseInt()</code>, <code>parseFloat()</code>三个函数</p>
+<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a><code>Number</code></h5><p>提供了<code>Number()</code>, <code>parseInt()</code>, <code>parseFloat()</code>三个函数</p>
 <p>在使用转型函数Number()或者需要隐式转化为数值类型的情况下，遵守以下规则</p>
 <ol>
 <li><p>boolean类型：true为1,false为0</p>
@@ -314,7 +314,7 @@
 </ul>
 <p>parseFloat()只能转入一个值，且js里的浮点数计算精度会有问题</p>
 <p><br></p>
-<h5 id="string"><a href="#String" class="headerlink" title="String"></a><code>String</code></h5><ul>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a><code>String</code></h5><ul>
 <li><p>调用toString即可以实现大部分的转换</p>
 </li>
 <li><p>toString允许传入一个基数，把数值类型的值转为指定进制的字符串</p>
@@ -323,7 +323,7 @@
 </li>
 </ul>
 <p><br></p>
-<h3 id="引用类型"><a href="#u5F15_u7528_u7C7B_u578B" class="headerlink" title="引用类型"></a>引用类型</h3><ul>
+<h3 id="u5F15_u7528_u7C7B_u578B"><a href="#u5F15_u7528_u7C7B_u578B" class="headerlink" title="引用类型"></a>引用类型</h3><ul>
 <li><p><code>Object</code> <code>Array</code> <code>Date</code> <code>RegExp</code> <code>Function</code></p>
 </li>
 <li><p>基本包装类型 <code>String</code> <code>Number</code> <code>Boolean</code></p>
@@ -332,53 +332,53 @@
 </li>
 </ul>
 <p><br></p>
-<h4 id="object"><a href="#Object" class="headerlink" title="Object"></a><code>Object</code></h4><hr>
+<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a><code>Object</code></h4><hr>
 <p>说白了就是一组名值对，一个属性名对应一个属性</p>
-<h5 id="实例化方式"><a href="#u5B9E_u4F8B_u5316_u65B9_u5F0F" class="headerlink" title="实例化方式"></a>实例化方式</h5><ul>
+<h5 id="u5B9E_u4F8B_u5316_u65B9_u5F0F"><a href="#u5B9E_u4F8B_u5316_u65B9_u5F0F" class="headerlink" title="实例化方式"></a>实例化方式</h5><ul>
 <li><p>new</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;name:<span class="string">"Conan"</span>&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;<span class="attr">name</span>:<span class="string">"Conan"</span>&#125;);</div></pre></td></tr></table></figure>
 </li>
 <li><p>对象字面量</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;name:<span class="string">"Conan"</span>&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">name</span>:<span class="string">"Conan"</span>&#125;;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>这种方式看起来简约大方于是用的很多：）</p>
 <p>同时使用这种方式可以方便的进行参数传递：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="string">"Conan"</span>,<span class="number">25</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.name = args.name;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.age = args.age;</span><br><span class="line">&#125;</span><br><span class="line">bar(&#123;name:<span class="string">"Conan"</span>,age:<span class="number">25</span>&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params">name, age</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">foo(<span class="string">"Conan"</span>,<span class="number">25</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">args</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.name = args.name;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">this</span>.age = args.age;</div><div class="line">&#125;</div><div class="line">bar(&#123;<span class="attr">name</span>:<span class="string">"Conan"</span>,<span class="attr">age</span>:<span class="number">25</span>&#125;);</div></pre></td></tr></table></figure>
 <p>我觉得这种方式瞬间爆炸……因为有事没事写那么多变量名谁记得住啊……用这个的话，可以增加变量的可选性</p>
-<h5 id="属性访问方式"><a href="#u5C5E_u6027_u8BBF_u95EE_u65B9_u5F0F" class="headerlink" title="属性访问方式"></a>属性访问方式</h5><p><code>.</code> <code>[]</code></p>
-<h5 id="object实例属性和方法"><a href="#Object_u5B9E_u4F8B_u5C5E_u6027_u548C_u65B9_u6CD5" class="headerlink" title="Object实例属性和方法"></a>Object实例属性和方法</h5><ul>
+<h5 id="u5C5E_u6027_u8BBF_u95EE_u65B9_u5F0F"><a href="#u5C5E_u6027_u8BBF_u95EE_u65B9_u5F0F" class="headerlink" title="属性访问方式"></a>属性访问方式</h5><p><code>.</code> <code>[]</code></p>
+<h5 id="Object_u5B9E_u4F8B_u5C5E_u6027_u548C_u65B9_u6CD5"><a href="#Object_u5B9E_u4F8B_u5C5E_u6027_u548C_u65B9_u6CD5" class="headerlink" title="Object实例属性和方法"></a>Object实例属性和方法</h5><ul>
 <li><code>constructor</code></li>
 <li><code>hasOwnProperty</code></li>
 <li><code>isPrototypeOf</code></li>
 <li><code>propertyIsNumerable</code>（能否枚举）</li>
 </ul>
 <p><br> </p>
-<h4 id="array"><a href="#Array" class="headerlink" title="Array"></a><code>Array</code></h4><hr>
-<h5 id="实例化方式"><a href="#u5B9E_u4F8B_u5316_u65B9_u5F0F-1" class="headerlink" title="实例化方式"></a>实例化方式</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> arr = <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br></pre></td></tr></table></figure>
+<h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a><code>Array</code></h4><hr>
+<h5 id="u5B9E_u4F8B_u5316_u65B9_u5F0F-1"><a href="#u5B9E_u4F8B_u5316_u65B9_u5F0F-1" class="headerlink" title="实例化方式"></a>实例化方式</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> arr = <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> arr = [];</div></pre></td></tr></table></figure>
 <p>使用Array()构造实例的时候允许传递一个值，如果是一个数值的话，则建立一个对应长度的数组，一个以上数值的话，每个数值都是数组的一项。如果是一个或多个字符串，与一个以上数值一样。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">20</span>);                    <span class="comment">//arr.length为20</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>, <span class="number">20</span>);                <span class="comment">//arr.length为2</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"yellow"</span>)  <span class="comment">//arr.length为3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">20</span>);                    <span class="comment">//arr.length为20</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>, <span class="number">20</span>);                <span class="comment">//arr.length为2</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"yellow"</span>)  <span class="comment">//arr.length为3</span></div></pre></td></tr></table></figure>
 <p><br></p>
-<h5 id="检测类型"><a href="#u68C0_u6D4B_u7C7B_u578B" class="headerlink" title="检测类型"></a>检测类型</h5><ul>
+<h5 id="u68C0_u6D4B_u7C7B_u578B"><a href="#u68C0_u6D4B_u7C7B_u578B" class="headerlink" title="检测类型"></a>检测类型</h5><ul>
 <li><p><code>instanceof</code> value instanceof Array</p>
 </li>
 <li><p><code>Array.isArray</code> Array的一个方法</p>
 </li>
 </ul>
 <p><br></p>
-<h5 id="实例方法"><a href="#u5B9E_u4F8B_u65B9_u6CD5" class="headerlink" title="实例方法"></a>实例方法</h5><h5 id="0-转换方法-join"><a href="#0-__u8F6C_u6362_u65B9_u6CD5_join" class="headerlink" title="0. 转换方法 join"></a>0. 转换方法 <code>join</code></h5><p><br></p>
-<h5 id="1-栈方法-pop-push"><a href="#1-__u6808_u65B9_u6CD5_pop_push" class="headerlink" title="1. 栈方法 pop push"></a>1. 栈方法 <code>pop</code> <code>push</code></h5><p><br></p>
-<h5 id="2-队列方法-shift-unshift"><a href="#2-__u961F_u5217_u65B9_u6CD5_shift_unshift" class="headerlink" title="2. 队列方法 shift unshift"></a>2. 队列方法 <code>shift</code> <code>unshift</code></h5><p><br></p>
-<h5 id="3-排序方法-reverse-sort"><a href="#3-__u6392_u5E8F_u65B9_u6CD5_reverse_sort" class="headerlink" title="3. 排序方法 reverse sort"></a>3. 排序方法 <code>reverse</code> <code>sort</code></h5><p><code>sort</code>支持传入一个函数进行排序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( a &gt; b )&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//前者排列在后者的后面，返回正数</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>( a &lt; b )&#123;</span><br><span class="line">       <span class="keyword">return</span> -<span class="number">1</span>;<span class="comment">//前者排列在后者的前面，返回负数</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//两数相等返回0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="u5B9E_u4F8B_u65B9_u6CD5"><a href="#u5B9E_u4F8B_u65B9_u6CD5" class="headerlink" title="实例方法"></a>实例方法</h5><h5 id="0-__u8F6C_u6362_u65B9_u6CD5_join"><a href="#0-__u8F6C_u6362_u65B9_u6CD5_join" class="headerlink" title="0. 转换方法 join"></a>0. 转换方法 <code>join</code></h5><p><br></p>
+<h5 id="1-__u6808_u65B9_u6CD5_pop_push"><a href="#1-__u6808_u65B9_u6CD5_pop_push" class="headerlink" title="1. 栈方法 pop push"></a>1. 栈方法 <code>pop</code> <code>push</code></h5><p><br></p>
+<h5 id="2-__u961F_u5217_u65B9_u6CD5_shift_unshift"><a href="#2-__u961F_u5217_u65B9_u6CD5_shift_unshift" class="headerlink" title="2. 队列方法 shift unshift"></a>2. 队列方法 <code>shift</code> <code>unshift</code></h5><p><br></p>
+<h5 id="3-__u6392_u5E8F_u65B9_u6CD5_reverse_sort"><a href="#3-__u6392_u5E8F_u65B9_u6CD5_reverse_sort" class="headerlink" title="3. 排序方法 reverse sort"></a>3. 排序方法 <code>reverse</code> <code>sort</code></h5><p><code>sort</code>支持传入一个函数进行排序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>( a &gt; b )&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//前者排列在后者的后面，返回正数</span></div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>( a &lt; b )&#123;</div><div class="line">       <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//前者排列在后者的前面，返回负数</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//两数相等返回0</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>sort</code>对字符串排序或者数字排序，默认是按照字符编码顺序排列的</p>
 <p><br></p>
-<h5 id="4-操作方法-concat-slice-splice"><a href="#4-__u64CD_u4F5C_u65B9_u6CD5_concat_slice_splice" class="headerlink" title="4. 操作方法 concat slice splice"></a>4. 操作方法 <code>concat</code> <code>slice</code> <code>splice</code></h5><p><code>concat</code> 后面不传入值或者数组，则拷贝当前数组的副本</p>
+<h5 id="4-__u64CD_u4F5C_u65B9_u6CD5_concat_slice_splice"><a href="#4-__u64CD_u4F5C_u65B9_u6CD5_concat_slice_splice" class="headerlink" title="4. 操作方法 concat slice splice"></a>4. 操作方法 <code>concat</code> <code>slice</code> <code>splice</code></h5><p><code>concat</code> 后面不传入值或者数组，则拷贝当前数组的副本</p>
 <p><code>slice</code> slice(start, end)</p>
 <p><code>splice</code> splice(start, length, (item1, item2, …))</p>
 <p><br></p>
-<h5 id="5-位置方法-es5中定义了indexof-lastindexof"><a href="#5-__u4F4D_u7F6E_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86indexOf_lastIndexOf" class="headerlink" title="5. 位置方法 ES5中定义了indexOf lastIndexOf"></a>5. 位置方法 <em>ES5中定义了</em><code>indexOf</code> <code>lastIndexOf</code></h5><p><br></p>
-<h5 id="6-迭代方法-es5中定义了every-some-filter-map-foreach"><a href="#6-__u8FED_u4EE3_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86every_some_filter_map_forEach" class="headerlink" title="6. 迭代方法 ES5中定义了every some filter map forEach"></a>6. 迭代方法 <em>ES5中定义了</em><code>every</code> <code>some</code> <code>filter</code> <code>map</code> <code>forEach</code></h5><p>其中前面四个都是要求执行函数然后返回一个结果的，对原始数组不影响，最后一个和for-in差不多，只是执行函数</p>
+<h5 id="5-__u4F4D_u7F6E_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86indexOf_lastIndexOf"><a href="#5-__u4F4D_u7F6E_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86indexOf_lastIndexOf" class="headerlink" title="5. 位置方法 ES5中定义了indexOf lastIndexOf"></a>5. 位置方法 <em>ES5中定义了</em><code>indexOf</code> <code>lastIndexOf</code></h5><p><br></p>
+<h5 id="6-__u8FED_u4EE3_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86every_some_filter_map_forEach"><a href="#6-__u8FED_u4EE3_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86every_some_filter_map_forEach" class="headerlink" title="6. 迭代方法 ES5中定义了every some filter map forEach"></a>6. 迭代方法 <em>ES5中定义了</em><code>every</code> <code>some</code> <code>filter</code> <code>map</code> <code>forEach</code></h5><p>其中前面四个都是要求执行函数然后返回一个结果的，对原始数组不影响，最后一个和for-in差不多，只是执行函数</p>
 <p>这几个方法接受两个参数，要执行的函数和函数作用域对象（可选）。函数接受三个参数，数组项的值，数组项的位置，数组自身，也即<code>item</code>, <code>index</code>, <code>array</code></p>
 <ul>
 <li>every()     执行函数，如果每项返回true，则返回true</li>
@@ -387,34 +387,34 @@
 <li>map()       执行函数，返回每一次函数执行后结果构成的数组</li>
 <li>forEach()   执行函数</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rst_every = arr.every(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item &gt; <span class="number">3</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rst_some = arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item &gt; <span class="number">3</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rst_filter = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item &gt; <span class="number">3</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rst_map = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item -= item;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp = [];</span><br><span class="line"><span class="keyword">var</span> rst_forEach = arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 去重</span></span><br><span class="line">    <span class="keyword">if</span>(temp.indexOf(item) == -<span class="number">1</span>)&#123;</span><br><span class="line">        temp.push(item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(rst_every);         <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(rst_some);          <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(rst_filter);        <span class="comment">//[5, 6, 4, 4]</span></span><br><span class="line"><span class="built_in">console</span>.log(rst_map);           <span class="comment">//[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span></span><br><span class="line"><span class="built_in">console</span>.log(temp);              <span class="comment">//[1, 5, 2, 6, 3, 0, 4]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> rst_every = arr.every(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> item &gt; <span class="number">3</span>;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> rst_some = arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> item &gt; <span class="number">3</span>;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> rst_filter = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> item &gt; <span class="number">3</span>;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> rst_map = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> item -= item;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> temp = [];</div><div class="line"><span class="keyword">var</span> rst_forEach = arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</div><div class="line">    <span class="comment">// 去重</span></div><div class="line">    <span class="keyword">if</span>(temp.indexOf(item) == <span class="number">-1</span>)&#123;</div><div class="line">        temp.push(item);</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(rst_every);         <span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(rst_some);          <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(rst_filter);        <span class="comment">//[5, 6, 4, 4]</span></div><div class="line"><span class="built_in">console</span>.log(rst_map);           <span class="comment">//[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span></div><div class="line"><span class="built_in">console</span>.log(temp);              <span class="comment">//[1, 5, 2, 6, 3, 0, 4]</span></div></pre></td></tr></table></figure>
 <p><br></p>
-<h5 id="7-归并方法-es5中定义了reduce-reduceright"><a href="#7-__u5F52_u5E76_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86reduce_reduceRight" class="headerlink" title="7. 归并方法 ES5中定义了reduce reduceRight"></a>7. 归并方法 <em>ES5中定义了</em><code>reduce</code> <code>reduceRight</code></h5><p><code>reduce</code>从左边开始归并，<code>reduceRight</code>从右边开始归并</p>
+<h5 id="7-__u5F52_u5E76_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86reduce_reduceRight"><a href="#7-__u5F52_u5E76_u65B9_u6CD5_ES5_u4E2D_u5B9A_u4E49_u4E86reduce_reduceRight" class="headerlink" title="7. 归并方法 ES5中定义了reduce reduceRight"></a>7. 归并方法 <em>ES5中定义了</em><code>reduce</code> <code>reduceRight</code></h5><p><code>reduce</code>从左边开始归并，<code>reduceRight</code>从右边开始归并</p>
 <p>这两个方法都要求传入一个执行函数，函数传入的参数包括上一项的值，当前项值，当前项的位置，数组，即<code>prev</code> <code>cur</code> <code>index</code> <code>array</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] ;</span><br><span class="line"><span class="keyword">var</span> sum;</span><br><span class="line">sum = arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">prev, cur, index, array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev + cur;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">rst = arr.map(<span class="function"><span class="keyword">function</span> (<span class="params">item, index, array</span>)</span>&#123;</span><br><span class="line">    count += item;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] ;</div><div class="line"><span class="keyword">var</span> sum;</div><div class="line">sum = arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">prev, cur, index, array</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> prev + cur;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line">rst = arr.map(<span class="function"><span class="keyword">function</span> (<span class="params">item, index, array</span>)</span>&#123;</div><div class="line">    count += item;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>最后的计算结果，sum和count的值是一样的。</p>
 <p>因为数组的第一项没有prev，所以归并是从第二项开始的</p>
 <p><br> </p>
-<h4 id="date"><a href="#Date" class="headerlink" title="Date"></a><code>Date</code></h4><hr>
+<h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a><code>Date</code></h4><hr>
 <p>简单记一下</p>
 <p>实例化，new Date()</p>
 <p>getTime<br>getYear()<br>getFullYear()<br>getMonth    0-11<br>getDate     一个月中的天数，1-31<br>getDay      一个礼拜中的天，0是周日，6是周六<br>getHour     0-23<br>getMinutes  0-59<br>getSeconds  0-59<br>getMilliSeconds</p>
 <p>把get换成getUTC又是一条好汉<br>把get换成set又是一条好汉</p>
 <p><em><s>getWeek </s>    !!!没有week</em></p>
 <p><br> </p>
-<h4 id="regexp"><a href="#RegExp" class="headerlink" title="RegExp"></a><code>RegExp</code></h4><hr>
-<h5 id="构建实例"><a href="#u6784_u5EFA_u5B9E_u4F8B" class="headerlink" title="构建实例"></a>构建实例</h5><ul>
+<h4 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a><code>RegExp</code></h4><hr>
+<h5 id="u6784_u5EFA_u5B9E_u4F8B"><a href="#u6784_u5EFA_u5B9E_u4F8B" class="headerlink" title="构建实例"></a>构建实例</h5><ul>
 <li>字面量</li>
 <li>构造器<code>RegExp</code></li>
 </ul>
-<h6 id="实例属性"><a href="#u5B9E_u4F8B_u5C5E_u6027" class="headerlink" title="实例属性"></a>实例属性</h6><ul>
+<h6 id="u5B9E_u4F8B_u5C5E_u6027"><a href="#u5B9E_u4F8B_u5C5E_u6027" class="headerlink" title="实例属性"></a>实例属性</h6><ul>
 <li>global</li>
 <li>ignoreCase</li>
 <li>multiline</li>
 <li>lastIndex 下一次要开始匹配的位置</li>
 <li>source 模式自身</li>
 </ul>
-<h5 id="实例方法"><a href="#u5B9E_u4F8B_u65B9_u6CD5-1" class="headerlink" title="实例方法"></a>实例方法</h5><ul>
+<h5 id="u5B9E_u4F8B_u65B9_u6CD5-1"><a href="#u5B9E_u4F8B_u65B9_u6CD5-1" class="headerlink" title="实例方法"></a>实例方法</h5><ul>
 <li><p><code>exec()</code></p>
 <ul>
 <li>返回一个数组，匹配项，index（匹配项的起始位置）, input(捕获组)</li>
@@ -426,7 +426,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="构造器属性"><a href="#u6784_u9020_u5668_u5C5E_u6027" class="headerlink" title="构造器属性"></a>构造器属性</h5><ul>
+<h5 id="u6784_u9020_u5668_u5C5E_u6027"><a href="#u6784_u9020_u5668_u5C5E_u6027" class="headerlink" title="构造器属性"></a>构造器属性</h5><ul>
 <li><code>lastParen</code> 上一个捕获组</li>
 <li><code>lastMatch</code> 上一个匹配项</li>
 <li><code>leftContext</code></li>
@@ -434,9 +434,9 @@
 <li><code>input</code></li>
 </ul>
 <p><br> </p>
-<h4 id="function"><a href="#Function" class="headerlink" title="Function"></a><code>Function</code></h4><hr>
+<h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a><code>Function</code></h4><hr>
 <p><em>函数名是指针，函数体是对象</em></p>
-<h5 id="创建函数实例"><a href="#u521B_u5EFA_u51FD_u6570_u5B9E_u4F8B" class="headerlink" title="创建函数实例"></a>创建函数实例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    statement</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数表达式</span></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; ;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"name"</span>,<span class="string">"age"</span>,<span class="string">"return name + age"</span>) ;</span><br></pre></td></tr></table></figure>
+<h5 id="u521B_u5EFA_u51FD_u6570_u5B9E_u4F8B"><a href="#u521B_u5EFA_u51FD_u6570_u5B9E_u4F8B" class="headerlink" title="创建函数实例"></a>创建函数实例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//函数声明</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    statement</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//函数表达式</span></div><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; ;</div><div class="line"></div><div class="line"><span class="comment">//构造函数</span></div><div class="line"><span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"name"</span>,<span class="string">"age"</span>,<span class="string">"return name + age"</span>) ;</div></pre></td></tr></table></figure>
 <ul>
 <li><p>函数声明和表达式没有本质区别</p>
 </li>
@@ -445,9 +445,9 @@
 <li><p>函数的参数传递是值传递</p>
 </li>
 </ul>
-<h5 id="函数内部对象"><a href="#u51FD_u6570_u5185_u90E8_u5BF9_u8C61" class="headerlink" title="函数内部对象"></a>函数内部对象</h5><h6 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a><code>arguments</code></h6><ul>
+<h5 id="u51FD_u6570_u5185_u90E8_u5BF9_u8C61"><a href="#u51FD_u6570_u5185_u90E8_u5BF9_u8C61" class="headerlink" title="函数内部对象"></a>函数内部对象</h5><h6 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a><code>arguments</code></h6><ul>
 <li><p><code>arguments</code>代表实参集合</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span>,</span><br><span class="line">    color2 = <span class="string">"blue"</span>,</span><br><span class="line">    color3 = <span class="string">"yellow"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span> (<span class="params">color1, color2, color3</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]); <span class="comment">//"red"</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>]);<span class="comment">//"blue"</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">2</span>]);<span class="comment">//"yellow"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span>,</div><div class="line">    color2 = <span class="string">"blue"</span>,</div><div class="line">    color3 = <span class="string">"yellow"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span> (<span class="params">color1, color2, color3</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]); <span class="comment">//"red"</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>]);<span class="comment">//"blue"</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">2</span>]);<span class="comment">//"yellow"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p><code>arguments.callee</code><br>  <code>callee</code>属性指向自身函数<br>  主要是消除函数名耦合带来的不便</p>
 </li>
@@ -456,7 +456,7 @@
 <li>当前执行环境</li>
 <li>函数或者事件的调用对象</li>
 </ul>
-<h5 id="函数属性"><a href="#u51FD_u6570_u5C5E_u6027" class="headerlink" title="函数属性"></a>函数属性</h5><ul>
+<h5 id="u51FD_u6570_u5C5E_u6027"><a href="#u51FD_u6570_u5C5E_u6027" class="headerlink" title="函数属性"></a>函数属性</h5><ul>
 <li><p><code>caller</code>指向该函数的调用者</p>
 </li>
 <li><p><code>length</code>表示函数要接受的形参个数</p>
@@ -464,7 +464,7 @@
 <li><p><code>prototype</code>函数的原型<br>  ES5中规定prototype属性不可枚举，所以for-in对它没啥用</p>
 </li>
 </ul>
-<h5 id="函数方法"><a href="#u51FD_u6570_u65B9_u6CD5" class="headerlink" title="函数方法"></a>函数方法</h5><ul>
+<h5 id="u51FD_u6570_u65B9_u6CD5"><a href="#u51FD_u6570_u65B9_u6CD5" class="headerlink" title="函数方法"></a>函数方法</h5><ul>
 <li><p><code>apply</code> <code>call</code></p>
 <ul>
 <li><p>用来扩展函数的作用域，其实就是让别的函数或者对象也可以拥有该函数的特定方法</p>
@@ -486,11 +486,11 @@
 <li><p><code>bind</code> 创建一个新的函数实例，并且把作用域绑定到传入<code>bind()</code>的值上</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color = <span class="string">"yellow"</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;color:<span class="string">"red"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span> (<span class="params">color</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// this.color = color ;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color);</span><br><span class="line">    <span class="built_in">console</span>.log(color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayColor.call(obj, <span class="string">"cyan"</span>);</span><br><span class="line">sayColor.apply(obj, [<span class="string">"cyan"</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sayColor2 = sayColor.bind(obj);</span><br><span class="line">sayColor2(<span class="string">"blue"</span>);</span><br><span class="line"><span class="comment">// console.log(sayColor2);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.color = <span class="string">"yellow"</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">color</span>:<span class="string">"red"</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span> (<span class="params">color</span>) </span>&#123;</div><div class="line">    <span class="comment">// this.color = color ;</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color);</div><div class="line">    <span class="built_in">console</span>.log(color);</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayColor.call(obj, <span class="string">"cyan"</span>);</div><div class="line">sayColor.apply(obj, [<span class="string">"cyan"</span>]);</div><div class="line"></div><div class="line"><span class="keyword">var</span> sayColor2 = sayColor.bind(obj);</div><div class="line">sayColor2(<span class="string">"blue"</span>);</div><div class="line"><span class="comment">// console.log(sayColor2);</span></div></pre></td></tr></table></figure>
 <p><br> </p>
-<h4 id="基本包装类型-string-number-boolean"><a href="#u57FA_u672C_u5305_u88C5_u7C7B_u578B_String_Number_Boolean" class="headerlink" title="基本包装类型 String Number Boolean"></a>基本包装类型 <code>String</code> <code>Number</code> <code>Boolean</code></h4><hr>
+<h4 id="u57FA_u672C_u5305_u88C5_u7C7B_u578B_String_Number_Boolean"><a href="#u57FA_u672C_u5305_u88C5_u7C7B_u578B_String_Number_Boolean" class="headerlink" title="基本包装类型 String Number Boolean"></a>基本包装类型 <code>String</code> <code>Number</code> <code>Boolean</code></h4><hr>
 <p><em>不建议用基本包装类型String() Number() Boolean()构建实例来创建对象，因为他们创建的都是对象，不是数值类型</em></p>
-<h5 id="number"><a href="#Number-1" class="headerlink" title="Number"></a><code>Number</code></h5><p>方法</p>
+<h5 id="Number-1"><a href="#Number-1" class="headerlink" title="Number"></a><code>Number</code></h5><p>方法</p>
 <ul>
 <li><p><code>toFixed()</code>  四舍五入到指定位数</p>
 </li>
@@ -500,7 +500,7 @@
 </li>
 </ul>
 <p><br></p>
-<h5 id="string"><a href="#String-1" class="headerlink" title="String"></a><code>String</code></h5><p>属性 <code>length</code></p>
+<h5 id="String-1"><a href="#String-1" class="headerlink" title="String"></a><code>String</code></h5><p>属性 <code>length</code></p>
 <p>方法</p>
 <ol>
 <li><p>字符方法 <code>charAt()</code> <code>charCodeAt()</code></p>
@@ -544,11 +544,11 @@
 <li><p><code>trim</code>方法</p>
 </li>
 <li><p>静态方法 <code>fromCharCode()</code></p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//想知道字符数字对应的具体值是什么，随手写了一个</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> code = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">900</span>; i++) &#123;</span><br><span class="line">    code[i] = <span class="built_in">String</span>.fromCharCode(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(code);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//想知道字符数字对应的具体值是什么，随手写了一个</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> code = &#123;&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">900</span>; i++) &#123;</div><div class="line">    code[i] = <span class="built_in">String</span>.fromCharCode(i);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(code);</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><br> </p>
-<h4 id="单体内置对象-math-global"><a href="#u5355_u4F53_u5185_u7F6E_u5BF9_u8C61_Math_Global" class="headerlink" title="单体内置对象 Math Global"></a>单体内置对象 <code>Math</code> <code>Global</code></h4><hr>
+<h4 id="u5355_u4F53_u5185_u7F6E_u5BF9_u8C61_Math_Global"><a href="#u5355_u4F53_u5185_u7F6E_u5BF9_u8C61_Math_Global" class="headerlink" title="单体内置对象 Math Global"></a>单体内置对象 <code>Math</code> <code>Global</code></h4><hr>
 <ul>
 <li><p><code>Math</code></p>
 <ul>
@@ -572,18 +572,18 @@
 </li>
 </ul>
 <p><br></p>
-<h2 id="值拷贝"><a href="#u503C_u62F7_u8D1D" class="headerlink" title="值拷贝"></a>值拷贝</h2><hr>
+<h2 id="u503C_u62F7_u8D1D"><a href="#u503C_u62F7_u8D1D" class="headerlink" title="值拷贝"></a>值拷贝</h2><hr>
 <ul>
 <li><p>值类型的变量拷贝直接赋值即可，因为都是存在栈内存里的</p>
 </li>
 <li><p>引用类型的变量拷贝要复杂一点，因为直接赋值，复制的只是一个引用指针，操作还是指向原有对象</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;name:<span class="string">"lily"</span>, age:<span class="number">25</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = obj;</span><br><span class="line">obj2.age = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.age);   <span class="comment">//20</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2.age);  <span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"lily"</span>, <span class="attr">age</span>:<span class="number">25</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = obj;</div><div class="line">obj2.age = <span class="number">20</span>;</div><div class="line"><span class="built_in">console</span>.log(obj.age);   <span class="comment">//20</span></div><div class="line"><span class="built_in">console</span>.log(obj2.age);  <span class="comment">//20</span></div></pre></td></tr></table></figure>
 <ul>
 <li><p>针对数组类型的值，挨个遍历赋值就可以了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    arr2.push(arr[i]); </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr2);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2 = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr) &#123;</div><div class="line">    arr2.push(arr[i]); </div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(arr2);</div></pre></td></tr></table></figure>
 </li>
 <li><p>针对对象，因为对象本身就是一个名值对，每个值的value都有一个具体的数据类型，可能是基本类型可能是引用类型，所以要分情况</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span> (<span class="params">obj, cloneObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> obj != <span class="string">"object"</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    cloneObj = cloneObj || &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> obj[i] === <span class="string">"object"</span>)&#123;</span><br><span class="line">            cloneObj[i] = (obj[i] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) ? [] : &#123;&#125; ;</span><br><span class="line">            <span class="built_in">arguments</span>.caller(obj[i], cloneObj[i]) ;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            cloneObj[i] = obj[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cloneObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span> (<span class="params">obj, cloneObj</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> obj != <span class="string">"object"</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    cloneObj = cloneObj || &#123;&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> obj[i] === <span class="string">"object"</span>)&#123;</div><div class="line">            cloneObj[i] = (obj[i] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) ? [] : &#123;&#125; ;</div><div class="line">            <span class="built_in">arguments</span>.caller(obj[i], cloneObj[i]) ;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            cloneObj[i] = obj[i]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cloneObj;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -591,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02_数据类型/" data-id="ciyzyhqai000wn8627exdoga1" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/20/javascript_知识点整理_02_数据类型/" data-id="ciyzyna9h003u7e62pqgthe04" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -807,11 +807,11 @@
 
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

@@ -30,8 +30,8 @@
  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -174,7 +174,7 @@
 <p>执行环境、作用域</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="执行环境"><a href="#u6267_u884C_u73AF_u5883" class="headerlink" title="执行环境"></a>执行环境</h2><ul>
+<h2 id="u6267_u884C_u73AF_u5883"><a href="#u6267_u884C_u73AF_u5883" class="headerlink" title="执行环境"></a>执行环境</h2><ul>
 <li><p>执行环境<br>  所有的代码都是在环境中执行的。执行环境定义了变量能够访问到的数据的范围，决定了他们各自的行为。</p>
 </li>
 <li><p>变量对象<br>  变量对象存储着当前环境中的所有变量、函数。<br>  每一个执行环境都有对应的变量对象，变量对象其实是一种底层数据结构，无法通过代码访问。</p>
@@ -182,7 +182,7 @@
 <li><p>全局环境<br>  全局环境指的是当前环境的最外围的执行环境。<br>  不同的宿主环境有不同的全局环境，一般浏览器环境下全局环境指的就是window对象。<br>  全局环境的变量对象存储这全局环境中的全局变量、属性等。</p>
 </li>
 <li><p>环境初始化<br>  在函数体中，所有的变量声明（var）和函数声明（函数表达式则不会）都会被提前</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span> ;</span><br><span class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// "a"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">func();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// undefined</span></div><div class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span> ;</div><div class="line">    <span class="built_in">console</span>.log(a);     <span class="comment">// "a"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>虽然a变量存在于func的执行环境中，第一次打印a时会在当前环境的作用域中寻找变量a，但是由于环境的初始化 ，变量a会在函数体的开始部分声明，但是到了第二行才被赋值，所以第一次打印会返回undefined.</li>
 <li><p>虽然func函数声明位于func()函数执行之后，但是由于函数声明被提前，所以也可以正确解析</p>
@@ -197,7 +197,7 @@
 </ul>
 <p><br></p>
 <!-- more -->
-<h3 id="作用域"><a href="#u4F5C_u7528_u57DF" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<h3 id="u4F5C_u7528_u57DF"><a href="#u4F5C_u7528_u57DF" class="headerlink" title="作用域"></a>作用域</h3><ul>
 <li><p>作用域链<br>  执行环境在执行代码的时候，会为对应的变量对象创建一个作用域链。<br>  作用域链定义了当前环境内的变量如何有序的访问允许范围内的数据。</p>
 </li>
 <li><p>作用域链的构成<br>  作用域链的顶端是当前环境的变量对象，往后是外层环境的变量对象，依次往复，最外层是全局环境的变量对象。<br>  如果当前环境是一个函数，那么其变量对象就是当前函数的活动对象。活动对象初始只有arguments一个变量。</p>
@@ -205,13 +205,13 @@
 <li><p>标识符解析/作用域链的主要作用<br>  标识符会沿着作用域链进行解析。如果无法在当前环境下找到标识符，则会顺着作用域链往后查询。</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内部环境获取外部数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </span><br><span class="line">    <span class="built_in">console</span>.log(color1);</span><br><span class="line">&#125;</span><br><span class="line">getColor();     <span class="comment">//"red"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//外部环境无法获取内部数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> color3 = <span class="string">"yellow"</span> ;</span><br><span class="line">        <span class="built_in">console</span>.log(color2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();                  <span class="comment">//"blue"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(color1);    <span class="comment">//"red"</span></span><br><span class="line"><span class="built_in">console</span>.log(color2);    <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//内部环境获取外部数据</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </div><div class="line">    <span class="built_in">console</span>.log(color1);</div><div class="line">&#125;</div><div class="line">getColor();     <span class="comment">//"red"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//外部环境无法获取内部数据</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> color1 = <span class="string">"red"</span> ;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> color2 = <span class="string">"blue"</span> ; </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> color3 = <span class="string">"yellow"</span> ;</div><div class="line">        <span class="built_in">console</span>.log(color2);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();                  <span class="comment">//"blue"</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(color1);    <span class="comment">//"red"</span></div><div class="line"><span class="built_in">console</span>.log(color2);    <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
 <p>作用域链定义了内部环境可以查询外部环境的数据，但是外部环境无法对内部环境进行操作。（因此可以进行函数体的封装）</p>
 <ul>
 <li>延长作用域链</li>
 </ul>
 <p>使用with语句可以将传入对象添加到当前作用域链的最顶端</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rst = <span class="string">"current url is :"</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span>(location) &#123;</span><br><span class="line">        <span class="keyword">var</span> url = href ; <span class="comment">//href是location对象的属性，当前执行环境是location对象</span></span><br><span class="line">        <span class="keyword">var</span> rst = rst + url ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rst ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> rst = <span class="string">"current url is :"</span> ;</div><div class="line"></div><div class="line">    <span class="keyword">with</span>(location) &#123;</div><div class="line">        <span class="keyword">var</span> url = href ; <span class="comment">//href是location对象的属性，当前执行环境是location对象</span></div><div class="line">        <span class="keyword">var</span> rst = rst + url ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> rst ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>eval bind apply call try-catch</p>
 <ul>
 <li>没有块级作用域</li>
@@ -226,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03_执行环境/" data-id="ciyzyhqaf000tn8624wmtv098" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/javascript_知识点整理_03_执行环境/" data-id="ciyzyna9o004a7e62wgemw3uc" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -442,11 +442,11 @@
 
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

@@ -24,8 +24,8 @@
  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -164,21 +164,21 @@
       
                 
         <p>在线练习网站 <a href="http://www.openvim.com/tutorial.html" target="_blank" rel="external">openvim</a></p>
-<h2 id=""><a href="#3C_21-_more_-_3E" class="headerlink" title="<a id=" more"=""></a>"><!-- more --></h2><h4 id="modes"><a href="#Modes" class="headerlink" title="Modes"></a>Modes</h4><ul>
+<h2 id="3C_21-_more_-_3E"><a href="#3C_21-_more_-_3E" class="headerlink" title="<a id=" more"=""></a>"><!-- more --></h2><h4 id="Modes"><a href="#Modes" class="headerlink" title="Modes"></a>Modes</h4><ul>
 <li>insert<br>  可以使用<code>i</code> <code>a</code> <code>o</code>进入insert mode<ul>
 <li><code>o</code> 在新的一行开始编辑</li>
 </ul>
 </li>
 <li>command<br>  此模式下可以执行命令操作</li>
 </ul>
-<h4 id="exit"><a href="#Exit" class="headerlink" title="Exit"></a>Exit</h4><ul>
+<h4 id="Exit"><a href="#Exit" class="headerlink" title="Exit"></a>Exit</h4><ul>
 <li><code>:q</code> 退出编辑器，如果修改了文件，需要使用强制退出</li>
 <li><code>:q!</code> 强制退出，不保存文件</li>
 <li><code>:w</code> 保存</li>
 <li><code>:wq</code> 保存并退出</li>
 </ul>
-<h4 id="number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><p>在使用命令时结合数字可以实现选中多个字符、多行等效果</p>
-<h4 id="movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h4><ul>
+<h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><p>在使用命令时结合数字可以实现选中多个字符、多行等效果</p>
+<h4 id="Movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h4><ul>
 <li>basck movement<ul>
 <li><code>h</code> 向左移动</li>
 <li><code>j</code> 向下移动</li>
@@ -203,7 +203,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="edit"><a href="#Edit" class="headerlink" title="Edit"></a>Edit</h4><ul>
+<h4 id="Edit"><a href="#Edit" class="headerlink" title="Edit"></a>Edit</h4><ul>
 <li><code>u</code> 恢复（恢复到上一步操作）</li>
 <li><code>ctru+R</code> redo（恢复到下一步操作）</li>
 <li><code>x</code> 从光标处向后删除单个字符<ul>
@@ -224,11 +224,11 @@
 </ul>
 </li>
 </ul>
-<h4 id="insert-repeatedly"><a href="#Insert_Repeatedly" class="headerlink" title="Insert Repeatedly"></a>Insert Repeatedly</h4><ul>
+<h4 id="Insert_Repeatedly"><a href="#Insert_Repeatedly" class="headerlink" title="Insert Repeatedly"></a>Insert Repeatedly</h4><ul>
 <li><code>[number]i[text][esc]</code> 执行后重复插入n次文本</li>
 </ul>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>iha[esc]</span><br><span class="line"># output</span><br><span class="line"># hahaha</span><br></pre></td></tr></table></figure>
-<h4 id="search-character-or-word"><a href="#Search_character_or_word" class="headerlink" title="Search character or word"></a>Search character or word</h4><ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">3</span>iha[esc]</div><div class="line"># output</div><div class="line"># hahaha</div></pre></td></tr></table></figure>
+<h4 id="Search_character_or_word"><a href="#Search_character_or_word" class="headerlink" title="Search character or word"></a>Search character or word</h4><ul>
 <li>查找单个字符<ul>
 <li><code>f[charactor]</code> 向后查找最近的一个字符</li>
 </ul>
@@ -245,10 +245,10 @@
 </ul>
 </li>
 </ul>
-<h4 id="match-parentheses"><a href="#Match_parentheses" class="headerlink" title="Match parentheses"></a>Match parentheses</h4><ul>
+<h4 id="Match_parentheses"><a href="#Match_parentheses" class="headerlink" title="Match parentheses"></a>Match parentheses</h4><ul>
 <li><code>%</code> 匹配word最近的括弧</li>
 </ul>
-<h4 id="ohters"><a href="#Ohters" class="headerlink" title="Ohters"></a>Ohters</h4><ul>
+<h4 id="Ohters"><a href="#Ohters" class="headerlink" title="Ohters"></a>Ohters</h4><ul>
 <li><code>.</code> 重复执行上一次操作（不包括撤销）</li>
 <li><code>v</code> 开启visual mode，可以利用movement进行选择</li>
 </ul>
@@ -256,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2017/02/10/20170210-vim/" data-id="ciyzyhqb2001gn862ibjhu5v0" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2017/02/10/20170210-vim/" data-id="ciyzyna7q001t7e62t05s1pwv" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -463,11 +463,11 @@
 
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

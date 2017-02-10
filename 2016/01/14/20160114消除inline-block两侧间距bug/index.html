@@ -28,6 +28,7 @@
 
 可以发现这五个小div本身是没有设置padding和margin的。
 因为浏览器默认会把回车换行符看成一个空格，而inline-block元素虽然在同一行，但是书写的时候放在了不同行，结尾的换行就会被当成空格处理">
+<meta name="twitter:image" content="http://lcc19941214.github.io/images/2016/1/14/eg1.png">
   
   
     <link rel="icon" href="favicon.png">
@@ -37,8 +38,8 @@
  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -184,15 +185,15 @@
 <p>其实要解决这个问题很简单，下面总结一下我使用的方法以及网上看到的几种：</p>
 <a id="more"></a>
 <h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><p>在父元素上使用<code>font-size: 0</code>，可以使得子元素两侧的空格因为没有设置字体大小而消失。<br>有看到说chrome浏览器是不支持这个方法的，<s>但是现在似乎没什么大的问题了</s>。对于汉字chrome还是有最小12px的要求限制</p>
-<h3 id="移除空格"><a href="#u79FB_u9664_u7A7A_u683C" class="headerlink" title="移除空格"></a>移除空格</h3><p>把标签的书写顺序调整一下即可</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u79FB_u9664_u7A7A_u683C"><a href="#u79FB_u9664_u7A7A_u683C" class="headerlink" title="移除空格"></a>移除空格</h3><p>把标签的书写顺序调整一下即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>或者将标签换行</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span></span></div><div class="line">    &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span></span></div><div class="line">    &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>或者使用注释</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"space"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="comment">&lt;!--</span></div><div class="line">    --&gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="comment">&lt;!--</span></div><div class="line">    --&gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><p>因为子元素之间的间隔是水平的，所以也可以直接给每个元素使用<code>margin-right:-5px</code>的样式。</p>
 <p>但是考虑到不同浏览器下间隔不一，所以使用margin也需要具体调整。</p>
-<h3 id="letter-spacing和word-spacing"><a href="#letter-spacing_u548Cword-spacing" class="headerlink" title="letter-spacing和word-spacing"></a>letter-spacing和word-spacing</h3><p>直接给子元素加上这样的样式即可调整，但是要使用负值。</p>
+<h3 id="letter-spacing_u548Cword-spacing"><a href="#letter-spacing_u548Cword-spacing" class="headerlink" title="letter-spacing和word-spacing"></a>letter-spacing和word-spacing</h3><p>直接给子元素加上这样的样式即可调整，但是要使用负值。</p>
 <hr>
 <blockquote>
 <p>参考了<a href="http://www.zhangxinxu.com/wordpress/?p=2357" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/?p=2357</a></p>
@@ -201,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="ciyzyhqdi0046n862nv1xmtas" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="ciyzyna5400037e626vk2hp4f" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -417,11 +418,11 @@
 
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

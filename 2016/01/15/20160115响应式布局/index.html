@@ -30,8 +30,8 @@
  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   
 
   
@@ -169,11 +169,11 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <h2 id="1-自适应布局页面"><a href="#1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762" class="headerlink" title="1. 自适应布局页面"></a>1. 自适应布局页面</h2><p>这部分我觉得最重要的是要有自适应布局的意识，首先设计稿制作的时候多用栅格化设计，区块明显，比如小米和联想的商城首页（虽然这俩都没有做响应式，手机端貌似是单独的？），再比如摩托罗拉和诺基亚的首页。</p>
+        <h2 id="1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762"><a href="#1-__u81EA_u9002_u5E94_u5E03_u5C40_u9875_u9762" class="headerlink" title="1. 自适应布局页面"></a>1. 自适应布局页面</h2><p>这部分我觉得最重要的是要有自适应布局的意识，首先设计稿制作的时候多用栅格化设计，区块明显，比如小米和联想的商城首页（虽然这俩都没有做响应式，手机端貌似是单独的？），再比如摩托罗拉和诺基亚的首页。</p>
 <p>然后多用float, 百分比单位，以及css3里的flex弹性布局等等。</p>
 <p>自适应布局其实就是随着显示设备宽度的变化而让页面版式进行调整，一般就是宽度自适应调整。虽然单页面应用没做过不是很理解，但是一般做响应式就是直接自适应加媒介查询（吧？）当然诸如bootstrap也提供了栅格化的解决方案，可以让gird区块直接浮动调整。</p>
 <a id="more"></a>
-<h2 id="2-使用viewport"><a href="#2-__u4F7F_u7528viewport" class="headerlink" title="2. 使用viewport"></a>2. 使用viewport</h2><p>上面说到设备宽度，关于设备宽度有一个meta标签viewport，用来定义不同设备的页面缩放、页面宽度。</p>
+<h2 id="2-__u4F7F_u7528viewport"><a href="#2-__u4F7F_u7528viewport" class="headerlink" title="2. 使用viewport"></a>2. 使用viewport</h2><p>上面说到设备宽度，关于设备宽度有一个meta标签viewport，用来定义不同设备的页面缩放、页面宽度。</p>
 <pre><code>&lt;meta name=&quot;viewport&quot; 
 content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no&quot; /&gt;
 </code></pre><p>viewport有六个默认的属性，包括<code>width</code>, <code>initial-scale</code>, <code>maximum-scale</code>, <code>minimum-scale</code>, <code>height</code>, <code>user-scalable</code></p>
@@ -191,32 +191,32 @@ content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scala
 <pre><code>visual viewport宽度 = ideal viewport宽度  / 当前缩放值
 当前缩放值 = ideal viewport宽度  / visual viewport宽度
 </code></pre><p>在iphone和ipad上，无论你给viewport设的宽的是多少，如果没有指定默认的缩放值，则iphone和ipad会自动计算这个缩放值，以达到当前页面不会出现横向滚动条(或者说viewport的宽度就是屏幕的宽度)的目的。</p>
-<h2 id="3-使用相对宽度"><a href="#3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25" class="headerlink" title="3. 使用相对宽度%"></a>3. 使用相对宽度%</h2><p>主要是不要用定宽，这个两栏、多栏自适应布局其实都用的很多了。但是主要有比如说margin, padding等依靠的是父元素的宽度，设置的时候要格外注意</p>
-<h2 id="4-使用相对单位em-rem"><a href="#4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem" class="headerlink" title="4. 使用相对单位em rem"></a>4. 使用相对单位em rem</h2><p>em是基于当前父元素的font-size</p>
+<h2 id="3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25"><a href="#3-__u4F7F_u7528_u76F8_u5BF9_u5BBD_u5EA6_25" class="headerlink" title="3. 使用相对宽度%"></a>3. 使用相对宽度%</h2><p>主要是不要用定宽，这个两栏、多栏自适应布局其实都用的很多了。但是主要有比如说margin, padding等依靠的是父元素的宽度，设置的时候要格外注意</p>
+<h2 id="4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem"><a href="#4-__u4F7F_u7528_u76F8_u5BF9_u5355_u4F4Dem_rem" class="headerlink" title="4. 使用相对单位em rem"></a>4. 使用相对单位em rem</h2><p>em是基于当前父元素的font-size</p>
 <p>rem中得”r”在W3C里给的定义是”root”，所以在html元素下定义，全局都是有效的，可以很方便的用来做全局的统一单位。</p>
 <ul>
 <li>下列代码没有给根元素定义为比如20px或者别的什么数值，主要是为了方便换算</li>
 <li>没有用1px是因为（之前版本的？）chrome对字体大小要求不能小于10px</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    rem: 100px;</span><br><span class="line">&#125;</span><br><span class="line">div#parent &#123;</span><br><span class="line">    width: 0.1 rem; //10px</span><br><span class="line">    height: 0.1 rem;//10px</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-使用media-query替换样式表"><a href="#5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868" class="headerlink" title="5. 使用media query替换样式表"></a>5. 使用<code>media query</code>替换样式表</h2><pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; 
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">html &#123;</div><div class="line">    rem: 100px;</div><div class="line">&#125;</div><div class="line">div#parent &#123;</div><div class="line">    width: 0.1 rem; //10px</div><div class="line">    height: 0.1 rem;//10px</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868"><a href="#5-__u4F7F_u7528media_query_u66FF_u6362_u6837_u5F0F_u8868" class="headerlink" title="5. 使用media query替换样式表"></a>5. 使用<code>media query</code>替换样式表</h2><pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; 
 media=&quot;screen and (max-device-width: 400px)&quot; 
 href=&quot;tinyScreen.css&quot; /&gt;
 </code></pre><p>上面的代码意思是，如果屏幕宽度小于400像素（max-device-width: 400px），就加载tinyScreen.css文件。</p>
-<h2 id="6-使用媒介查询media"><a href="#6-__u4F7F_u7528_u5A92_u4ECB_u67E5_u8BE2@media" class="headerlink" title="6. 使用媒介查询@media"></a>6. 使用媒介查询<code>@media</code></h2><p>max-width和min-width是否同时出现都是可选。当屏幕尺寸符合宽度要求时，就会显示对应部分的css样式</p>
+<h2 id="6-__u4F7F_u7528_u5A92_u4ECB_u67E5_u8BE2@media"><a href="#6-__u4F7F_u7528_u5A92_u4ECB_u67E5_u8BE2@media" class="headerlink" title="6. 使用媒介查询@media"></a>6. 使用媒介查询<code>@media</code></h2><p>max-width和min-width是否同时出现都是可选。当屏幕尺寸符合宽度要求时，就会显示对应部分的css样式</p>
 <pre><code>@media screen and (max-width: ) and (min-width: ) {
     csscode
 } 
 </code></pre><p>个人建议@media都写在原始样式附近，因为@media依然会继承原始样式。这样便于修改。</p>
 <p>不过我习惯写完之后最后全部截取出来放到一个response.css里，要响应式就引用，不需要就不引用</p>
-<h2 id="7-使用流动布局floatfluid-grid"><a href="#7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid" class="headerlink" title="7. 使用流动布局float/fluid grid"></a>7. 使用流动布局<code>float</code>/fluid grid</h2><p>使用float，包裹元素宽度不够了就自动换行。但是最好还是给元素写上百分比的宽度，这样可以自动充满这一行</p>
-<h5 id="至于流动布局和弹性布局"><a href="#u81F3_u4E8E_u6D41_u52A8_u5E03_u5C40_u548C_u5F39_u6027_u5E03_u5C40" class="headerlink" title="至于流动布局和弹性布局"></a>至于流动布局和弹性布局</h5><p>弹性布局主要就是使用flex，通过对主轴次轴进行持续排列，以及给flex-item设置<code>flex-grow</code> <code>flex-shrink</code> <code>flex-basis</code> 来自动调整子元素</p>
-<h2 id="8-图片自适应"><a href="#8-__u56FE_u7247_u81EA_u9002_u5E94" class="headerlink" title="8. 图片自适应"></a>8. 图片自适应</h2><p>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code> <a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
+<h2 id="7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid"><a href="#7-__u4F7F_u7528_u6D41_u52A8_u5E03_u5C40float/fluid_grid" class="headerlink" title="7. 使用流动布局float/fluid grid"></a>7. 使用流动布局<code>float</code>/fluid grid</h2><p>使用float，包裹元素宽度不够了就自动换行。但是最好还是给元素写上百分比的宽度，这样可以自动充满这一行</p>
+<h5 id="u81F3_u4E8E_u6D41_u52A8_u5E03_u5C40_u548C_u5F39_u6027_u5E03_u5C40"><a href="#u81F3_u4E8E_u6D41_u52A8_u5E03_u5C40_u548C_u5F39_u6027_u5E03_u5C40" class="headerlink" title="至于流动布局和弹性布局"></a>至于流动布局和弹性布局</h5><p>弹性布局主要就是使用flex，通过对主轴次轴进行持续排列，以及给flex-item设置<code>flex-grow</code> <code>flex-shrink</code> <code>flex-basis</code> 来自动调整子元素</p>
+<h2 id="8-__u56FE_u7247_u81EA_u9002_u5E94"><a href="#8-__u56FE_u7247_u81EA_u9002_u5E94" class="headerlink" title="8. 图片自适应"></a>8. 图片自适应</h2><p>为<code>&lt;img&gt;</code>添加max-width=100%，可以使图片在的大小在包裹元素给定的width内缩放到最大，类似<code>background-size</code>的<code>contain</code> <a href="/`contain`是在背景图像显示范围内将图片缩放到最大；`cover`则是将图片缩放到覆盖整个可见范围。">^contain</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115响应式布局/" data-id="ciyzyhqdb003yn8623sclu5ok" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115响应式布局/" data-id="ciyzyna5e00067e62orltaobi" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -432,11 +432,11 @@ href=&quot;tinyScreen.css&quot; /&gt;
 
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>
