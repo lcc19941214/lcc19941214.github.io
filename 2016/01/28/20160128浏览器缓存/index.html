@@ -105,11 +105,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -172,7 +172,7 @@
 </blockquote>
 <a id="more"></a>
 <p>参考文章：<a href="http://web.jobbole.com/84888/" target="_blank" rel="external">http://web.jobbole.com/84888/</a><br><em>2016.04.09更新补充</em> <a href="http://www.alloyteam.com/2016/03/discussion-on-web-caching/" target="_blank" rel="external">http://www.alloyteam.com/2016/03/discussion-on-web-caching/</a></p>
-<h2 id="u6D4F_u89C8_u5668_u7F13_u5B58_u7684_u57FA_u672C_u539F_u7406"><a href="#u6D4F_u89C8_u5668_u7F13_u5B58_u7684_u57FA_u672C_u539F_u7406" class="headerlink" title="浏览器缓存的基本原理"></a>浏览器缓存的基本原理</h2><ul>
+<h2 id="浏览器缓存的基本原理"><a href="#u6D4F_u89C8_u5668_u7F13_u5B58_u7684_u57FA_u672C_u539F_u7406" class="headerlink" title="浏览器缓存的基本原理"></a>浏览器缓存的基本原理</h2><ul>
 <li><p>浏览器缓存分为强缓存和协商缓存</p>
 </li>
 <li><p>浏览器缓存步骤：</p>
@@ -195,7 +195,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="u5F3A_u7F13_u5B58_u7684_u539F_u7406_uFF08_u67E5_u770B_u7F13_u5B58_u662F_u5426_u8FC7_u671F_uFF09"><a href="#u5F3A_u7F13_u5B58_u7684_u539F_u7406_uFF08_u67E5_u770B_u7F13_u5B58_u662F_u5426_u8FC7_u671F_uFF09" class="headerlink" title="强缓存的原理（查看缓存是否过期）"></a>强缓存的原理（查看缓存是否过期）</h3><ul>
+<h3 id="强缓存的原理查看缓存是否过期"><a href="#u5F3A_u7F13_u5B58_u7684_u539F_u7406_uFF08_u67E5_u770B_u7F13_u5B58_u662F_u5426_u8FC7_u671F_uFF09" class="headerlink" title="强缓存的原理（查看缓存是否过期）"></a>强缓存的原理（查看缓存是否过期）</h3><ul>
 <li><p>强缓存命中后服务器会返回一个200代码</p>
 </li>
 <li><p>Expires和Cache-Control都是用来表示资源在缓存中的有效期</p>
@@ -203,7 +203,7 @@
 <li><p>二者可以只设置一个也可以都设置，Cache-Control的优先级比Expires高</p>
 </li>
 </ul>
-<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>绝对时间（GMT）</p>
+<h4 id="expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>绝对时间（GMT）</p>
 <ol>
 <li><p>浏览器第一次从服务器请求资源时，服务器返回资源时会在Response header上添加Expires</p>
 </li>
@@ -214,7 +214,7 @@
 <li><p>如果没有命中，浏览器直接从服务器加载资源，Expires会在资源返回时更新</p>
 </li>
 </ol>
-<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>相对时间（秒）</p>
+<h4 id="cache-control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>相对时间（秒）</p>
 <ol>
 <li><p>浏览器第一次从服务器请求资源时，服务器返回资源时会在Response header上添加Cache-Control</p>
 </li>
@@ -226,10 +226,10 @@
 </li>
 </ol>
 <hr>
-<h3 id="u534F_u5546_u7F13_u5B58_u7684_u539F_u7406_uFF08_u5982_u679C_u7F13_u5B58_u8FC7_u671F_u4E86_uFF09"><a href="#u534F_u5546_u7F13_u5B58_u7684_u539F_u7406_uFF08_u5982_u679C_u7F13_u5B58_u8FC7_u671F_u4E86_uFF09" class="headerlink" title="协商缓存的原理（如果缓存过期了）"></a>协商缓存的原理（如果缓存过期了）</h3><ul>
+<h3 id="协商缓存的原理如果缓存过期了"><a href="#u534F_u5546_u7F13_u5B58_u7684_u539F_u7406_uFF08_u5982_u679C_u7F13_u5B58_u8FC7_u671F_u4E86_uFF09" class="headerlink" title="协商缓存的原理（如果缓存过期了）"></a>协商缓存的原理（如果缓存过期了）</h3><ul>
 <li>协商缓存命中后服务器会返回一个304代码（Not Modified）</li>
 </ul>
-<h4 id="Last-Modified_If-Modified-Since"><a href="#Last-Modified_If-Modified-Since" class="headerlink" title="Last-Modified If-Modified-Since"></a><code>Last-Modified</code> <code>If-Modified-Since</code></h4><ol>
+<h4 id="last-modified-if-modified-since"><a href="#Last-Modified_If-Modified-Since" class="headerlink" title="Last-Modified If-Modified-Since"></a><code>Last-Modified</code> <code>If-Modified-Since</code></h4><ol>
 <li><p>浏览器第一次从服务器请求资源时，服务器会在返回资源时在response header上添加Last-Modified的header，Last-Modified代表资源最近一次在服务器端发生修改的时间</p>
 </li>
 <li><p>浏览器再次向服务器请求这个资源时，会在request header上添加If-Modified-Since，这个header的值即上一次请求该资源时服务器返回的Last-Modified的值</p>
@@ -240,7 +240,7 @@
 </li>
 </ol>
 <p><em>5. 当服务器返回304代码时，将不会返回一个新的Last-Modified</em></p>
-<h4 id="Etag_If-None-Match"><a href="#Etag_If-None-Match" class="headerlink" title="Etag If-None-Match"></a><code>Etag</code> <code>If-None-Match</code></h4><ol>
+<h4 id="etag-if-none-match"><a href="#Etag_If-None-Match" class="headerlink" title="Etag If-None-Match"></a><code>Etag</code> <code>If-None-Match</code></h4><ol>
 <li><p>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上ETag的header，这个header是服务器根据当前请求的资源生成的一个唯一标识，这个唯一标识是一个字符串，只要资源有变化这个串就不同，跟最后修改时间没有关系</p>
 </li>
 <li><p>浏览器再次向服务器请求这个资源时，会在request header上添加If-None-Match，这个header的值即上一次请求该资源时服务器返回的ETag的值</p>
@@ -256,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/" data-id="ciyzhlkzw0038x862j24xagvr" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/28/20160128浏览器缓存/" data-id="ciyzycpm5003cl962sehcy506" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器缓存/">浏览器缓存</a></li></ul>
@@ -298,6 +298,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -367,23 +384,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -393,7 +393,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -402,7 +402,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -411,7 +411,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

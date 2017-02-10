@@ -105,11 +105,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -170,14 +170,14 @@
 <p>——《ECMAScript 6 入门：Iterator和for…of循环》（阮一峰）</p>
 <a id="more"></a>
 <hr>
-<h2 id="u8FED_u4EE3_u5668"><a href="#u8FED_u4EE3_u5668" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）。</p>
+<h2 id="迭代器"><a href="#u8FED_u4EE3_u5668" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）。</p>
 <p>Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。</p>
-<h3 id="u5DE5_u4F5C_u539F_u7406"><a href="#u5DE5_u4F5C_u539F_u7406" class="headerlink" title="工作原理"></a>工作原理</h3><p>调用iterator接口时，返回一个iterator对象，调用该iterator对象的next方法。<br>每次调用next方法时返回可遍历对象的当前成员。其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。</p>
+<h3 id="工作原理"><a href="#u5DE5_u4F5C_u539F_u7406" class="headerlink" title="工作原理"></a>工作原理</h3><p>调用iterator接口时，返回一个iterator对象，调用该iterator对象的next方法。<br>每次调用next方法时返回可遍历对象的当前成员。其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。</p>
 <ul>
 <li>模拟一个迭代器</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">iterateFunc</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> nextIdx = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    next() &#123;</span><br><span class="line">      <span class="keyword">return</span> nextIdx &lt; array.length ? </span><br><span class="line">        &#123; value: array[nextIdx++], done: <span class="literal">false</span> &#125; :</span><br><span class="line">        &#123; done: <span class="literal">true</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> it = iterateFunc([<span class="string">'a'</span>,<span class="string">'b'</span>, <span class="string">'c'</span>]);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> x <span class="keyword">in</span> it) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="u8C03_u7528_u8FED_u4EE3_u5668_u7684_u573A_u5408"><a href="#u8C03_u7528_u8FED_u4EE3_u5668_u7684_u573A_u5408" class="headerlink" title="调用迭代器的场合"></a>调用迭代器的场合</h3><ul>
+<h3 id="调用迭代器的场合"><a href="#u8C03_u7528_u8FED_u4EE3_u5668_u7684_u573A_u5408" class="headerlink" title="调用迭代器的场合"></a>调用迭代器的场合</h3><ul>
 <li>解构赋值</li>
 <li><p>扩展运算符 内部调用</p>
 </li>
@@ -191,14 +191,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span>,</span><br><span class="line">  [<span class="built_in">Symbol</span>.iterator]: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(self);</span><br><span class="line">    <span class="keyword">var</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      next: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> index &lt; keys.length ?</span><br><span class="line">          &#123; value: self[keys[index++]], done: <span class="literal">false</span> &#125; :</span><br><span class="line">          &#123; done: <span class="literal">true</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述实现方式其实比较繁琐，利用<code>Object.keys(obj).forEach(key =&gt; obj[key])</code>其实效率更高</p>
 <hr>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><ul>
+<h3 id="参考"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="external">ECMAScript 6 入门</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2017/02/06/20170206-iterator/" data-id="ciyzhlky7001ox862ries8f23" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2017/02/06/20170206-iterator/" data-id="ciyzycpkr001sl962jzupa95k" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -240,6 +240,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -309,23 +326,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -335,7 +335,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -344,7 +344,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -353,7 +353,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

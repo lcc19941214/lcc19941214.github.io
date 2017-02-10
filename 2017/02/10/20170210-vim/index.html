@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: 编程 | AChuan</title>
+  <title>vim学习笔记 | AChuan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AChuan">
-<meta property="og:url" content="http://lcc19941214.github.io/categories/编程/index.html">
+  <meta name="description" content="在线练习网站 openvim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim学习笔记">
+<meta property="og:url" content="http://lcc19941214.github.io/2017/02/10/20170210-vim/index.html">
 <meta property="og:site_name" content="AChuan">
-<meta property="og:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta property="og:description" content="在线练习网站 openvim">
+<meta property="og:updated_time" content="2017-02-10T15:12:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AChuan">
-<meta name="twitter:description" content="阿川的个人网站 | 在珞珈山下默默修行，喜欢平面设计和前端开发">
+<meta name="twitter:title" content="vim学习笔记">
+<meta name="twitter:description" content="在线练习网站 openvim">
   
   
     <link rel="icon" href="favicon.png">
@@ -127,83 +128,172 @@
 </aside>
 
       
-      <section id="main">
-    <section class="archives-wrap">
-    <div class="archive-category-wrap">
-      <span class="archive-category">编程</span>
-    </div>
-    <div class="archives">
+      <section id="main"><article id="post-20170210-vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/2017/02/10/20170210-vim/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/10/20170210-vim/">vim学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      vim学习笔记
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2017/02/10/20170210-vim/">
-      <time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017 2月 10</time>
+      <time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
   </div>
-</article>
+
+        </div>
+      </header>
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/2017/02/10/20170210-some-interesting-tutorial-site/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="可以在线学习git vim等操作的web网站" class="thumbnail-image"></span>
-  
-</a>
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>在线练习网站 <a href="http://www.openvim.com/tutorial.html" target="_blank" rel="external">openvim</a></p>
+<h2 id=""><a href="#3C_21-_more_-_3E" class="headerlink" title="<a id=" more"=""></a>"><!-- more --></h2><!-- toc -->
+<ul>
+<li><a href="/#modes">Modes</a></li>
+<li><a href="/#exit">Exit</a></li>
+<li><a href="/#number">Number</a></li>
+<li><a href="/#movement">Movement</a></li>
+<li><a href="/#edit">Edit</a></li>
+<li><a href="/#insert-repeatedly">Insert Repeatedly</a></li>
+<li><a href="/#search-character-or-word">Search character or word</a></li>
+<li><a href="/#match-parentheses">Match parentheses</a></li>
+<li><a href="/#ohters">Ohters</a></li>
+</ul>
+<!-- tocstop -->
+<h4 id="modes"><a href="#Modes" class="headerlink" title="Modes"></a>Modes</h4><ul>
+<li>insert<br>  可以使用<code>i</code> <code>a</code> <code>o</code>进入insert mode<ul>
+<li><code>o</code> 在新的一行开始编辑</li>
+</ul>
+</li>
+<li>command<br>  此模式下可以执行命令操作</li>
+</ul>
+<h4 id="exit"><a href="#Exit" class="headerlink" title="Exit"></a>Exit</h4><ul>
+<li><code>:q</code> 退出编辑器，如果修改了文件，需要使用强制退出</li>
+<li><code>:q!</code> 强制退出，不保存文件</li>
+<li><code>:w</code> 保存</li>
+<li><code>:wq</code> 保存并退出</li>
+</ul>
+<h4 id="number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><p>在使用命令时结合数字可以实现选中多个字符、多行等效果</p>
+<h4 id="movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h4><ul>
+<li>basck movement<ul>
+<li><code>h</code> 向左移动</li>
+<li><code>j</code> 向下移动</li>
+<li><code>k</code> 向上移动</li>
+<li><code>l</code> 向右移动</li>
+</ul>
+</li>
+<li>word movement<ul>
+<li><code>b</code> 移到词首（向前移动）</li>
+<li><code>e</code> 移到词末</li>
+<li><code>w</code> 移到下一个词首（向后移动）</li>
+</ul>
+</li>
+<li>inline movement<ul>
+<li><code>^</code> <code>0</code> 移动到句首</li>
+<li><code>$</code> 移动打句末</li>
+</ul>
+</li>
+<li>lines movement<ul>
+<li><code>gg</code> 移动到文件开头</li>
+<li><code>G</code> 移动到文件末尾，使用数字可以移动到指定行（eg: <code>2G</code>可移动到第二行）</li>
+</ul>
+</li>
+</ul>
+<h4 id="edit"><a href="#Edit" class="headerlink" title="Edit"></a>Edit</h4><ul>
+<li><code>u</code> 恢复（恢复到上一步操作）</li>
+<li><code>ctru+R</code> redo（恢复到下一步操作）</li>
+<li><code>x</code> 从光标处向后删除单个字符<ul>
+<li><code>X</code> 从光标处向前删除单个字符</li>
+</ul>
+</li>
+<li><code>d</code> 删除多个字符串，可以结合number和movement使用<ul>
+<li><code>dd</code> 删除当前行</li>
+</ul>
+</li>
+<li><code>r</code> 替换字符串</li>
+<li><code>y</code> 复制，可以结合number和movement使用<ul>
+<li><code>yy</code> 复制当前行</li>
+</ul>
+</li>
+<li><code>p</code> 粘贴<ul>
+<li><code>P</code> 从光标处向前复制</li>
+</ul>
+</li>
+</ul>
+<h4 id="insert-repeatedly"><a href="#Insert_Repeatedly" class="headerlink" title="Insert Repeatedly"></a>Insert Repeatedly</h4><ul>
+<li><code>[number]i[text][esc]</code> 执行后重复插入n次文本</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>iha[esc]</span><br><span class="line"># output</span><br><span class="line"># hahaha</span><br></pre></td></tr></table></figure>
+<h4 id="search-character-or-word"><a href="#Search_character_or_word" class="headerlink" title="Search character or word"></a>Search character or word</h4><ul>
+<li>查找单个字符<ul>
+<li><code>f[charactor]</code> 向后查找最近的一个字符</li>
+</ul>
+</li>
+<li>查找光标所在的词<ul>
+<li><code>*</code> 向后查找</li>
+<li><code>#</code> 向前查找</li>
+</ul>
+</li>
+<li>查找指定字符<ul>
+<li><code>/text</code> 从光标处查找匹配的字符</li>
+<li><code>n</code> 向后继续查找</li>
+<li><code>N</code> 向前继续查找</li>
+</ul>
+</li>
+</ul>
+<h4 id="match-parentheses"><a href="#Match_parentheses" class="headerlink" title="Match parentheses"></a>Match parentheses</h4><ul>
+<li><code>%</code> 匹配word最近的括弧</li>
+</ul>
+<h4 id="ohters"><a href="#Ohters" class="headerlink" title="Ohters"></a>Ohters</h4><ul>
+<li><code>.</code> 重复执行上一次操作（不包括撤销）</li>
+<li><code>v</code> 开启visual mode，可以利用movement进行选择</li>
+</ul>
+
+      
     </div>
-    
-    <header class="archive-article-header">
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2017/02/10/20170210-vim/" data-id="ciyzycpkh001gl962q7q21q0c" class="article-share-link">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/10/20170210-some-interesting-tutorial-site/">可以在线学习git vim等操作的web网站</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2017/02/10/20170210-some-interesting-tutorial-site/">
-      <time datetime="2017-02-10T07:16:16.000Z" itemprop="datePublished">2017 2月 10</time>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/10/20170210-some-interesting-tutorial-site/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">可以在线学习git vim等操作的web网站</div>
     </a>
-  </div>
+  
+</nav>
 
 
-      
-    </header>
-  </div>
+  
 </article>
-    
-    </div></section>
-    </section>
+
+
+</section>
       
         <aside id="sidebar">
   

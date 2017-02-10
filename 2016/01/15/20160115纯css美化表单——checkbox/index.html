@@ -120,11 +120,11 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线"
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -196,14 +196,14 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
 <p>这一篇文章详细讲解了如何利用<code>label</code>标签，兄弟选择器<code>+</code> <code>~</code>, 伪类以及兄弟选择器<code>~</code>就可以<code>:checked</code>, 伪元素选择器<code>::before</code> <code>::after</code>对checkbox进行美化，还有很多高阶版的使用方式。待我学习学习再来写写心得。</p>
 <p><em>不过利用jquery获取prop(“checked”)状态，添加类也可以实现下面的效果……我纯粹是为了玩玩before和after……</em></p>
 <hr>
-<h3 id="u521D_u7EA7_u4FEE_u6539"><a href="#u521D_u7EA7_u4FEE_u6539" class="headerlink" title="初级修改"></a>初级修改</h3><p>先看看效果吧</p>
+<h3 id="初级修改"><a href="#u521D_u7EA7_u4FEE_u6539" class="headerlink" title="初级修改"></a>初级修改</h3><p>先看看效果吧</p>
 <p><img src="http://lcc19941214.github.io/images/2016/1/15/unchecked.png" alt="选中前"></p>
 <p><img src="http://lcc19941214.github.io/images/2016/1/15/checked.png" alt="选中后"></p>
 <p>html</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">id</span>=<span class="value">"form"</span> <span class="attribute">name</span>=<span class="value">"form"</span> <span class="attribute">action</span>=<span class="value">"javascript:;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"text"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"text"</span>&gt;</span><span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>css</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#text</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;</span><br><span class="line">    <span class="comment">/*left:-9999px;*/</span></span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">label</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span> <span class="number">20px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">40px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#ddd</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">999px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#eee</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">16px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#538BFF</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">label</span><span class="pseudo">::before</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">""</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">13px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">16px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">16px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#538BFF</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">16px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="id">#text</span><span class="pseudo">:checked</span> ~ <span class="tag">label</span><span class="pseudo">::before</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#538BFF</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">label</span><span class="pseudo">::after</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"click me"</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<h4 id="u4E3B_u8981_u601D_u8DEF_uFF1A"><a href="#u4E3B_u8981_u601D_u8DEF_uFF1A" class="headerlink" title="主要思路："></a>主要思路：</h4><p>因为复选框的样式直接写在了label标签的<code>::before</code>或<code>::after</code>里，所以要对复选框进行隐藏（<strong>废话</strong>，必然要隐藏，不隐藏美化个毛啊）。</p>
+<h4 id="主要思路"><a href="#u4E3B_u8981_u601D_u8DEF_uFF1A" class="headerlink" title="主要思路："></a>主要思路：</h4><p>因为复选框的样式直接写在了label标签的<code>::before</code>或<code>::after</code>里，所以要对复选框进行隐藏（<strong>废话</strong>，必然要隐藏，不隐藏美化个毛啊）。</p>
 <p>但是如果直接写<code>display:none</code>的话这个复选框不被DOM树渲染出来，就没什么意义了。<br>用<code>visibility:hidden</code>会占位置，所以这里使用<code>position:absolute; left:-9999px</code>让复选框移动到整个页面之外。反正你也看不见了对不对~</p>
 <ol>
 <li><p>利用label标签指定for属性为复选框的id名，可以通过点选label实现选中该复选框；</p>
@@ -220,7 +220,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
 <p><img src="http://lcc19941214.github.io/images/2016/1/15/checked2.png" alt="选中后"></p>
 <p>这个里面就是简单设置了一下<code>::after</code>……我说了我就是来玩玩这俩伪属性的……</p>
 <hr>
-<h3 id="u518D_u8BF4_u70B9_u522B_u7684"><a href="#u518D_u8BF4_u70B9_u522B_u7684" class="headerlink" title="再说点别的"></a>再说点别的</h3><ul>
+<h3 id="再说点别的"><a href="#u518D_u8BF4_u70B9_u522B_u7684" class="headerlink" title="再说点别的"></a>再说点别的</h3><ul>
 <li><p><code>::before</code>和<code>::after</code>默认都是inline元素</p>
 </li>
 <li><p>有一个content属性，如果不设置内容的话，还是需要设置一个空字符串<code>content:&quot;&quot;;</code>，免得显示不出来。MDN里地解释是</p>
@@ -247,7 +247,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115纯css美化表单——checkbox/" data-id="ciyzhll0g003rx862b32lnsig" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115纯css美化表单——checkbox/" data-id="ciyzycpmm003vl962q2p6phk3" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -289,6 +289,23 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -358,23 +375,6 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -384,7 +384,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -393,7 +393,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -402,7 +402,7 @@ outline     //修改focus时的选中状态，mac下显示为一圈蓝色的线
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

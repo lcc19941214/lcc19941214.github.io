@@ -123,11 +123,11 @@ history对象（历史记录，跳转方法）">
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -194,7 +194,7 @@ history对象（历史记录，跳转方法）">
 <p>history对象（历史记录，跳转方法）</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="window"><a href="#window" class="headerlink" title="window"></a>window</h2><h3 id="u5168_u5C40_u4F5C_u7528_u57DF"><a href="#u5168_u5C40_u4F5C_u7528_u57DF" class="headerlink" title="全局作用域"></a>全局作用域</h3><ul>
+<h2 id="window"><a href="#window" class="headerlink" title="window"></a>window</h2><h3 id="全局作用域"><a href="#u5168_u5C40_u4F5C_u7528_u57DF" class="headerlink" title="全局作用域"></a>全局作用域</h3><ul>
 <li><p>window对象既是浏览器提供的一个接口，也是ECMAScript规定的Global对象，所以在全局环境下声明的变量和函数都是window对象的属性和方法</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"lwy"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name == <span class="built_in">window</span>.name); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -205,7 +205,7 @@ history对象（历史记录，跳转方法）">
 </li>
 </ul>
 <p><br></p>
-<h3 id="u7A97_u53E3_u5173_u7CFB_u53CA_u6846_u67B6"><a href="#u7A97_u53E3_u5173_u7CFB_u53CA_u6846_u67B6" class="headerlink" title="窗口关系及框架"></a>窗口关系及框架</h3><ul>
+<h3 id="窗口关系及框架"><a href="#u7A97_u53E3_u5173_u7CFB_u53CA_u6846_u67B6" class="headerlink" title="窗口关系及框架"></a>窗口关系及框架</h3><ul>
 <li><p><code>window</code> 每个框架都有自己的window对象</p>
 <ul>
 <li><p>页面中包含多个框架时，每一个window对象都将拥有一套自己的构造函数，互相并不对等</p>
@@ -225,8 +225,8 @@ history对象（历史记录，跳转方法）">
 </li>
 </ul>
 <p><br></p>
-<h3 id="u7A97_u53E3_u4F4D_u7F6E"><a href="#u7A97_u53E3_u4F4D_u7F6E" class="headerlink" title="窗口位置"></a>窗口位置</h3><p><em>这部分内容的整理都来自于《js高级程序设计（第三版）》，但是在实际操作过程中（Mac系统，2016年1约29日，除IE以外的最新版本浏览器），下述的部分跨浏览器兼容问题已经被统一</em></p>
-<h4 id="u83B7_u53D6_u4F4D_u7F6E"><a href="#u83B7_u53D6_u4F4D_u7F6E" class="headerlink" title="获取位置"></a>获取位置</h4><ul>
+<h3 id="窗口位置"><a href="#u7A97_u53E3_u4F4D_u7F6E" class="headerlink" title="窗口位置"></a>窗口位置</h3><p><em>这部分内容的整理都来自于《js高级程序设计（第三版）》，但是在实际操作过程中（Mac系统，2016年1约29日，除IE以外的最新版本浏览器），下述的部分跨浏览器兼容问题已经被统一</em></p>
+<h4 id="获取位置"><a href="#u83B7_u53D6_u4F4D_u7F6E" class="headerlink" title="获取位置"></a>获取位置</h4><ul>
 <li><code>screenX</code> 浏览器相对屏幕左侧的位置</li>
 <li><code>screenY</code> 浏览器相对屏幕顶部的位置</li>
 </ul>
@@ -240,14 +240,14 @@ history对象（历史记录，跳转方法）">
 <li>跨浏览器兼容问题  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> leftPos = (<span class="keyword">typeof</span> <span class="built_in">window</span>.screenLeft == <span class="string">"number"</span>) ?</span><br><span class="line">                <span class="built_in">window</span>.screenLeft : <span class="built_in">window</span>.screenX ;</span><br><span class="line"><span class="keyword">var</span> topPos = (<span class="keyword">typeof</span> <span class="built_in">window</span>.screenTop == <span class="string">"number"</span>) ?</span><br><span class="line">                <span class="built_in">window</span>.screenTop : <span class="built_in">window</span>.screenY ;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="u8BBE_u7F6E_u4F4D_u7F6E"><a href="#u8BBE_u7F6E_u4F4D_u7F6E" class="headerlink" title="设置位置"></a>设置位置</h4><p><em>浏览器可能会禁用这些方法</em></p>
+<h4 id="设置位置"><a href="#u8BBE_u7F6E_u4F4D_u7F6E" class="headerlink" title="设置位置"></a>设置位置</h4><p><em>浏览器可能会禁用这些方法</em></p>
 <ul>
 <li><code>moveTo()</code> 接受x,y两个轴上的绝对像素值（新的位置） </li>
 <li><code>moveBy()</code> 接受x,y两个轴上的相对像素值（要移动的距离）</li>
 </ul>
 <p><br></p>
-<h3 id="u7A97_u53E3_u5927_u5C0F"><a href="#u7A97_u53E3_u5927_u5C0F" class="headerlink" title="窗口大小"></a>窗口大小</h3><p><em>这部分内容的整理都来自于《js高级程序设计（第三版）》，但是在实际操作过程中（Mac系统，2016年1约29日，除IE以外的最新版本浏览器），下述的部分跨浏览器兼容问题已经被统一</em></p>
-<h4 id="u83B7_u53D6_u5927_u5C0F"><a href="#u83B7_u53D6_u5927_u5C0F" class="headerlink" title="获取大小"></a>获取大小</h4><ul>
+<h3 id="窗口大小"><a href="#u7A97_u53E3_u5927_u5C0F" class="headerlink" title="窗口大小"></a>窗口大小</h3><p><em>这部分内容的整理都来自于《js高级程序设计（第三版）》，但是在实际操作过程中（Mac系统，2016年1约29日，除IE以外的最新版本浏览器），下述的部分跨浏览器兼容问题已经被统一</em></p>
+<h4 id="获取大小"><a href="#u83B7_u53D6_u5927_u5C0F" class="headerlink" title="获取大小"></a>获取大小</h4><ul>
 <li><p><code>innerWidth</code> <code>innerHeight</code> 返回viewport的大小，包含滚动条（如果有的话）</p>
 </li>
 <li><p><code>outerWidth</code> <code>outerHright</code> 返回浏览器窗口的大小</p>
@@ -258,13 +258,13 @@ history对象（历史记录，跳转方法）">
 </li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> inWid = <span class="built_in">window</span>.innerWidth;</span><br><span class="line"><span class="keyword">var</span> inHei = <span class="built_in">window</span>.innerHeight;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"innerWidth:"</span> + inWid + <span class="string">", innerHeight:"</span> + inHei;</span><br><span class="line"><span class="built_in">console</span>.log(str1);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> outWid = <span class="built_in">window</span>.outerWidth;</span><br><span class="line"><span class="keyword">var</span> outHei = <span class="built_in">window</span>.outerHeight;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">"outerWidth:"</span> + outWid + <span class="string">", outerHeight:"</span> + outHei;</span><br><span class="line"><span class="built_in">console</span>.log(str2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> clientWid = <span class="built_in">document</span>.documentElement.clientWidth;</span><br><span class="line"><span class="keyword">var</span> clientHei = <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line"><span class="built_in">console</span>.log(clientWid + <span class="string">","</span> + clientHei);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bodyClientWid = <span class="built_in">document</span>.documentElement.clientWidth;</span><br><span class="line"><span class="keyword">var</span> bodyClientHei = <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line"><span class="built_in">console</span>.log(bodyClientWid + <span class="string">","</span> + bodyClientHei);</span><br></pre></td></tr></table></figure>
-<h4 id="u8BBE_u7F6E_u5927_u5C0F"><a href="#u8BBE_u7F6E_u5927_u5C0F" class="headerlink" title="设置大小"></a>设置大小</h4><p><em>浏览器可能会禁用这些方法</em></p>
+<h4 id="设置大小"><a href="#u8BBE_u7F6E_u5927_u5C0F" class="headerlink" title="设置大小"></a>设置大小</h4><p><em>浏览器可能会禁用这些方法</em></p>
 <ul>
 <li><code>resizeTo()</code> 新的宽度和高度</li>
 <li><code>resizeBy()</code> 与原宽高的差</li>
 </ul>
 <p><br></p>
-<h3 id="u5BFC_u822A_u4E0E_u6253_u5F00_u7A97_u53E3"><a href="#u5BFC_u822A_u4E0E_u6253_u5F00_u7A97_u53E3" class="headerlink" title="导航与打开窗口"></a>导航与打开窗口</h3><h4 id="u5C5E_u6027_u3001_u65B9_u6CD5"><a href="#u5C5E_u6027_u3001_u65B9_u6CD5" class="headerlink" title="属性、方法"></a>属性、方法</h4><ul>
+<h3 id="导航与打开窗口"><a href="#u5BFC_u822A_u4E0E_u6253_u5F00_u7A97_u53E3" class="headerlink" title="导航与打开窗口"></a>导航与打开窗口</h3><h4 id="属性-方法"><a href="#u5C5E_u6027_u3001_u65B9_u6CD5" class="headerlink" title="属性、方法"></a>属性、方法</h4><ul>
 <li><p><code>window.open()</code></p>
 <p>  传入四个参数，<code>url</code>, <code>name</code>, <code>stringFeature</code>, <code>boolean</code></p>
 <ul>
@@ -306,19 +306,19 @@ history对象（历史记录，跳转方法）">
 <li><p><code>opener</code>属性<br>  新创建的窗口对象持有这个属性，并且回指打开该窗口的原始窗口对象</p>
 </li>
 </ul>
-<h4 id="u5B89_u5168_u9650_u5236"><a href="#u5B89_u5168_u9650_u5236" class="headerlink" title="安全限制"></a>安全限制</h4><p>出于安全考虑，window.open()的大部分属性特征都被禁用了，如location, status</p>
-<h4 id="u5C4F_u853D_u65B0_u5F39_u51FA_u7A97_u53E3"><a href="#u5C4F_u853D_u65B0_u5F39_u51FA_u7A97_u53E3" class="headerlink" title="屏蔽新弹出窗口"></a>屏蔽新弹出窗口</h4><ul>
+<h4 id="安全限制"><a href="#u5B89_u5168_u9650_u5236" class="headerlink" title="安全限制"></a>安全限制</h4><p>出于安全考虑，window.open()的大部分属性特征都被禁用了，如location, status</p>
+<h4 id="屏蔽新弹出窗口"><a href="#u5C4F_u853D_u65B0_u5F39_u51FA_u7A97_u53E3" class="headerlink" title="屏蔽新弹出窗口"></a>屏蔽新弹出窗口</h4><ul>
 <li><p>如果新弹出窗口被屏蔽，则window.open()有可能会返回null</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> blocked = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newWindow = <span class="built_in">window</span>.open(url, name, stringFeature);</span><br><span class="line">    <span class="keyword">if</span>(newWindow == <span class="literal">null</span>) &#123;</span><br><span class="line">        blocked = <span class="literal">true</span>;</span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">catch</span>(ex) &#123;</span><br><span class="line">        blocked = ture;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (blocked) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"this new window is blocked"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果窗口被屏蔽，open一般会抛错，所以用try-cacth块保证代码执行</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><br></p>
-<h3 id="u95F4_u6B47_u8C03_u7528_u4E0E_u8D85_u65F6_u8C03_u7528"><a href="#u95F4_u6B47_u8C03_u7528_u4E0E_u8D85_u65F6_u8C03_u7528" class="headerlink" title="间歇调用与超时调用"></a>间歇调用与超时调用</h3><p><em>与eval不同，间歇调用与超时调用调用的代码是在全局环境下运行的，所以this指向window</em></p>
-<h4 id="u95F4_u6B47_u8C03_u7528"><a href="#u95F4_u6B47_u8C03_u7528" class="headerlink" title="间歇调用"></a>间歇调用</h4><ul>
+<h3 id="间歇调用与超时调用"><a href="#u95F4_u6B47_u8C03_u7528_u4E0E_u8D85_u65F6_u8C03_u7528" class="headerlink" title="间歇调用与超时调用"></a>间歇调用与超时调用</h3><p><em>与eval不同，间歇调用与超时调用调用的代码是在全局环境下运行的，所以this指向window</em></p>
+<h4 id="间歇调用"><a href="#u95F4_u6B47_u8C03_u7528" class="headerlink" title="间歇调用"></a>间歇调用</h4><ul>
 <li><code>setInterval</code></li>
 <li><code>clearInterval</code></li>
 </ul>
-<h4 id="u8D85_u65F6_u8C03_u7528"><a href="#u8D85_u65F6_u8C03_u7528" class="headerlink" title="超时调用"></a>超时调用</h4><ul>
+<h4 id="超时调用"><a href="#u8D85_u65F6_u8C03_u7528" class="headerlink" title="超时调用"></a>超时调用</h4><ul>
 <li><code>setTimeout</code></li>
 <li><p><code>clearTimeout</code></p>
 </li>
@@ -327,7 +327,7 @@ history对象（历史记录，跳转方法）">
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 移动元素</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveElem</span>(<span class="params">elemClass, final_x, final_y, interval</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//获取元素 </span></span><br><span class="line">    <span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementsByClassName(elemClass)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证假设</span></span><br><span class="line">    <span class="keyword">if</span>(elem.movement) &#123;</span><br><span class="line">        clearTimeout(elem.movement);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!elem.style.left) &#123;</span><br><span class="line">        elem.style.left = <span class="string">"0px"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!elem.style.top) &#123;</span><br><span class="line">     elem.style.top = <span class="string">"0px"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取当前位置</span></span><br><span class="line">    <span class="keyword">var</span> xpos = <span class="built_in">parseInt</span>(elem.style.left);</span><br><span class="line">    <span class="keyword">var</span> ypos = <span class="built_in">parseInt</span>(elem.style.top);</span><br><span class="line">    <span class="keyword">var</span> dist = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断</span></span><br><span class="line">    <span class="keyword">if</span> (xpos == final_x &amp;&amp; ypos == final_y) &#123; <span class="keyword">return</span> ture&#125;;</span><br><span class="line">    <span class="keyword">if</span> (xpos &lt; final_x)&#123;</span><br><span class="line">        dist = <span class="built_in">Math</span>.ceil(final_x - xpos) / <span class="number">10</span>;</span><br><span class="line">        xpos += dist;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xpos &gt; final_x)&#123;</span><br><span class="line">        dist = <span class="built_in">Math</span>.ceil(xpos - final_x) / <span class="number">10</span>;</span><br><span class="line">        xpos -= dist;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ypos &lt; final_y)&#123;</span><br><span class="line">        dist = <span class="built_in">Math</span>.ceil(final_y - ypos) / <span class="number">10</span>;</span><br><span class="line">        ypos += dist;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ypos &gt; final_y)&#123;</span><br><span class="line">        dist = <span class="built_in">Math</span>.ceil(ypos - final_y) / <span class="number">10</span>;</span><br><span class="line">        ypos -= dist;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移动</span></span><br><span class="line">    elem.style.left = xpos + <span class="string">"px"</span>;</span><br><span class="line">    elem.style.top = ypos + <span class="string">"px"</span>;</span><br><span class="line">    <span class="keyword">var</span> repeat = <span class="string">"moveElem('"</span> + elemClass + <span class="string">"',"</span> + final_x + <span class="string">","</span> + final_y + <span class="string">","</span> + interval +<span class="string">")"</span>;</span><br><span class="line">    elem.movement = setTimeout(repeat, interval);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h3 id="u7CFB_u7EDF_u5BF9_u8BDD_u6846"><a href="#u7CFB_u7EDF_u5BF9_u8BDD_u6846" class="headerlink" title="系统对话框"></a>系统对话框</h3><h4 id="alert"><a href="#alert" class="headerlink" title="alert"></a><code>alert</code></h4><h4 id="confirm"><a href="#confirm" class="headerlink" title="confirm"></a><code>confirm</code></h4><ul>
+<h3 id="系统对话框"><a href="#u7CFB_u7EDF_u5BF9_u8BDD_u6846" class="headerlink" title="系统对话框"></a>系统对话框</h3><h4 id="alert"><a href="#alert" class="headerlink" title="alert"></a><code>alert</code></h4><h4 id="confirm"><a href="#confirm" class="headerlink" title="confirm"></a><code>confirm</code></h4><ul>
 <li><p>接受一个字符串型参数，为显示在验证框上的文字</p>
 </li>
 <li><p>点击确认会返回true</p>
@@ -342,8 +342,8 @@ history对象（历史记录，跳转方法）">
 <li>点击取消会返回null</li>
 </ul>
 <h4 id="print"><a href="#print" class="headerlink" title="print"></a><code>print</code></h4><h4 id="find"><a href="#find" class="headerlink" title="find"></a><code>find</code></h4><p><br></p>
-<h2 id="location"><a href="#location" class="headerlink" title="location"></a>location</h2><h3 id="u5C5E_u6027"><a href="#u5C5E_u6027" class="headerlink" title="属性"></a>属性</h3><p><code>href</code> <code>pathname</code><br><code>host</code> <code>hostname</code> <code>port</code><br><code>hash</code> <code>search</code> <code>protocal</code></p>
-<h3 id="u4F4D_u7F6E_u65B9_u6CD5"><a href="#u4F4D_u7F6E_u65B9_u6CD5" class="headerlink" title="位置方法"></a>位置方法</h3><ul>
+<h2 id="location"><a href="#location" class="headerlink" title="location"></a>location</h2><h3 id="属性"><a href="#u5C5E_u6027" class="headerlink" title="属性"></a>属性</h3><p><code>href</code> <code>pathname</code><br><code>host</code> <code>hostname</code> <code>port</code><br><code>hash</code> <code>search</code> <code>protocal</code></p>
+<h3 id="位置方法"><a href="#u4F4D_u7F6E_u65B9_u6CD5" class="headerlink" title="位置方法"></a>位置方法</h3><ul>
 <li><p>直接为location对象的href, host, hostname, port, hash赋值，可以改变浏览器的位置</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location.href = <span class="string">"new url"</span>;</span><br></pre></td></tr></table></figure>
 </li>
@@ -359,10 +359,10 @@ history对象（历史记录，跳转方法）">
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假如我们需要使用下面这种很笨的方法进行重定向……</span></span><br><span class="line"><span class="keyword">var</span> text = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">5</span>,</span><br><span class="line">    min = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">redirect</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    text.textContent = count;</span><br><span class="line">    count--;</span><br><span class="line">    <span class="keyword">if</span>(count &gt;= min) &#123;</span><br><span class="line">        setTimeout(redirect, <span class="number">1000</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        text.textContent = <span class="string">"即将重定向至……"</span>;</span><br><span class="line">        <span class="keyword">var</span> rst = <span class="string">"location.replace('new url')"</span>;</span><br><span class="line">        setTimeout(rst, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setTimeout(redirect,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="u622A_u53D6_u5B57_u7B26_u4E32"><a href="#u622A_u53D6_u5B57_u7B26_u4E32" class="headerlink" title="截取字符串"></a>截取字符串</h3><p>location对象截取字符串参数</p>
+<h3 id="截取字符串"><a href="#u622A_u53D6_u5B57_u7B26_u4E32" class="headerlink" title="截取字符串"></a>截取字符串</h3><p>location对象截取字符串参数</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryStringArgs</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> qs = (location.search.length &gt; <span class="number">0</span> ? location.search.slice(<span class="number">1</span>) : <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> args = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> items = qs.length ? qs.split(<span class="string">"&amp;"</span>) : [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> item = <span class="literal">null</span>,</span><br><span class="line">        name = <span class="literal">null</span>,</span><br><span class="line">        value = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>,</span><br><span class="line">        len = items.length;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        item = items[i].split(<span class="string">"="</span>);</span><br><span class="line">        name = <span class="built_in">decodeURIComponent</span>(item[<span class="number">0</span>]);</span><br><span class="line">        value = <span class="built_in">decodeURIComponent</span>(item[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(name.length) &#123;</span><br><span class="line">            args[name] = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> args;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h2><h3 id="u5C5E_u6027-1"><a href="#u5C5E_u6027-1" class="headerlink" title="属性"></a>属性</h3><h3 id="u63D2_u4EF6_u68C0_u6D4B"><a href="#u63D2_u4EF6_u68C0_u6D4B" class="headerlink" title="插件检测"></a>插件检测</h3><p><code>navigator.plugins</code>属性</p>
+<h2 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h2><h3 id="属性"><a href="#u5C5E_u6027-1" class="headerlink" title="属性"></a>属性</h3><h3 id="插件检测"><a href="#u63D2_u4EF6_u68C0_u6D4B" class="headerlink" title="插件检测"></a>插件检测</h3><p><code>navigator.plugins</code>属性</p>
 <p>plugins数组每一项都包含下列属性：</p>
 <ul>
 <li><code>name</code> 插件的<strong>名称</strong></li>
@@ -374,12 +374,12 @@ history对象（历史记录，跳转方法）">
 <p><br></p>
 <h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><p><br></p>
 <h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p><code>history</code>对象保存着当前窗口打开以来的所有历史记录，处于安全考虑不会保存url的具体信息</p>
-<h3 id="u8DF3_u8F6C_u65B9_u6CD5"><a href="#u8DF3_u8F6C_u65B9_u6CD5" class="headerlink" title="跳转方法"></a>跳转方法</h3><ul>
+<h3 id="跳转方法"><a href="#u8DF3_u8F6C_u65B9_u6CD5" class="headerlink" title="跳转方法"></a>跳转方法</h3><ul>
 <li><code>history.go()</code> 传入正数或负数，向前后跳转到指定页面</li>
 <li><code>history.back()</code> 后退</li>
 <li><code>history.foward()</code> 前进</li>
 </ul>
-<h3 id="u9875_u9762_u6570_u8BB0_u5F55"><a href="#u9875_u9762_u6570_u8BB0_u5F55" class="headerlink" title="页面数记录"></a>页面数记录</h3><ul>
+<h3 id="页面数记录"><a href="#u9875_u9762_u6570_u8BB0_u5F55" class="headerlink" title="页面数记录"></a>页面数记录</h3><ul>
 <li><p><code>history.length</code> 该属性保存了当前页面打开过的页面数量</p>
 </li>
 <li><p>当前页面是否是第一次被打开</p>
@@ -389,7 +389,7 @@ history对象（历史记录，跳转方法）">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/30/javascript_知识点整理_06_BOM/" data-id="ciyzhlkx4000ix862yug69rje" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/30/javascript_知识点整理_06_BOM/" data-id="ciyzycpjo000il9626ykh3dml" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/">BOM</a></li></ul>
@@ -431,6 +431,23 @@ history对象（历史记录，跳转方法）">
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -500,23 +517,6 @@ history对象（历史记录，跳转方法）">
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -526,7 +526,7 @@ history对象（历史记录，跳转方法）">
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -535,7 +535,7 @@ history对象（历史记录，跳转方法）">
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -544,7 +544,7 @@ history对象（历史记录，跳转方法）">
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

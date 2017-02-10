@@ -115,11 +115,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -184,7 +184,7 @@
 <p>其实要解决这个问题很简单，下面总结一下我使用的方法以及网上看到的几种：</p>
 <a id="more"></a>
 <h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><p>在父元素上使用<code>font-size: 0</code>，可以使得子元素两侧的空格因为没有设置字体大小而消失。<br>有看到说chrome浏览器是不支持这个方法的，<s>但是现在似乎没什么大的问题了</s>。对于汉字chrome还是有最小12px的要求限制</p>
-<h3 id="u79FB_u9664_u7A7A_u683C"><a href="#u79FB_u9664_u7A7A_u683C" class="headerlink" title="移除空格"></a>移除空格</h3><p>把标签的书写顺序调整一下即可</p>
+<h3 id="移除空格"><a href="#u79FB_u9664_u7A7A_u683C" class="headerlink" title="移除空格"></a>移除空格</h3><p>把标签的书写顺序调整一下即可</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>或者将标签换行</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -192,7 +192,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"space"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="comment">&lt;!--</span><br><span class="line">    --&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span>&gt;</span>子元素<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><p>因为子元素之间的间隔是水平的，所以也可以直接给每个元素使用<code>margin-right:-5px</code>的样式。</p>
 <p>但是考虑到不同浏览器下间隔不一，所以使用margin也需要具体调整。</p>
-<h3 id="letter-spacing_u548Cword-spacing"><a href="#letter-spacing_u548Cword-spacing" class="headerlink" title="letter-spacing和word-spacing"></a>letter-spacing和word-spacing</h3><p>直接给子元素加上这样的样式即可调整，但是要使用负值。</p>
+<h3 id="letter-spacing和word-spacing"><a href="#letter-spacing_u548Cword-spacing" class="headerlink" title="letter-spacing和word-spacing"></a>letter-spacing和word-spacing</h3><p>直接给子元素加上这样的样式即可调整，但是要使用负值。</p>
 <hr>
 <blockquote>
 <p>参考了<a href="http://www.zhangxinxu.com/wordpress/?p=2357" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/?p=2357</a></p>
@@ -201,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="ciyzhll0r0042x862zadgx7tg" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/14/20160114消除inline-block两侧间距bug/" data-id="ciyzycpmy0046l962jqwmwr0m" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -243,6 +243,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -312,23 +329,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -338,7 +338,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -347,7 +347,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -356,7 +356,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

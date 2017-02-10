@@ -114,11 +114,11 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -182,7 +182,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 <p>BFC，即block formatting context，也叫块级格式化上下文，是文档里的一个渲染区域，定义了这个区域里的元素以一种什么样的方式进行排列布局，以及这个区域与临近的元素是怎样的关系。</p>
 <a id="more"></a>
 <hr>
-<h3 id="u5982_u4F55_u8BBE_u7F6EBFC"><a href="#u5982_u4F55_u8BBE_u7F6EBFC" class="headerlink" title="如何设置BFC"></a>如何设置BFC</h3><ul>
+<h3 id="如何设置bfc"><a href="#u5982_u4F55_u8BBE_u7F6EBFC" class="headerlink" title="如何设置BFC"></a>如何设置BFC</h3><ul>
 <li><p><code>html</code>会生成一个BFC</p>
 </li>
 <li><p><code>overflow</code>不为<code>visible</code></p>
@@ -195,7 +195,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 </li>
 </ul>
 <hr>
-<h3 id="BFC_u5185_u90E8_u5E03_u5C40_u89C4_u5219"><a href="#BFC_u5185_u90E8_u5E03_u5C40_u89C4_u5219" class="headerlink" title="BFC内部布局规则"></a>BFC内部布局规则</h3><ul>
+<h3 id="bfc内部布局规则"><a href="#BFC_u5185_u90E8_u5E03_u5C40_u89C4_u5219" class="headerlink" title="BFC内部布局规则"></a>BFC内部布局规则</h3><ul>
 <li><p>BFC内的子元素从上到下顺序排列</p>
 </li>
 <li><p>BFC内子元素的margin-left和包含块的border-left相接触（从右往左排列则相反）</p>
@@ -216,7 +216,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 </ul>
 <!-- more -->
 <hr>
-<h3 id="BFC_u4E0E_u6E05_u9664_u6D6E_u52A8"><a href="#BFC_u4E0E_u6E05_u9664_u6D6E_u52A8" class="headerlink" title="BFC与清除浮动"></a>BFC与<strong>清除浮动</strong></h3><p>清除浮动用得比较多的方法有下面的1和2两种，其实其他的方法都跟BFC有关</p>
+<h3 id="bfc与清除浮动"><a href="#BFC_u4E0E_u6E05_u9664_u6D6E_u52A8" class="headerlink" title="BFC与清除浮动"></a>BFC与<strong>清除浮动</strong></h3><p>清除浮动用得比较多的方法有下面的1和2两种，其实其他的方法都跟BFC有关</p>
 <ol>
 <li><p>在浮动元素后面手动添加一个块级元素（太麻烦了）</p>
 </li>
@@ -235,7 +235,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 <li>设置绝对定位或者视窗固定</li>
 </ul>
 <hr>
-<h3 id="BFC_u4E0E_u56FE_u6587_u6DF7_u6392"><a href="#BFC_u4E0E_u56FE_u6587_u6DF7_u6392" class="headerlink" title="BFC与图文混排"></a>BFC与图文混排</h3><p>浮动元素脱离文档流是”半脱离“，如果旁边有个元素没有浮动或者设置清除浮动，这个元素里地文字会移动，但是box本身不动。说不太明白，看看这个</p>
+<h3 id="bfc与图文混排"><a href="#BFC_u4E0E_u56FE_u6587_u6DF7_u6392" class="headerlink" title="BFC与图文混排"></a>BFC与图文混排</h3><p>浮动元素脱离文档流是”半脱离“，如果旁边有个元素没有浮动或者设置清除浮动，这个元素里地文字会移动，但是box本身不动。说不太明白，看看这个</p>
 <p></p><p data-height="269" data-theme-id="0" data-slug-hash="BjwGgw" data-default-tab="result" data-user="lcc19941214" class="codepen">See the Pen <a href="http://codepen.io/lcc19941214/pen/BjwGgw/" target="_blank" rel="external">BjwGgw</a> by ConanTvos (<a href="http://codepen.io/lcc19941214" target="_blank" rel="external">@lcc19941214</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
@@ -245,19 +245,19 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
 </blockquote>
 <p>然后，使用BFC就可以巧妙的避开这一问题</p>
 <hr>
-<h3 id="BFC_u4E0E_u591A_u5217_u81EA_u9002_u5E94_u5E03_u5C40"><a href="#BFC_u4E0E_u591A_u5217_u81EA_u9002_u5E94_u5E03_u5C40" class="headerlink" title="BFC与多列自适应布局"></a>BFC与多列自适应布局</h3><p>和上面的一样，就是利用BFC不与浮动元素重叠这一原理</p>
+<h3 id="bfc与多列自适应布局"><a href="#BFC_u4E0E_u591A_u5217_u81EA_u9002_u5E94_u5E03_u5C40" class="headerlink" title="BFC与多列自适应布局"></a>BFC与多列自适应布局</h3><p>和上面的一样，就是利用BFC不与浮动元素重叠这一原理</p>
 <hr>
-<h3 id="BFC_u5185_u90E8_u5B50_u5143_u7D20_u7684margin_u91CD_u53E0"><a href="#BFC_u5185_u90E8_u5B50_u5143_u7D20_u7684margin_u91CD_u53E0" class="headerlink" title="BFC内部子元素的margin重叠"></a>BFC内部子元素的margin重叠</h3><blockquote>
+<h3 id="bfc内部子元素的margin重叠"><a href="#BFC_u5185_u90E8_u5B50_u5143_u7D20_u7684margin_u91CD_u53E0" class="headerlink" title="BFC内部子元素的margin重叠"></a>BFC内部子元素的margin重叠</h3><blockquote>
 <p>原理：同一个BFC内的兄弟元素的上下margin重叠</p>
 </blockquote>
 <p>所以给两个兄弟元素设置一个包含块并设置BFC即可，因为这就不是一个BFC了嘛 XD</p>
 <hr>
-<h3 id="u5916_u8FB9_u6846_u584C_u9677"><a href="#u5916_u8FB9_u6846_u584C_u9677" class="headerlink" title="外边框塌陷"></a>外边框塌陷</h3><p>可以看看另一篇日志<a href="https://github.com/lcc19941214/01/17/20160117margincollapse/" target="_blank" rel="external">外边距塌陷</a>是什么</p>
+<h3 id="外边框塌陷"><a href="#u5916_u8FB9_u6846_u584C_u9677" class="headerlink" title="外边框塌陷"></a>外边框塌陷</h3><p>可以看看另一篇日志<a href="https://github.com/lcc19941214/01/17/20160117margincollapse/" target="_blank" rel="external">外边距塌陷</a>是什么</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="ciyzhll0e003ox862paon0y41" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/16/20160116BFC/" data-id="ciyzycpmi003sl962wqgoeyl2" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -299,6 +299,23 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -368,23 +385,6 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -394,7 +394,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -403,7 +403,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -412,7 +412,7 @@ BFC，即block formatting context，也叫块级格式化上下文，是文档�
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

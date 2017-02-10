@@ -102,11 +102,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -166,7 +166,7 @@
         <p>使用HTML5提供的drag and drop API实现节点拖拽排序</p>
 <a id="more"></a>
 <hr>
-<h3 id="1-__u9879_u76EE_u9700_u6C42"><a href="#1-__u9879_u76EE_u9700_u6C42" class="headerlink" title="1. 项目需求"></a>1. 项目需求</h3><p>项目的需求其实看起来比较简单，通过select组件选择不同的数据项后，可以有一个拖拽组件来调整这个数据项在数组中的顺序，同时更新存储数据项的数组，做到实时刷新数组。</p>
+<h3 id="1-项目需求"><a href="#1-__u9879_u76EE_u9700_u6C42" class="headerlink" title="1. 项目需求"></a>1. 项目需求</h3><p>项目的需求其实看起来比较简单，通过select组件选择不同的数据项后，可以有一个拖拽组件来调整这个数据项在数组中的顺序，同时更新存储数据项的数组，做到实时刷新数组。</p>
 <p>但是具体实现起来的时候发现了一些问题：</p>
 <ol>
 <li><p>我们项目使用的是react框架，整个项目没有使用过jquery，所以不能因为这个拖拽排序的功能而使用jq插件，增加打包体积</p>
@@ -176,7 +176,7 @@
 <li><p>比较好的一点是这个拖拽是用在公司内部的系统里，所以也不用考虑兼容性的问题，因此我最开始也考虑使用一些插件，但是坑比较多，下面会做一些介绍。</p>
 </li>
 </ol>
-<h3 id="2-__u5C1D_u8BD5_u8FC7_u7684_u63D2_u4EF6_u4EE5_u53CAreact_u7684_u6E32_u67D3_u673A_u5236"><a href="#2-__u5C1D_u8BD5_u8FC7_u7684_u63D2_u4EF6_u4EE5_u53CAreact_u7684_u6E32_u67D3_u673A_u5236" class="headerlink" title="2. 尝试过的插件以及react的渲染机制"></a>2. 尝试过的插件以及react的渲染机制</h3><p>1.<a href="http://gaearon.github.io/react-dnd/" target="_blank" rel="external">React DND</a></p>
+<h3 id="2-尝试过的插件以及react的渲染机制"><a href="#2-__u5C1D_u8BD5_u8FC7_u7684_u63D2_u4EF6_u4EE5_u53CAreact_u7684_u6E32_u67D3_u673A_u5236" class="headerlink" title="2. 尝试过的插件以及react的渲染机制"></a>2. 尝试过的插件以及react的渲染机制</h3><p>1.<a href="http://gaearon.github.io/react-dnd/" target="_blank" rel="external">React DND</a></p>
 <p>拖拽功能很完善，API相对还是很强大的。使用的是HTML5的drag and drop API.<br>文档写的也还是很不错的，顶层API里对于拖拽的整个交互过程比较清晰，是我觉得逻辑很规范的一套实现标准。定义了dragSource（拖拽源）, dropTarget（拖放目标）, dragLayer（拖放层）等一系列概念。<br>但是因为体积太大了，只能放弃。</p>
 <p>2.<a href="https://github.com/bokuweb/react-sortable-pane" target="_blank" rel="external">react-sortable-pane</a></p>
 <p>拖拽偏向于位置移动和形状的变化，在排序上做的也是我觉得相对最好的一个，可以直接设置isSortable和isResizable选择是否禁用排序和缩放。不过对于div的样式定义需要直接写到jsx语法里，感觉很不爽。<br>对于事件的扩展支持的比较好，规定好了水平或者垂直方向上的排序后，每次拖拽都会返回一个oldArray和一个newArray，分别对应排序前和排序后的数据数组（正是我想要的！）<br>但是正如前面说的，这个插件强调样式，如果不定义宽高的话，会有意想不到的坑和bug，对于需要不定高的排序组件来说，这个插件的可用性瞬间下降了许多。</p>
@@ -189,7 +189,7 @@
 <p><strong>react在15.0之后取消了data-reactid，但是其内部的渲染机制依然按照上面这样一种逻辑，具体的情况可以参考我的另一篇日志<a href="http://lcc19941214.github.io/2016/06/13/20160613React-render-method-with-reacid/">React中渲染节点的一点小思考</a></strong></p>
 <p>4.<a href="https://react.rocks/tag/Drag_Drop" target="_blank" rel="external">其他拖拽组件</a></p>
 <p>其实还尝试好几款其他的插件，要不是排序支持的不好，要不就是体积太大。</p>
-<h3 id="3-_HTML5_u539F_u751F_u5B9E_u73B0"><a href="#3-_HTML5_u539F_u751F_u5B9E_u73B0" class="headerlink" title="3. HTML5原生实现"></a>3. HTML5原生实现</h3><p>综上所述，各种插件各种坑，最后还是手写吧。</p>
+<h3 id="3-html5原生实现"><a href="#3-_HTML5_u539F_u751F_u5B9E_u73B0" class="headerlink" title="3. HTML5原生实现"></a>3. HTML5原生实现</h3><p>综上所述，各种插件各种坑，最后还是手写吧。</p>
 <p>参考了这一篇<a href="http://webcloud.se/sortable-list-component-react-js/" target="_blank" rel="external">A Sortable List Component in React utilizing<br>the HTML5 Drag &amp; Drop API</a>，其实感觉原生拖拽API也还是比较好使的，但是主要还是要搞清楚HTML5中提供的那几个drag和drop的API具体都有什么用。</p>
 <p>关于这几个API如何使用可以查看MDN，这里简单介绍一下</p>
 <ol>
@@ -198,7 +198,7 @@
 <li><p>事件详情<br><code>dragstart</code>：事件主体是被拖放元素，在开始拖放被拖放元素时触发。<br><code>darg</code>：事件主体是被拖放元素，在正在拖放被拖放元素时触发。<br><code>dragenter</code>：事件主体是目标元素，在被拖放元素进入某元素时触发。<br><code>dragover</code>：事件主体是目标元素，在被拖放在某元素内移动时触发。<br><code>dragleave</code>：事件主体是目标元素，在被拖放元素移出目标元素是触发。<br><code>drop</code>：事件主体是目标元素，在目标元素完全接受被拖放元素时触发。<br><code>dragend</code>：事件主体是被拖放元素，在整个拖放操作结束时触发。</p>
 </li>
 </ol>
-<h4 id="u6574_u4F53_u601D_u8DEF"><a href="#u6574_u4F53_u601D_u8DEF" class="headerlink" title="整体思路"></a>整体思路</h4><ol>
+<h4 id="整体思路"><a href="#u6574_u4F53_u601D_u8DEF" class="headerlink" title="整体思路"></a>整体思路</h4><ol>
 <li><p>使用HTML5的拖拽API(因为不需要兼容低版本浏览器)进行拖拽；</p>
 </li>
 <li><p>在排序这一点上，因为之前提到的react在渲染时会根据已有的节点顺序渲染，如果拖动并改变了了真实节点的顺序，同时也更新了状态，那么就会出现乱序的问题。</p>
@@ -207,10 +207,10 @@
 <p>（这个问题也可以通过新建一个sorted数据对象来解决，这个对象保存着改变顺序后的新的数据，渲染时使用旧的数据。但是感觉很不优雅，毕竟dom操作应该跟state操作同步才对）</p>
 <p>所以这里的解决方式是<br>1)拖拽事件发生时，隐藏拖拽源，并实时创建一个placeholder节点<br>2)根据拖拽的位置将实时placeholder插入到对应节点前后<br>3)拖拽结束时，获取插入位置，改变state中存储数据的顺序，显示拖拽源，隐藏placeholder</p>
 <p>因为HTML5中拖拽改变节点，其实是利用dataTransfer传递节点数据，只要不传递数据，利用placeholder模拟排序，就避免了dom顺序被拖动带来的二次渲染乱序问题。</p>
-<h4 id="u5982_u4F55_u83B7_u53D6_u63D2_u5165_u4F4D_u7F6E"><a href="#u5982_u4F55_u83B7_u53D6_u63D2_u5165_u4F4D_u7F6E" class="headerlink" title="如何获取插入位置"></a>如何获取插入位置</h4><p>拖拽排序，肯定还是绕不开排序这个问题，那么应该怎么获取新插入节点的顺序？呢</p>
+<h4 id="如何获取插入位置"><a href="#u5982_u4F55_u83B7_u53D6_u63D2_u5165_u4F4D_u7F6E" class="headerlink" title="如何获取插入位置"></a>如何获取插入位置</h4><p>拖拽排序，肯定还是绕不开排序这个问题，那么应该怎么获取新插入节点的顺序？呢</p>
 <p>一开始有想过使用dataset，将每个节点的位置信息存储在节点上，通过<code>element.dataset.order</code>获取节点的顺序，进行排序操作，但是因为真实节点的位置改变后，重新渲染dataset的值时，会出现前述乱序问题；而之后使用隐藏拖拽源这样的方式进行排序，可以很好的解决dataset重写的问题，但是为了让节点看起来更加干净，最后还是放弃了这个思路。</p>
 <p>那么，直接获取真实节点上的数据不行，我们还可以获取react dom上的数据呀！只要给每个节点传入一个prop记录其order就可以了，拖拽时间发生时通过回调函数传入当前props上的order给父组件，父组件通过这个order就可以查找到真实节点，同时进行数据的重拍。<br>实现起来可能略微有点绕，之后会有实例。</p>
-<h4 id="u5177_u4F53_u5B9E_u73B0"><a href="#u5177_u4F53_u5B9E_u73B0" class="headerlink" title="具体实现"></a>具体实现</h4><p>参考文章</p>
+<h4 id="具体实现"><a href="#u5177_u4F53_u5B9E_u73B0" class="headerlink" title="具体实现"></a>具体实现</h4><p>参考文章</p>
 <ol>
 <li><a href="http://www.html5jscss.com/html-5-drag-drop.html" target="_blank" rel="external">HTML 5的革新—— drag &amp;&amp; drop（拖动）</a></li>
 <li><a href="https://m.oschina.net/blog/219408" target="_blank" rel="external">原生Javascript+HTML5一步步实现拖拽排序</a></li>
@@ -220,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/06/12/20160612drag-and-drop-with-react/" data-id="ciyzhlkyl0026x862iq7sh4k1" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/06/12/20160612drag-and-drop-with-react/" data-id="ciyzycpl4002al962p67lwt9m" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -262,6 +262,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -331,23 +348,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -357,7 +357,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -366,7 +366,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -375,7 +375,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

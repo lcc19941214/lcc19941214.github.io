@@ -117,11 +117,11 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -188,14 +188,14 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
 </ul>
 <a id="more"></a>
 <hr>
-<h2 id="u8BF4_u8BF4js_u6807_u7B7E_u7684_u4F4D_u7F6E"><a href="#u8BF4_u8BF4js_u6807_u7B7E_u7684_u4F4D_u7F6E" class="headerlink" title="说说js标签的位置"></a>说说js标签的位置</h2><pre><code>为什么大家普遍把&lt;script src=&quot;&quot;&gt;&lt;/script&gt;这样的代码放在body最底部？
+<h2 id="说说js标签的位置"><a href="#u8BF4_u8BF4js_u6807_u7B7E_u7684_u4F4D_u7F6E" class="headerlink" title="说说js标签的位置"></a>说说js标签的位置</h2><pre><code>为什么大家普遍把&lt;script src=&quot;&quot;&gt;&lt;/script&gt;这样的代码放在body最底部？
 </code></pre><p>其实我之前看到这个问题的时候，脑海里和作者给的常规回答一样</p>
 <pre><code>因为浏览器生成Dom树的时候是一行一行读HTML代码的，script标签放在最后面就不会影响前面的页面的渲染。
 </code></pre><p>其实乍一看没什么问题，但是这里需要明确<em>页面渲染</em>到底是什么概念。</p>
 <p>不过比较好理解的是，上面这个答案指的是，因为页面渲染会因为<script src=""></script>的位置导致页面显示出现问题。</p>
 <p>先说说页面渲染，再来继续位置的问题：</p>
 <hr>
-<h2 id="u9875_u9762_u6E32_u67D3_u7684_u8FC7_u7A0B"><a href="#u9875_u9762_u6E32_u67D3_u7684_u8FC7_u7A0B" class="headerlink" title="页面渲染的过程"></a>页面渲染的过程</h2><ol>
+<h2 id="页面渲染的过程"><a href="#u9875_u9762_u6E32_u67D3_u7684_u8FC7_u7A0B" class="headerlink" title="页面渲染的过程"></a>页面渲染的过程</h2><ol>
 <li><p>首先浏览器请求html代码，然后并行发起image,css,js下载请求（无论在不在head里。这个随便找个图多的网站刷新看下timline就知道了），接着开始生成dom树</p>
 <ul>
 <li><p><em>注意是获取完html代码，读完之后才开始生成dom树</em></p>
@@ -226,7 +226,7 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
 </ul>
 </li>
 </ol>
-<h4 id="u5173_u4E8E_u91CD_u7ED8_u548C_u56DE_u6D41"><a href="#u5173_u4E8E_u91CD_u7ED8_u548C_u56DE_u6D41" class="headerlink" title="关于重绘和回流"></a>关于重绘和回流</h4><ul>
+<h4 id="关于重绘和回流"><a href="#u5173_u4E8E_u91CD_u7ED8_u548C_u56DE_u6D41" class="headerlink" title="关于重绘和回流"></a>关于重绘和回流</h4><ul>
 <li><p>render tree构建完毕，浏览器就开始绘制页面，这种包含对结构进行调整的就叫回流，至少会有一次<br>  （比如对元素的布局、尺寸的调整等）</p>
 </li>
 <li><p>重绘主要是表面上的，即回流结束后重新绘制受影响而调整的部分，比如换个颜色啥的，不会对结构造成影响</p>
@@ -234,7 +234,7 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
 <li><p>回流引起重绘，但是重绘不一定导致回流，因为根据js对样式或者dom的操作，重新绘制页面不一定会改变结构</p>
 </li>
 </ul>
-<h5 id="u56DE_u6D41_u4F55_u65F6_u53D1_u751F"><a href="#u56DE_u6D41_u4F55_u65F6_u53D1_u751F" class="headerlink" title="回流何时发生"></a>回流何时发生</h5><ol>
+<h5 id="回流何时发生"><a href="#u56DE_u6D41_u4F55_u65F6_u53D1_u751F" class="headerlink" title="回流何时发生"></a>回流何时发生</h5><ol>
 <li>页面渲染初始化</li>
 <li>添加或删除可见的dom元素</li>
 <li>元素位置发生变化</li>
@@ -242,7 +242,7 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
 <li>改变了盒子的尺寸（border, padding, margin, width, height）</li>
 <li>浏览器窗口尺寸发生改变</li>
 </ol>
-<h5 id="u5982_u4F55_u51CF_u5C11_u91CD_u7ED8_u548C_u56DE_u6D41"><a href="#u5982_u4F55_u51CF_u5C11_u91CD_u7ED8_u548C_u56DE_u6D41" class="headerlink" title="如何减少重绘和回流"></a>如何减少重绘和回流</h5><ol>
+<h5 id="如何减少重绘和回流"><a href="#u5982_u4F55_u51CF_u5C11_u91CD_u7ED8_u548C_u56DE_u6D41" class="headerlink" title="如何减少重绘和回流"></a>如何减少重绘和回流</h5><ol>
 <li><p>直接修改className，或者使用cssText<br> <em>浏览器优化：</em>浏览器会把多次会引发重绘和回流的操作放进一个队列里<br> 但是如果没有这个优化的话，每次操作都是立刻执行就会影响render tree，一次性执行多条语句效果就会好很多</p>
 </li>
 <li><p>尽量不要多次访问会引起浏览器flush队列的属性</p>
@@ -281,7 +281,7 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115从script标签的摆放位置来看看DOM树的渲染/" data-id="ciyzhll0o003yx8624myhdpkm" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/01/15/20160115从script标签的摆放位置来看看DOM树的渲染/" data-id="ciyzycpmu0042l962t8lr6anu" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li></ul>
@@ -323,6 +323,23 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -392,23 +409,6 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -418,7 +418,7 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -427,7 +427,7 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -436,7 +436,7 @@ JS 一定要放在 Body 的最底部么？聊聊浏览器的渲染机制
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

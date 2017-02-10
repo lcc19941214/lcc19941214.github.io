@@ -102,11 +102,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -169,19 +169,19 @@
 <a id="more"></a>
 <hr>
 <p><em>mac上使用git必须要用Xcode，这点很不爽……</em></p>
-<h3 id="u521B_u5EFA_u4ED3_u5E93"><a href="#u521B_u5EFA_u4ED3_u5E93" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>git init</p>
-<h3 id="u6DFB_u52A0_u6587_u4EF6"><a href="#u6DFB_u52A0_u6587_u4EF6" class="headerlink" title="添加文件"></a>添加文件</h3><p>git add 文件名（可用空格隔开）</p>
-<h3 id="commit_u6587_u4EF6"><a href="#commit_u6587_u4EF6" class="headerlink" title="commit文件"></a>commit文件</h3><p>git commit -m   “描述”</p>
+<h3 id="创建仓库"><a href="#u521B_u5EFA_u4ED3_u5E93" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>git init</p>
+<h3 id="添加文件"><a href="#u6DFB_u52A0_u6587_u4EF6" class="headerlink" title="添加文件"></a>添加文件</h3><p>git add 文件名（可用空格隔开）</p>
+<h3 id="commit文件"><a href="#commit_u6587_u4EF6" class="headerlink" title="commit文件"></a>commit文件</h3><p>git commit -m   “描述”</p>
 <ul>
 <li>禁用fast-faword ，使用 git merge –no-ff -m “description” branch-name</li>
 <li>da </li>
 </ul>
-<h3 id="u663E_u793A_u4ED3_u5E93_u6587_u4EF6_u72B6_u6001"><a href="#u663E_u793A_u4ED3_u5E93_u6587_u4EF6_u72B6_u6001" class="headerlink" title="显示仓库文件状态"></a>显示仓库文件状态</h3><p>git status  </p>
+<h3 id="显示仓库文件状态"><a href="#u663E_u793A_u4ED3_u5E93_u6587_u4EF6_u72B6_u6001" class="headerlink" title="显示仓库文件状态"></a>显示仓库文件状态</h3><p>git status  </p>
 <ul>
 <li>简写git st  </li>
 </ul>
-<h3 id="u663E_u793A_u4FEE_u6539_u7684_u5185_u5BB9"><a href="#u663E_u793A_u4FEE_u6539_u7684_u5185_u5BB9" class="headerlink" title="显示修改的内容"></a>显示修改的内容</h3><p>git diff<br>git diff <code>file</code></p>
-<h3 id="u7248_u672C_u56DE_u9000"><a href="#u7248_u672C_u56DE_u9000" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
+<h3 id="显示修改的内容"><a href="#u663E_u793A_u4FEE_u6539_u7684_u5185_u5BB9" class="headerlink" title="显示修改的内容"></a>显示修改的内容</h3><p>git diff<br>git diff <code>file</code></p>
+<h3 id="版本回退"><a href="#u7248_u672C_u56DE_u9000" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
 <li>git reset –hard    head^</li>
 <li>git reset –hard    head~100</li>
 <li>git reset –hard    commit id<ul>
@@ -190,13 +190,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="u65E5_u5FD7_u8BB0_u5F55"><a href="#u65E5_u5FD7_u8BB0_u5F55" class="headerlink" title="日志记录"></a>日志记录</h3><p>git log</p>
+<h3 id="日志记录"><a href="#u65E5_u5FD7_u8BB0_u5F55" class="headerlink" title="日志记录"></a>日志记录</h3><p>git log</p>
 <ul>
 <li>git log –prety==oneline 命令代表简要显示，即版本号和描述</li>
 <li>git log -graph 时间轴形式显示</li>
 </ul>
-<h3 id="u547D_u4EE4_u8BB0_u5F55"><a href="#u547D_u4EE4_u8BB0_u5F55" class="headerlink" title="命令记录"></a>命令记录</h3><p>git reflog</p>
-<h3 id="u4E22_u5F03_u4FEE_u6539"><a href="#u4E22_u5F03_u4FEE_u6539" class="headerlink" title="丢弃修改"></a>丢弃修改</h3><p>git checkout – <code>&lt;file&gt;</code></p>
+<h3 id="命令记录"><a href="#u547D_u4EE4_u8BB0_u5F55" class="headerlink" title="命令记录"></a>命令记录</h3><p>git reflog</p>
+<h3 id="丢弃修改"><a href="#u4E22_u5F03_u4FEE_u6539" class="headerlink" title="丢弃修改"></a>丢弃修改</h3><p>git checkout – <code>&lt;file&gt;</code></p>
 <ul>
 <li><code>--</code>命令表示丢弃修改，不添加的话，checkout表示切换分支</li>
 <li>让这个文件回到最近一次 git commit 或 git add 时的状态<ul>
@@ -206,18 +206,18 @@
 </li>
 <li>git reset HEAD <code>&lt;file&gt;</code> 把暂存区的修改撤销掉（unstage），重新放回工作区，即取消本次add操作</li>
 </ul>
-<h3 id="u5220_u9664_u6587_u4EF6"><a href="#u5220_u9664_u6587_u4EF6" class="headerlink" title="删除文件"></a>删除文件</h3><p>git rm</p>
+<h3 id="删除文件"><a href="#u5220_u9664_u6587_u4EF6" class="headerlink" title="删除文件"></a>删除文件</h3><p>git rm</p>
 <ul>
 <li>文件删除后可用版本回退，从版本库中获取到最新版本的文件</li>
 </ul>
 <hr>
-<h2 id="u8FDC_u7A0B_u4ED3_u5E93"><a href="#u8FDC_u7A0B_u4ED3_u5E93" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="u6DFB_u52A0_u8FDC_u7A0B_u5E93"><a href="#u6DFB_u52A0_u8FDC_u7A0B_u5E93" class="headerlink" title="添加远程库"></a>添加远程库</h3><p>git remote add origin git@server-name:path/repo-name.git</p>
-<h3 id="u63A8_u9001_u81F3_u8FDC_u7A0B_u5E93"><a href="#u63A8_u9001_u81F3_u8FDC_u7A0B_u5E93" class="headerlink" title="推送至远程库"></a>推送至远程库</h3><p>git push -u origin master</p>
+<h2 id="远程仓库"><a href="#u8FDC_u7A0B_u4ED3_u5E93" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="添加远程库"><a href="#u6DFB_u52A0_u8FDC_u7A0B_u5E93" class="headerlink" title="添加远程库"></a>添加远程库</h3><p>git remote add origin git@server-name:path/repo-name.git</p>
+<h3 id="推送至远程库"><a href="#u63A8_u9001_u81F3_u8FDC_u7A0B_u5E93" class="headerlink" title="推送至远程库"></a>推送至远程库</h3><p>git push -u origin master</p>
 <ul>
 <li>使用-u命令使本地master和远程master分支关联</li>
 <li>git push origin master</li>
 </ul>
-<h3 id="u514B_u9686_u8FDC_u7A0B_u4ED3_u5E93"><a href="#u514B_u9686_u8FDC_u7A0B_u4ED3_u5E93" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><p>git clone</p>
+<h3 id="克隆远程仓库"><a href="#u514B_u9686_u8FDC_u7A0B_u4ED3_u5E93" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><p>git clone</p>
 <p>##多人协作</p>
 <p>查看远程信息<br>git remote</p>
 <ul>
@@ -229,22 +229,22 @@
 </ul>
 <p>获取最新提交<br>git pull（git pr)<br>git fetch</p>
 <hr>
-<h2 id="u5206_u652F_u7BA1_u7406"><a href="#u5206_u652F_u7BA1_u7406" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="u67E5_u770B_u5206_u652F"><a href="#u67E5_u770B_u5206_u652F" class="headerlink" title="查看分支"></a>查看分支</h3><p>git branch</p>
-<h3 id="u521B_u5EFA_u5206_u652F"><a href="#u521B_u5EFA_u5206_u652F" class="headerlink" title="创建分支"></a>创建分支</h3><p>git branch <code>&lt;name&gt;</code></p>
-<h3 id="u5207_u6362_u5206_u652F"><a href="#u5207_u6362_u5206_u652F" class="headerlink" title="切换分支"></a>切换分支</h3><p>git checkout <code>&lt;name&gt;</code></p>
-<h3 id="u521B_u5EFA_u5E76_u5207_u6362"><a href="#u521B_u5EFA_u5E76_u5207_u6362" class="headerlink" title="创建并切换"></a>创建并切换</h3><p>git checkout -b <code>&lt;name&gt;</code></p>
-<h3 id="u5408_u5E76_u81F3_u5F53_u524D_u5206_u652F"><a href="#u5408_u5E76_u81F3_u5F53_u524D_u5206_u652F" class="headerlink" title="合并至当前分支"></a>合并至当前分支</h3><p>git merge <code>&lt;name&gt;</code></p>
-<h3 id="u5220_u9664_u5206_u652F"><a href="#u5220_u9664_u5206_u652F" class="headerlink" title="删除分支"></a>删除分支</h3><p>git branch -d <code>&lt;name&gt;</code></p>
-<h3 id="u67E5_u770B_u5206_u652F_u5408_u5E76_u60C5_u51B5"><a href="#u67E5_u770B_u5206_u652F_u5408_u5E76_u60C5_u51B5" class="headerlink" title="查看分支合并情况"></a>查看分支合并情况</h3><p>git log –graph</p>
+<h2 id="分支管理"><a href="#u5206_u652F_u7BA1_u7406" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="查看分支"><a href="#u67E5_u770B_u5206_u652F" class="headerlink" title="查看分支"></a>查看分支</h3><p>git branch</p>
+<h3 id="创建分支"><a href="#u521B_u5EFA_u5206_u652F" class="headerlink" title="创建分支"></a>创建分支</h3><p>git branch <code>&lt;name&gt;</code></p>
+<h3 id="切换分支"><a href="#u5207_u6362_u5206_u652F" class="headerlink" title="切换分支"></a>切换分支</h3><p>git checkout <code>&lt;name&gt;</code></p>
+<h3 id="创建并切换"><a href="#u521B_u5EFA_u5E76_u5207_u6362" class="headerlink" title="创建并切换"></a>创建并切换</h3><p>git checkout -b <code>&lt;name&gt;</code></p>
+<h3 id="合并至当前分支"><a href="#u5408_u5E76_u81F3_u5F53_u524D_u5206_u652F" class="headerlink" title="合并至当前分支"></a>合并至当前分支</h3><p>git merge <code>&lt;name&gt;</code></p>
+<h3 id="删除分支"><a href="#u5220_u9664_u5206_u652F" class="headerlink" title="删除分支"></a>删除分支</h3><p>git branch -d <code>&lt;name&gt;</code></p>
+<h3 id="查看分支合并情况"><a href="#u67E5_u770B_u5206_u652F_u5408_u5E76_u60C5_u51B5" class="headerlink" title="查看分支合并情况"></a>查看分支合并情况</h3><p>git log –graph</p>
 <hr>
-<h2 id="BUG_u5206_u652F"><a href="#BUG_u5206_u652F" class="headerlink" title="BUG分支"></a>BUG分支</h2><h3 id="u5B58_u50A8_u5DE5_u4F5C_u533A"><a href="#u5B58_u50A8_u5DE5_u4F5C_u533A" class="headerlink" title="存储工作区"></a>存储工作区</h3><p>git stash</p>
-<h3 id="u53C2_u770B_u5DE5_u4F5C_u533A_u5B58_u50A8_u60C5_u51B5"><a href="#u53C2_u770B_u5DE5_u4F5C_u533A_u5B58_u50A8_u60C5_u51B5" class="headerlink" title="参看工作区存储情况"></a>参看工作区存储情况</h3><p>git stash list</p>
-<h3 id="u6062_u590D_u5DE5_u4F5C_u533A"><a href="#u6062_u590D_u5DE5_u4F5C_u533A" class="headerlink" title="恢复工作区"></a>恢复工作区</h3><p>git stach apply  恢复而不删除存储<br>git stash pop  恢复并且删除存储</p>
+<h2 id="bug分支"><a href="#BUG_u5206_u652F" class="headerlink" title="BUG分支"></a>BUG分支</h2><h3 id="存储工作区"><a href="#u5B58_u50A8_u5DE5_u4F5C_u533A" class="headerlink" title="存储工作区"></a>存储工作区</h3><p>git stash</p>
+<h3 id="参看工作区存储情况"><a href="#u53C2_u770B_u5DE5_u4F5C_u533A_u5B58_u50A8_u60C5_u51B5" class="headerlink" title="参看工作区存储情况"></a>参看工作区存储情况</h3><p>git stash list</p>
+<h3 id="恢复工作区"><a href="#u6062_u590D_u5DE5_u4F5C_u533A" class="headerlink" title="恢复工作区"></a>恢复工作区</h3><p>git stach apply  恢复而不删除存储<br>git stash pop  恢复并且删除存储</p>
 <hr>
-<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><ul>
+<h2 id="其他"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>HEAD指针指向当前版本</li>
 </ul>
-<h3 id="u7BA1_u7406_u4FEE_u6539"><a href="#u7BA1_u7406_u4FEE_u6539" class="headerlink" title="管理修改"></a>管理修改</h3><ul>
+<h3 id="管理修改"><a href="#u7BA1_u7406_u4FEE_u6539" class="headerlink" title="管理修改"></a>管理修改</h3><ul>
 <li>暂存区和工作区<ul>
 <li>add 添加文件到暂存区<ul>
 <li>如果不进行add，不会进入暂存区，就无法通过commit进行提交</li>
@@ -257,7 +257,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="u64A4_u9500_u4FEE_u6539"><a href="#u64A4_u9500_u4FEE_u6539" class="headerlink" title="撤销修改"></a>撤销修改</h3><ul>
+<h3 id="撤销修改"><a href="#u64A4_u9500_u4FEE_u6539" class="headerlink" title="撤销修改"></a>撤销修改</h3><ul>
 <li>1.修改了文件，但是没有添加到暂存区<ul>
 <li>使用git checkout – <file>撤销至最近一次add或者commit</file></li>
 </ul>
@@ -272,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/02/18/20160218gitcommand/" data-id="ciyzhlkzo0033x862ag4o6zgn" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/02/18/20160218gitcommand/" data-id="ciyzycpm10037l962hci2yda7" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -314,6 +314,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -383,23 +400,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -409,7 +409,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -418,7 +418,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -427,7 +427,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 

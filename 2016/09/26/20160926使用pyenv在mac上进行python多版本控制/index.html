@@ -102,11 +102,11 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        38
+        39
         <span>文章</span>
       </div>
       <div class="article-info-block">
-        17
+        18
         <span>标签</span>
       </div>
     </div>
@@ -166,19 +166,19 @@
         <p>最近再学习python，为了体验2和3的区别，特意查了查如何在mac进行多版本的python管理，这里简单分享一下。</p>
 <a id="more"></a>
 <hr>
-<h3 id="1-__u5B89_u88C5homebrew"><a href="#1-__u5B89_u88C5homebrew" class="headerlink" title="1. 安装homebrew"></a>1. 安装homebrew</h3><p><a href="http://brew.sh/" target="_blank" rel="external">如何安装homebrew</a></p>
-<h3 id="2-__u5B89_u88C5pyenv"><a href="#2-__u5B89_u88C5pyenv" class="headerlink" title="2. 安装pyenv"></a>2. 安装pyenv</h3><p>安装homebrew后使用homebrew安装pyenv</p>
+<h3 id="1-安装homebrew"><a href="#1-__u5B89_u88C5homebrew" class="headerlink" title="1. 安装homebrew"></a>1. 安装homebrew</h3><p><a href="http://brew.sh/" target="_blank" rel="external">如何安装homebrew</a></p>
+<h3 id="2-安装pyenv"><a href="#2-__u5B89_u88C5pyenv" class="headerlink" title="2. 安装pyenv"></a>2. 安装pyenv</h3><p>安装homebrew后使用homebrew安装pyenv</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install pyenv</span><br></pre></td></tr></table></figure>
 <p>之后如果需要更新pyenv，可以直接使用<code>brew upgrade pyenv</code></p>
-<h3 id="3-__u5B89_u88C5python"><a href="#3-__u5B89_u88C5python" class="headerlink" title="3. 安装python"></a>3. 安装python</h3><h3 id="u67E5_u770B_u5DF2_u5B89_u88C5python_u7248_u672C"><a href="#u67E5_u770B_u5DF2_u5B89_u88C5python_u7248_u672C" class="headerlink" title="查看已安装python版本"></a>查看已安装python版本</h3><p>带星号的为当前路径下所使用的python版本<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">* system</span><br><span class="line">  <span class="number">3.4</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="u67E5_u770B_u53EF_u5B89_u88C5_u7684python_u7248_u672C"><a href="#u67E5_u770B_u53EF_u5B89_u88C5_u7684python_u7248_u672C" class="headerlink" title="查看可安装的python版本"></a>查看可安装的python版本</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
-<h4 id="u5B89_u88C5python"><a href="#u5B89_u88C5python" class="headerlink" title="安装python"></a>安装python</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install &lt;version&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="4-_python_u7248_u672C_u7BA1_u7406"><a href="#4-_python_u7248_u672C_u7BA1_u7406" class="headerlink" title="4. python版本管理"></a>4. python版本管理</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv global &lt;version&gt;  <span class="comment"># 全局设置python版本为指定版本</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> &lt;version&gt;   <span class="comment"># 设置当前路径下python版本为指定版本</span></span><br><span class="line">$ pyenv shell &lt;version&gt;   <span class="comment"># 设置当前shell窗口使用的python版本为指定版本</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-安装python"><a href="#3-__u5B89_u88C5python" class="headerlink" title="3. 安装python"></a>3. 安装python</h3><h3 id="查看已安装python版本"><a href="#u67E5_u770B_u5DF2_u5B89_u88C5python_u7248_u672C" class="headerlink" title="查看已安装python版本"></a>查看已安装python版本</h3><p>带星号的为当前路径下所使用的python版本<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">* system</span><br><span class="line">  <span class="number">3.4</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="查看可安装的python版本"><a href="#u67E5_u770B_u53EF_u5B89_u88C5_u7684python_u7248_u672C" class="headerlink" title="查看可安装的python版本"></a>查看可安装的python版本</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
+<h4 id="安装python"><a href="#u5B89_u88C5python" class="headerlink" title="安装python"></a>安装python</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install &lt;version&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="4-python版本管理"><a href="#4-_python_u7248_u672C_u7BA1_u7406" class="headerlink" title="4. python版本管理"></a>4. python版本管理</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv global &lt;version&gt;  <span class="comment"># 全局设置python版本为指定版本</span></span><br><span class="line">$ pyenv <span class="built_in">local</span> &lt;version&gt;   <span class="comment"># 设置当前路径下python版本为指定版本</span></span><br><span class="line">$ pyenv shell &lt;version&gt;   <span class="comment"># 设置当前shell窗口使用的python版本为指定版本</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">* system</span><br><span class="line">  <span class="number">3.4</span>.<span class="number">1</span></span><br><span class="line"></span><br><span class="line">$ pyenv <span class="built_in">local</span> <span class="number">3.4</span>.<span class="number">1</span></span><br><span class="line"><span class="comment"># 当前路径下的python版本会切换到3.4.1</span></span><br><span class="line"></span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* <span class="number">3.4</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>使用pyenv切换python版本之后可以通过<code>which python</code>或者是<code>python --version</code>查看是否生效</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> python</span><br><span class="line">/Users/username/.pyenv/shims/python</span><br><span class="line"></span><br><span class="line">$ python --version</span><br><span class="line">Python <span class="number">3.5</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>如果切换失败，可以尝试<code>$ eval &quot;(pyenv init -)&quot;</code>命令</p>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><ul>
+<h3 id="参考"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://www.learnpython.org/en/Hello,_World!" target="_blank" rel="external">python官方教程</a></li>
 <li><a href="https://github.com/yyuu/pyenv" target="_blank" rel="external">pyenv官方文档</a></li>
 <li><a href="http://blog.codylab.com/python-pyenv-management/" target="_blank" rel="external">使用 Pyenv 管理多個 Python 版本</a></li>
@@ -188,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lcc19941214.github.io/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" data-id="ciyzhlkyf001wx862om9ka7l5" class="article-share-link">分享到</a>
+      <a data-url="http://lcc19941214.github.io/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" data-id="ciyzycpky0020l962zphr6uak" class="article-share-link">分享到</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -230,6 +230,23 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -299,23 +316,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="thumbnail">
-  
-    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/python.png)" alt="使用pyenv在mac上进行python多版本控制" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
-              <p class="item-title"><a href="/2016/09/26/20160926使用pyenv在mac上进行python多版本控制/" class="title">使用pyenv在mac上进行python多版本控制</a></p>
-              <p class="item-date"><time datetime="2016-09-26T03:36:00.000Z" itemprop="datePublished">2016-09-26</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -325,7 +325,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
     </div>
   </div>
 
@@ -334,7 +334,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -343,7 +343,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
     </div>
   </div>
 
