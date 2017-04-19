@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>利用nodeJs打造一款alfred workflow | AChuan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Any application that can be written in JavaScript, will eventually be written in JavaScript
+—— Jeff Atwood 2007
+自从电脑装了alfred（其实是有了powerpack）之后，总想自己写一个workflow。但是在alfred上找不到合适的文档，不知道应该如何在js里返回alfred需要的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用nodeJs打造一款alfred workflow">
+<meta property="og:url" content="http://lcc19941214.github.io/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/index.html">
+<meta property="og:site_name" content="AChuan">
+<meta property="og:description" content="Any application that can be written in JavaScript, will eventually be written in JavaScript
+—— Jeff Atwood 2007
+自从电脑装了alfred（其实是有了powerpack）之后，总想自己写一个workflow。但是在alfred上找不到合适的文档，不知道应该如何在js里返回alfred需要的">
+<meta property="og:updated_time" content="2017-02-28T08:36:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用nodeJs打造一款alfred workflow">
+<meta name="twitter:description" content="Any application that can be written in JavaScript, will eventually be written in JavaScript
+—— Jeff Atwood 2007
+自从电脑装了alfred（其实是有了powerpack）之后，总想自己写一个workflow。但是在alfred上找不到合适的文档，不知道应该如何在js里返回alfred需要的">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">AChuan</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://lcc19941214.github.io"></form>
+        
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://lcc19941214.github.io"></form>
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/css/images/avatar.png">
+      <h2 id="name">Conan | 阿川</h2>
+      <h3 id="title">Web Developer, Designer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Luojia Hill | 珞珈山</span>
+      <a id="follow" href="https://github.com/lcc19941214/lcc19941214.github.io">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        40
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        19
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/lcc19941214/lcc19941214.github.io" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://www.facebook.com/conan.liu.739" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-20170228-use-node-js-to-build-alfred-workflow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      利用nodeJs打造一款alfred workflow
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/">
+      <time datetime="2017-02-28T08:15:38.000Z" itemprop="datePublished">2017-02-28</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <pre><code>Any application that can be written in JavaScript, will eventually be written in JavaScript
+—— Jeff Atwood 2007
+</code></pre><p>自从电脑装了alfred（其实是有了powerpack）之后，总想自己写一个workflow。但是在alfred上找不到合适的文档，不知道应该如何在js里返回alfred需要的数据结构。</p>
+<p>后来发现github上有一个<code>alfy</code>，结合<code>yeoman</code>和<code>generator-alfred</code>，就可以很容易的实现一款自己的alfred workflow啦！</p>
+<h2 id="3C_21-_more_-_3E"><a href="#3C_21-_more_-_3E" class="headerlink" title="<a id=" more"=""></a>"><!-- more --></h2><h3 id="alfred_workflow_u4ECB_u7ECD"><a href="#alfred_workflow_u4ECB_u7ECD" class="headerlink" title="alfred workflow介绍"></a>alfred workflow介绍</h3><h3 id="u7528js_u7F16_u5199workflow"><a href="#u7528js_u7F16_u5199workflow" class="headerlink" title="用js编写workflow"></a>用js编写workflow</h3><h4 id="alfred_u5185_u7F6E_u73AF_u5883"><a href="#alfred_u5185_u7F6E_u73AF_u5883" class="headerlink" title="alfred内置环境"></a>alfred内置环境</h4><h4 id="u4F7F_u7528nodejs_u8FD0_u884C"><a href="#u4F7F_u7528nodejs_u8FD0_u884C" class="headerlink" title="使用nodejs运行"></a>使用nodejs运行</h4><h5 id="dependencies"><a href="#dependencies" class="headerlink" title="dependencies"></a>dependencies</h5><ul>
+<li><a href="https://github.com/sindresorhus/alfy" target="_blank" rel="external">alfy</a></li>
+<li><a href="http://yeoman.io/" target="_blank" rel="external">yeoman</a></li>
+<li><a href="https://github.com/SamVerschueren/generator-alfred" target="_blank" rel="external">generator-alfred</a></li>
+</ul>
+<p><strong>notice</strong></p>
+<p>安装axa的时候可能会提示某个名为<code>babel-xxx</code>的依赖无法安装。如果使用cnpm的话可以顺利安装，使用npm的话可以手动先安装这个依赖，不然无法安装其他的依赖。</p>
+<p>alfy是一个经过简单封装的工具库，能方便获取alfred的input，并且输出内容。安装alfy的同时也会同时安装xo和axa用于alfred-workflow的自动化测试。</p>
+<p>执行generator-alfred，会自动生成工程目录，包括以下一些内容</p>
+<ul>
+<li>info.plist 包含了workflow的所有信息</li>
+<li>travis 默认你会把这个包发布出去并进行持续集成测试</li>
+<li>.git 默认使用git进行版本管理</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/" data-id="cj1ollw9400262q62b697hj0u" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alfred/">alfred</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/01/20170301how-browser-works/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/10/20170210-vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">vim学习笔记</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/03/01/20170301how-browser-works/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a></p>
+              <p class="item-title"><a href="/2017/03/01/20170301how-browser-works/" class="title">在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析</a></p>
+              <p class="item-date"><time datetime="2017-03-01T11:00:00.000Z" itemprop="datePublished">2017-03-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="利用nodeJs打造一款alfred workflow" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/" class="title">利用nodeJs打造一款alfred workflow</a></p>
+              <p class="item-date"><time datetime="2017-02-28T08:15:38.000Z" itemprop="datePublished">2017-02-28</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-some-interesting-tutorial-site/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="可以在线学习git vim等操作的web网站" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-some-interesting-tutorial-site/" class="title">可以在线学习git vim等操作的web网站</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:16:16.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/06/20170206-iterator/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="ES6迭代器学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2017/02/06/20170206-iterator/" class="title">ES6迭代器学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-06T09:58:50.000Z" itemprop="datePublished">2017-02-06</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/alfred/" style="font-size: 10px;">alfred</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://conan1214.github.io/">我发起的一个借阅项目</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/foru17/front-end-collect">前端收集</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/miemiewang">Wangmiemie的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/luolala">Luolala的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/yuamiao">阿喵酱的github</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 - 2017 Conan | 阿川<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

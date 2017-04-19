@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析 | AChuan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析">
+<meta property="og:url" content="http://lcc19941214.github.io/2017/03/01/20170301how-browser-works/index.html">
+<meta property="og:site_name" content="AChuan">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-b18ec5b3d6e895c15ef46b353f085769_b.png">
+<meta property="og:image" content="http://www.alloyteam.com/wp-content/uploads/2012/03/http-header1.png">
+<meta property="og:image" content="http://alloyteam.com/wp-content/uploads/2012/03/user-action2.png">
+<meta property="og:image" content="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/layers.png">
+<meta property="og:updated_time" content="2017-03-07T05:37:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-b18ec5b3d6e895c15ef46b353f085769_b.png">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">AChuan</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://lcc19941214.github.io"></form>
+        
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://lcc19941214.github.io"></form>
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/css/images/avatar.png">
+      <h2 id="name">Conan | 阿川</h2>
+      <h3 id="title">Web Developer, Designer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Luojia Hill | 珞珈山</span>
+      <a id="follow" href="https://github.com/lcc19941214/lcc19941214.github.io">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        40
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        19
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/lcc19941214/lcc19941214.github.io" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://www.facebook.com/conan.liu.739" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-20170301how-browser-works" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2017/03/01/20170301how-browser-works/">
+      <time datetime="2017-03-01T11:00:00.000Z" itemprop="datePublished">2017-03-01</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h2 id="3C_21-_more_-_3E"><a href="#3C_21-_more_-_3E" class="headerlink" title="<a id=" more"=""></a>"><!-- more --></h2><h3 id="u4E00_u3001__u6D4F_u89C8_u5668_u5904_u7406_u7528_u6237_u8F93_u5165"><a href="#u4E00_u3001__u6D4F_u89C8_u5668_u5904_u7406_u7528_u6237_u8F93_u5165" class="headerlink" title="一、 浏览器处理用户输入"></a>一、 浏览器处理用户输入</h3><h4 id="1-1__u8BC6_u522BURL"><a href="#1-1__u8BC6_u522BURL" class="headerlink" title="1.1 识别URL"></a>1.1 识别URL</h4><p>完整的URL包括以下几个部分，其中有的必须的，有的是可选的：</p>
+<ul>
+<li><strong>协议</strong>（e.g. <code>http</code>，<code>ftp</code>）</li>
+<li><strong>域名</strong>（e.g. <code>www.gogole.com</code>）</li>
+<li><strong>端口</strong>（e.g. <code>:80</code>）</li>
+<li><strong>文件路径</strong>（e.g. <code>/htm_data/20/1510/1441477.htm</code>）</li>
+<li><strong>参数</strong>（e.g. <code>?key1=value1&amp;key2=value2</code>）</li>
+<li><strong>锚点</strong>（e.g. <code>#first-paragraph</code>）</li>
+</ul>
+<p>浏览器会根据识别出的协议发送请求。</p>
+<p>当协议或主机名不合法时，浏览器会将地址栏中输入的文字传给<strong>默认的搜索引擎</strong>（即把用户输入看作是<strong>关键字</strong>）。大部分情况下，在把文字传递给搜索引擎的时候，URL会带有特定的一串字符，用来告诉搜索引擎这次搜索来自这个特定浏览器。</p>
+<h4 id="1-2__u68C0_u67E5HSTS_Preload_List"><a href="#1-2__u68C0_u67E5HSTS_Preload_List" class="headerlink" title="1.2 检查HSTS Preload List"></a>1.2 检查HSTS Preload List</h4><p>HSTS的全称是<strong>HTTP Strict Transport Security</strong>（<strong>HTTP严格传输安全</strong>），它是一个Web安全策略机制（web security policy mechanism）。</p>
+<p>在使用HTTP发送请求前，浏览器会检查自带的HSTS列表，这个列表里包含了那些请求浏览器只使用HTTPS进行连接的网站，如果网站在这个列表里，浏览器会使用 HTTPS 而不是 HTTP 协议，否则，最初的请求会使用HTTP协议发送</p>
+<p>要申请将自己的站点加入到HSTS当中，可以访问<a href="https://hstspreload.org/" target="_blank" rel="external">https://hstspreload.org/</a></p>
+<blockquote>
+<p>参考</p>
+<ul>
+<li><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank" rel="external">什么是URL？</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Security/HTTP_Strict_Transport_Security" target="_blank" rel="external">HTTP Strict Transport Security</a></li>
+<li><a href="http://www.jianshu.com/p/caa80c7ad45c" target="_blank" rel="external">HSTS详解</a></li>
+</ul>
+</blockquote>
+<h3 id="u4E8C_u3001__u6D4F_u89C8_u5668_u53D1_u9001_u8BF7_u6C42"><a href="#u4E8C_u3001__u6D4F_u89C8_u5668_u53D1_u9001_u8BF7_u6C42" class="headerlink" title="二、 浏览器发送请求"></a>二、 浏览器发送请求</h3><p>在发送请求前，浏览器首先检查Web缓存，然后调用网络请求的方法。</p>
+<h4 id="2-1_DNS_u89E3_u6790"><a href="#2-1_DNS_u89E3_u6790" class="headerlink" title="2.1 DNS解析"></a>2.1 DNS解析</h4><h5 id="u8BFB_u53D6_u672C_u5730DNS_u7F13_u5B58"><a href="#u8BFB_u53D6_u672C_u5730DNS_u7F13_u5B58" class="headerlink" title="读取本地DNS缓存"></a>读取本地DNS缓存</h5><p>浏览器检查域名是否在缓存当中。如果使用本地缓存，则无DNS 查询，使用持久连接也是。</p>
+<p>要查看Chrome中的DNS缓存，可以打开<code>chrome://net-internals/#dns</code>。</p>
+<h5 id="u8BFB_u53D6_u672C_u5730hosts_u6587_u4EF6"><a href="#u8BFB_u53D6_u672C_u5730hosts_u6587_u4EF6" class="headerlink" title="读取本地hosts文件"></a>读取本地hosts文件</h5><p><strong>hosts文件</strong>文件负责将主机名称映射到相应的IP地址，通常用于补充或替换DNS的功能。用户可以直接对hosts文件进行控制。</p>
+<p>要查看Linux中的hosts文件，可以访问<code>/etc/hosts</code>。</p>
+<h5 id="u53D1_u9001DNS_u89E3_u6790_u8BF7_u6C42"><a href="#u53D1_u9001DNS_u89E3_u6790_u8BF7_u6C42" class="headerlink" title="发送DNS解析请求"></a>发送DNS解析请求</h5><ol>
+<li>以<code>www.google.com</code>为例，首先，客户端会向<strong>本地域名服务器</strong>发送DNS查询报文</li>
+<li>本地域名转发请求给<strong>根域名服务器</strong>，后者会解析根域名<code>com</code>，并返回对应<strong>顶级域名服务器</strong>的IP地址给前者</li>
+<li>本地域名服务器访问负责<strong>com域名服务器</strong>，后者会解析顶级域名<code>google</code>，然后返回对应<strong>权威域名服务器</strong>的IP地址给前者</li>
+<li>本地余名服务器从负责解析<code>google</code>的权威域名服务器处获取到<code>www.google.com</code>的IP地址，返回给客户端</li>
+</ol>
+<p>DNS的解析是一个逐步缩小范围的查找过程。</p>
+<h4 id="2-2__u5EFA_u7ACB_u8FDE_u63A5"><a href="#2-2__u5EFA_u7ACB_u8FDE_u63A5" class="headerlink" title="2.2 建立连接"></a>2.2 建立连接</h4><p>有了 IP 地址，就可以通过选择 TCP 或 UDP 协议来发送数据了。</p>
+<p>这里需要补充一点的是，光靠 IP 地址是无法进行通信的，因为 IP 地址并不和某台设备绑定（比如使用了<a href="https://zh.wikipedia.org/zh-cn/%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">DHCP </a>）。所以在底层通信时需要使用一个固定的地址，即结合MAC协议来建立连接。</p>
+<h5 id="u5EFA_u7ACBTCP_u8FDE_u63A5"><a href="#u5EFA_u7ACBTCP_u8FDE_u63A5" class="headerlink" title="建立TCP连接"></a>建立TCP连接</h5><p><img src="https://pic2.zhimg.com/v2-b18ec5b3d6e895c15ef46b353f085769_b.png" alt="TCP三次握手"></p>
+<p>第一次握手:</p>
+<ul>
+<li>客户端发送一个SYN标志位为1的包，指明客户打算连接的服务器的端口</li>
+<li>设置初始序号ISN(即 J)，保存在包头的序列号(Sequence Number)字段里​</li>
+</ul>
+<p>第二次握手:</p>
+<ul>
+<li>服务器发回确认包(ACK)应答，即SYN标志位和ACK标志位均为1</li>
+<li>设置序列号ISN（即K）</li>
+<li>将确认序号ack设置为客户的ISN+1（即J+1）</li>
+</ul>
+<p>第三次握手：</p>
+<ul>
+<li>客户端再次发送确认包(ACK) SYN标志位为0，ACK标志位为1</li>
+<li>把服务器发来ACK的序号字段+1（即K+1），放在确定字段ack中发送给对方</li>
+<li>设置发送序号ISN（即J+1）</li>
+</ul>
+<p>TCP的关键在于双方都需要确认自己的发信和收信功能正常，收信功能通过接收对方信息得到确认，发信功能需要发出信息—&gt;对方回复信息得到确认。</p>
+<p>要了解TCP如何断开连接，可以查看<a href="http://www.cnblogs.com/zmlctt/p/3690998.html" target="_blank" rel="external">TCP三次握手四次挥手详解</a>。</p>
+<h5 id="TLS_u63E1_u624B"><a href="#TLS_u63E1_u624B" class="headerlink" title="TLS握手"></a>TLS握手</h5><ul>
+<li><p>客户端发送一个 <code>Client hello</code> 消息到服务器端，消息中同时包含了它的TLS版本，可用的加密算法和压缩算法。</p>
+</li>
+<li><p>服务器端向客户端返回一个 <code>Server hello</code> 消息，消息中包含了服务器端的TLS版本，服务器选择了哪个加密和压缩算法，以及服务器的公开证书，证书中包含了公钥。客户端会使用这个公钥加密接下来的握手过程，直到协商生成一个新的对称密钥</p>
+</li>
+<li><p>客户端根据自己的信任CA列表，验证服务器端的证书是否有效。如果有效，客户端会生成一串伪随机数，使用服务器的公钥加密它。这串随机数会被用于生成新的对称密钥</p>
+</li>
+<li><p>服务器端使用自己的私钥解密上面提到的随机数，然后使用这串随机数生成自己的对称主密钥</p>
+</li>
+<li><p>客户端发送一个 <code>Finished</code> 消息给服务器端，使用对称密钥加密这次通讯的一个散列值</p>
+</li>
+<li><p>服务器端生成自己的 hash 值，然后解密客户端发送来的信息，检查这两个值是否对应。如果对应，就向客户端发送一个 <code>Finished</code> 消息，也使用协商好的对称密钥加密</p>
+</li>
+<li><p>从现在开始，接下来整个 TLS 会话都使用对称秘钥进行加密，传输应用层（HTTP）内容</p>
+<p>​</p>
+<h5 id="SSL_u63E1_u624B"><a href="#SSL_u63E1_u624B" class="headerlink" title="SSL握手"></a>SSL握手</h5></li>
+</ul>
+<h4 id="2-3__u53D1_u9001_u8BF7_u6C42"><a href="#2-3__u53D1_u9001_u8BF7_u6C42" class="headerlink" title="2.3 发送请求"></a>2.3 发送请求</h4><p>TCP连接建立后，浏览器就可以利用HTTP／HTTPS协议向服务器发送请求了。</p>
+<h5 id="HTTP_u534F_u8BAE"><a href="#HTTP_u534F_u8BAE" class="headerlink" title="HTTP协议"></a>HTTP协议</h5><p>协议相关的内容这里不做展开介绍，要了解HTTP的相关内容可以参考MDN中<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" target="_blank" rel="external">HTTP</a>的相关文档。</p>
+<h5 id="Web_u7F13_u5B58"><a href="#Web_u7F13_u5B58" class="headerlink" title="Web缓存"></a>Web缓存</h5><p>Web缓存是指一个Web资源（如html页面，图片，js，数据等）存在于Web服务器和客户端（浏览器）之间的副本。缓存会根据进来的请求保存输出内容的副本。</p>
+<p><strong>当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。</strong>比较常见的就是浏览器会缓存访问过网站的网页，当再次访问这个URL地址的时候，如果网页没有更新，就不会再次下载网页，而是直接使用本地缓存的网页。只有当网站明确标识资源已经更新，浏览器才会再次下载网页。</p>
+<h6 id="u6D4F_u89C8_u5668_u7AEF_u7684_u7F13_u5B58_u89C4_u5219"><a href="#u6D4F_u89C8_u5668_u7AEF_u7684_u7F13_u5B58_u89C4_u5219" class="headerlink" title="浏览器端的缓存规则"></a>浏览器端的缓存规则</h6><p>对于浏览器端的缓存来讲，他们分别从<strong>新鲜度</strong>和<strong>校验值</strong>两个维度来规定浏览器是否可以直接使用缓存中的副本，还是需要去源服务器获取更新的版本。</p>
+<p><strong>新鲜度（过期机制）</strong>：也就是缓存副本有效期。一个缓存副本必须满足以下条件，浏览器会认为它是有效的，足够新的：</p>
+<ol>
+<li>含有完整的过期时间控制头信息（HTTP协议报头），并且仍在有效期内；</li>
+<li>浏览器已经使用过这个缓存副本，并且在一个会话中已经检查过新鲜度；</li>
+</ol>
+<p>满足以上两个情况的一种，浏览器会直接从缓存中获取副本并渲染。</p>
+<p><strong>校验值（验证机制）：</strong>服务器返回资源的时候有时在控制头信息带上这个资源的实体标签Etag（Entity Tag），它可以用来作为浏览器再次请求过程的校验标识。如过发现校验标识不匹配，说明资源已经被修改或过期，浏览器需求重新获取资源内容。</p>
+<p>在HTTP请求和响应的消息报头中，常见的与缓存有关的消息报头有：</p>
+<p><img src="http://www.alloyteam.com/wp-content/uploads/2012/03/http-header1.png" alt="HTTP请求和响应的消息报头中，常见的与缓存有关的消息报头"></p>
+<h6 id="u7528_u6237_u64CD_u4F5C_u884C_u4E3A_u4E0E_u7F13_u5B58"><a href="#u7528_u6237_u64CD_u4F5C_u884C_u4E3A_u4E0E_u7F13_u5B58" class="headerlink" title="用户操作行为与缓存"></a>用户操作行为与缓存</h6><p>用户在使用浏览器的时候，会有各种操作，这些行为会对缓存如下：</p>
+<p><img src="http://alloyteam.com/wp-content/uploads/2012/03/user-action2.png" alt="用户操作与缓存"></p>
+<p>当用户在按F5进行刷新的时候，会忽略Expires/Cache-Control的设置，会再次发送请求去服务器请求，而Last-Modified/Etag还是有效的，服务器会根据情况判断返回304还是200；而当用户使用Ctrl+F5进行强制刷新的时候，只是所有的缓存机制都将失效，重新从服务器拉去资源。</p>
+<blockquote>
+<p>参考</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/Hosts%E6%96%87%E4%BB%B6" target="_blank" rel="external">hosts文件</a></li>
+<li><a href="https://www.zhihu.com/question/34873227" target="_blank" rel="external">在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？（@一骑讨、@何伟鹏关于DNS解析的回答）</a> </li>
+<li><a href="http://www.jianshu.com/p/8a40f99da882" target="_blank" rel="external">TCP三次握手与四次挥手</a></li>
+<li><a href="http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/" target="_blank" rel="external">【Web缓存机制系列】2 – Web浏览器的缓存机制（by AlloyTeam）</a></li>
+</ul>
+</blockquote>
+<h3 id="u4E09_u3001__u670D_u52A1_u7AEF_u5904_u7406_u54CD_u5E94"><a href="#u4E09_u3001__u670D_u52A1_u7AEF_u5904_u7406_u54CD_u5E94" class="headerlink" title="三、 服务端处理响应"></a>三、 服务端处理响应</h3><h4 id="3-1__u8D1F_u8F7D_u5747_u8861"><a href="#3-1__u8D1F_u8F7D_u5747_u8861" class="headerlink" title="3.1 负载均衡"></a>3.1 负载均衡</h4><p>请求在进入到真正的应用服务器前，可能还会先经过负责负载均衡的机器，它的作用是将请求合理地分配到多个服务器上，同时具备具备防攻击等功能。</p>
+<p>负载均衡具体实现有很多种，有直接基于硬件的 F5，有操作系统传输层(TCP)上的 <a href="http://www.linuxvirtualserver.org/" target="_blank" rel="external">LVS</a>，也有在应用层(HTTP)实现的反向代理（也叫七层代理），下面简单介绍一下。</p>
+<h5 id="LVS"><a href="#LVS" class="headerlink" title="LVS"></a>LVS</h5><p>LVS 的作用是从对外看来只有一个 IP，而实际上这个 IP 后面对应是多台机器，因此也被成为 Virtual IP。</p>
+<p>前面提到的 NAT 也是一种 LVS 中的工作模式，除此之外还有 DR 和 TUNNEL，具体细节这里就不展开了，它们的缺点是无法跨网段，所以百度自己开发了 BVS 系统。</p>
+<h5 id="u53CD_u5411_u4EE3_u7406"><a href="#u53CD_u5411_u4EE3_u7406" class="headerlink" title="反向代理"></a>反向代理</h5><p>反向代理是工作在 HTTP 上的，具体实现可以基于 HAProxy 或 Nginx，因为反向代理能理解 HTTP 协议，所以能做非常多的事情，比如：</p>
+<ul>
+<li>进行很多统一处理，比如防攻击策略、防抓取、SSL、gzip、自动性能优化等</li>
+<li>应用层的分流策略都能在这里做，比如对 /xx 路径的请求分到 a 服务器，对 /yy 路径的请求分到 b 服务器，或者按照 cookie 进行小流量测试等</li>
+<li>缓存，并在后端服务挂掉的时候显示友好的 404 页面</li>
+<li><p>监控后端服务是否异常</p>
+<p>​</p>
+</li>
+</ul>
+<h4 id="3-2_Web_Server"><a href="#3-2_Web_Server" class="headerlink" title="3.2 Web Server"></a>3.2 Web Server</h4><p>请求经过前面的负载均衡后，将进入到对应服务器上的 Web Server／HTTP Daemon，比如 Apache、Tomcat、Node.JS 等。</p>
+<p>以 Apache 为例，在接收到请求后会交给一个独立的进程来处理，可以通过编写 Apache 或调用 PHP 等脚本语言来进行处理。一般网站都会基于某个 Web 框架来开发，因此在后端语言执行时首先进入 Web 框架的代码，然后由框架再去调用应用的实现代码。</p>
+<p>大致过程如下：</p>
+<ul>
+<li><p>HTTPD 接收请求</p>
+</li>
+<li><p>服务器把请求拆分为以下几个参数：</p>
+</li>
+<li>HTTP 请求方法(<code>GET</code>, <code>POST</code>, <code>HEAD</code>, <code>PUT</code>, <code>DELETE</code>, <code>CONNECT</code>, <code>OPTIONS</code>, 或者 <code>TRACE</code>)。直接在地址栏中输入 URL 这种情况下，使用的是 GET 方法</li>
+<li>域名：google.com</li>
+<li><p>请求路径/页面：/ (我们没有请求google.com下的指定的页面，因此 / 是默认的路径)</p>
+</li>
+<li><p>服务器验证其上已经配置了 google.com 的虚拟主机</p>
+</li>
+<li><p>服务器验证 google.com 接受 GET 方法</p>
+</li>
+<li><p>服务器验证该用户可以使用 GET 方法(根据 IP 地址，身份信息等)</p>
+</li>
+<li><p>如果服务器安装了 URL 重写模块（例如 Apache 的 mod_rewrite 和 IIS 的 URL Rewrite），服务器会尝试匹配重写规则，如果匹配上的话，服务器会按照规则重写这个请求</p>
+</li>
+<li><p>服务器根据请求信息获取相应的响应内容，这种情况下由于访问路径是 “/“ ,会访问首页文件（你可以重写这个规则，但是这个是最常用的）。</p>
+</li>
+<li><p>服务器会使用指定的处理程序分析处理这个文件，假如 Google 使用 PHP，服务器会使用 PHP 解析 index 文件，并捕获输出，把 PHP 的输出结果返回给请求者</p>
+</li>
+</ul>
+<p>Web Server还会涉及到数据的读写，这部分就不做展开说明了。</p>
+<blockquote>
+<p>参考</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/24723688" target="_blank" rel="external">反向代理为何叫反向代理？</a></li>
+</ul>
+</blockquote>
+<h3 id="u56DB_u3001_u6D4F_u89C8_u5668_u63A5_u6536_u5E76_u5904_u7406_u54CD_u5E94"><a href="#u56DB_u3001_u6D4F_u89C8_u5668_u63A5_u6536_u5E76_u5904_u7406_u54CD_u5E94" class="headerlink" title="四、浏览器接收并处理响应"></a>四、浏览器接收并处理响应</h3><p>浏览器的功能是从服务器上取回请求的资源，然后展示在浏览器窗口当中。资源通常是 HTML 文件，也可能是 PDF，图片，或者其他类型的内容。下面以请求一个网页为例进行介绍。</p>
+<h4 id="4-1__u6D4F_u89C8_u5668_u63A5_u6536_u54CD_u5E94"><a href="#4-1__u6D4F_u89C8_u5668_u63A5_u6536_u54CD_u5E94" class="headerlink" title="4.1 浏览器接收响应"></a>4.1 浏览器接收响应</h4><h5 id="u5185_u5BB9_u7F16_u7801"><a href="#u5185_u5BB9_u7F16_u7801" class="headerlink" title="内容编码"></a>内容编码</h5><p>浏览器发送请求时，会通过 Accept-Encoding 带上自己支持的内容编码格式列表；服务端从中挑选一种用来对正文进行编码，并通过 Content-Encoding 响应头指明选定的格式。</p>
+<p>浏览器拿到响应正文后， Content-Encoding 进行解压。当然，服务端也可以返回未压缩的正文，但这种情况不允许返回 Content-Encoding。这个过程就是 HTTP 的内容编码机制。</p>
+<p>在 HTTP/1 中，头部始终是以 ASCII 文本传输，没有经过任何压缩，因此内容编码仅仅是针对请求的正文部分。这个问题<a href="https://imququ.com/post/header-compression-in-http2.html" target="_blank" rel="external">在 HTTP/2 中得以解决</a>。</p>
+<p>要了解HTTP内容编码，可以参考<a href="http://caibaojian.com/http-gzip.html" target="_blank" rel="external">HTTP压缩，浏览器是如何解析的</a>。</p>
+<p><strong><em>注：不要把内容编码（Conent-Encoding）与传输编码（<a href="https://imququ.com/post/transfer-encoding-header-in-http.html" target="_blank" rel="external">Transfer-Encoding</a>）混淆了</em></strong></p>
+<h4 id="4-2__u6D4F_u89C8_u5668_u57FA_u672C_u7ED3_u6784"><a href="#4-2__u6D4F_u89C8_u5668_u57FA_u672C_u7ED3_u6784" class="headerlink" title="4.2 浏览器基本结构"></a>4.2 浏览器基本结构</h4><p>在说明浏览器如何解析资源之前，先对浏览器的基本组件做一个简单的介绍：</p>
+<ul>
+<li><strong>用户界面</strong> </li>
+<li><strong>浏览器引擎</strong>  在用户界面和呈现渲染之间传送指令<ul>
+<li><strong><a href="https://zh.wikipedia.org/wiki/%E6%8E%92%E7%89%88%E5%BC%95%E6%93%8E" target="_blank" rel="external">渲染引擎</a></strong>  也称为浏览器内核、排版引擎。负责渲染请求的内容，以HTML为例，渲染引擎会解析HTML和CSS并显示到屏幕上。</li>
+<li><strong><a href="https://zh.wikipedia.org/wiki/JavaScript%E5%BC%95%E6%93%8E" target="_blank" rel="external">JS引擎</a></strong>  用于解析和执行 JavaScript 代码</li>
+</ul>
+</li>
+<li><strong>网络组件 </strong> 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现</li>
+<li><strong>用户界面后端</strong>  用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法</li>
+<li><strong>数据存储</strong>  浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库</li>
+</ul>
+<p><img src="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/layers.png" alt=""></p>
+<h4 id="4-3__u89E3_u6790_u548CDOM_u6811_u6784_u5EFA"><a href="#4-3__u89E3_u6790_u548CDOM_u6811_u6784_u5EFA" class="headerlink" title="4.3 解析和DOM树构建"></a>4.3 解析和DOM树构建</h4><p>当服务器提供了资源之后（HTML，CSS，JS，图片等），浏览器会就执行下面的操作：</p>
+<ul>
+<li><p>解析 —— HTML，CSS，JS</p>
+</li>
+<li><p>渲染 —— 构建 DOM 树 -&gt; 渲染 -&gt; 布局 -&gt; 绘制</p>
+<p>​</p>
+</li>
+</ul>
+<h5 id="HTML_u89E3_u6790"><a href="#HTML_u89E3_u6790" class="headerlink" title="HTML解析"></a>HTML解析</h5><h5 id="CSS_u89E3_u6790"><a href="#CSS_u89E3_u6790" class="headerlink" title="CSS解析"></a>CSS解析</h5><h5 id="JS_u89E3_u6790"><a href="#JS_u89E3_u6790" class="headerlink" title="JS解析"></a>JS解析</h5><h4 id="4-4__u5448_u73B0_u6811_u7684_u6784_u5EFA"><a href="#4-4__u5448_u73B0_u6811_u7684_u6784_u5EFA" class="headerlink" title="4.4 呈现树的构建"></a>4.4 呈现树的构建</h4><h4 id="4-5__u5E03_u5C40_u4E0E_u7ED8_u5236"><a href="#4-5__u5E03_u5C40_u4E0E_u7ED8_u5236" class="headerlink" title="4.5 布局与绘制"></a>4.5 布局与绘制</h4><blockquote>
+<p>参考</p>
+<ul>
+<li><a href="https://imququ.com/post/content-encoding-header-in-http.html" target="_blank" rel="external">HTTP 协议中的 Content-Encoding</a></li>
+<li><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank" rel="external">How Browsers Work: Behind the scenes of modern web browsers</a></li>
+<li><a href="https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst" target="_blank" rel="external">当…时发生了什么</a></li>
+<li><a href="http://fex.baidu.com/blog/2014/05/what-happen/" target="_blank" rel="external">从输入 URL 到页面加载完成的过程中都发生了什么事情？（百度FEXmwind的博客）</a></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lcc19941214.github.io/2017/03/01/20170301how-browser-works/" data-id="cj1ollw9000242q62ae2588ee" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">利用nodeJs打造一款alfred workflow</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/03/01/20170301how-browser-works/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a></p>
+              <p class="item-title"><a href="/2017/03/01/20170301how-browser-works/" class="title">在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析</a></p>
+              <p class="item-date"><time datetime="2017-03-01T11:00:00.000Z" itemprop="datePublished">2017-03-01</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="利用nodeJs打造一款alfred workflow" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/28/20170228-use-node-js-to-build-alfred-workflow/" class="title">利用nodeJs打造一款alfred workflow</a></p>
+              <p class="item-date"><time datetime="2017-02-28T08:15:38.000Z" itemprop="datePublished">2017-02-28</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-vim/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="vim学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-vim/" class="title">vim学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:26:15.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/10/20170210-some-interesting-tutorial-site/" class="thumbnail">
+  
+    <span style="background-image:url(http://lcc19941214.github.io/images/2016/thumbs/coding.png)" alt="可以在线学习git vim等操作的web网站" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+              <p class="item-title"><a href="/2017/02/10/20170210-some-interesting-tutorial-site/" class="title">可以在线学习git vim等操作的web网站</a></p>
+              <p class="item-date"><time datetime="2017-02-10T07:16:16.000Z" itemprop="datePublished">2017-02-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2017/02/06/20170206-iterator/" class="thumbnail">
+  
+    <span style="background-image:url(http://img.wdjimg.com/mms/icon/v1/4/f5/1b4abfaa40893ea262de11c0d8c6bf54_256_256.png)" alt="ES6迭代器学习笔记" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a></p>
+              <p class="item-title"><a href="/2017/02/06/20170206-iterator/" class="title">ES6迭代器学习笔记</a></p>
+              <p class="item-date"><time datetime="2017-02-06T09:58:50.000Z" itemprop="datePublished">2017-02-06</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 13.33px;">DOM</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/React学习笔记/" style="font-size: 10px;">React学习笔记</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/alfred/" style="font-size: 10px;">alfred</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-router学习笔记/" style="font-size: 10px;">react-router学习笔记</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/浏览器缓存/" style="font-size: 10px;">浏览器缓存</a> <a href="/tags/编程/" style="font-size: 10px;">编程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-css/">基础理论-W3C-css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-W3C-javascript/">基础理论-W3C-javascript</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础理论-其他-正则表达式/">基础理论-其他-正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发环境-版本控制-git/">开发环境-版本控制-git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/框架类库-浏览器端-React/">框架类库-浏览器端-React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页设计/">网页设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-其他/">运行环境-浏览器-其他</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-响应式布局/">运行环境-浏览器-响应式布局</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-性能优化/">运行环境-浏览器-性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运行环境-浏览器-浏览器兼容/">运行环境-浏览器-浏览器兼容</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://conan1214.github.io/">我发起的一个借阅项目</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/foru17/front-end-collect">前端收集</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/miemiewang">Wangmiemie的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/luolala">Luolala的github</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/yuamiao">阿喵酱的github</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 - 2017 Conan | 阿川<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
